@@ -14,7 +14,7 @@ Model
 * Color( red, green, blue) 
 
 >Floor
-* Floor ( carpet, tile, synthetic, wood )
+* Floor ( carpet, concrete, tile, synthetic, wood )
 
 >Mode
 * Mode ( InHome, Vacation, Remote )

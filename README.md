@@ -10,7 +10,7 @@ Model
 * Home 1 --> * Landscaping | Driveway | Garage | Pool | Patio
 
 >Color
-* Color(red, green, blue)
+* Color( red, green, blue) 
 
 >Floor
 * Floor ( carpet, tile, wood )

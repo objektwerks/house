@@ -4,10 +4,9 @@ Tropical Home
 
 Model
 -----
-Home 1 --> 1 Yard, Roof
-Home 1 --> * Garage
-Home 1 --> * Pool
+Home 1 --> 1 Roof
+Home 1 --> * Yard | Driveway | Garage | Pool
 Home 1 --> 1..* Kitchen
 Home 1 --> 1..* Room
-Home 1 --> Mode ( In, Vacation, Remote )
-Home 1 --> Paint ( Exterior, Interior )
+Home 1 --> 1 Mode ( In, Vacation, Remote )
+Home 1 --> 1 Paint ( Exterior, Interior )

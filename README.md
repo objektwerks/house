@@ -8,17 +8,17 @@ Model
 * Home 1 --> 1 Roof 1 --> 1 Color
 * Home 1 --> 1..* Room ( Kitchen, Bedroom, Den, Study ) 1 --> Color & Floor
 * Home 1 --> * Landscaping
-* Home 1 --> * Driveway 1 --> Color
-* 
+* Home 1 --> * Driveway 1 --> Color & Floor
+* Home 1 --> * Garage 1 --> Color & Floor
 
 
-Garage | Pool | Patio
+Pool | Patio
 
 >Color
 * Color( red, green, blue) 
 
 >Floor
-* Floor ( carpet, tile, wood )
+* Floor ( carpet, tile, synthetic, wood )
 
 >Mode
 * Mode ( InHome, Vacation, Remote )

@@ -1,6 +1,6 @@
 Tropical Home
 -------------
->Todo!
+>A model of a tropical home.
 
 Model
 -----

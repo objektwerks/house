@@ -10,3 +10,4 @@ Home 1 --> * Pool
 Home 1 --> 1..* Kitchen
 Home 1 --> 1..* Room
 Home 1 --> Mode ( In, Vacation, Remote )
+Home 1 --> Paint ( Exterior, Interior )

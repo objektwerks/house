@@ -10,3 +10,4 @@ Home 1 --> 1..* Room ( Kitchen, Bedroom, Den, Study ) 1 --> Paint | Floor
 
 Home 1 --> 1 Mode ( InHome, Vacation, Remote )
 Home 1 --> 1 Paint ( Exterior )
+Home 1 --> 1 Garage Door

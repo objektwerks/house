@@ -12,4 +12,4 @@ Home 1 --> 1 Mode ( InHome, Vacation, Remote )
 
 Paint 1 --> * Color
 Floor 1 --> * Color
-Color (red, green, brown)
+Color (red, green, blue)

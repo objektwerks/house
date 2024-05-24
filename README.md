@@ -13,4 +13,5 @@ Home 1 --> 1 Paint
 Home 1 --> 1 Garage Door
 
 Mode 1 --> 1 ( InHome, Vacation, Remote )
-Paint 1 --> * Label -> Color
+Paint 1 --> 1 Label -> Color
+Color

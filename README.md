@@ -9,8 +9,11 @@ Model
 * Home 1 --> 1..* Room ( Kitchen, Bedroom, Den, Study ) 1 --> Paint & Floor
 * Home 1 --> * Landscaping | Driveway | Garage | Pool | Patio
 
+>Floor
+* Floor ( tile )
+
 >Mode
-* Home 1 --> 1 Mode ( InHome, Vacation, Remote )
+* Mode ( InHome, Vacation, Remote )
 
 >Paint
 * Paint 1 --> * Color(red, green, blue)

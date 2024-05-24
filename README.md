@@ -13,10 +13,10 @@ Model
 * Color(red, green, blue)
 
 >Floor
-* Floor ( carpet, tile )
+* Floor ( carpet, tile, wood )
 
 >Mode
 * Mode ( InHome, Vacation, Remote )
 
 >Roof
-* Roof( Gallvalume, Tile )
+* Roof( Alluminum, Gallvalume, Tile )

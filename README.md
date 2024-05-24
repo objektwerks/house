@@ -7,7 +7,12 @@ Model
 >Home
 * Home 1 --> 1 Roof 1 --> 1 Color
 * Home 1 --> 1..* Room ( Kitchen, Bedroom, Den, Study ) 1 --> Color & Floor
-* Home 1 --> * Landscaping | Driveway | Garage | Pool | Patio
+* Home 1 --> * Landscaping
+* Home 1 --> * Driveway 1 --> Color
+* 
+
+
+Garage | Pool | Patio
 
 >Color
 * Color( red, green, blue) 

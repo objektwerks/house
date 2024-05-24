@@ -5,12 +5,12 @@ Tropical Home
 Model
 -----
 >Home
-* Home 1 --> 1 Roof 1 --> 1 Style & Color
+* Home 1 --> 1 Roof 1 --> 1 Color
 * Home 1 --> 1..* Room ( Kitchen, Bedroom, Den, Study ) 1 --> Color & Floor
 * Home 1 --> * Landscaping | Driveway | Garage | Pool | Patio
 
 >Floor
-* Floor ( tile )
+* Floor ( carpet, tile )
 
 >Mode
 * Mode ( InHome, Vacation, Remote )
@@ -18,5 +18,5 @@ Model
 >Color
 * Color(red, green, blue)
 
->Style
-* Style ( Gallvalume, Tile )
+>Roof
+* Roof( Gallvalume, Tile )

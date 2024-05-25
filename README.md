@@ -6,20 +6,19 @@ Model
 -----
 >Home
 * Home 1 --> 1 Roof
-* Home 1 --> 1..* Room
-* Home 1 --> * Driveway | Garage | Pool | Patio | Lawn | Garden
+* Home 1 --> * Driveway | Garage | Pool | Patio | Lawn | Garden | Room
 
 >Color
 * Color( red, green, blue )
 
 >Flooring
-* Flooring( carpet, concrete, tile, wood ) 1 --> * Color
+* Flooring( carpet, concrete, tile, wood )
 
 >Mode
 * Mode ( Local, Remote )
 
 >Roof
-* Roof( Alluminum, Galvalume, Tile ) 1 --> * Color
+* Roof( Alluminum, Galvalume, Tile )
 
 >Room
-* Room( Kitchen, Bedroom, Den, Study ) 1 --> * Color & Flooring
+* Room( Kitchen, Bedroom, Den, Study )

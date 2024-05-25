@@ -7,6 +7,8 @@ Model
 * Home 1 --> 1 Roof
 * Home 1 --> * Driveway | Garage | Pool | Patio | Lawn | Garden | Room
 
+Enums
+-----
 * Color( red, green, blue )
 * Flooring( carpet, concrete, tile, wood, synthetic )
 * Mode ( local, remote )

@@ -9,11 +9,11 @@ Model
                Chimney | Balcony | Alarm | Gutter | Soffit | Siding | Basement | Fusebox | Insulation |
                Sewage | Water | WaterMain | WaterHeater | Well | Septic | Mailbox
 
-Enums
+Types
 -----
-* Color ( red, green, blue )
+* Color
 * Floor ( carpet, concrete, tile, wood, synthetic )
-* Kind ( primary, secondary )
+* Residence ( primary, secondary )
 * Roof ( alluminum, galvalume, tile, shingle )
 * Room ( kitchen, bathroom, bedroom, living, dining, den, study, laundry, office )
 

@@ -12,7 +12,7 @@ Model
 * Color( red, green, blue )
 
 >Flooring
-* Flooring( carpet, concrete, tile, wood )
+* Flooring( carpet, concrete, tile, wood, synthetic )
 
 >Mode
 * Mode ( Local, Remote )

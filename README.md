@@ -16,7 +16,7 @@ Model
 * Flooring( carpet, concrete, tile, wood ) 1 --> * Color
 
 >Mode
-* Mode ( InHome, Vacation, Remote )
+* Mode ( Local, Remote )
 
 >Roof
 * Roof( Alluminum, Galvalume, Tile ) 1 --> * Color

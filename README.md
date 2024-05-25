@@ -4,7 +4,6 @@ Tropical Home
 
 Model
 -----
->Home
 * Home 1 --> 1 Roof
 * Home 1 --> * Driveway | Garage | Pool | Patio | Lawn | Garden | Room
 * Color( red, green, blue )

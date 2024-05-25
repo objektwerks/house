@@ -18,7 +18,7 @@ Model
 * Mode ( Local, Remote )
 
 >Roof
-* Roof( Alluminum, Galvalume, Tile )
+* Roof( Alluminum, Galvalume, Tile, Shingle )
 
 >Room
 * Room( Kitchen, Bedroom, Den, Study )

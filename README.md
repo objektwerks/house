@@ -11,4 +11,4 @@ Model
 * Flooring( carpet, concrete, tile, wood, synthetic )
 * Mode ( local, remote )
 * Roof( alluminum, galvalume, tile, shingle )
-* Room( kitchen, bedroom, den, study )
+* Room( kitchen, bedroom, living, dining, den, study )

@@ -4,12 +4,13 @@ Home
 
 Model
 -----
-* Home 1 --> * Driveway | Garage | Pool | Patio | Lawn | Garden | Shed | Room | Floor | Door | Window | Roof | Heater | AC
+* Home 1 --> * Driveway | Garage | Pool | Patio | Lawn | Garden | Shed | Room |
+               Floor | Door | Window | Roof | Heater | AC | Electrical | Plumbing
 
 Enums
 -----
 * Color ( red, green, blue )
-* Flooring ( carpet, concrete, tile, wood, synthetic )
+* Floor ( carpet, concrete, tile, wood, synthetic )
 * Kind ( primary, secondary )
 * Roof ( alluminum, galvalume, tile, shingle )
 * Room ( kitchen, bathroom, bedroom, living, dining, den, study, laundry )

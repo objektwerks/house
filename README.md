@@ -15,7 +15,7 @@ Enums
 * Floor ( carpet, concrete, tile, wood, synthetic )
 * Kind ( primary, secondary )
 * Roof ( alluminum, galvalume, tile, shingle )
-* Room ( kitchen, bathroom, bedroom, living, dining, den, study, laundry )
+* Room ( kitchen, bathroom, bedroom, living, dining, den, study, laundry, office )
 
 Resources
 ---------

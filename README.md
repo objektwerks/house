@@ -7,7 +7,7 @@ Model
 >Home
 * Home 1 --> 1 Roof
 * Home 1 --> 1..* Room
-* Home 1 --> * Driveway | Garage | Pool | Patio | Yard | Garden
+* Home 1 --> * Driveway | Garage | Pool | Patio | Lawn | Garden
 
 >Color
 * Color( red, green, blue )

@@ -5,7 +5,7 @@ Tropical Home
 Model
 -----
 >Home
-* Home 1 --> 1 Roof 1 --> 1 Color
+* Home 1 --> 1 Roof
 * Home 1 --> 1..* Room 1..* --> Color & Flooring
 * Home 1 --> * Landscaping
 * Home 1 --> * Driveway | Garage | Pool | Patio 1 --> Color & Flooring

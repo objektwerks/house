@@ -4,8 +4,7 @@ Tropical Home
 
 Model
 -----
-* Home 1 --> 1 Roof
-* Home 1 --> * Driveway | Garage | Pool | Patio | Lawn | Garden | Room
+* Home 1 --> * Driveway | Garage | Pool | Patio | Lawn | Garden | Room | Roof
 
 Enums
 -----

@@ -6,7 +6,7 @@ Model
 -----
 * Home 1 --> * Driveway | Garage | Pool | Patio | Porch | Lawn | Garden | Shed | Room |
                Floor | Door | Window | Roof | Heater | AC | Electrical | Plumbing | Attic |
-               Chimney | Balcony | Alarm | Gutter | Soffit | Siding
+               Chimney | Balcony | Alarm | Gutter | Soffit | Siding | Basement
 
 Enums
 -----

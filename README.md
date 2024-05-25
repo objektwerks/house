@@ -1,6 +1,6 @@
-Tropical Home
--------------
->Model of a tropical home.
+Home
+----
+>Model of a home.
 
 Model
 -----

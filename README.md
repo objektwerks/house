@@ -16,3 +16,7 @@ Enums
 * Kind ( primary, secondary )
 * Roof ( alluminum, galvalume, tile, shingle )
 * Room ( kitchen, bathroom, bedroom, living, dining, den, study, laundry )
+
+Resources
+---------
+* [House Parts](https://www.hippo.com/learn-center/parts-of-a-house)

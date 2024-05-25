@@ -6,12 +6,15 @@ Model
 -----
 >Home
 * Home 1 --> 1 Roof 1 --> 1 Color & Style
-* Home 1 --> 1..* Room 1 --> Color & Style
+* Home 1 --> 1..* Room 1..* --> Color & Flooring
 * Home 1 --> * Landscaping
 * Home 1 --> * Driveway | Garage | Pool | Patio 1 --> Color & Style
 
 >Color
 * Color( red, green, blue )
+
+>Flooring
+* Flooring( carpet, concrete, tile, wood )
 
 >Mode
 * Mode ( InHome, Vacation, Remote )
@@ -23,4 +26,4 @@ Model
 * Room( Kitchen, Bedroom, Den, Study )
 
 >Style
-* Style ( carpet, concrete, tile, synthetic, wood )
+* Style ( concrete, tile, synthetic )

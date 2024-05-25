@@ -13,11 +13,11 @@ Model
 >Color
 * Color( red, green, blue )
 
->Style
-* Style ( carpet, concrete, tile, synthetic, wood )
-
 >Mode
 * Mode ( InHome, Vacation, Remote )
 
 >Roof
 * Roof( Alluminum, Gallvalume, Tile )
+
+>Style
+* Style ( carpet, concrete, tile, synthetic, wood )

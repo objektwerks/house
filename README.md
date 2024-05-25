@@ -33,5 +33,5 @@ Finish
 * Siding / Gutter / Soffit / Fasia
 * Drywall
 * Paint
-* Interior Finish Carpentry
-* Finished Flooring
+* Interior
+* Flooring

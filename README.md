@@ -15,10 +15,10 @@ Model
 * Flooring( carpet, concrete, tile, wood, synthetic )
 
 >Mode
-* Mode ( Local, Remote )
+* Mode ( local, remote )
 
 >Roof
-* Roof( Alluminum, Galvalume, Tile, Shingle )
+* Roof( alluminum, galvalume, tile, shingle )
 
 >Room
-* Room( Kitchen, Bedroom, Den, Study )
+* Room( kitchen, bedroom, den, study )

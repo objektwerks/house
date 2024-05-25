@@ -4,7 +4,7 @@ Home
 
 Model
 -----
-* Home 1 --> * Driveway | Garage | Pool | Patio | Lawn | Garden | Shed | Room | Roof | Heater | AC
+* Home 1 --> * Driveway | Garage | Pool | Patio | Lawn | Garden | Shed | Room | Floor | Door | Window | Roof | Heater | AC
 
 Enums
 -----

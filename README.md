@@ -23,5 +23,4 @@ Model
 * Roof( Alluminum, Gallvalume, Tile ) 1 --> Color
 
 >Room
-* Room( Kitchen, Bedroom, Den, Study ) 1 --
-Color
+* Room( Kitchen, Bedroom, Den, Study ) 1 --> Color

@@ -20,7 +20,7 @@ Model
 * Mode ( InHome, Vacation, Remote )
 
 >Roof
-* Roof( Alluminum, Gallvalume, Tile ) 1 --> * Color
+* Roof( Alluminum, Galvalume, Tile ) 1 --> * Color
 
 >Room
 * Room( Kitchen, Bedroom, Den, Study ) 1 --> * Color & Flooring

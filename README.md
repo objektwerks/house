@@ -16,27 +16,3 @@ Enums
 * Kind ( primary, secondary )
 * Roof ( alluminum, galvalume, tile, shingle )
 * Room ( kitchen, bathroom, bedroom, living, dining, den, study, laundry )
-
-Structure
----------
-* Foundation
-* Frame
-* Roof
-
-Functional
-----------
-* Windows
-* Doors
-* Plumbing
-* Electrical
-* HVAC
-
-Finish
-------
-* Drywall
-* Paint
-* Interior
-* Flooring
-* Siding
-* Gutter
-* Soffit

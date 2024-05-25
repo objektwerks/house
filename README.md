@@ -5,7 +5,8 @@ Home
 Model
 -----
 * Home 1 --> * Driveway | Garage | Pool | Patio | Lawn | Garden | Shed | Room |
-               Floor | Door | Window | Roof | Heater | AC | Electrical | Plumbing
+               Floor | Door | Window | Roof | Heater | AC | Electrical | Plumbing |
+               Attic | Chimney | Balcony
 
 Enums
 -----

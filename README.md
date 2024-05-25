@@ -10,6 +10,6 @@ Enums
 -----
 * Color ( red, green, blue )
 * Flooring ( carpet, concrete, tile, wood, synthetic )
-* Mode ( primary, secondary )
+* Kind ( primary, secondary )
 * Roof ( alluminum, galvalume, tile, shingle )
 * Room ( kitchen, bedroom, living, dining, den, study, laundry )

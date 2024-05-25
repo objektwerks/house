@@ -8,19 +8,19 @@ Model
 * Home 1 --> 1 Roof
 * Home 1 --> 1..* Room
 * Home 1 --> * Landscaping
-* Home 1 --> * Driveway | Garage | Pool | Patio 1 --> Color & Flooring
+* Home 1 --> * Driveway | Garage | Pool | Patio 1 --> Flooring
 
 >Color
 * Color( red, green, blue )
 
 >Flooring
-* Flooring( carpet, concrete, tile, wood ) 1 --> Color
+* Flooring( carpet, concrete, tile, wood ) 1 --> * Color
 
 >Mode
 * Mode ( InHome, Vacation, Remote )
 
 >Roof
-* Roof( Alluminum, Gallvalume, Tile ) 1 --> Color
+* Roof( Alluminum, Gallvalume, Tile ) 1 --> * Color
 
 >Room
-* Room( Kitchen, Bedroom, Den, Study ) 1 --> Color & Flooring
+* Room( Kitchen, Bedroom, Den, Study ) 1 --> * Color & Flooring

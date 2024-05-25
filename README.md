@@ -6,7 +6,7 @@ Model
 -----
 >Home
 * Home 1 --> 1 Roof
-* Home 1 --> 1..* Room 1..* --> Color & Flooring
+* Home 1 --> 1..* Room
 * Home 1 --> * Landscaping
 * Home 1 --> * Driveway | Garage | Pool | Patio 1 --> Color & Flooring
 
@@ -23,4 +23,4 @@ Model
 * Roof( Alluminum, Gallvalume, Tile ) 1 --> Color
 
 >Room
-* Room( Kitchen, Bedroom, Den, Study ) 1 --> Color
+* Room( Kitchen, Bedroom, Den, Study ) 1 --> Color & Flooring

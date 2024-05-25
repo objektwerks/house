@@ -32,8 +32,10 @@ Functional
 
 Finish
 ------
-* Siding / Gutter / Soffit / Fasia
 * Drywall
 * Paint
 * Interior
 * Flooring
+* Siding
+* Gutter
+* Soffit

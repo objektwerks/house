@@ -8,8 +8,8 @@ Model
 
 Enums
 -----
-* Color( red, green, blue )
-* Flooring( carpet, concrete, tile, wood, synthetic )
+* Color ( red, green, blue )
+* Flooring ( carpet, concrete, tile, wood, synthetic )
 * Mode ( local, remote )
-* Roof( alluminum, galvalume, tile, shingle )
-* Room( kitchen, bedroom, living, dining, den, study )
+* Roof ( alluminum, galvalume, tile, shingle )
+* Room ( kitchen, bedroom, living, dining, den, study )

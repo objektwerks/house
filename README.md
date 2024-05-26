@@ -9,14 +9,14 @@ Model
 
 Kinds
 -----
-* Color
 * Foundation ( basement, concrete, wood, crawl )
-* Window ( single, double )
-* Door ( wood, fiberglass, steel, glass )
-* Floor ( carpet, concrete, tile, wood, synthetic )
-* Residence ( primary, secondary )
 * Roof ( alluminum, galvalume, tile, shingle )
 * Room ( kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet )
+* Floor ( carpet, concrete, tile, wood, synthetic )
+* Window ( single, double )
+* Door ( wood, fiberglass, steel, glass )
+* Residence ( primary, secondary )
+* Color
 
 Structure
 ---------

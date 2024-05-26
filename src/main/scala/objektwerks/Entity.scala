@@ -44,6 +44,11 @@ object Foundation:
   given JsonValueCodec[Foundation] = JsonCodecMaker.make[Foundation]
   given Ordering[Foundation] = Ordering.by[Foundation, String](foundation => foundation.built).reverse
 
+final case class Basement(id: Long = 0,
+                          homeId: Long,
+                          kind: String,
+                          built: String = Entity.now) extends Entity
+
 final case class Frame(id: Long = 0,
                        homeId: Long,
                        kind: String,

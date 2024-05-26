@@ -20,7 +20,8 @@ Types
 
 Structure
 ---------
->Foundation, Frame, Basement, Attic, Insulation, Roof, Chimney, Balcony, Drywall, Room, Porch, Pool
+>Foundation, Frame, Driveway, Garage, Basement, Attic, Insulation, Roof, Chimney, Balcony, Drywall,
+>Room, Porch, Patio, Pool
 
 Functional
 ----------

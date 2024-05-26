@@ -30,3 +30,7 @@ final case class Home(id: Long = 0,
                       accountId: Long,
                       location: String,
                       built: String = Entity.now) extends Entity
+
+object Home:
+  given JsonValueCodec[Home] = JsonCodecMaker.make[Home]
+  given Ordering[Home] = Ordering.by[Home, String](home => home.built).reverse

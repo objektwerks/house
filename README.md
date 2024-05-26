@@ -10,6 +10,8 @@ Model
 Kinds
 -----
 * Color
+* Window ( single, double )
+* Door ( wood, fiberglass, steel, glass )
 * Floor ( carpet, concrete, tile, wood, synthetic )
 * Residence ( primary, secondary )
 * Roof ( alluminum, galvalume, tile, shingle )

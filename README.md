@@ -11,9 +11,10 @@ Kinds
 -----
 * Foundation ( basement, concrete, wood, crawl )
 * Roof ( alluminum, galvalume, tile, shingle )
+* Chimney ( masonry, metal )
 * Room ( kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet )
 * Floor ( carpet, concrete, tile, wood, synthetic )
-* Window ( single, double )
+* Window ( single, double, bay, slide )
 * Door ( wood, fiberglass, steel, glass )
 * Residence ( primary, secondary )
 * Color

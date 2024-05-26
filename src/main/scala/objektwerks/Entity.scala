@@ -15,3 +15,6 @@ final case class Account(id: Long = 0,
                          email: String = "",
                          pin: String = Pin.newInstance,
                          activated: String = Entity.now) extends Entity
+
+object Account:
+  val empty = Account(license = "", email = "", pin = "")

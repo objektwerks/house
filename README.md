@@ -5,10 +5,7 @@ Home
 Model
 -----
 * Home 1 --> 1 Account
-* Home 1 --> * Driveway | Garage | Pool | Patio | Porch | Lawn | Garden | Shed | Room | Floor | Door | Window |
-               Roof | Heater | AC | Electrical | Plumbing | Lighting | Attic | Chimney | Balcony | Alarm | Gutter |
-               Soffit | Siding | Basement | Fusebox | Insulation | Sewage | Water | WaterMain | WaterHeater | Well |
-               Septic | SolarPanel | Sprinklers | Foundation | Frame | Mailbox
+* Home 1 --> * Structure | Functional | Finish
 
 Types
 -----
@@ -30,7 +27,7 @@ Functional
 
 Finish
 ------
->Siding, Gutter, Soffit, Floor, Lighting, Floor, Lawn
+>Siding, Gutter, Soffit, Floor, Lighting, Lawn
 
 Resources
 ---------

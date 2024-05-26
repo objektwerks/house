@@ -20,15 +20,15 @@ Types
 
 Structure
 ---------
-* Foundation, Frame, Roof, Drywall
+* Foundation, Frame, Basement, Attic, Roof, Drywall
 
 Functional
 ----------
-* Window, Door, Plumbing, Electrical, AC, Heater
+* Window, Door, Plumbing, Electrical, AC, Heater, Fusebox
 
 Finish
 ------
-* Siding, Gutter, Soffit, Floor
+* Siding, Gutter, Soffit, Floor, Lighting
 
 Resources
 ---------

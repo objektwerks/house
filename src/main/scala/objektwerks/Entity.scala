@@ -49,6 +49,10 @@ final case class Basement(id: Long = 0,
                           kind: String,
                           built: String = Entity.now) extends Entity
 
+object Basement:
+  given JsonValueCodec[Basement] = JsonCodecMaker.make[Basement]
+  given Ordering[Basement] = Ordering.by[Basement, String](basement => basement.built).reverse
+
 final case class Frame(id: Long = 0,
                        homeId: Long,
                        kind: String,

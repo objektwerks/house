@@ -49,6 +49,10 @@ final case class Frame(id: Long = 0,
                        kind: String,
                        built: String = Entity.now) extends Entity
 
+object Frame:
+  given JsonValueCodec[Frame] = JsonCodecMaker.make[Frame]
+  given Ordering[Frame] = Ordering.by[Frame, String](frame => frame.built).reverse
+
 final case class Driveway(id: Long = 0,
                           homeId: Long,
                           kind: String,

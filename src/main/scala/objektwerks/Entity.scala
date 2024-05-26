@@ -35,6 +35,10 @@ object Home:
   given JsonValueCodec[Home] = JsonCodecMaker.make[Home]
   given Ordering[Home] = Ordering.by[Home, String](home => home.built).reverse
 
+final case class Foundation(id: Long = 0,
+                            homeId: Long,
+                            kind: String,
+                            built: String = Entity.now) extends Entity
 final case class Driveway(id: Long = 0,
                           homeId: Long,
                           kind: String,

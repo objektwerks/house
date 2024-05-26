@@ -20,16 +20,16 @@ Types
 
 Structure
 ---------
->Foundation, Frame, Basement, Attic, Insulation, Roof, Chimney, Balcony, Drywall, Room, Porche, Pool
+>Foundation, Frame, Basement, Attic, Insulation, Roof, Chimney, Balcony, Drywall, Room, Porch
 
 Functional
 ----------
 >Window, Door, Plumbing, Electrical, AC, Heater, Fusebox, Alarm, Mailbox, Shed, Well, Septic, Sewage,
->SolarPanel, Sprinklers, Water, WaterMain, Lawn, Garden
+>SolarPanel, Sprinklers, Water, WaterMain, Lawn, Garden, Pool
 
 Finish
 ------
->Siding, Gutter, Soffit, Floor, Lighting
+>Siding, Gutter, Soffit, Floor, Lighting, Floor
 
 Resources
 ---------

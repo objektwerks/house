@@ -10,6 +10,7 @@ Model
 Kinds
 -----
 * Color
+* Foundation ( basement, concrete, wood, crawl )
 * Window ( single, double )
 * Door ( wood, fiberglass, steel, glass )
 * Floor ( carpet, concrete, tile, wood, synthetic )

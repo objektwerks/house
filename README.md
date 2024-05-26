@@ -20,15 +20,12 @@ Types
 
 Structure
 ---------
->Foundation, Frame, Basement, Attic, Insulation, Roof, Chimney, Balcony, Drywall, Room
-
-Infrastructure
---------------
->Well, Septic, Sewage, SolarPanel, Sprinklers
+>Foundation, Frame, Basement, Attic, Insulation, Roof, Chimney, Balcony, Drywall, Room, Porche, Pool
 
 Functional
 ----------
->Window, Door, Plumbing, Electrical, AC, Heater, Fusebox, Alarm, Mailbox
+>Window, Door, Plumbing, Electrical, AC, Heater, Fusebox, Alarm, Mailbox, Shed, Well, Septic, Sewage,
+>SolarPanel, Sprinklers, Water, WaterMain, Lawn, Garden
 
 Finish
 ------

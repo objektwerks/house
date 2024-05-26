@@ -47,3 +47,7 @@ object Driveway:
 final case class Garage(id: Long = 0,
                         homeId: Long,
                         built: String = Entity.now) extends Entity
+
+object Garage:
+  given JsonValueCodec[Garage] = JsonCodecMaker.make[Garage]
+  given Ordering[Garage] = Ordering.by[Garage, String](garage => garage.built).reverse

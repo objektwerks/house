@@ -25,3 +25,8 @@ object Account:
   given JsonValueCodec[Account] = JsonCodecMaker.make[Account]
 
   val empty = Account(license = "", email = "", pin = "")
+
+final case class Home(id: Long = 0,
+                      accountId: Long,
+                      location: String,
+                      built: String = Entity.now) extends Entity

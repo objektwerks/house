@@ -7,7 +7,7 @@ Model
 * Home 1 --> 1 Account
 * Home 1 --> * Structure | Functional | Finish
 
-Types
+Kinds
 -----
 * Color
 * Floor ( carpet, concrete, tile, wood, synthetic )

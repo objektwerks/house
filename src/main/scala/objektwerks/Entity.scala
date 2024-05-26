@@ -71,6 +71,11 @@ object Attic:
   given JsonValueCodec[Attic] = JsonCodecMaker.make[Attic]
   given Ordering[Attic] = Ordering.by[Attic, String](attic => attic.built).reverse
 
+final case class Insulation(id: Long = 0,
+                            homeId: Long,
+                            kind: String,
+                            built: String = Entity.now) extends Entity
+
 final case class Driveway(id: Long = 0,
                           homeId: Long,
                           kind: String,

@@ -22,4 +22,6 @@ final case class Account(id: Long = 0,
                          activated: String = Entity.now) extends Entity
 
 object Account:
+  given JsonValueCodec[Account] = JsonCodecMaker.make[Account]
+
   val empty = Account(license = "", email = "", pin = "")

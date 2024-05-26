@@ -1,5 +1,6 @@
 package objektwerks
 
-sealed trait Entity
+sealed trait Entity:
+  val id: Long
 
 object Entity

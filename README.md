@@ -18,6 +18,18 @@ Types
 * Roof ( alluminum, galvalume, tile, shingle )
 * Room ( kitchen, bathroom, bedroom, living, dining, den, study, laundry, office )
 
+Structure
+---------
+* Foundation, Frame, Roof, Drywall
+
+Functional
+----------
+* Window, Door, Plumbing, Electrical, AC, Heater
+
+Finish
+------
+* Siding, Gutter, Soffit, Floor
+
 Resources
 ---------
 * [House Parts](https://www.hippo.com/learn-center/parts-of-a-house)

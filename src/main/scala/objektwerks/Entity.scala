@@ -89,6 +89,11 @@ object Roof:
   given JsonValueCodec[Roof] = JsonCodecMaker.make[Roof]
   given Ordering[Roof] = Ordering.by[Roof, String](roof => roof.built).reverse
 
+final case class Chimney(id: Long = 0,
+                         homeId: Long,
+                         kind: String,
+                         built: String = Entity.now) extends Entity
+
 final case class Driveway(id: Long = 0,
                           homeId: Long,
                           kind: String,

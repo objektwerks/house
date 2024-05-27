@@ -205,3 +205,8 @@ final case class Floor(id: Long = 0,
 object Floor:
   given JsonValueCodec[Floor] = JsonCodecMaker.make[Floor]
   given Ordering[Floor] = Ordering.by[Floor, String](floor => floor.built).reverse
+
+final case class Lighting(id: Long = 0,
+                          homeId: Long,
+                          kind: String,
+                          built: String = Entity.now) extends Entity

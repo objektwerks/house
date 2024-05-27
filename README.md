@@ -5,7 +5,7 @@ Home
 Model
 -----
 * Home 1 --> 1 Account
-* Home 1 --> * Structure | Functional
+* Home 1 --> * Structure | Internal | External
 
 Kinds
 -----
@@ -26,14 +26,14 @@ Structure
 >Foundation, Frame, Attic, Insulation, Ventilation, Roof, Chimney, Balcony, Drywall, Room,
 >Driveway, Garage, Porch, Patio, Pool
 
-Functional
-----------
+Internal
+--------
 >Siding, Gutter, Soffit, Window, Door, Plumbing, Electrical, Fusebox, Alarm, AC, Heater,
 >Floor, Lighting
 
 External
 --------
->Well, Septic, Sewage, Water, WaterMain, WaterHeater, Lawn, Garden, Sprinklers, Shed,
+>Sewage, Septic, Well, Water, WaterMain, WaterHeater, Lawn, Garden, Sprinklers, Shed,
 >SolarPanel, Mailboxs
 
 Resources

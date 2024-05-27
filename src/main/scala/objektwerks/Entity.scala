@@ -210,6 +210,12 @@ object Window:
   given JsonValueCodec[Window] = JsonCodecMaker.make[Window]
   given Ordering[Window] = Ordering.by[Window, String](window => window.built).reverse
 
+
+final case class Door(id: Long = 0,
+                      homeId: Long,
+                      kind: String,
+                      built: String = Entity.now) extends Entity
+
 final case class Floor(id: Long = 0,
                        homeId: Long,
                        kind: String,

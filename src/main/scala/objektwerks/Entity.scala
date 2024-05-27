@@ -220,3 +220,8 @@ object Lighting:
   given Ordering[Lighting] = Ordering.by[Lighting, String](lighting => lighting.built).reverse
 
 // External
+
+final case class Sewage(id: Long = 0,
+                        homeId: Long,
+                        kind: String,
+                        built: String = Entity.now) extends Entity

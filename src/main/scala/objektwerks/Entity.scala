@@ -210,3 +210,7 @@ final case class Lighting(id: Long = 0,
                           homeId: Long,
                           kind: String,
                           built: String = Entity.now) extends Entity
+
+object Lighting:
+  given JsonValueCodec[Lighting] = JsonCodecMaker.make[Lighting]
+  given Ordering[Lighting] = Ordering.by[Lighting, String](lighting => lighting.built).reverse

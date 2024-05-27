@@ -124,4 +124,10 @@ final case class Porch(id: Long = 0,
 final case class Patio(id: Long = 0,
                        homeId: Long,
                        kind: String,
-                       built: String = Entity.now) extends Entityad
+                       built: String = Entity.now) extends Entity
+
+
+final case class Pool(id: Long = 0,
+                      homeId: Long,
+                      kind: String,
+                      built: String = Entity.now) extends Entity

@@ -126,6 +126,10 @@ final case class Room(id: Long = 0,
                       kind: String,
                       built: String = Entity.now) extends Entity
 
+object Room:
+  given JsonValueCodec[Room] = JsonCodecMaker.make[Room]
+  given Ordering[Room] = Ordering.by[Room, String](room => room.built).reverse
+
 object Driveway:
   given JsonValueCodec[Driveway] = JsonCodecMaker.make[Driveway]
   given Ordering[Driveway] = Ordering.by[Driveway, String](driveway => driveway.built).reverse

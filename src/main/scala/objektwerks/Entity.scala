@@ -103,6 +103,10 @@ final case class Balcony(id: Long = 0,
                          kind: String,
                          built: String = Entity.now) extends Entity
 
+object Balcony:
+  given JsonValueCodec[Balcony] = JsonCodecMaker.make[Balcony]
+  given Ordering[Balcony] = Ordering.by[Balcony, String](balcony => balcony.built).reverse
+
 final case class Driveway(id: Long = 0,
                           homeId: Long,
                           kind: String,

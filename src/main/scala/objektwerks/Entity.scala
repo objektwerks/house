@@ -183,3 +183,7 @@ final case class Gutter(id: Long = 0,
                         homeId: Long,
                         kind: String,
                         built: String = Entity.now) extends Entity
+
+object Gutter:
+  given JsonValueCodec[Gutter] = JsonCodecMaker.make[Gutter]
+  given Ordering[Gutter] = Ordering.by[Gutter, String](gutter => gutter.built).reverse

@@ -174,3 +174,7 @@ final case class Siding(id: Long = 0,
                         homeId: Long,
                         kind: String,
                         built: String = Entity.now) extends Entity
+
+object Siding:
+  given JsonValueCodec[Siding] = JsonCodecMaker.make[Siding]
+  given Ordering[Siding] = Ordering.by[Siding, String](siding => siding.built).reverse

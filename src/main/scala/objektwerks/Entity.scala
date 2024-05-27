@@ -225,3 +225,7 @@ final case class Sewage(id: Long = 0,
                         homeId: Long,
                         kind: String,
                         built: String = Entity.now) extends Entity
+
+object Sewage:
+  given JsonValueCodec[Sewage] = JsonCodecMaker.make[Sewage]
+  given Ordering[Sewage] = Ordering.by[Sewage, String](sewage => sewage.built).reverse

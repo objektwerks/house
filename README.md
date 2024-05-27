@@ -21,8 +21,8 @@ Kinds
 
 Structure
 ---------
->Foundation, Frame, Driveway, Garage, Attic, Insulation, Ventilation, Roof, Chimney, Balcony, Drywall,
->Room, Porch, Patio, Pool
+>Foundation, Frame, Attic, Insulation, Ventilation, Roof, Chimney, Balcony, Drywall, Room,
+>Driveway, Garage, Porch, Patio, Pool
 
 Functional
 ----------

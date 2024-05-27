@@ -100,6 +100,7 @@ object Driveway:
 
 final case class Garage(id: Long = 0,
                         homeId: Long,
+                        kind: String,
                         built: String = Entity.now) extends Entity
 
 object Garage:

@@ -23,13 +23,13 @@ Kinds
 
 Structure
 ---------
->Foundation, Frame, Attic, Insulation, Ventilation, Roof, Chimney, Balcony, Drywall, Room,
->Driveway, Garage, Porch, Patio, Pool
+>Foundation, Frame, Attic, Insulation, Ventilation, Roof, Chimney, Balcony, Drywall,
+>Room, Driveway, Garage, Porch, Patio, Pool
 
 Internal
 --------
->Siding, Gutter, Soffit, Window, Door, Plumbing, Electrical, Fusebox, Alarm, AC, Heater,
->Floor, Lighting
+>Siding, Gutter, Soffit, Window, Door, Plumbing, Electrical, Fusebox, Alarm, AC,
+>Heater, Floor, Lighting
 
 External
 --------

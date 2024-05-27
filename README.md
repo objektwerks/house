@@ -29,11 +29,11 @@ Structure
 Functional
 ----------
 >Window, Door, Plumbing, Electrical, AC, Heater, Fusebox, Alarm, Mailbox, Shed, Well, Septic,
->Sewage, SolarPanel, Sprinklers, Water, WaterMain, WaterHeater, Garden
+>Sewage, SolarPanel, Sprinklers, Water, WaterMain, WaterHeater, Lawn, Garden
 
 Finish
 ------
->Siding, Gutter, Soffit, Floor, Lighting, Lawn
+>Siding, Gutter, Soffit, Floor, Lighting
 
 Resources
 ---------

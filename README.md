@@ -10,6 +10,7 @@ Model
 Kinds
 -----
 * Foundation ( basement, concrete, wood, crawl )
+* Driveway ( asphalt, concrete, gravel, paver )
 * Roof ( alluminum, galvalume, tile, shingle )
 * Chimney ( masonry, metal )
 * Room ( kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet )

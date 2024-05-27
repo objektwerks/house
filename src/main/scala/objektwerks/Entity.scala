@@ -169,3 +169,8 @@ final case class Pool(id: Long = 0,
 object Pool:
   given JsonValueCodec[Pool] = JsonCodecMaker.make[Pool]
   given Ordering[Pool] = Ordering.by[Pool, String](pool => pool.built).reverse
+
+final case class Siding(id: Long = 0,
+                        homeId: Long,
+                        kind: String,
+                        built: String = Entity.now) extends Entity

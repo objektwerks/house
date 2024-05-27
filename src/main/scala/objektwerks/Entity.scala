@@ -40,6 +40,8 @@ final case class Foundation(id: Long = 0,
                             kind: String,
                             built: String = Entity.now) extends Entity
 
+ // Structure
+
 object Foundation:
   given JsonValueCodec[Foundation] = JsonCodecMaker.make[Foundation]
   given Ordering[Foundation] = Ordering.by[Foundation, String](foundation => foundation.built).reverse
@@ -170,6 +172,8 @@ object Pool:
   given JsonValueCodec[Pool] = JsonCodecMaker.make[Pool]
   given Ordering[Pool] = Ordering.by[Pool, String](pool => pool.built).reverse
 
+// Internal
+
 final case class Siding(id: Long = 0,
                         homeId: Long,
                         kind: String,
@@ -214,3 +218,5 @@ final case class Lighting(id: Long = 0,
 object Lighting:
   given JsonValueCodec[Lighting] = JsonCodecMaker.make[Lighting]
   given Ordering[Lighting] = Ordering.by[Lighting, String](lighting => lighting.built).reverse
+
+// External

@@ -28,8 +28,8 @@ Structure
 
 Functional
 ----------
->Window, Door, Plumbing, Electrical, AC, Heater, Fusebox, Alarm, Shed, Well, Septic,
->Sewage, Sprinklers, Water, WaterMain, WaterHeater, Lawn, Garden, SolarPanel, Mailbox
+>Window, Door, Plumbing, Electrical, Fusebox, Alarm, AC, Heater, Well, Septic, Sewage,
+>Water, WaterMain, WaterHeater, Lawn, Garden, Sprinklers, Shed, SolarPanel, Mailbox
 
 Finish
 ------

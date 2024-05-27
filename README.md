@@ -29,8 +29,12 @@ Structure
 Functional
 ----------
 >Siding, Gutter, Soffit, Window, Door, Plumbing, Electrical, Fusebox, Alarm, AC, Heater,
->Floor, Lighting, Well, Septic, Sewage, Water, WaterMain, WaterHeater, Lawn, Garden,
->Sprinklers, Shed, SolarPanel, Mailbox
+>Floor, Lighting
+
+External
+--------
+>Well, Septic, Sewage, Water, WaterMain, WaterHeater, Lawn, Garden, Sprinklers, Shed,
+>SolarPanel, Mailboxs
 
 Resources
 ---------

@@ -5,7 +5,7 @@ Home
 Model
 -----
 * Home 1 --> 1 Account
-* Home 1 --> * Structure | Functional | Finish
+* Home 1 --> * Structure | Functional
 
 Kinds
 -----
@@ -28,12 +28,9 @@ Structure
 
 Functional
 ----------
->Window, Door, Plumbing, Electrical, Fusebox, Alarm, AC, Heater, Well, Septic, Sewage,
->Water, WaterMain, WaterHeater, Lawn, Garden, Sprinklers, Shed, SolarPanel, Mailbox
-
-Finish
-------
->Siding, Gutter, Soffit, Floor, Lighting
+>Siding, Gutter, Soffit, Window, Door, Plumbing, Electrical, Fusebox, Alarm, AC, Heater,
+>Floor, Lighting, Well, Septic, Sewage, Water, WaterMain, WaterHeater, Lawn, Garden,
+>Sprinklers, Shed, SolarPanel, Mailbox
 
 Resources
 ---------

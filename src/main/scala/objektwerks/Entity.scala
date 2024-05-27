@@ -112,6 +112,10 @@ final case class Drywall(id: Long = 0,
                          kind: String,
                          built: String = Entity.now) extends Entity
 
+object Drywall:
+  given JsonValueCodec[Drywall] = JsonCodecMaker.make[Drywall]
+  given Ordering[Drywall] = Ordering.by[Drywall, String](drywall => drywall.built).reverse
+
 final case class Driveway(id: Long = 0,
                           homeId: Long,
                           kind: String,

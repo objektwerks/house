@@ -196,3 +196,8 @@ final case class Soffit(id: Long = 0,
 object Soffit:
   given JsonValueCodec[Soffit] = JsonCodecMaker.make[Soffit]
   given Ordering[Soffit] = Ordering.by[Soffit, String](soffit => soffit.built).reverse
+
+final case class Floor(id: Long = 0,
+                       homeId: Long,
+                       kind: String,
+                       built: String = Entity.now) extends Entity

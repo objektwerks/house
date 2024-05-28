@@ -397,3 +397,7 @@ final case class Dock(id: Long = 0,
                       homeId: Long,
                       kind: String,
                       built: String = Entity.now) extends Entity
+
+object Dock:
+  given JsonValueCodec[Dock] = JsonCodecMaker.make[Dock]
+  given Ordering[Dock] = Ordering.by[Dock, String](dock => dock.built).reverse

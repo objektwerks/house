@@ -5,6 +5,7 @@ import com.github.plokhotnyuk.jsoniter_scala.macros.*
 
 import java.time.LocalDate
 import java.util.UUID
+import objektwerks.Home.Residence
 
 sealed trait Entity:
   val id: Long
@@ -28,12 +29,16 @@ object Account:
 
 final case class Home(id: Long = 0,
                       accountId: Long,
+                      residence: Residence = Residence.primary,
                       location: String,
                       built: String = Entity.now) extends Entity
 
 object Home:
   given JsonValueCodec[Home] = JsonCodecMaker.make[Home]
   given Ordering[Home] = Ordering.by[Home, String](home => home.built).reverse
+
+  enum Residence:
+    case primary, secondary
 
 final case class Foundation(id: Long = 0,
                             homeId: Long,

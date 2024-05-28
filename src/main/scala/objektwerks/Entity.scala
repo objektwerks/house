@@ -242,6 +242,10 @@ final case class Fusebox(id: Long = 0,
                          kind: String,
                          installed: String = Entity.now) extends Entity
 
+object Fusebox:
+  given JsonValueCodec[Fusebox] = JsonCodecMaker.make[Fusebox]
+  given Ordering[Fusebox] = Ordering.by[Fusebox, String](fusebox => fusebox.installed).reverse
+
 final case class Floor(id: Long = 0,
                        homeId: Long,
                        kind: String,

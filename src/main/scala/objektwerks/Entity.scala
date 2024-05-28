@@ -252,3 +252,7 @@ final case class Septic(id: Long = 0,
                         homeId: Long,
                         kind: String,
                         built: String = Entity.now) extends Entity
+
+object Septic:
+  given JsonValueCodec[Septic] = JsonCodecMaker.make[Septic]
+  given Ordering[Septic] = Ordering.by[Septic, String](septic => septic.built).reverse

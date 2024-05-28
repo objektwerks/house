@@ -1,4 +1,4 @@
-name := "home"
+name := "house"
 organization := "objektwerks"
 version := "0.1-SNAPSHOT"
 scalaVersion := "3.5.0-RC1"

@@ -1,6 +1,6 @@
-Home
+House
 ----
->Model of a home.
+>Model of a house.
 
 Model
 -----

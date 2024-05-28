@@ -328,3 +328,8 @@ final case class Water(id: Long = 0,
 object Water:
   given JsonValueCodec[Water] = JsonCodecMaker.make[Water]
   given Ordering[Water] = Ordering.by[Water, String](water => water.installed).reverse
+
+final case class WaterMain(id: Long = 0,
+                           homeId: Long,
+                           kind: String,
+                           installed: String = Entity.now) extends Entity

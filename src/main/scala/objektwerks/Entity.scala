@@ -260,6 +260,10 @@ final case class Heater(id: Long = 0,
                         kind: String,
                         installed: String = Entity.now) extends Entity
 
+object Heater:
+  given JsonValueCodec[Heater] = JsonCodecMaker.make[Heater]
+  given Ordering[Heater] = Ordering.by[Heater, String](heater => heater.installed).reverse
+
 final case class Floor(id: Long = 0,
                        homeId: Long,
                        kind: String,

@@ -405,4 +405,8 @@ object Dock:
 final case class Mailbox(id: Long = 0,
                          homeId: Long,
                          kind: String,
-                         built: String = Entity.now) extends Entity
+                         installed: String = Entity.now) extends Entity
+
+object Mailbox:
+  given JsonValueCodec[Mailbox] = JsonCodecMaker.make[Mailbox]
+  given Ordering[Mailbox] = Ordering.by[Mailbox, String](mailbox => mailbox.installed).reverse

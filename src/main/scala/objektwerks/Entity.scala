@@ -251,6 +251,10 @@ final case class Alarm(id: Long = 0,
                        kind: String,
                        installed: String = Entity.now) extends Entity
 
+object Alarm:
+  given JsonValueCodec[Alarm] = JsonCodecMaker.make[Alarm]
+  given Ordering[Alarm] = Ordering.by[Alarm, String](alarm => alarm.installed).reverse
+
 final case class Floor(id: Long = 0,
                        homeId: Long,
                        kind: String,

@@ -28,8 +28,8 @@ Structure
 
 Internal
 --------
->Siding, Gutter, Soffit, Window, Door, Plumbing, Electrical, Fusebox, Alarm, AC,
->Heater, Floor, Lighting
+>Siding, Gutter, Soffit, Window, Door, Plumbing, Electrical, Fusebox, Alarm, Heater,
+>AirConditioner, Floor, Lighting
 
 External
 --------

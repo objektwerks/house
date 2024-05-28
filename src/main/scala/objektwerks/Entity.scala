@@ -373,3 +373,12 @@ final case class Irrigation(id: Long = 0,
 object Irrigation:
   given JsonValueCodec[Irrigation] = JsonCodecMaker.make[Irrigation]
   given Ordering[Irrigation] = Ordering.by[Irrigation, String](irrigation => irrigation.installed).reverse
+
+final case class Shed(id: Long = 0,
+                      homeId: Long,
+                      kind: String,
+                      built: String = Entity.now) extends Entity
+
+object Shed:
+  given JsonValueCodec[Shed] = JsonCodecMaker.make[Shed]
+  given Ordering[Shed] = Ordering.by[Shed, String](shed => shed.built).reverse

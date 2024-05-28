@@ -33,7 +33,7 @@ Internal
 
 External
 --------
->Sewage, Septic, Well, Water, WaterMain, WaterHeater, Lawn, Garden, Sprinklers, Shed,
+>Sewage, Septic, Well, Water, WaterMain, WaterHeater, Lawn, Garden, Irrigation, Shed,
 >SolarPanel, Dock, Mailbox
 
 Resources

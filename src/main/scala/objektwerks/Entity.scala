@@ -249,20 +249,20 @@ object Fusebox:
 final case class Floor(id: Long = 0,
                        homeId: Long,
                        kind: String,
-                       built: String = Entity.now) extends Entity
+                       installed: String = Entity.now) extends Entity
 
 object Floor:
   given JsonValueCodec[Floor] = JsonCodecMaker.make[Floor]
-  given Ordering[Floor] = Ordering.by[Floor, String](floor => floor.built).reverse
+  given Ordering[Floor] = Ordering.by[Floor, String](floor => floor.installed).reverse
 
 final case class Lighting(id: Long = 0,
                           homeId: Long,
                           kind: String,
-                          built: String = Entity.now) extends Entity
+                          installed: String = Entity.now) extends Entity
 
 object Lighting:
   given JsonValueCodec[Lighting] = JsonCodecMaker.make[Lighting]
-  given Ordering[Lighting] = Ordering.by[Lighting, String](lighting => lighting.built).reverse
+  given Ordering[Lighting] = Ordering.by[Lighting, String](lighting => lighting.installed).reverse
 
 // External
 

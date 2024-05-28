@@ -19,7 +19,6 @@ Kinds
 * Window ( single, double, bay, slide )
 * Door ( wood, fiberglass, steel, glass )
 * Residence ( primary, secondary )
-* Color
 
 Structure
 ---------

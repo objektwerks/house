@@ -222,7 +222,11 @@ object Door:
 final case class Plumbing(id: Long = 0,
                           homeId: Long,
                           kind: String,
-                          built: String = Entity.now) extends Entity
+                          installed: String = Entity.now) extends Entity
+
+object Plumbing:
+  given JsonValueCodec[Plumbing] = JsonCodecMaker.make[Plumbing]
+  given Ordering[Plumbing] = Ordering.by[Plumbing, String](plumbing => plumbing.installed).reverse
 
 final case class Floor(id: Long = 0,
                        homeId: Long,

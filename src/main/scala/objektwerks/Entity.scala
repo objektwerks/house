@@ -382,3 +382,10 @@ final case class Shed(id: Long = 0,
 object Shed:
   given JsonValueCodec[Shed] = JsonCodecMaker.make[Shed]
   given Ordering[Shed] = Ordering.by[Shed, String](shed => shed.built).reverse
+
+
+final case class SolarPanel(id: Long = 0,
+                            homeId: Long,
+                            number: Int,
+                            kind: String,
+                            installed: String = Entity.now) extends Entity

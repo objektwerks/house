@@ -269,6 +269,10 @@ final case class AirConditioner(id: Long = 0,
                                 kind: String,
                                 installed: String = Entity.now) extends Entity
 
+object AirConditioner:
+  given JsonValueCodec[AirConditioner] = JsonCodecMaker.make[AirConditioner]
+  given Ordering[AirConditioner] = Ordering.by[AirConditioner, String](ac => ac.installed).reverse
+
 final case class Floor(id: Long = 0,
                        homeId: Long,
                        kind: String,

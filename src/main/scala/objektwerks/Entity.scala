@@ -315,3 +315,7 @@ final case class Well(id: Long = 0,
                       homeId: Long,
                       kind: String,
                       built: String = Entity.now) extends Entity
+
+object Well:
+  given JsonValueCodec[Well] = JsonCodecMaker.make[Well]
+  given Ordering[Well] = Ordering.by[Well, String](well => well.built).reverse

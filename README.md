@@ -34,7 +34,7 @@ Internal
 External
 --------
 >Sewage, Septic, Well, Water, WaterMain, WaterHeater, Lawn, Garden, Sprinklers, Shed,
->SolarPanel, Mailboxs
+>SolarPanel, Dock, Mailbox
 
 Resources
 ---------

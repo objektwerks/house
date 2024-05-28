@@ -320,8 +320,11 @@ object Well:
   given JsonValueCodec[Well] = JsonCodecMaker.make[Well]
   given Ordering[Well] = Ordering.by[Well, String](well => well.built).reverse
 
-
 final case class Water(id: Long = 0,
                        homeId: Long,
                        kind: String,
                        installed: String = Entity.now) extends Entity
+
+object Water:
+  given JsonValueCodec[Water] = JsonCodecMaker.make[Water]
+  given Ordering[Water] = Ordering.by[Water, String](water => water.installed).reverse

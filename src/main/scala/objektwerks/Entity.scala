@@ -228,6 +228,11 @@ object Plumbing:
   given JsonValueCodec[Plumbing] = JsonCodecMaker.make[Plumbing]
   given Ordering[Plumbing] = Ordering.by[Plumbing, String](plumbing => plumbing.installed).reverse
 
+final case class Electrical(id: Long = 0,
+                            homeId: Long,
+                            kind: String,
+                            installed: String = Entity.now) extends Entity
+
 final case class Floor(id: Long = 0,
                        homeId: Long,
                        kind: String,

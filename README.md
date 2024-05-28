@@ -23,7 +23,7 @@ Kinds
 Structure
 ---------
 >Foundation, Frame, Attic, Insulation, Ventilation, Roof, Chimney, Balcony, Drywall,
->Room, Driveway, Garage, Porch, Patio, Pool
+>Room, Driveway, Garage
 
 Internal
 --------
@@ -33,7 +33,7 @@ Internal
 External
 --------
 >Sewage, Septic, Well, Water, WaterMain, WaterHeater, Lawn, Garden, Irrigation, Shed,
->SolarPanel, Dock, Mailbox
+>SolarPanel, Dock, Porch, Patio, Pool, Mailbox
 
 Resources
 ---------

@@ -86,3 +86,6 @@ enum FloorType:
 
 enum LightingType:
   case general, task, accent
+
+enum MailboxType:
+  case postMount, wallMount

@@ -7,7 +7,7 @@ import java.time.LocalDate
 import java.util.UUID
 
 enum Residence:
-  case primary, secondary
+  case primary, secondary, vacation
 
 enum FoundationType:
   case slab, basement, wood, crawl

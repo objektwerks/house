@@ -42,6 +42,9 @@ enum PorchType:
 enum PatioType:
   case concrete, paver, tile, wood
 
+enum PoolType:
+  case aboveground, inground
+
 enum RoomType:
   case kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet
 

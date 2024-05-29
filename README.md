@@ -11,14 +11,14 @@ Enums
 -----
 * HouseType ( primary, secondary )
 * FoundationType ( basement, concrete, wood, crawl )
-* DrivewayType ( asphalt, concrete, gravel, paver )
-* GarageType ( attached, detached )
 * RoofType ( alluminum, galvalume, tile, shingle )
 * ChimneyType ( masonry, metal )
+* DrivewayType ( asphalt, concrete, gravel, paver )
+* GarageType ( attached, detached )
 * RoomType ( kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet )
-* FloorType ( carpet, concrete, tile, wood, synthetic )
 * WindowType ( single, double, bay, slide )
 * DoorType ( wood, fiberglass, steel, glass )
+* FloorType ( carpet, concrete, tile, wood, synthetic )
 
 Structure
 ---------

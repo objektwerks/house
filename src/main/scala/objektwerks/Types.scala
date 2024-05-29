@@ -51,6 +51,9 @@ enum SidingType:
 enum GutterType:
   case kstyle, halfround, fascia, seamless, vinyl, aluminum, steel, copper
 
+enum SoffitType:
+  case wood, aluminum, cement, vinyl, steel
+
 enum RoomType:
   case kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet
 

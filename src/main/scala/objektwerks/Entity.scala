@@ -188,7 +188,7 @@ object Siding:
 
 final case class Gutter(id: Long = 0,
                         homeId: Long,
-                        typeof: String,
+                        typeof: GutterType = GutterType.kstyle,
                         built: String = Entity.now) extends Entity
 
 object Gutter:

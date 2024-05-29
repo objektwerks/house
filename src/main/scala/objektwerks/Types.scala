@@ -99,5 +99,11 @@ enum WaterType:
 enum WaterHeaterType:
   case tank, tankless, hybrid, pointOfUse, solar
 
+enum LawnType:
+  case grass, rock, sand
+
+enum GardenType:
+  case flower, vegtable
+
 enum MailboxType:
   case postMount, wallMount

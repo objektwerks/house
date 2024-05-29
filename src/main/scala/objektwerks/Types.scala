@@ -39,6 +39,9 @@ enum GarageType:
 enum PorchType:
   case open, front, back, deck, screened, detached
 
+enum PatioType:
+  case concrete, paver, tile, wood
+
 enum RoomType:
   case kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet
 

@@ -332,7 +332,7 @@ object Sprinkler:
 
 final case class Shed(id: Long = 0,
                       homeId: Long,
-                      typeof: String,
+                      typeof: ShedType = ShedType.storage,
                       built: String = Entity.now) extends Entity
 
 object Shed:

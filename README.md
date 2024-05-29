@@ -7,7 +7,7 @@ Model
 * Home 1 --> 1 Account
 * Home 1 --> * Structure | Internal | External
 
-Kinds
+Enums
 -----
 * Foundation ( basement, concrete, wood, crawl )
 * Driveway ( asphalt, concrete, gravel, paver )

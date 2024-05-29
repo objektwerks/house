@@ -90,5 +90,8 @@ enum LightingType:
 enum SewageType:
   case sanitarySewer, subsurfaceDrainageSystem, septicSystem, aerobicTreatmentUnit, anaerobicSystem
 
+enum WellType:
+  case dug, drilled, driven
+
 enum MailboxType:
   case postMount, wallMount

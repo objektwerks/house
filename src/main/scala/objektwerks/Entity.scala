@@ -82,7 +82,7 @@ object Foundation:
 
 final case class Frame(id: Long = 0,
                        homeId: Long,
-                       typeof: String,
+                       typeof: FrameType = FrameType.platform,
                        built: String = Entity.now) extends Entity
 
 object Frame:

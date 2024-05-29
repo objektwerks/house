@@ -15,6 +15,9 @@ enum FoundationType:
 enum DrivewayType:
   case asphalt, concrete, gravel, paver
 
+enum GarageType:
+  case attached, detached
+
 sealed trait Entity:
   val id: Long
 

@@ -69,6 +69,9 @@ enum AlarmType:
 enum HeaterType:
   case furnace, boiler, heatPump, inFloorRadiant, electricResistance, baseboardHeater, solar
 
+enum AirConditionerType:
+  case central, ductless, window, portable, floor, airSourceHeatPump
+
 enum RoomType:
   case kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet
 

@@ -269,21 +269,12 @@ object Lighting:
 
 final case class Sewage(id: Long = 0,
                         homeId: Long,
-                        typeof: String,
+                        typeof: SewageType = SewageType.anaerobicSystem,
                         built: String = Entity.now) extends Entity
 
 object Sewage:
   given JsonValueCodec[Sewage] = JsonCodecMaker.make[Sewage]
   given Ordering[Sewage] = Ordering.by[Sewage, String](sewage => sewage.built).reverse
-
-final case class Septic(id: Long = 0,
-                        homeId: Long,
-                        typeof: String,
-                        built: String = Entity.now) extends Entity
-
-object Septic:
-  given JsonValueCodec[Septic] = JsonCodecMaker.make[Septic]
-  given Ordering[Septic] = Ordering.by[Septic, String](septic => septic.built).reverse
 
 final case class Well(id: Long = 0,
                       homeId: Long,

@@ -342,7 +342,7 @@ object Shed:
 final case class SolarPanel(id: Long = 0,
                             homeId: Long,
                             number: Int,
-                            typeof: String,
+                            typeof: SolarPanelType = SolarPanelType.monocrystalline,
                             installed: String = Entity.now) extends Entity
 
 object SolarPanel:

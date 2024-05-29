@@ -13,7 +13,7 @@ enum AtticType:
   case finished, unfinished, scuttle
 
 enum InsulationType:
-  case blanket, spray, blown
+  case blanket, blown, foam
 
 enum RoofType:
   case alluminum, galvalume, tile, shingle

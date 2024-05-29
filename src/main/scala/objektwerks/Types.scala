@@ -12,6 +12,9 @@ enum FrameType:
 enum AtticType:
   case finished, unfinished, scuttle
 
+enum InsulationType:
+  case blanket, spray, blown
+
 enum RoofType:
   case alluminum, galvalume, tile, shingle
 

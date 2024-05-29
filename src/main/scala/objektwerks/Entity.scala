@@ -305,7 +305,7 @@ object WaterHeater:
 
 final case class Lawn(id: Long = 0,
                       homeId: Long,
-                      typeof: String,
+                      typeof: LawnType = LawnType.grass,
                       planted: String = Entity.now) extends Entity
 
 object Lawn:
@@ -314,7 +314,7 @@ object Lawn:
 
 final case class Garden(id: Long = 0,
                         homeId: Long,
-                        typeof: String,
+                        typeof: GardenType = GardenType.vegetable,
                         planted: String = Entity.now) extends Entity
 
 object Garden:

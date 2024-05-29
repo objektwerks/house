@@ -24,6 +24,9 @@ enum RoofType:
 enum ChimneyType:
   case masonry, metal
 
+enum RoomType:
+  case kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet
+
 sealed trait Entity:
   val id: Long
 

@@ -5,7 +5,12 @@ import com.github.plokhotnyuk.jsoniter_scala.macros.*
 
 import java.time.LocalDate
 import java.util.UUID
-import objektwerks.Home.Residence
+
+enum Residence:
+  case primary, secondary
+
+enum FoundationType:
+  case slab, basement, wood, crawl
 
 sealed trait Entity:
   val id: Long
@@ -37,12 +42,9 @@ object Home:
   given JsonValueCodec[Home] = JsonCodecMaker.make[Home]
   given Ordering[Home] = Ordering.by[Home, String](home => home.built).reverse
 
-  enum Residence:
-    case primary, secondary
-
 final case class Foundation(id: Long = 0,
                             homeId: Long,
-                            kind: Kind = Kind.slab,
+                            typeof: FoundationType = FoundationType.slab,
                             built: String = Entity.now) extends Entity
 
  // Structure
@@ -50,9 +52,6 @@ final case class Foundation(id: Long = 0,
 object Foundation:
   given JsonValueCodec[Foundation] = JsonCodecMaker.make[Foundation]
   given Ordering[Foundation] = Ordering.by[Foundation, String](foundation => foundation.built).reverse
-
-  enum Kind:
-    case slab, basement, wood, crawl
 
 final case class Frame(id: Long = 0,
                        homeId: Long,

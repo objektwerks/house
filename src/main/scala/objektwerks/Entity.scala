@@ -15,6 +15,9 @@ enum FoundationType:
 enum FrameType:
   case platform, steel
 
+enum AtticType:
+  case finished, unfinished, scuttle
+
 enum RoofType:
   case alluminum, galvalume, tile, shingle
 

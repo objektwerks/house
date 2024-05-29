@@ -15,6 +15,9 @@ enum AtticType:
 enum InsulationType:
   case blanket, blown, foam
 
+enum VentilationType:
+  case balanced, exhaust, supply, heat
+
 enum RoofType:
   case alluminum, galvalume, tile, shingle
 

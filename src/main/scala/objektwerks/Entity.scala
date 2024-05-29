@@ -76,7 +76,7 @@ object Insulation:
 
 final case class Ventilation(id: Long = 0,
                              homeId: Long,
-                             typeof: String,
+                             typeof: InsulationType = InsulationType.blanket,
                              installed: String = Entity.now) extends Entity
 
 object Ventilation:

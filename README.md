@@ -9,6 +9,7 @@ Model
 
 Enums
 -----
+* Residence ( primary, secondary )
 * Foundation ( basement, concrete, wood, crawl )
 * Driveway ( asphalt, concrete, gravel, paver )
 * Garage ( attached, detached )
@@ -18,7 +19,6 @@ Enums
 * Floor ( carpet, concrete, tile, wood, synthetic )
 * Window ( single, double, bay, slide )
 * Door ( wood, fiberglass, steel, glass )
-* Residence ( primary, secondary )
 
 Structure
 ---------

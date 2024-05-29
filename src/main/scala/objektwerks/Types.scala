@@ -66,6 +66,9 @@ enum FuseboxType:
 enum AlarmType:
   case wireless, monitored, smart, passiveInfrared, dome, wirelessMotionDetector, windowSensor, doorSensor, dummy
 
+enum HeaterType:
+  case furnace, boiler, heatPump, inFloorRadiant, electricResistance, baseboardHeater, solar
+
 enum RoomType:
   case kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet
 

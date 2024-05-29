@@ -32,15 +32,15 @@ object Account:
 
   val empty = Account(license = "", email = "", pin = "")
 
-final case class Home(id: Long = 0,
-                      accountId: Long,
-                      residence: Residence = Residence.primary,
-                      location: String,
-                      built: String = Entity.now) extends Entity
+final case class House(id: Long = 0,
+                       accountId: Long,
+                       residence: Residence = Residence.primary,
+                       location: String,
+                       built: String = Entity.now) extends Entity
 
-object Home:
-  given JsonValueCodec[Home] = JsonCodecMaker.make[Home]
-  given Ordering[Home] = Ordering.by[Home, String](home => home.built).reverse
+object House:
+  given JsonValueCodec[House] = JsonCodecMaker.make[House]
+  given Ordering[House] = Ordering.by[House, String](home => home.built).reverse
 
 final case class Foundation(id: Long = 0,
                             homeId: Long,

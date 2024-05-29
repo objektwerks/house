@@ -48,6 +48,9 @@ enum PoolType:
 enum SidingType:
   case vinyl, wood, metal, cement, brick, stone, composite, clapboard
 
+enum GutterType:
+  case kstyle, halfround, fascia, seamless, vinyl, aluminum, steel, copper
+
 enum RoomType:
   case kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet
 

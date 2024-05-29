@@ -108,5 +108,8 @@ enum GardenType:
 enum SprinklerType:
   case multiUse, wetPipe, deluge, preAction
 
+enum ShedType:
+  case storage, workshop
+
 enum MailboxType:
   case postMount, wallMount

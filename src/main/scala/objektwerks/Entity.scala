@@ -296,7 +296,7 @@ object Water:
 
 final case class WaterHeater(id: Long = 0,
                              homeId: Long,
-                             typeof: String,
+                             typeof: WaterHeaterType = WaterHeaterType.tank,
                              installed: String = Entity.now) extends Entity
 
 object WaterHeater:

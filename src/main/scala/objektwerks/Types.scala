@@ -103,7 +103,7 @@ enum LawnType:
   case grass, rock, sand
 
 enum GardenType:
-  case flower, vegtable
+  case flower, vegetable
 
 enum MailboxType:
   case postMount, wallMount

@@ -111,5 +111,8 @@ enum SprinklerType:
 enum ShedType:
   case storage, workshop
 
+enum SolarPanelType:
+  case monocrystalline, polycrystalline, thinFilm
+
 enum MailboxType:
   case postMount, wallMount

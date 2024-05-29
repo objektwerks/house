@@ -36,6 +36,9 @@ enum DrivewayType:
 enum GarageType:
   case attached, detached
 
+enum PorchType:
+  case open, front, back, deck, screened, detached
+
 enum RoomType:
   case kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet
 

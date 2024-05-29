@@ -287,7 +287,7 @@ object Well:
 
 final case class Water(id: Long = 0,
                        homeId: Long,
-                       typeof: String,
+                       typeof: WaterType = WaterType.well,
                        installed: String = Entity.now) extends Entity
 
 object Water:

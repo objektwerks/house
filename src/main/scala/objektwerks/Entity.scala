@@ -12,6 +12,9 @@ enum HouseType:
 enum FoundationType:
   case slab, basement, wood, crawl
 
+enum FrameType:
+  case platform, steel
+
 enum RoofType:
   case alluminum, galvalume, tile, shingle
 

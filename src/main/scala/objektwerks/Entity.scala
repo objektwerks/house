@@ -234,7 +234,7 @@ object Soffit:
 
 final case class Window(id: Long = 0,
                         homeId: Long,
-                        typeof: String,
+                        typeof: WindowType = WindowType.single,
                         built: String = Entity.now) extends Entity
 
 object Window:

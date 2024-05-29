@@ -24,6 +24,9 @@ enum BalconyType:
 enum DrywallType:
   case standard, specialty
 
+enum RoomType:
+  case kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet
+
 enum RoofType:
   case alluminum, galvalume, tile, shingle
 
@@ -71,9 +74,6 @@ enum HeaterType:
 
 enum AirConditionerType:
   case central, ductless, window, portable, floor, airSourceHeatPump
-
-enum RoomType:
-  case kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet
 
 enum WindowType:
   case single, double, bay, slide

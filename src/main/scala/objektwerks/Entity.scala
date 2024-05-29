@@ -21,6 +21,9 @@ enum GarageType:
 enum RoofType:
   case alluminum, galvalume, tile, shingle
 
+enum ChimneyType:
+  case masonry, metal
+
 sealed trait Entity:
   val id: Long
 

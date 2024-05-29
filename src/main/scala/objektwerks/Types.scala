@@ -57,6 +57,9 @@ enum SoffitType:
 enum PlumbingType:
   case pex, pvc, copper, abs
 
+enum ElectricalType:
+  case nonmetalic, armored, undergroundfeeder, lowvoltage, thhn, thwn, phone, data
+
 enum RoomType:
   case kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet
 

@@ -18,6 +18,9 @@ enum DrivewayType:
 enum GarageType:
   case attached, detached
 
+enum RoofType:
+  case alluminum, galvalume, tile, shingle
+
 sealed trait Entity:
   val id: Long
 

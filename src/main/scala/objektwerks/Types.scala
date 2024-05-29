@@ -105,5 +105,8 @@ enum LawnType:
 enum GardenType:
   case flower, vegetable
 
+enum SprinklerType:
+  case multiUse, wetPipe, deluge, preAction
+
 enum MailboxType:
   case postMount, wallMount

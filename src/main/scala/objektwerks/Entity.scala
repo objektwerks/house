@@ -124,7 +124,7 @@ object Roof:
 
 final case class Chimney(id: Long = 0,
                          homeId: Long,
-                         typeof: String,
+                         typeof: ChimneyType = ChimneyType.masonry,
                          built: String = Entity.now) extends Entity
 
 object Chimney:

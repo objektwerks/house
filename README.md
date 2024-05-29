@@ -20,8 +20,8 @@ Internal
 
 External
 --------
->Sewage, Septic, Well, Water, WaterMain, WaterHeater, Lawn, Garden, Irrigation, Shed,
->SolarPanel, Dock, Porch, Patio, Pool, Mailbox
+>Sewage, Well, Water, WaterMain, WaterHeater, Lawn, Garden, Irrigation, Shed, SolarPanel,
+>Dock, Porch, Patio, Pool, Mailbox
 
 Resources
 ---------

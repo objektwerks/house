@@ -9,16 +9,16 @@ Model
 
 Enums
 -----
-* Residence ( primary, secondary )
-* Foundation ( basement, concrete, wood, crawl )
-* Driveway ( asphalt, concrete, gravel, paver )
-* Garage ( attached, detached )
-* Roof ( alluminum, galvalume, tile, shingle )
-* Chimney ( masonry, metal )
-* Room ( kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet )
-* Floor ( carpet, concrete, tile, wood, synthetic )
-* Window ( single, double, bay, slide )
-* Door ( wood, fiberglass, steel, glass )
+* HouseType ( primary, secondary )
+* FoundationType ( basement, concrete, wood, crawl )
+* DrivewayType ( asphalt, concrete, gravel, paver )
+* GarageType ( attached, detached )
+* RoofType ( alluminum, galvalume, tile, shingle )
+* ChimneyType ( masonry, metal )
+* RoomType ( kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet )
+* FloorType ( carpet, concrete, tile, wood, synthetic )
+* WindowType ( single, double, bay, slide )
+* DoorType ( wood, fiberglass, steel, glass )
 
 Structure
 ---------

@@ -243,7 +243,7 @@ object Window:
 
 final case class Door(id: Long = 0,
                       homeId: Long,
-                      typeof: String,
+                      typeof: DoorType = DoorType.wood,
                       built: String = Entity.now) extends Entity
 
 object Door:

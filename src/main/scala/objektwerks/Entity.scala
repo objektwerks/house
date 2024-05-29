@@ -151,7 +151,7 @@ object Drywall:
 
 final case class Room(id: Long = 0,
                       homeId: Long,
-                      typeof: String,
+                      typeof: RoomType = RoomType.bedroom,
                       built: String = Entity.now) extends Entity
 
 object Room:

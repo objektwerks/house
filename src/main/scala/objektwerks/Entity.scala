@@ -148,7 +148,7 @@ object Garage:
 
 final case class Porch(id: Long = 0,
                        homeId: Long,
-                       typeof: String,
+                       typeof: PorchType = PorchType.back,
                        built: String = Entity.now) extends Entity
 
 object Porch:

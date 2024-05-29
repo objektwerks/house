@@ -58,7 +58,10 @@ enum PlumbingType:
   case pex, pvc, copper, abs
 
 enum ElectricalType:
-  case nm, romex, armored, undergroundfeeder, lowvoltage, thhn, thwn, phone, data
+  case nm, romex, armored, undergroundFeeder, lowVoltage, thhn, thwn, phone, data
+
+enum FuseboxType:
+  case typeS, typeT, circuitBreaker, mainBreaker
 
 enum RoomType:
   case kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet

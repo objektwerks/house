@@ -57,6 +57,12 @@ enum GutterType:
 enum SoffitType:
   case wood, aluminum, cement, vinyl, steel
 
+enum WindowType:
+  case single, double, bay, slide
+
+enum DoorType:
+  case wood, fiberglass, steel, glass
+
 enum PlumbingType:
   case pex, pvc, copper, abs
 
@@ -74,12 +80,6 @@ enum HeaterType:
 
 enum AirConditionerType:
   case central, ductless, window, portable, floor, airSourceHeatPump
-
-enum WindowType:
-  case single, double, bay, slide
-
-enum DoorType:
-  case wood, fiberglass, steel, glass
 
 enum FloorType:
   case carpet, concrete, tile, wood, synthetic

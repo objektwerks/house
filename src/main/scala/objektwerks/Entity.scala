@@ -351,7 +351,7 @@ object SolarPanel:
 
 final case class Dock(id: Long = 0,
                       homeId: Long,
-                      typeof: String,
+                      typeof: DockType = DockType.permanent,
                       built: String = Entity.now) extends Entity
 
 object Dock:

@@ -45,6 +45,9 @@ enum PatioType:
 enum PoolType:
   case aboveground, inground
 
+enum SidingType:
+  case vinyl, wood, metal, cement, brick, stone, composite, clapboard
+
 enum RoomType:
   case kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet
 

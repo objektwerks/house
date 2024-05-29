@@ -87,5 +87,8 @@ enum FloorType:
 enum LightingType:
   case general, task, accent
 
+enum SewageType:
+  case sanitarySewer, subsurfaceDrainageSystem, septicSystem, aerobicTreatmentUnit, anaerobicSystem
+
 enum MailboxType:
   case postMount, wallMount

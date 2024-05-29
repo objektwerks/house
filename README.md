@@ -12,6 +12,7 @@ Enums
 * HouseType ( primary, secondary )
 * FoundationType ( basement, concrete, wood, crawl )
 * FrameType ( platform, steel )
+* AtticType ( finished, unfinished, scuttle )
 * RoofType ( alluminum, galvalume, tile, shingle )
 * ChimneyType ( masonry, metal )
 * DrivewayType ( asphalt, concrete, gravel, paver )

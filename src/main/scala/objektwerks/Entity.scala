@@ -269,7 +269,7 @@ object Heater:
 
 final case class AirConditioner(id: Long = 0,
                                 homeId: Long,
-                                typeof: String,
+                                typeof: AirConditionerType = AirConditionerType.central,
                                 installed: String = Entity.now) extends Entity
 
 object AirConditioner:

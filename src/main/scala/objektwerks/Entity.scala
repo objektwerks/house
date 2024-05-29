@@ -6,7 +6,7 @@ import com.github.plokhotnyuk.jsoniter_scala.macros.*
 import java.time.LocalDate
 import java.util.UUID
 
-enum Residence:
+enum HouseType:
   case primary, secondary, vacation
 
 enum FoundationType:
@@ -58,7 +58,7 @@ object Account:
 
 final case class House(id: Long = 0,
                        accountId: Long,
-                       residence: Residence = Residence.primary,
+                       residence: HouseType = HouseType.primary,
                        location: String,
                        built: String = Entity.now) extends Entity
 

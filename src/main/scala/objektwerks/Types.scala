@@ -83,3 +83,6 @@ enum AirConditionerType:
 
 enum FloorType:
   case carpet, concrete, tile, wood, synthetic
+
+enum LightingType:
+  case general, task, accent

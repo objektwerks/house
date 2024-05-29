@@ -33,6 +33,9 @@ enum FloorType:
 enum WindowType:
   case single, double, bay, slide
 
+enum DoorType:
+  case wood, fiberglass, steel, glass
+
 sealed trait Entity:
   val id: Long
 

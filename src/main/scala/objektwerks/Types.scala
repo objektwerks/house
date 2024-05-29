@@ -18,6 +18,9 @@ enum InsulationType:
 enum VentilationType:
   case balanced, exhaust, supply, heat
 
+enum BalconyType:
+  case cantilevered, hung, stacked, juliet, mezzanine, loggia
+
 enum RoofType:
   case alluminum, galvalume, tile, shingle
 

@@ -242,7 +242,7 @@ object Electrical:
 
 final case class Fusebox(id: Long = 0,
                          homeId: Long,
-                         typeof: String,
+                         typeof: FuseboxType = FuseboxType.circuitBreaker,
                          installed: String = Entity.now) extends Entity
 
 object Fusebox:

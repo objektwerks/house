@@ -42,7 +42,7 @@ object Home:
 
 final case class Foundation(id: Long = 0,
                             homeId: Long,
-                            kind: String,
+                            kind: Kind = Kind.slab,
                             built: String = Entity.now) extends Entity
 
  // Structure
@@ -50,6 +50,9 @@ final case class Foundation(id: Long = 0,
 object Foundation:
   given JsonValueCodec[Foundation] = JsonCodecMaker.make[Foundation]
   given Ordering[Foundation] = Ordering.by[Foundation, String](foundation => foundation.built).reverse
+
+  enum Kind:
+    case slab, basement, wood, crawl
 
 final case class Frame(id: Long = 0,
                        homeId: Long,

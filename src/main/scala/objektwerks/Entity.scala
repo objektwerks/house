@@ -103,7 +103,7 @@ object Chimney:
 
 final case class Balcony(id: Long = 0,
                          homeId: Long,
-                         typeof: String,
+                         typeof: BalconyType = BalconyType.cantilevered,
                          built: String = Entity.now) extends Entity
 
 object Balcony:

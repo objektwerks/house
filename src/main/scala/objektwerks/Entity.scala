@@ -287,7 +287,7 @@ object Floor:
 
 final case class Lighting(id: Long = 0,
                           homeId: Long,
-                          typeof: String,
+                          typeof: LightingType = LightingType.general,
                           installed: String = Entity.now) extends Entity
 
 object Lighting:

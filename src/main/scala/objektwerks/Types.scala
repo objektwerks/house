@@ -93,5 +93,8 @@ enum SewageType:
 enum WellType:
   case dug, drilled, driven
 
+enum WaterType:
+  case city, well, direct, indirect, singleStack
+
 enum MailboxType:
   case postMount, wallMount

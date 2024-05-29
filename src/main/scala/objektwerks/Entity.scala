@@ -30,6 +30,9 @@ enum RoomType:
 enum FloorType:
   case carpet, concrete, tile, wood, synthetic
 
+enum WindowType:
+  case single, double, bay, slide
+
 sealed trait Entity:
   val id: Long
 

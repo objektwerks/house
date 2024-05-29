@@ -96,5 +96,8 @@ enum WellType:
 enum WaterType:
   case city, well, direct, indirect, singleStack
 
+enum WaterHeaterType:
+  case tank, tankless, hybrid, pointOfUse, solar
+
 enum MailboxType:
   case postMount, wallMount

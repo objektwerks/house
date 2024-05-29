@@ -114,5 +114,8 @@ enum ShedType:
 enum SolarPanelType:
   case monocrystalline, polycrystalline, thinFilm
 
+enum DockType:
+  case floating, stationary, combination, permanent
+
 enum MailboxType:
   case postMount, wallMount

@@ -27,6 +27,9 @@ enum ChimneyType:
 enum RoomType:
   case kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet
 
+enum FloorType:
+  case carpet, concrete, tile, wood, synthetic
+
 sealed trait Entity:
   val id: Long
 

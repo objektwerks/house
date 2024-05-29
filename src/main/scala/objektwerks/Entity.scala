@@ -12,6 +12,9 @@ enum Residence:
 enum FoundationType:
   case slab, basement, wood, crawl
 
+enum DrivewayType:
+  case asphalt, concrete, gravel, paver
+
 sealed trait Entity:
   val id: Long
 

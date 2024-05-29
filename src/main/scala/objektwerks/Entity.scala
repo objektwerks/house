@@ -321,14 +321,14 @@ object Garden:
   given JsonValueCodec[Garden] = JsonCodecMaker.make[Garden]
   given Ordering[Garden] = Ordering.by[Garden, String](garden => garden.planted).reverse
 
-final case class Irrigation(id: Long = 0,
+final case class Sprinkler(id: Long = 0,
                             homeId: Long,
-                            typeof: String,
+                            typeof: SprinklerType = SprinklerType.preAction,
                             installed: String = Entity.now) extends Entity
 
-object Irrigation:
-  given JsonValueCodec[Irrigation] = JsonCodecMaker.make[Irrigation]
-  given Ordering[Irrigation] = Ordering.by[Irrigation, String](irrigation => irrigation.installed).reverse
+object Sprinkler:
+  given JsonValueCodec[Sprinkler] = JsonCodecMaker.make[Sprinkler]
+  given Ordering[Sprinkler] = Ordering.by[Sprinkler, String](irrigation => irrigation.installed).reverse
 
 final case class Shed(id: Long = 0,
                       homeId: Long,

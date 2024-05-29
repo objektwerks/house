@@ -407,7 +407,7 @@ object Pool:
 
 final case class Mailbox(id: Long = 0,
                          homeId: Long,
-                         typeof: String,
+                         typeof: MailboxType = MailboxType.postMount,
                          installed: String = Entity.now) extends Entity
 
 object Mailbox:

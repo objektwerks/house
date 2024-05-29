@@ -294,15 +294,6 @@ object Water:
   given JsonValueCodec[Water] = JsonCodecMaker.make[Water]
   given Ordering[Water] = Ordering.by[Water, String](water => water.installed).reverse
 
-final case class WaterMain(id: Long = 0,
-                           homeId: Long,
-                           typeof: String,
-                           installed: String = Entity.now) extends Entity
-
-object WaterMain:
-  given JsonValueCodec[WaterMain] = JsonCodecMaker.make[WaterMain]
-  given Ordering[WaterMain] = Ordering.by[WaterMain, String](water => water.installed).reverse
-
 final case class WaterHeater(id: Long = 0,
                              homeId: Long,
                              typeof: String,

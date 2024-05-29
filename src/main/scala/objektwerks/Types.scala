@@ -21,6 +21,9 @@ enum VentilationType:
 enum BalconyType:
   case cantilevered, hung, stacked, juliet, mezzanine, loggia
 
+enum DrywallType:
+  case standard, specialty
+
 enum RoofType:
   case alluminum, galvalume, tile, shingle
 

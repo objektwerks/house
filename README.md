@@ -6,21 +6,7 @@ Model
 -----
 * House 1 --> 1 Account
 * House 1 --> * Structure | Internal | External
-
-Enums
------
-* HouseType ( primary, secondary )
-* FoundationType ( basement, concrete, wood, crawl )
-* FrameType ( platform, steel )
-* AtticType ( finished, unfinished, scuttle )
-* RoofType ( alluminum, galvalume, tile, shingle )
-* ChimneyType ( masonry, metal )
-* DrivewayType ( asphalt, concrete, gravel, paver )
-* GarageType ( attached, detached )
-* RoomType ( kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet )
-* WindowType ( single, double, bay, slide )
-* DoorType ( wood, fiberglass, steel, glass )
-* FloorType ( carpet, concrete, tile, wood, synthetic )
+* Entity * <--> * Types
 
 Structure
 ---------

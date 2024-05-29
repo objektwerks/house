@@ -179,7 +179,7 @@ object Pool:
 
 final case class Siding(id: Long = 0,
                         homeId: Long,
-                        typeof: String,
+                        typeof: SidingType = SidingType.vinyl,
                         built: String = Entity.now) extends Entity
 
 object Siding:

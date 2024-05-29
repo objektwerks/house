@@ -157,7 +157,7 @@ object Porch:
 
 final case class Patio(id: Long = 0,
                        homeId: Long,
-                       typeof: String,
+                       typeof: PatioType = PatioType.paver,
                        built: String = Entity.now) extends Entity
 
 object Patio:

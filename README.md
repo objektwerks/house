@@ -13,7 +13,7 @@ Structure
 >Foundation, Frame, Attic, Insulation, Ventilation, Roof, Chimney, Balcony, Drywall,
 >Room, Driveway, Garage
 
-Internal
+Integral
 --------
 >Siding, Gutter, Soffit, Window, Door, Plumbing, Electrical, Fusebox, Alarm, Heater,
 >AirConditioner, Floor, Lighting

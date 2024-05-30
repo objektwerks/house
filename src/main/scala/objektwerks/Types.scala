@@ -3,6 +3,8 @@ package objektwerks
 enum HouseType:
   case primary, secondary, vacation
 
+// Structure
+
 enum FoundationType:
   case slab, basement, wood, crawl
 

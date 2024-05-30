@@ -146,7 +146,7 @@ object Garage:
   given JsonValueCodec[Garage] = JsonCodecMaker.make[Garage]
   given Ordering[Garage] = Ordering.by[Garage, String](garage => garage.built).reverse
 
-// Internal
+// Integral
 
 final case class Siding(id: Long = 0,
                         homeId: Long,

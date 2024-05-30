@@ -91,6 +91,8 @@ enum FloorType:
 enum LightingType:
   case general, task, accent
 
+// External
+
 enum SewageType:
   case sanitarySewer, subsurfaceDrainageSystem, septicSystem, aerobicTreatmentUnit, anaerobicSystem
 

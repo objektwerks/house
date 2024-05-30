@@ -36,12 +36,12 @@ object House:
   given JsonValueCodec[House] = JsonCodecMaker.make[House]
   given Ordering[House] = Ordering.by[House, String](home => home.built).reverse
 
+ // Structure
+
 final case class Foundation(id: Long = 0,
                             homeId: Long,
                             typeof: FoundationType = FoundationType.slab,
                             built: String = Entity.now) extends Entity
-
- // Structure
 
 object Foundation:
   given JsonValueCodec[Foundation] = JsonCodecMaker.make[Foundation]

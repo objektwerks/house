@@ -50,6 +50,8 @@ enum PatioType:
 enum PoolType:
   case aboveground, inground
 
+// Integral
+
 enum SidingType:
   case vinyl, wood, metal, cement, brick, stone, composite, clapboard
 

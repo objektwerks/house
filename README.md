@@ -5,7 +5,7 @@ House
 Model
 -----
 * House 1 --> 1 Account
-* House 1 --> * Structure | Internal | External
+* House 1 --> * Structure | Integral | External
 * Entity * <--> * Types
 
 Structure

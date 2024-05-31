@@ -16,8 +16,12 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   val store = Store(config, Store.cache(minSize = 1, maxSize = 1, expireAfter = 1.hour))
 
-  var testAccount = Account()
+  var testAccount = Account(email = "your@email.com")
   var testHouse = House(accountId = 0, location = "100 Rocky Way")
 
   test("store"):
-    println(config)
+    register()
+
+  def register(): Unit =
+    testAccount = store.register(testAccount)
+    testAccount.id > 0 shouldBe true

@@ -56,3 +56,17 @@ final class Store(config: Config):
       .updateAndReturnGeneratedKey()
     }
     account.copy(id = id)
+
+  def listHouses(accountId: Long): List[House] = DB readOnly { implicit session =>
+    sql"select * from house where account_id = $accountId order by built"
+      .map(rs =>
+        House(
+          rs.long("id"),
+          rs.long("account_id"),
+          HouseType.valueOf( rs.string("typeof") ),
+          rs.string("location"), 
+          rs.string("built")
+        )
+      )
+      .list()
+  }

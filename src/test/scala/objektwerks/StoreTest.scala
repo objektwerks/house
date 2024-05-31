@@ -14,6 +14,7 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   val config = ConfigFactory.load("test.conf")
 
+  val store = Store(config, Store.cache(minSize = 1, maxSize = 1, expireAfter = 1.hour))
 
   test("store"):
     true

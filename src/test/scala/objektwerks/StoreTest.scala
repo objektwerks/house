@@ -16,5 +16,8 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   val store = Store(config, Store.cache(minSize = 1, maxSize = 1, expireAfter = 1.hour))
 
+  var testAccount = Account()
+  var testHouse = House(accountId = 0, location = "100 Rocky Way")
+
   test("store"):
     true

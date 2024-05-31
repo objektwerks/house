@@ -23,14 +23,14 @@ object Store:
 final class Store(config: Config,
                   cache: Cache[String, String]):
   private val dataSource: DataSource = {
-    val ds = new HikariDataSource()
+    val ds = HikariDataSource()
     ds.setDataSourceClassName(config.getString("db.driverClassName"))
     ds.addDataSourceProperty("url", config.getString("db.url"))
     ds.addDataSourceProperty("user", config.getString("db.user"))
     ds.addDataSourceProperty("password", config.getString("db.password"))
     ds
   }
-  ConnectionPool.singleton(new DataSourceConnectionPool(dataSource))
+  ConnectionPool.singleton( DataSourceConnectionPool(dataSource) )
 
   def register(account: Account): Long =
     addAccount(account)

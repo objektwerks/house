@@ -21,11 +21,12 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   test("store"):
     register()
+    login()
 
   def register(): Unit =
     testAccount = store.register(testAccount)
     testAccount.id > 0 shouldBe true
 
-  def login(email: String, pin: String): Unit =
-    val account = store.login(email, pin)
+  def login(): Unit =
+    val account = store.login(testAccount.email, testAccount.pin)
     account shouldBe Some(testAccount)

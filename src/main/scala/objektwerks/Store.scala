@@ -70,3 +70,11 @@ final class Store(config: Config):
       )
       .list()
   }
+
+  def addHouse(house: House): Long = DB localTx { implicit session =>
+    sql"""
+      insert into house(account_id, typeof, location, built)
+      values(${house.accountId}, ${house.typeof.toString} ${house.location}, ${house.built})
+      """
+      .updateAndReturnGeneratedKey()
+  }

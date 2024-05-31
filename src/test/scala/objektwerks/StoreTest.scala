@@ -23,8 +23,13 @@ final class StoreTest extends AnyFunSuite with Matchers:
     register()
     login()
 
+    isAuthorized()
     addHouse()
+
+    isAuthorized()
     updateHouse()
+    
+    isAuthorized()
     listHouses()
 
   def register(): Unit =
@@ -35,6 +40,9 @@ final class StoreTest extends AnyFunSuite with Matchers:
   def login(): Unit =
     val optionalAccount = store.login(testAccount.email, testAccount.pin)
     optionalAccount shouldBe Some(testAccount)
+
+  def isAuthorized(): Unit =
+    store.isAuthorized(testAccount.license) shouldBe true
 
   def addHouse(): Unit =
     testHouse = testHouse.copy(accountId = testAccount.id)

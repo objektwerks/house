@@ -28,16 +28,18 @@ final class StoreTest extends AnyFunSuite with Matchers:
     listHouses()
 
   def register(): Unit =
-    testAccount = store.register(testAccount)
-    testAccount.id > 0 shouldBe true
+    val id = store.register(testAccount)
+    id > 0 shouldBe true
+    testAccount = testAccount.copy(id = id)
 
   def login(): Unit =
-    val account = store.login(testAccount.email, testAccount.pin)
-    account shouldBe Some(testAccount)
+    val optionalAccount = store.login(testAccount.email, testAccount.pin)
+    optionalAccount shouldBe Some(testAccount)
 
   def addHouse(): Unit =
     testHouse = testHouse.copy(accountId = testAccount.id)
     val id = store.addHouse(testHouse)
+    id > 0 shouldBe true
     testHouse = testHouse.copy(id = id)
 
   def updateHouse(): Unit =
@@ -47,4 +49,4 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def listHouses(): Unit =
     val houses = store.listHouses(testHouse.accountId)
-    houses.nonEmpty shouldBe true
+    houses.length == 1 shouldBe true

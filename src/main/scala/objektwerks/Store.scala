@@ -32,7 +32,8 @@ final class Store(config: Config,
   }
   ConnectionPool.singleton(new DataSourceConnectionPool(dataSource))
 
-  def register(account: Account): Account = addAccount(account)
+  def register(account: Account): Long =
+    addAccount(account)
 
   def login(email: String, pin: String): Option[Account] =
     DB readOnly { implicit session =>
@@ -64,42 +65,44 @@ final class Store(config: Config,
           true
         else false
 
-  def addAccount(account: Account): Account =
-    val id = DB localTx { implicit session =>
+  def addAccount(account: Account): Long =
+    DB localTx { implicit session =>
       sql"""
         insert into account(license, email, pin, activated)
         values(${account.license}, ${account.email}, ${account.pin}, ${account.activated})
       """
       .updateAndReturnGeneratedKey()
     }
-    account.copy(id = id)
 
-  def listHouses(accountId: Long): List[House] = DB readOnly { implicit session =>
-    sql"select * from house where account_id = $accountId order by built"
-      .map(rs =>
-        House(
-          rs.long("id"),
-          rs.long("account_id"),
-          HouseType.valueOf( rs.string("typeof") ),
-          rs.string("location"), 
-          rs.string("built")
+  def listHouses(accountId: Long): List[House] =
+    DB readOnly { implicit session =>
+      sql"select * from house where account_id = $accountId order by built"
+        .map(rs =>
+          House(
+            rs.long("id"),
+            rs.long("account_id"),
+            HouseType.valueOf( rs.string("typeof") ),
+            rs.string("location"), 
+            rs.string("built")
+          )
         )
-      )
-      .list()
-  }
+        .list()
+    }
 
-  def addHouse(house: House): Long = DB localTx { implicit session =>
-    sql"""
-      insert into house(account_id, typeof, location, built)
-      values(${house.accountId}, ${house.typeof.toString}, ${house.location}, ${house.built})
-      """
-      .updateAndReturnGeneratedKey()
-  }
+  def addHouse(house: House): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into house(account_id, typeof, location, built)
+        values(${house.accountId}, ${house.typeof.toString}, ${house.location}, ${house.built})
+        """
+        .updateAndReturnGeneratedKey()
+    }
 
-  def updateHouse(house: House): Int = DB localTx { implicit session =>
-    sql"""
-      update house set typeof = ${house.typeof.toString}, location = ${house.location}, built = ${house.built}
-      where id = ${house.id}
-      """
-      .update()
-  }
+  def updateHouse(house: House): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update house set typeof = ${house.typeof.toString}, location = ${house.location}, built = ${house.built}
+        where id = ${house.id}
+        """
+        .update()
+    }

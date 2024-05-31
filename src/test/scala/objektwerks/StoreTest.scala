@@ -20,4 +20,4 @@ final class StoreTest extends AnyFunSuite with Matchers:
   var testHouse = House(accountId = 0, location = "100 Rocky Way")
 
   test("store"):
-    true
+    println(config)

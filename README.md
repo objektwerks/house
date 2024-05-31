@@ -2,6 +2,11 @@ House
 ----
 >Model of a house using Jsoniter, ScalikeJdbc, Scaffeine, HikariCP, Postgresql and Scala 3.
 
+Todo
+----
+1. Complete Store
+2. Complete StoreTest
+
 Build
 -----
 1. sbt clean compile

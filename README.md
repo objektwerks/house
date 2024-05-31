@@ -28,18 +28,15 @@ Model
 
 Structure
 ---------
->Foundation, Frame, Attic, Insulation, Ventilation, Roof, Chimney, Balcony, Drywall,
->Room, Driveway, Garage
+>Foundation, Frame, Attic, Insulation, Ventilation, Roof, Chimney, Balcony, Drywall, Room, Driveway, Garage
 
 Integral
 --------
->Siding, Gutter, Soffit, Window, Door, Plumbing, Electrical, Fusebox, Alarm, Heater,
->AirConditioner, Floor, Lighting
+>Siding, Gutter, Soffit, Window, Door, Plumbing, Electrical, Fusebox, Alarm, Heater, AirConditioner, Floor, Lighting
 
 External
 --------
->Sewage, Well, Water, WaterHeater, Lawn, Garden, Sprinkler, Shed, SolarPanel, Dock,
->Porch, Patio, Pool, Mailbox
+>Sewage, Well, Water, WaterHeater, Lawn, Garden, Sprinkler, Shed, SolarPanel, Dock, Porch, Patio, Pool, Mailbox
 
 Postgresql
 ----------

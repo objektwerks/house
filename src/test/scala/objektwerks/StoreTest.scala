@@ -23,6 +23,8 @@ final class StoreTest extends AnyFunSuite with Matchers:
     register()
     login()
 
+    addHouse()
+
   def register(): Unit =
     testAccount = store.register(testAccount)
     testAccount.id > 0 shouldBe true
@@ -30,3 +32,8 @@ final class StoreTest extends AnyFunSuite with Matchers:
   def login(): Unit =
     val account = store.login(testAccount.email, testAccount.pin)
     account shouldBe Some(testAccount)
+
+  def addHouse(): Unit =
+    testHouse = testHouse.copy(accountId = testAccount.id)
+    val id = store.addHouse(testHouse)
+    testHouse = testHouse.copy(id = id)

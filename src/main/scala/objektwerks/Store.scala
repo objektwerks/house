@@ -44,3 +44,13 @@ final class Store(config: Config):
           logger.debug(s"*** store cache put: $license")
           true
         else false
+
+  def addAccount(account: Account): Account =
+    val id = DB localTx { implicit session =>
+      sql"""
+        insert into account(license, email, pin, activated)
+        values(${account.license}, ${account.email}, ${account.pin}, ${account.activated})
+      """
+      .updateAndReturnGeneratedKey()
+    }
+    account.copy(id = id)

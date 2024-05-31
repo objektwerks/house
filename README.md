@@ -76,6 +76,22 @@ Drop
 2. drop database house;
 3. \q
 
+Environment
+-----------
+>The following environment variables must be defined:
+```
+export HOUSE_POSTGRESQL_URL="jdbc:postgresql://localhost:5432/house"
+export HOUSE_POSTGRESQL_USER="host-name"
+export HOUSE_POSTGRESQL_PASSWORD="house"
+export HOUSE_POSTGRESQL_DRIVER="org.postgresql.ds.PGSimpleDataSource"
+export HOUSE_POSTGRESQL_DB_NAME="house"
+export HOUSE_POSTGRESQL_HOST="127.0.0.1"
+export HOUSE_POSTGRESQL_PORT=5432
+export HOUSE_POSTGRESQL_POOL_INITIAL_SIZE=9
+export HOUSE_POSTGRESQL_POOL_MAX_SIZE=32
+export HOUSE_POSTGRESQL_POOL_CONNECTION_TIMEOUT_MILLIS=30000
+```
+
 Resources
 ---------
 * [House Parts](https://www.hippo.com/learn-center/parts-of-a-house)

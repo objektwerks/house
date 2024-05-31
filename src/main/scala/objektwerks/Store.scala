@@ -31,7 +31,6 @@ final class Store(config: Config):
   def isAuthorized(license: String): Boolean =
     cache.getIfPresent(license) match
       case Some(_) =>
-        logger.debug(s"*** store cache get: $license")
         true
       case None =>
         val optionalLicense = DB readOnly { implicit session =>
@@ -41,7 +40,6 @@ final class Store(config: Config):
         }
         if optionalLicense.isDefined then
           cache.put(license, license)
-          logger.debug(s"*** store cache put: $license")
           true
         else false
 

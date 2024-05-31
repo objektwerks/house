@@ -6,9 +6,9 @@ import com.zaxxer.hikari.HikariDataSource
 
 import javax.sql.DataSource
 
-import scalikejdbc.*
-
 import scala.concurrent.duration.FiniteDuration
+
+import scalikejdbc.*
 
 object Store:
   def cache(initialSize: Int,

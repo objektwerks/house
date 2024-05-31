@@ -6,6 +6,10 @@ Build
 -----
 1. sbt clean compile
 
+Test
+----
+1. sbt clean test
+
 Model
 -----
 * House 1 --> 1 Account

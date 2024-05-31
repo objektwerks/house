@@ -14,7 +14,7 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   val config = ConfigFactory.load("test.conf")
 
-  val store = Store(config, Store.cache(minSize = 1, maxSize = 1, expireAfter = 1.hour))
+  val store = Store(config, Store.cache(initialSize = 1, maxSize = 1, expireAfter = 1.hour))
 
   var testAccount = Account(email = "your@email.com")
   var testHouse = House(accountId = 0, location = "100 Rocky Way")
@@ -28,7 +28,7 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
     isAuthorized()
     updateHouse()
-    
+
     isAuthorized()
     listHouses()
 

@@ -11,11 +11,11 @@ import scalikejdbc.*
 import scala.concurrent.duration.FiniteDuration
 
 object Store:
-  def cache(minSize: Int,
+  def cache(initialSize: Int,
             maxSize: Int,
             expireAfter: FiniteDuration): Cache[String, String] =
     Scaffeine()
-      .initialCapacity(minSize)
+      .initialCapacity(initialSize)
       .maximumSize(maxSize)
       .expireAfterWrite(expireAfter)
       .build[String, String]()

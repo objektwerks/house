@@ -1,19 +1,36 @@
 package objektwerks
 
+import com.github.blemale.scaffeine.{Cache, Scaffeine}
 import com.typesafe.config.Config
+import com.zaxxer.hikari.HikariDataSource
 
-import scala.collection.concurrent.TrieMap
+import javax.sql.DataSource
 
 import scalikejdbc.*
 
-final class Store(config: Config):
-  val url = config.getString("db.url")
-  val user = config.getString("db.user")
-  val password = config.getString("db.password")
+import scala.concurrent.duration.FiniteDuration
 
-  val cache = TrieMap.empty[String, String]
+object Store:
+  def cache(minSize: Int,
+            maxSize: Int,
+            expireAfter: FiniteDuration): Cache[String, String] =
+    Scaffeine()
+      .initialCapacity(minSize)
+      .maximumSize(maxSize)
+      .expireAfterWrite(expireAfter)
+      .build[String, String]()
 
-  ConnectionPool.singleton(url, user, password)
+final class Store(config: Config,
+                  cache: Cache[String, String]):
+  private val dataSource: DataSource = {
+    val ds = new HikariDataSource()
+    ds.setDataSourceClassName(config.getString("db.driverClassName"))
+    ds.addDataSourceProperty("url", config.getString("db.url"))
+    ds.addDataSourceProperty("user", config.getString("db.user"))
+    ds.addDataSourceProperty("password", config.getString("db.password"))
+    ds
+  }
+  ConnectionPool.singleton(new DataSourceConnectionPool(dataSource))
 
   def register(account: Account): Account = addAccount(account)
 
@@ -33,7 +50,7 @@ final class Store(config: Config):
     }
 
   def isAuthorized(license: String): Boolean =
-    cache.get(license) match
+    cache.getIfPresent(license) match
       case Some(_) =>
         true
       case None =>

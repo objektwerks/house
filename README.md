@@ -4,8 +4,9 @@ House
 
 Todo
 ----
-1. Complete Store
-2. Complete StoreTest
+1. Enhance Entities
+2. Complete Store
+3. Complete StoreTest
 
 Install
 -------

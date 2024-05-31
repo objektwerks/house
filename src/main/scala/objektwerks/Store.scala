@@ -10,3 +10,5 @@ final class Store(config: Config):
   val password = config.getString("db.password")
 
   ConnectionPool.singleton(url, user, password)
+
+  def register(account: Account): Account = addAccount(account)

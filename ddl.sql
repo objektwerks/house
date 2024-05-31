@@ -14,5 +14,5 @@ CREATE TABLE house (
   account_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
   location VARCHAR NOT NULL,
-  built VARCHAR(10) NOT NULL
+  built VARCHAR NOT NULL
 );

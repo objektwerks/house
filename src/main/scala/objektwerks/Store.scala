@@ -2,12 +2,16 @@ package objektwerks
 
 import com.typesafe.config.Config
 
+import scala.collection.concurrent.TrieMap
+
 import scalikejdbc.*
 
 final class Store(config: Config):
   val url = config.getString("db.url")
   val user = config.getString("db.user")
   val password = config.getString("db.password")
+
+  val cache = TrieMap.empty[String, String]
 
   ConnectionPool.singleton(url, user, password)
 
@@ -29,7 +33,7 @@ final class Store(config: Config):
     }
 
   def isAuthorized(license: String): Boolean =
-    cache.getIfPresent(license) match
+    cache.get(license) match
       case Some(_) =>
         true
       case None =>

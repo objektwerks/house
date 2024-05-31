@@ -6,6 +6,7 @@ libraryDependencies ++= {
   val jsoniterVersion = "2.29.0"
   Seq(
     "org.scalikejdbc" %% "scalikejdbc" % "4.3.0",
+    "com.h2database" % "h2" % "2.2.224",
     "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-core" % jsoniterVersion,
     "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-macros" % jsoniterVersion % Provided,
     "ch.qos.logback" % "logback-classic" % "1.5.6",

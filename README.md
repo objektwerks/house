@@ -1,6 +1,6 @@
 House
 ----
->Model of a house.
+>Model of a house using Jsoniter, ScalikeJdbc, Scaffeine, HikariCP, Postgresql and Scala 3.
 
 Model
 -----

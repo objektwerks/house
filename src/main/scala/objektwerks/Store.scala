@@ -79,11 +79,10 @@ final class Store(config: Config):
       .updateAndReturnGeneratedKey()
   }
 
-  def updateHouse(house: House): Long = DB localTx { implicit session =>
+  def updateHouse(house: House): Int = DB localTx { implicit session =>
     sql"""
       update house set typeof = ${house.typeof.toString}, location = ${house.location}, built = ${house.built}
       where id = ${house.id}
       """
       .update()
-    house.id
   }

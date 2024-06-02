@@ -3,7 +3,7 @@ organization := "objektwerks"
 version := "0.6-SNAPSHOT"
 scalaVersion := "3.5.0-RC1"
 libraryDependencies ++= {
-  val jsoniterVersion = "2.30.0"
+  val jsoniterVersion = "2.30.1"
   Seq(
     "org.scalikejdbc" %% "scalikejdbc" % "4.3.0",
     "com.zaxxer" % "HikariCP" % "5.1.0" exclude("org.slf4j", "slf4j-api"),

@@ -257,3 +257,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateVentilation(ventilation: Ventilation): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update ventilation set typeof = ${ventilation.typeof.toString}, built = ${ventilation.installed}
+        where id = ${ventilation.id}
+        """
+        .update()
+    }

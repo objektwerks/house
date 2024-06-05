@@ -237,13 +237,13 @@ final class Store(config: Config,
 
   def listVentilations(houseId: Long): List[Ventilation] =
     DB readOnly { implicit session =>
-      sql"select * from ventilation where house_id = $houseId order by built"
+      sql"select * from ventilation where house_id = $houseId order by installed"
         .map(rs =>
           Ventilation(
             rs.long("id"),
             rs.long("house_id"),
             VentilationType.valueOf( rs.string("typeof") ),
-            rs.string("built")
+            rs.string("installed")
           )
         )
         .list()
@@ -252,7 +252,7 @@ final class Store(config: Config,
   def addVentilation(ventilation: Ventilation): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into ventilation(house_id, typeof, built)
+        insert into ventilation(house_id, typeof, installed)
         values(${ventilation.homeId}, ${ventilation.typeof.toString}, ${ventilation.installed})
         """
         .updateAndReturnGeneratedKey()
@@ -261,7 +261,7 @@ final class Store(config: Config,
   def updateVentilation(ventilation: Ventilation): Int =
     DB localTx { implicit session =>
       sql"""
-        update ventilation set typeof = ${ventilation.typeof.toString}, built = ${ventilation.installed}
+        update ventilation set typeof = ${ventilation.typeof.toString}, installed = ${ventilation.installed}
         where id = ${ventilation.id}
         """
         .update()

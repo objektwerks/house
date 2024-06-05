@@ -321,3 +321,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateChimney(chimney: Chimney): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update chimney set typeof = ${chimney.typeof.toString}, built = ${chimney.built}
+        where id = ${chimney.id}
+        """
+        .update()
+    }

@@ -202,3 +202,17 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listInsulations(houseId: Long): List[Insulation] =
+    DB readOnly { implicit session =>
+      sql"select * from insulation where house_id = $houseId order by built"
+        .map(rs =>
+          Insulation(
+            rs.long("id"),
+            rs.long("house_id"),
+            InsulationType.valueOf( rs.string("typeof") ),
+            rs.string("built")
+          )
+        )
+        .list()
+    }

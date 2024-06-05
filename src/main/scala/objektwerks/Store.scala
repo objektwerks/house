@@ -353,3 +353,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateBalcony(balcony: Balcony): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update balcony set typeof = ${balcony.typeof.toString}, built = ${balcony.built}
+        where id = ${balcony.id}
+        """
+        .update()
+    }

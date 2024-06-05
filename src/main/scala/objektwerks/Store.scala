@@ -106,3 +106,17 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listFoundations(homeId: Long): List[Foundation] =
+    DB readOnly { implicit session =>
+      sql"select * from foundation where home_id = $homeId order by built"
+        .map(rs =>
+          Foundation(
+            rs.long("id"),
+            rs.long("home_id"),
+            FoundationType.valueOf( rs.string("typeof") ),
+            rs.string("built")
+          )
+        )
+        .list()
+    }

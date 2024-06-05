@@ -298,3 +298,17 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listChimneys(houseId: Long): List[Chimney] =
+    DB readOnly { implicit session =>
+      sql"select * from chimney where house_id = $houseId order by built"
+        .map(rs =>
+          Chimney(
+            rs.long("id"),
+            rs.long("house_id"),
+            ChimneyType.valueOf( rs.string("typeof") ),
+            rs.string("built")
+          )
+        )
+        .list()
+    }

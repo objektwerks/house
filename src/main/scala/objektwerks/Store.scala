@@ -129,3 +129,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateFoundation(foundation: Foundation): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update foundation set typeof = ${foundation.typeof.toString}, built = ${foundation.built}
+        where id = ${foundation.id}
+        """
+        .update()
+    }

@@ -194,7 +194,7 @@ final class Store(config: Config,
         .updateAndReturnGeneratedKey()
     }
 
-  def updateFAttic(attic: Attic): Int =
+  def updateAttic(attic: Attic): Int =
     DB localTx { implicit session =>
       sql"""
         update attic set typeof = ${attic.typeof.toString}, built = ${attic.built}

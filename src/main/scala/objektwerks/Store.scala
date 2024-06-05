@@ -120,3 +120,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addFoundation(foundation: Foundation): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into foundation(home_id, typeof, built)
+        values(${foundation.homeId}, ${foundation.typeof.toString}, ${foundation.built})
+        """
+        .updateAndReturnGeneratedKey()
+    }

@@ -289,3 +289,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateRoof(roof: Roof): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update roof set typeof = ${roof.typeof.toString}, built = ${roof.built}
+        where id = ${roof.id}
+        """
+        .update()
+    }

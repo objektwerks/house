@@ -79,3 +79,10 @@ CREATE TABLE drywall (
   typeof VARCHAR NOT NULL,
   built VARCHAR NOT NULL
 );
+
+CREATE TABLE room (
+  id BIGSERIAL PRIMARY KEY,
+  house_id BIGINT REFERENCES house(id),
+  typeof VARCHAR NOT NULL,
+  built VARCHAR NOT NULL
+);

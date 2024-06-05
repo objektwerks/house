@@ -216,3 +216,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addInsulation(insulation: Insulation): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into insulation(house_id, typeof, built)
+        values(${insulation.homeId}, ${insulation.typeof.toString}, ${insulation.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }

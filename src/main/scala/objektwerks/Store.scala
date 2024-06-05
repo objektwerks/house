@@ -161,3 +161,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateFrame(frame: Frame): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update frame set typeof = ${frame.typeof.toString}, built = ${frame.built}
+        where id = ${frame.id}
+        """
+        .update()
+    }

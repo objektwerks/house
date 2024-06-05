@@ -385,3 +385,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateDrywall(drywall: Drywall): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update drywall set typeof = ${drywall.typeof.toString}, built = ${drywall.built}
+        where id = ${drywall.id}
+        """
+        .update()
+    }

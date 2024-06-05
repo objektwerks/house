@@ -170,3 +170,17 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listAttics(houseId: Long): List[Attic] =
+    DB readOnly { implicit session =>
+      sql"select * from attic where house_id = $houseId order by built"
+        .map(rs =>
+          Attic(
+            rs.long("id"),
+            rs.long("house_id"),
+            AtticType.valueOf( rs.string("typeof") ),
+            rs.string("built")
+          )
+        )
+        .list()
+    }

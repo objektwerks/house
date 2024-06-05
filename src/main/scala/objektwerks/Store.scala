@@ -417,3 +417,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateRoom(room: Room): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update room set typeof = ${room.typeof.toString}, built = ${room.built}
+        where id = ${room.id}
+        """
+        .update()
+    }

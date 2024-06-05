@@ -312,3 +312,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addChimney(chimney: Chimney): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into chimney(house_id, typeof, built)
+        values(${chimney.homeId}, ${chimney.typeof.toString}, ${chimney.built})
+        """
+        .updateAndReturnGeneratedKey()
+    }

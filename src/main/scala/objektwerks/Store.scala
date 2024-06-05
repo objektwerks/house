@@ -107,9 +107,9 @@ final class Store(config: Config,
         .update()
     }
 
-  def listFoundations(homeId: Long): List[Foundation] =
+  def listFoundations(houseId: Long): List[Foundation] =
     DB readOnly { implicit session =>
-      sql"select * from foundation where house_id = $homeId order by built"
+      sql"select * from foundation where house_id = $houseId order by built"
         .map(rs =>
           Foundation(
             rs.long("id"),

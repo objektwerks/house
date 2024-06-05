@@ -152,3 +152,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addFrame(frame: Frame): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into frame(house_id, typeof, built)
+        values(${frame.homeId}, ${frame.typeof.toString}, ${frame.built})
+        """
+        .updateAndReturnGeneratedKey()
+    }

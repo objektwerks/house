@@ -248,3 +248,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addVentilation(ventilation: Ventilation): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into ventilation(house_id, typeof, built)
+        values(${ventilation.homeId}, ${ventilation.typeof.toString}, ${ventilation.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }

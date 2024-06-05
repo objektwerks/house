@@ -205,13 +205,13 @@ final class Store(config: Config,
 
   def listInsulations(houseId: Long): List[Insulation] =
     DB readOnly { implicit session =>
-      sql"select * from insulation where house_id = $houseId order by built"
+      sql"select * from insulation where house_id = $houseId order by installed"
         .map(rs =>
           Insulation(
             rs.long("id"),
             rs.long("house_id"),
             InsulationType.valueOf( rs.string("typeof") ),
-            rs.string("built")
+            rs.string("installed")
           )
         )
         .list()
@@ -220,7 +220,7 @@ final class Store(config: Config,
   def addInsulation(insulation: Insulation): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into insulation(house_id, typeof, built)
+        insert into insulation(house_id, typeof, installed)
         values(${insulation.homeId}, ${insulation.typeof.toString}, ${insulation.installed})
         """
         .updateAndReturnGeneratedKey()
@@ -229,7 +229,7 @@ final class Store(config: Config,
   def updateInsulation(insulation: Insulation): Int =
     DB localTx { implicit session =>
       sql"""
-        update insulation set typeof = ${insulation.typeof.toString}, built = ${insulation.installed}
+        update insulation set typeof = ${insulation.typeof.toString}, installed = ${insulation.installed}
         where id = ${insulation.id}
         """
         .update()

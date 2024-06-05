@@ -138,3 +138,17 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listFrames(houseId: Long): List[Frame] =
+    DB readOnly { implicit session =>
+      sql"select * from frame where house_id = $houseId order by built"
+        .map(rs =>
+          Frame(
+            rs.long("id"),
+            rs.long("house_id"),
+            FrameType.valueOf( rs.string("typeof") ),
+            rs.string("built")
+          )
+        )
+        .list()
+    }

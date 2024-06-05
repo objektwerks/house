@@ -280,3 +280,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addRoof(roof: Roof): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into roof(house_id, typeof, built)
+        values(${roof.homeId}, ${roof.typeof.toString}, ${roof.built})
+        """
+        .updateAndReturnGeneratedKey()
+    }

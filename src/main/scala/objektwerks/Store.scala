@@ -109,11 +109,11 @@ final class Store(config: Config,
 
   def listFoundations(homeId: Long): List[Foundation] =
     DB readOnly { implicit session =>
-      sql"select * from foundation where home_id = $homeId order by built"
+      sql"select * from foundation where house_id = $homeId order by built"
         .map(rs =>
           Foundation(
             rs.long("id"),
-            rs.long("home_id"),
+            rs.long("house_id"),
             FoundationType.valueOf( rs.string("typeof") ),
             rs.string("built")
           )
@@ -124,7 +124,7 @@ final class Store(config: Config,
   def addFoundation(foundation: Foundation): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into foundation(home_id, typeof, built)
+        insert into foundation(house_id, typeof, built)
         values(${foundation.homeId}, ${foundation.typeof.toString}, ${foundation.built})
         """
         .updateAndReturnGeneratedKey()

@@ -376,3 +376,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addDrywall(drywall: Drywall): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into drywall(house_id, typeof, built)
+        values(${drywall.homeId}, ${drywall.typeof.toString}, ${drywall.built})
+        """
+        .updateAndReturnGeneratedKey()
+    }

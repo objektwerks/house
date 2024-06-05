@@ -225,3 +225,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateInsulation(insulation: Insulation): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update insulation set typeof = ${insulation.typeof.toString}, built = ${insulation.installed}
+        where id = ${insulation.id}
+        """
+        .update()
+    }

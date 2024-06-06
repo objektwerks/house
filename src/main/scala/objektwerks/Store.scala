@@ -514,11 +514,11 @@ final class Store(config: Config,
         .updateAndReturnGeneratedKey()
     }
 
-  def updateSiding(ventilation: Ventilation): Int =
+  def updateSiding(siding: Siding): Int =
     DB localTx { implicit session =>
       sql"""
-        update ventilation set typeof = ${ventilation.typeof.toString}, installed = ${ventilation.installed}
-        where id = ${ventilation.id}
+        update siding set typeof = ${siding.typeof.toString}, installed = ${siding.installed}
+        where id = ${siding.id}
         """
         .update()
     }

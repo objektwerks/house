@@ -76,7 +76,7 @@ object Insulation:
 
 final case class Ductwork(id: Long = 0,
                           homeId: Long,
-                          typeof: DuctworkType = DuctworkType.flow,
+                          typeof: DuctworkType = DuctworkType.supply,
                           installed: String = Entity.now) extends Entity
 
 object Ductwork:

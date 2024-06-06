@@ -481,3 +481,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateGarage(garage: Garage): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update garage set typeof = ${garage.typeof.toString}, built = ${garage.built}
+        where id = ${garage.id}
+        """
+        .update()
+    }

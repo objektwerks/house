@@ -554,3 +554,17 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listSoffits(houseId: Long): List[Soffit] =
+    DB readOnly { implicit session =>
+      sql"select * from soffit where house_id = $houseId order by installed"
+        .map(rs =>
+          Soffit(
+            rs.long("id"),
+            rs.long("house_id"),
+            SoffitType.valueOf( rs.string("typeof") ),
+            rs.string("installed")
+          )
+        )
+        .list()
+    }

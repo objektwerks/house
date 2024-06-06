@@ -545,3 +545,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateGutter(gutter: Gutter): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update gutter set typeof = ${gutter.typeof.toString}, installed = ${gutter.installed}
+        where id = ${gutter.id}
+        """
+        .update()
+    }

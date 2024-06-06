@@ -235,6 +235,20 @@ final class Store(config: Config,
         .update()
     }
 
+  def listDuctworks(houseId: Long): List[Ductwork] =
+    DB readOnly { implicit session =>
+      sql"select * from ductwork where house_id = $houseId order by installed"
+        .map(rs =>
+          Ductwork(
+            rs.long("id"),
+            rs.long("house_id"),
+            DuctworkType.valueOf( rs.string("typeof") ),
+            rs.string("installed")
+          )
+        )
+        .list()
+    }
+
   def listVentilations(houseId: Long): List[Ventilation] =
     DB readOnly { implicit session =>
       sql"select * from ventilation where house_id = $houseId order by installed"

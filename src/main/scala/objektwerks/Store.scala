@@ -249,6 +249,15 @@ final class Store(config: Config,
         .list()
     }
 
+  def addDuctwork(ductwork: Ductwork): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into ductwork(house_id, typeof, installed)
+        values(${ductwork.homeId}, ${ductwork.typeof.toString}, ${ductwork.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }
+
   def listVentilations(houseId: Long): List[Ventilation] =
     DB readOnly { implicit session =>
       sql"select * from ventilation where house_id = $houseId order by installed"

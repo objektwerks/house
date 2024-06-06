@@ -100,3 +100,10 @@ CREATE TABLE garage (
   typeof VARCHAR NOT NULL,
   built VARCHAR NOT NULL
 );
+
+CREATE TABLE siding (
+  id BIGSERIAL PRIMARY KEY,
+  house_id BIGINT REFERENCES house(id),
+  typeof VARCHAR NOT NULL,
+  built VARCHAR NOT NULL
+);

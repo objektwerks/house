@@ -178,11 +178,11 @@ object Soffit:
 final case class Window(id: Long = 0,
                         homeId: Long,
                         typeof: WindowType = WindowType.single,
-                        built: String = Entity.now) extends Entity
+                        installed: String = Entity.now) extends Entity
 
 object Window:
   given JsonValueCodec[Window] = JsonCodecMaker.make[Window]
-  given Ordering[Window] = Ordering.by[Window, String](window => window.built).reverse
+  given Ordering[Window] = Ordering.by[Window, String](window => window.installed).reverse
 
 final case class Door(id: Long = 0,
                       homeId: Long,

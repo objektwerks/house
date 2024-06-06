@@ -74,6 +74,15 @@ object Insulation:
   given JsonValueCodec[Insulation] = JsonCodecMaker.make[Insulation]
   given Ordering[Insulation] = Ordering.by[Insulation, String](insulation => insulation.installed).reverse
 
+final case class Ductwork(id: Long = 0,
+                          homeId: Long,
+                          typeof: DuctworkType = DuctworkType.flow,
+                          installed: String = Entity.now) extends Entity
+
+object Ductwork:
+  given JsonValueCodec[Ductwork] = JsonCodecMaker.make[Ductwork]
+  given Ordering[Ductwork] = Ordering.by[Ductwork, String](insulation => insulation.installed).reverse
+
 final case class Ventilation(id: Long = 0,
                              homeId: Long,
                              typeof: VentilationType = VentilationType.balanced,

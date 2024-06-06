@@ -151,11 +151,11 @@ object Garage:
 final case class Siding(id: Long = 0,
                         homeId: Long,
                         typeof: SidingType = SidingType.vinyl,
-                        built: String = Entity.now) extends Entity
+                        installed: String = Entity.now) extends Entity
 
 object Siding:
   given JsonValueCodec[Siding] = JsonCodecMaker.make[Siding]
-  given Ordering[Siding] = Ordering.by[Siding, String](siding => siding.built).reverse
+  given Ordering[Siding] = Ordering.by[Siding, String](siding => siding.installed).reverse
 
 final case class Gutter(id: Long = 0,
                         homeId: Long,

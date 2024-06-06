@@ -17,6 +17,9 @@ enum AtticType:
 enum InsulationType:
   case blanket, blown, foam
 
+enum DuctworkType:
+  case balanced, exhaust, supply, heat
+
 enum VentilationType:
   case balanced, exhaust, supply, heat
 

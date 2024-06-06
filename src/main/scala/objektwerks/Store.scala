@@ -440,3 +440,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addDriveway(driveway: Driveway): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into driveway(house_id, typeof, built)
+        values(${driveway.homeId}, ${driveway.typeof.toString}, ${driveway.built})
+        """
+        .updateAndReturnGeneratedKey()
+    }

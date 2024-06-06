@@ -632,3 +632,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addDoor(door: Door): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into door(house_id, typeof, installed)
+        values(${door.homeId}, ${door.typeof.toString}, ${door.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }

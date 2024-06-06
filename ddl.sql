@@ -45,6 +45,13 @@ CREATE TABLE insulation (
   installed VARCHAR NOT NULL
 );
 
+CREATE TABLE ductwork (
+  id BIGSERIAL PRIMARY KEY,
+  house_id BIGINT REFERENCES house(id),
+  typeof VARCHAR NOT NULL,
+  installed VARCHAR NOT NULL
+);
+
 CREATE TABLE ventilation (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),

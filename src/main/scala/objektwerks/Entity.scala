@@ -187,11 +187,11 @@ object Window:
 final case class Door(id: Long = 0,
                       homeId: Long,
                       typeof: DoorType = DoorType.wood,
-                      built: String = Entity.now) extends Entity
+                      installed: String = Entity.now) extends Entity
 
 object Door:
   given JsonValueCodec[Door] = JsonCodecMaker.make[Door]
-  given Ordering[Door] = Ordering.by[Door, String](door => door.built).reverse
+  given Ordering[Door] = Ordering.by[Door, String](door => door.installed).reverse
 
 final case class Plumbing(id: Long = 0,
                           homeId: Long,

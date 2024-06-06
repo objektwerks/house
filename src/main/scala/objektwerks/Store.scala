@@ -472,3 +472,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addGarage(garage: Garage): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into garage(house_id, typeof, built)
+        values(${garage.homeId}, ${garage.typeof.toString}, ${garage.built})
+        """
+        .updateAndReturnGeneratedKey()
+    }

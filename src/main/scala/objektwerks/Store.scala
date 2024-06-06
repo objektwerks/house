@@ -490,3 +490,35 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listSidings(houseId: Long): List[Siding] =
+    DB readOnly { implicit session =>
+      sql"select * from siding where house_id = $houseId order by installed"
+        .map(rs =>
+          Siding(
+            rs.long("id"),
+            rs.long("house_id"),
+            SidingType.valueOf( rs.string("typeof") ),
+            rs.string("installed")
+          )
+        )
+        .list()
+    }
+
+  def addSiding(ventilation: Ventilation): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into ventilation(house_id, typeof, installed)
+        values(${ventilation.homeId}, ${ventilation.typeof.toString}, ${ventilation.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }
+
+  def updateSiding(ventilation: Ventilation): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update ventilation set typeof = ${ventilation.typeof.toString}, installed = ${ventilation.installed}
+        where id = ${ventilation.id}
+        """
+        .update()
+    }

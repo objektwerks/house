@@ -458,3 +458,17 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listGarages(houseId: Long): List[Garage] =
+    DB readOnly { implicit session =>
+      sql"select * from garage where house_id = $houseId order by built"
+        .map(rs =>
+          Garage(
+            rs.long("id"),
+            rs.long("house_id"),
+            GarageType.valueOf( rs.string("typeof") ),
+            rs.string("built")
+          )
+        )
+        .list()
+    }

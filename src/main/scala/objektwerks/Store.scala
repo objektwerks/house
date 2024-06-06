@@ -600,3 +600,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addWindow(window: Window): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into window(house_id, typeof, installed)
+        values(${window.homeId}, ${window.typeof.toString}, ${window.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }

@@ -449,3 +449,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateDriveway(driveway: Driveway): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update driveway set typeof = ${driveway.typeof.toString}, built = ${driveway.built}
+        where id = ${driveway.id}
+        """
+        .update()
+    }

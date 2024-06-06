@@ -505,11 +505,11 @@ final class Store(config: Config,
         .list()
     }
 
-  def addSiding(ventilation: Ventilation): Long =
+  def addSiding(siding: Siding): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into ventilation(house_id, typeof, installed)
-        values(${ventilation.homeId}, ${ventilation.typeof.toString}, ${ventilation.installed})
+        insert into siding(house_id, typeof, installed)
+        values(${siding.homeId}, ${siding.typeof.toString}, ${siding.installed})
         """
         .updateAndReturnGeneratedKey()
     }

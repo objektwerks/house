@@ -568,3 +568,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addSoffit(soffit: Soffit): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into soffit(house_id, typeof, installed)
+        values(${soffit.homeId}, ${soffit.typeof.toString}, ${soffit.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }

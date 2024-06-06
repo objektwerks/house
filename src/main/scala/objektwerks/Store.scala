@@ -641,3 +641,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateDoor(door: Door): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update window set typeof = ${door.typeof.toString}, installed = ${door.installed}
+        where id = ${door.id}
+        """
+        .update()
+    }

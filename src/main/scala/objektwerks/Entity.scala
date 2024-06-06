@@ -169,11 +169,11 @@ object Gutter:
 final case class Soffit(id: Long = 0,
                         homeId: Long,
                         typeof: SoffitType = SoffitType.aluminum,
-                        built: String = Entity.now) extends Entity
+                        installed: String = Entity.now) extends Entity
 
 object Soffit:
   given JsonValueCodec[Soffit] = JsonCodecMaker.make[Soffit]
-  given Ordering[Soffit] = Ordering.by[Soffit, String](soffit => soffit.built).reverse
+  given Ordering[Soffit] = Ordering.by[Soffit, String](soffit => soffit.installed).reverse
 
 final case class Window(id: Long = 0,
                         homeId: Long,

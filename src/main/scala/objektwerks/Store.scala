@@ -258,6 +258,15 @@ final class Store(config: Config,
         .updateAndReturnGeneratedKey()
     }
 
+  def updateDuctwork(ductwork: Ductwork): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update ductwork set typeof = ${ductwork.typeof.toString}, installed = ${ductwork.installed}
+        where id = ${ductwork.id}
+        """
+        .update()
+    }
+
   def listVentilations(houseId: Long): List[Ventilation] =
     DB readOnly { implicit session =>
       sql"select * from ventilation where house_id = $houseId order by installed"

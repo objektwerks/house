@@ -586,3 +586,17 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listWindows(houseId: Long): List[Window] =
+    DB readOnly { implicit session =>
+      sql"select * from window where house_id = $houseId order by installed"
+        .map(rs =>
+          Window(
+            rs.long("id"),
+            rs.long("house_id"),
+            WindowType.valueOf( rs.string("typeof") ),
+            rs.string("installed")
+          )
+        )
+        .list()
+    }

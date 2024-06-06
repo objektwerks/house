@@ -522,3 +522,17 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listGutters(houseId: Long): List[Gutter] =
+    DB readOnly { implicit session =>
+      sql"select * from gutter where house_id = $houseId order by installed"
+        .map(rs =>
+          Gutter(
+            rs.long("id"),
+            rs.long("house_id"),
+            GutterType.valueOf( rs.string("typeof") ),
+            rs.string("installed")
+          )
+        )
+        .list()
+    }

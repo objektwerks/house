@@ -40,7 +40,7 @@ object House:
 
 final case class Foundation(id: Long = 0,
                             homeId: Long,
-                            typeof: FoundationType = FoundationType.slab,
+                            typeof: Typeof = FoundationType.slab,
                             built: String = Entity.now) extends Entity
 
 object Foundation:
@@ -49,7 +49,7 @@ object Foundation:
 
 final case class Frame(id: Long = 0,
                        homeId: Long,
-                       typeof: FrameType = FrameType.platform,
+                       typeof: Typeof = FrameType.platform,
                        built: String = Entity.now) extends Entity
 
 object Frame:
@@ -58,7 +58,7 @@ object Frame:
 
 final case class Attic(id: Long = 0,
                        homeId: Long,
-                       typeof: AtticType = AtticType.scuttle,
+                       typeof: Typeof = AtticType.scuttle,
                        built: String = Entity.now) extends Entity
 
 object Attic:
@@ -67,7 +67,7 @@ object Attic:
 
 final case class Insulation(id: Long = 0,
                             homeId: Long,
-                            typeof: InsulationType = InsulationType.blanket,
+                            typeof: Typeof = InsulationType.blanket,
                             installed: String = Entity.now) extends Entity
 
 object Insulation:
@@ -76,7 +76,7 @@ object Insulation:
 
 final case class Ductwork(id: Long = 0,
                           homeId: Long,
-                          typeof: DuctworkType = DuctworkType.airduct,
+                          typeof: Typeof = DuctworkType.airduct,
                           installed: String = Entity.now) extends Entity
 
 object Ductwork:
@@ -85,7 +85,7 @@ object Ductwork:
 
 final case class Ventilation(id: Long = 0,
                              homeId: Long,
-                             typeof: VentilationType = VentilationType.balanced,
+                             typeof: Typeof = VentilationType.balanced,
                              installed: String = Entity.now) extends Entity
 
 object Ventilation:
@@ -94,7 +94,7 @@ object Ventilation:
 
 final case class Roof(id: Long = 0,
                       homeId: Long,
-                      typeof: RoofType = RoofType.shingle,
+                      typeof: Typeof = RoofType.shingle,
                       built: String = Entity.now) extends Entity
 
 object Roof:
@@ -103,7 +103,7 @@ object Roof:
 
 final case class Chimney(id: Long = 0,
                          homeId: Long,
-                         typeof: ChimneyType = ChimneyType.masonry,
+                         typeof: Typeof = ChimneyType.masonry,
                          built: String = Entity.now) extends Entity
 
 object Chimney:
@@ -112,7 +112,7 @@ object Chimney:
 
 final case class Balcony(id: Long = 0,
                          homeId: Long,
-                         typeof: BalconyType = BalconyType.cantilevered,
+                         typeof: Typeof = BalconyType.cantilevered,
                          built: String = Entity.now) extends Entity
 
 object Balcony:
@@ -121,7 +121,7 @@ object Balcony:
 
 final case class Drywall(id: Long = 0,
                          homeId: Long,
-                         typeof: DrywallType = DrywallType.standard,
+                         typeof: Typeof = DrywallType.standard,
                          built: String = Entity.now) extends Entity
 
 object Drywall:
@@ -130,7 +130,7 @@ object Drywall:
 
 final case class Room(id: Long = 0,
                       homeId: Long,
-                      typeof: RoomType = RoomType.bedroom,
+                      typeof: Typeof = RoomType.bedroom,
                       built: String = Entity.now) extends Entity
 
 object Room:
@@ -139,7 +139,7 @@ object Room:
 
 final case class Driveway(id: Long = 0,
                           homeId: Long,
-                          typeof: DrivewayType = DrivewayType.concrete,
+                          typeof: Typeof = DrivewayType.concrete,
                           built: String = Entity.now) extends Entity
 
 object Driveway:
@@ -148,7 +148,7 @@ object Driveway:
 
 final case class Garage(id: Long = 0,
                         homeId: Long,
-                        typeof: GarageType = GarageType.attached,
+                        typeof: Typeof = GarageType.attached,
                         built: String = Entity.now) extends Entity
 
 object Garage:
@@ -159,7 +159,7 @@ object Garage:
 
 final case class Siding(id: Long = 0,
                         homeId: Long,
-                        typeof: SidingType = SidingType.vinyl,
+                        typeof: Typeof = SidingType.vinyl,
                         installed: String = Entity.now) extends Entity
 
 object Siding:
@@ -168,7 +168,7 @@ object Siding:
 
 final case class Gutter(id: Long = 0,
                         homeId: Long,
-                        typeof: GutterType = GutterType.kstyle,
+                        typeof: Typeof = GutterType.kstyle,
                         installed: String = Entity.now) extends Entity
 
 object Gutter:
@@ -177,7 +177,7 @@ object Gutter:
 
 final case class Soffit(id: Long = 0,
                         homeId: Long,
-                        typeof: SoffitType = SoffitType.aluminum,
+                        typeof: Typeof = SoffitType.aluminum,
                         installed: String = Entity.now) extends Entity
 
 object Soffit:
@@ -186,7 +186,7 @@ object Soffit:
 
 final case class Window(id: Long = 0,
                         homeId: Long,
-                        typeof: WindowType = WindowType.single,
+                        typeof: Typeof = WindowType.single,
                         installed: String = Entity.now) extends Entity
 
 object Window:
@@ -195,7 +195,7 @@ object Window:
 
 final case class Door(id: Long = 0,
                       homeId: Long,
-                      typeof: DoorType = DoorType.wood,
+                      typeof: Typeof = DoorType.wood,
                       installed: String = Entity.now) extends Entity
 
 object Door:
@@ -204,7 +204,7 @@ object Door:
 
 final case class Plumbing(id: Long = 0,
                           homeId: Long,
-                          typeof: PlumbingType = PlumbingType.pvc,
+                          typeof: Typeof = PlumbingType.pvc,
                           installed: String = Entity.now) extends Entity
 
 object Plumbing:
@@ -213,7 +213,7 @@ object Plumbing:
 
 final case class Electrical(id: Long = 0,
                             homeId: Long,
-                            typeof: ElectricalType = ElectricalType.nm,
+                            typeof: Typeof = ElectricalType.nm,
                             installed: String = Entity.now) extends Entity
 
 object Electrical:
@@ -222,7 +222,7 @@ object Electrical:
 
 final case class Fusebox(id: Long = 0,
                          homeId: Long,
-                         typeof: FuseboxType = FuseboxType.circuitBreaker,
+                         typeof: Typeof = FuseboxType.circuitBreaker,
                          installed: String = Entity.now) extends Entity
 
 object Fusebox:
@@ -231,7 +231,7 @@ object Fusebox:
 
 final case class Alarm(id: Long = 0,
                        homeId: Long,
-                       typeof: AlarmType = AlarmType.wireless,
+                       typeof: Typeof = AlarmType.wireless,
                        installed: String = Entity.now) extends Entity
 
 object Alarm:
@@ -240,7 +240,7 @@ object Alarm:
 
 final case class Heater(id: Long = 0,
                         homeId: Long,
-                        typeof: HeaterType = HeaterType.furnace,
+                        typeof: Typeof = HeaterType.furnace,
                         installed: String = Entity.now) extends Entity
 
 object Heater:
@@ -249,7 +249,7 @@ object Heater:
 
 final case class AirConditioner(id: Long = 0,
                                 homeId: Long,
-                                typeof: AirConditionerType = AirConditionerType.central,
+                                typeof: Typeof = AirConditionerType.central,
                                 installed: String = Entity.now) extends Entity
 
 object AirConditioner:
@@ -258,7 +258,7 @@ object AirConditioner:
 
 final case class Floor(id: Long = 0,
                        homeId: Long,
-                       typeof: FloorType = FloorType.tile,
+                       typeof: Typeof = FloorType.tile,
                        installed: String = Entity.now) extends Entity
 
 object Floor:
@@ -267,7 +267,7 @@ object Floor:
 
 final case class Lighting(id: Long = 0,
                           homeId: Long,
-                          typeof: LightingType = LightingType.general,
+                          typeof: Typeof = LightingType.general,
                           installed: String = Entity.now) extends Entity
 
 object Lighting:
@@ -278,7 +278,7 @@ object Lighting:
 
 final case class Sewage(id: Long = 0,
                         homeId: Long,
-                        typeof: SewageType = SewageType.anaerobicSystem,
+                        typeof: Typeof = SewageType.anaerobicSystem,
                         built: String = Entity.now) extends Entity
 
 object Sewage:
@@ -287,7 +287,7 @@ object Sewage:
 
 final case class Well(id: Long = 0,
                       homeId: Long,
-                      typeof: WellType = WellType.drilled,
+                      typeof: Typeof = WellType.drilled,
                       built: String = Entity.now) extends Entity
 
 object Well:
@@ -296,7 +296,7 @@ object Well:
 
 final case class Water(id: Long = 0,
                        homeId: Long,
-                       typeof: WaterType = WaterType.well,
+                       typeof: Typeof = WaterType.well,
                        installed: String = Entity.now) extends Entity
 
 object Water:
@@ -305,7 +305,7 @@ object Water:
 
 final case class WaterHeater(id: Long = 0,
                              homeId: Long,
-                             typeof: WaterHeaterType = WaterHeaterType.tank,
+                             typeof: Typeof = WaterHeaterType.tank,
                              installed: String = Entity.now) extends Entity
 
 object WaterHeater:
@@ -314,7 +314,7 @@ object WaterHeater:
 
 final case class Lawn(id: Long = 0,
                       homeId: Long,
-                      typeof: LawnType = LawnType.grass,
+                      typeof: Typeof = LawnType.grass,
                       planted: String = Entity.now) extends Entity
 
 object Lawn:
@@ -323,7 +323,7 @@ object Lawn:
 
 final case class Garden(id: Long = 0,
                         homeId: Long,
-                        typeof: GardenType = GardenType.vegetable,
+                        typeof: Typeof = GardenType.vegetable,
                         planted: String = Entity.now) extends Entity
 
 object Garden:
@@ -332,7 +332,7 @@ object Garden:
 
 final case class Sprinkler(id: Long = 0,
                             homeId: Long,
-                            typeof: SprinklerType = SprinklerType.preAction,
+                            typeof: Typeof = SprinklerType.preAction,
                             installed: String = Entity.now) extends Entity
 
 object Sprinkler:
@@ -341,7 +341,7 @@ object Sprinkler:
 
 final case class Shed(id: Long = 0,
                       homeId: Long,
-                      typeof: ShedType = ShedType.storage,
+                      typeof: Typeof = ShedType.storage,
                       built: String = Entity.now) extends Entity
 
 object Shed:
@@ -351,7 +351,7 @@ object Shed:
 final case class SolarPanel(id: Long = 0,
                             homeId: Long,
                             number: Int,
-                            typeof: SolarPanelType = SolarPanelType.monocrystalline,
+                            typeof: Typeof = SolarPanelType.monocrystalline,
                             installed: String = Entity.now) extends Entity
 
 object SolarPanel:
@@ -360,7 +360,7 @@ object SolarPanel:
 
 final case class Dock(id: Long = 0,
                       homeId: Long,
-                      typeof: DockType = DockType.permanent,
+                      typeof: Typeof = DockType.permanent,
                       built: String = Entity.now) extends Entity
 
 object Dock:
@@ -369,7 +369,7 @@ object Dock:
 
 final case class Porch(id: Long = 0,
                        homeId: Long,
-                       typeof: PorchType = PorchType.back,
+                       typeof: Typeof = PorchType.back,
                        built: String = Entity.now) extends Entity
 
 object Porch:
@@ -378,7 +378,7 @@ object Porch:
 
 final case class Patio(id: Long = 0,
                        homeId: Long,
-                       typeof: PatioType = PatioType.paver,
+                       typeof: Typeof = PatioType.paver,
                        built: String = Entity.now) extends Entity
 
 object Patio:
@@ -387,7 +387,7 @@ object Patio:
 
 final case class Pool(id: Long = 0,
                       homeId: Long,
-                      typeof: PoolType = PoolType.inground,
+                      typeof: Typeof = PoolType.inground,
                       gallons: Int,
                       caged: Boolean,
                       built: String = Entity.now) extends Entity
@@ -398,7 +398,7 @@ object Pool:
 
 final case class Mailbox(id: Long = 0,
                          homeId: Long,
-                         typeof: MailboxType = MailboxType.postMount,
+                         typeof: Typeof = MailboxType.postMount,
                          installed: String = Entity.now) extends Entity
 
 object Mailbox:

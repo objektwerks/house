@@ -920,3 +920,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addLighting(lighting: Lighting): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into lighting(house_id, typeof, installed)
+        values(${lighting.homeId}, ${lighting.typeof.toString}, ${lighting.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }

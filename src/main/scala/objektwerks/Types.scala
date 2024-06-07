@@ -1,6 +1,8 @@
 package objektwerks
 
-enum HouseType:
+sealed trait Typeof
+
+enum HouseType extends Typeof:
   case primary, secondary, vacation
 
 // Structure

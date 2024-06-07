@@ -28,7 +28,7 @@ object Account:
 
 final case class House(id: Long = 0,
                        accountId: Long,
-                       typeof: HouseType = HouseType.primary,
+                       typeof: Typeof = HouseType.primary,
                        location: String,
                        built: String = Entity.now) extends Entity
 

@@ -856,3 +856,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addAirConditioner(ac: AirConditioner): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into ac(house_id, typeof, installed)
+        values(${ac.homeId}, ${ac.typeof.toString}, ${ac.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }

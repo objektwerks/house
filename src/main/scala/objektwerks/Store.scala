@@ -714,3 +714,17 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listElectricals(houseId: Long): List[Electrical] =
+    DB readOnly { implicit session =>
+      sql"select * from electrical where house_id = $houseId order by installed"
+        .map(rs =>
+          Electrical(
+            rs.long("id"),
+            rs.long("house_id"),
+            ElectricalType.valueOf( rs.string("typeof") ),
+            rs.string("installed")
+          )
+        )
+        .list()
+    }

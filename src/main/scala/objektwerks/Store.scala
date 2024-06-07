@@ -737,3 +737,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateElectrical(electrical: Electrical): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update electrical set typeof = ${electrical.typeof.toString}, installed = ${electrical.installed}
+        where id = ${electrical.id}
+        """
+        .update()
+    }

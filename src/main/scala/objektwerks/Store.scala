@@ -677,7 +677,7 @@ final class Store(config: Config,
   def updateDoor(door: Door): Int =
     DB localTx { implicit session =>
       sql"""
-        update window set typeof = ${door.typeof.toString}, installed = ${door.installed}
+        update plumbing set typeof = ${door.typeof.toString}, installed = ${door.installed}
         where id = ${door.id}
         """
         .update()
@@ -704,4 +704,13 @@ final class Store(config: Config,
         values(${plumbing.homeId}, ${plumbing.typeof.toString}, ${plumbing.installed})
         """
         .updateAndReturnGeneratedKey()
+    }
+
+  def updatePlumbing(plumbing: Plumbing): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update plumbing set typeof = ${plumbing.typeof.toString}, installed = ${plumbing.installed}
+        where id = ${plumbing.id}
+        """
+        .update()
     }

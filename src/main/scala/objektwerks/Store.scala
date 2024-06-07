@@ -984,3 +984,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addWell(well: Well): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into well(house_id, typeof, built)
+        values(${well.homeId}, ${well.typeof.toString}, ${well.built})
+        """
+        .updateAndReturnGeneratedKey()
+    }

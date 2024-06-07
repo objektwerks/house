@@ -778,3 +778,17 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listAlarms(houseId: Long): List[Alarm] =
+    DB readOnly { implicit session =>
+      sql"select * from alarm where house_id = $houseId order by installed"
+        .map(rs =>
+          Alarm(
+            rs.long("id"),
+            rs.long("house_id"),
+            AlarmType.valueOf( rs.string("typeof") ),
+            rs.string("installed")
+          )
+        )
+        .list()
+    }

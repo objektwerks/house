@@ -824,3 +824,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addHeater(heater: Heater): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into heater(house_id, typeof, installed)
+        values(${heater.homeId}, ${heater.typeof.toString}, ${heater.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }

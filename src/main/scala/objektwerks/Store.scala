@@ -696,3 +696,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addPlumbing(plumbing: Plumbing): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into plumbing(house_id, typeof, installed)
+        values(${plumbing.homeId}, ${plumbing.typeof.toString}, ${plumbing.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }

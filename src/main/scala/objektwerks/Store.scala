@@ -929,3 +929,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateLighting(lighting: Lighting): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update lighting set typeof = ${lighting.typeof.toString}, installed = ${lighting.installed}
+        where id = ${lighting.id}
+        """
+        .update()
+    }

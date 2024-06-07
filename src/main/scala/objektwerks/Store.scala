@@ -746,3 +746,17 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listFuseboxes(houseId: Long): List[Fusebox] =
+    DB readOnly { implicit session =>
+      sql"select * from fusebox where house_id = $houseId order by installed"
+        .map(rs =>
+          Fusebox(
+            rs.long("id"),
+            rs.long("house_id"),
+            FuseboxType.valueOf( rs.string("typeof") ),
+            rs.string("installed")
+          )
+        )
+        .list()
+    }

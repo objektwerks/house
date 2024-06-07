@@ -897,3 +897,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateFloor(floor: Floor): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update floor set typeof = ${floor.typeof.toString}, installed = ${floor.installed}
+        where id = ${floor.id}
+        """
+        .update()
+    }

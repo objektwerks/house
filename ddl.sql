@@ -217,5 +217,5 @@ CREATE TABLE water (
   id BIGSERIAL PRIMARY KEY,
   account_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
-  built VARCHAR NOT NULL
+  installed VARCHAR NOT NULL
 );

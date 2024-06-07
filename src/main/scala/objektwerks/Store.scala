@@ -888,3 +888,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addFloor(floor: Floor): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into floor(house_id, typeof, installed)
+        values(${floor.homeId}, ${floor.typeof.toString}, ${floor.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }

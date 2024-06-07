@@ -833,3 +833,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateHeater(heater: Heater): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update heater set typeof = ${heater.typeof.toString}, installed = ${heater.installed}
+        where id = ${heater.id}
+        """
+        .update()
+    }

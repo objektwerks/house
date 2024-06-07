@@ -728,3 +728,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addElectrical(electrical: Electrical): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into electrical(house_id, typeof, installed)
+        values(${electrical.homeId}, ${electrical.typeof.toString}, ${electrical.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }

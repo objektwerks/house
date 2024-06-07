@@ -970,3 +970,17 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listWells(houseId: Long): List[Well] =
+    DB readOnly { implicit session =>
+      sql"select * from well where house_id = $houseId order by built"
+        .map(rs =>
+          Well(
+            rs.long("id"),
+            rs.long("house_id"),
+            WellType.valueOf( rs.string("typeof") ),
+            rs.string("built")
+          )
+        )
+        .list()
+    }

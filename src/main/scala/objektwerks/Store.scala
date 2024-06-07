@@ -801,3 +801,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateAlarm(alarm: Alarm): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update alarm set typeof = ${alarm.typeof.toString}, installed = ${alarm.installed}
+        where id = ${alarm.id}
+        """
+        .update()
+    }

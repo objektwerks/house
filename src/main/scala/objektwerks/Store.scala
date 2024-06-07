@@ -760,3 +760,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addFusebox(fusebox: Fusebox): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into fusebox(house_id, typeof, installed)
+        values(${fusebox.homeId}, ${fusebox.typeof.toString}, ${fusebox.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }

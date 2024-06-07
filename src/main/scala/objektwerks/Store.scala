@@ -792,3 +792,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addAlarm(alarm: Alarm): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into alarm(house_id, typeof, installed)
+        values(${alarm.homeId}, ${alarm.typeof.toString}, ${alarm.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }

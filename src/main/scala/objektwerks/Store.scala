@@ -842,3 +842,17 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listAirConditioners(houseId: Long): List[AirConditioner] =
+    DB readOnly { implicit session =>
+      sql"select * from ac where house_id = $houseId order by installed"
+        .map(rs =>
+          AirConditioner(
+            rs.long("id"),
+            rs.long("house_id"),
+            AirConditionerType.valueOf( rs.string("typeof") ),
+            rs.string("installed")
+          )
+        )
+        .list()
+    }

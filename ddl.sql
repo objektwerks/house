@@ -191,3 +191,10 @@ CREATE TABLE floor (
   typeof VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
+
+CREATE TABLE lighting (
+  id BIGSERIAL PRIMARY KEY,
+  house_id BIGINT REFERENCES house(id),
+  typeof VARCHAR NOT NULL,
+  installed VARCHAR NOT NULL
+);

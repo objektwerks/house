@@ -1016,3 +1016,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addWater(water: Water): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into water(house_id, typeof, built)
+        values(${water.homeId}, ${water.typeof.toString}, ${water.built})
+        """
+        .updateAndReturnGeneratedKey()
+    }

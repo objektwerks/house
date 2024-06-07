@@ -993,3 +993,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateWell(well: Well): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update well set typeof = ${well.typeof.toString}, built = ${well.built}
+        where id = ${well.id}
+        """
+        .update()
+    }

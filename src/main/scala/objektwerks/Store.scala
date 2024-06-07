@@ -938,3 +938,35 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listSewages(houseId: Long): List[Sewage] =
+    DB readOnly { implicit session =>
+      sql"select * from sewage where house_id = $houseId order by built"
+        .map(rs =>
+          Sewage(
+            rs.long("id"),
+            rs.long("house_id"),
+            SewageType.valueOf( rs.string("typeof") ),
+            rs.string("built")
+          )
+        )
+        .list()
+    }
+
+  def addSewage(sewage: Sewage): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into sewage(house_id, typeof, built)
+        values(${sewage.homeId}, ${sewage.typeof.toString}, ${sewage.built})
+        """
+        .updateAndReturnGeneratedKey()
+    }
+
+  def updateSewage(sewage: Sewage): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update sewage set typeof = ${sewage.typeof.toString}, built = ${sewage.built}
+        where id = ${sewage.id}
+        """
+        .update()
+    }

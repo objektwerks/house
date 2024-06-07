@@ -7,126 +7,126 @@ enum HouseType extends Typeof:
 
 // Structure
 
-enum FoundationType:
+enum FoundationType extends Typeof:
   case slab, basement, wood, crawl
 
-enum FrameType:
+enum FrameType extends Typeof:
   case platform, steel
 
-enum AtticType:
+enum AtticType extends Typeof:
   case finished, unfinished, scuttle
 
-enum InsulationType:
+enum InsulationType extends Typeof:
   case blanket, blown, foam
 
-enum DuctworkType:
+enum DuctworkType extends Typeof:
   case airduct, supply, `return`, rigid, flexible, insulated
 
-enum VentilationType:
+enum VentilationType extends Typeof:
   case balanced, exhaust, supply, heat
 
-enum BalconyType:
+enum BalconyType extends Typeof:
   case cantilevered, hung, stacked, juliet, mezzanine, loggia
 
-enum DrywallType:
+enum DrywallType extends Typeof:
   case standard, specialty
 
-enum RoomType:
+enum RoomType extends Typeof:
   case kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet
 
-enum RoofType:
+enum RoofType extends Typeof:
   case alluminum, galvalume, tile, shingle
 
-enum ChimneyType:
+enum ChimneyType extends Typeof:
   case masonry, metal
 
-enum DrivewayType:
+enum DrivewayType extends Typeof:
   case asphalt, concrete, gravel, paver
 
-enum GarageType:
+enum GarageType extends Typeof:
   case attached, detached
 
-enum PorchType:
+enum PorchType extends Typeof:
   case open, front, back, deck, screened, detached
 
-enum PatioType:
+enum PatioType extends Typeof:
   case concrete, paver, tile, wood
 
-enum PoolType:
+enum PoolType extends Typeof:
   case aboveground, inground
 
 // Integral
 
-enum SidingType:
+enum SidingType extends Typeof:
   case vinyl, wood, metal, cement, brick, stone, composite, clapboard
 
-enum GutterType:
+enum GutterType extends Typeof:
   case kstyle, halfround, fascia, seamless, vinyl, aluminum, steel, copper
 
-enum SoffitType:
+enum SoffitType extends Typeof:
   case wood, aluminum, cement, vinyl, steel
 
-enum WindowType:
+enum WindowType extends Typeof:
   case single, double, bay, slide
 
-enum DoorType:
+enum DoorType extends Typeof:
   case wood, fiberglass, steel, glass
 
-enum PlumbingType:
+enum PlumbingType extends Typeof:
   case pex, pvc, copper, abs
 
-enum ElectricalType:
+enum ElectricalType extends Typeof:
   case nm, romex, armored, undergroundFeeder, lowVoltage, thhn, thwn, phone, data
 
-enum FuseboxType:
+enum FuseboxType extends Typeof:
   case typeS, typeT, circuitBreaker, mainBreaker
 
-enum AlarmType:
+enum AlarmType extends Typeof:
   case wireless, monitored, smart, passiveInfrared, dome, wirelessMotionDetector, windowSensor, doorSensor, dummy
 
-enum HeaterType:
+enum HeaterType extends Typeof:
   case furnace, boiler, heatPump, inFloorRadiant, electricResistance, baseboardHeater, solar
 
-enum AirConditionerType:
+enum AirConditionerType extends Typeof:
   case central, ductless, window, portable, floor, airSourceHeatPump
 
-enum FloorType:
+enum FloorType extends Typeof:
   case carpet, concrete, tile, wood, synthetic
 
-enum LightingType:
+enum LightingType extends Typeof:
   case general, task, accent
 
 // External
 
-enum SewageType:
+enum SewageType extends Typeof:
   case sanitarySewer, subsurfaceDrainageSystem, septicSystem, aerobicTreatmentUnit, anaerobicSystem
 
-enum WellType:
+enum WellType extends Typeof:
   case dug, drilled, driven
 
-enum WaterType:
+enum WaterType extends Typeof:
   case city, well, direct, indirect, singleStack
 
-enum WaterHeaterType:
+enum WaterHeaterType extends Typeof:
   case tank, tankless, hybrid, pointOfUse, solar
 
-enum LawnType:
+enum LawnType extends Typeof:
   case grass, rock, sand
 
-enum GardenType:
+enum GardenType extends Typeof:
   case flower, vegetable
 
-enum SprinklerType:
+enum SprinklerType extends Typeof:
   case multiUse, wetPipe, deluge, preAction
 
-enum ShedType:
+enum ShedType extends Typeof:
   case storage, workshop
 
-enum SolarPanelType:
+enum SolarPanelType extends Typeof:
   case monocrystalline, polycrystalline, thinFilm
 
-enum DockType:
+enum DockType extends Typeof:
   case floating, stationary, combination, permanent
 
-enum MailboxType:
+enum MailboxType extends Typeof:
   case postMount, wallMount

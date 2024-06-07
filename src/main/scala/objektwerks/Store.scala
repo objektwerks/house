@@ -769,3 +769,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateFusebox(fusebox: Fusebox): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update fusebox set typeof = ${fusebox.typeof.toString}, installed = ${fusebox.installed}
+        where id = ${fusebox.id}
+        """
+        .update()
+    }

@@ -865,3 +865,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateAirConditioner(ac: AirConditioner): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update ac set typeof = ${ac.typeof.toString}, installed = ${ac.installed}
+        where id = ${ac.id}
+        """
+        .update()
+    }

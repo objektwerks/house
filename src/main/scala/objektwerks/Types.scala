@@ -18,7 +18,7 @@ enum InsulationType:
   case blanket, blown, foam
 
 enum DuctworkType:
-  case supply, `return`
+  case airduct, supply, `return`, rigid, flexible, insulated
 
 enum VentilationType:
   case balanced, exhaust, supply, heat

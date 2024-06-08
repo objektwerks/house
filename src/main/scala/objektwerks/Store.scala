@@ -1026,11 +1026,11 @@ final class Store(config: Config,
         .updateAndReturnGeneratedKey()
     }
 
-  def updateWater(lighting: Lighting): Int =
+  def updateWater(water: Water): Int =
     DB localTx { implicit session =>
       sql"""
-        update lighting set typeof = ${lighting.typeof.toString}, installed = ${lighting.installed}
-        where id = ${lighting.id}
+        update water set typeof = ${water.typeof.toString}, installed = ${water.installed}
+        where id = ${water.id}
         """
         .update()
     }

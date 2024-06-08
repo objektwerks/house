@@ -329,9 +329,9 @@ object Garden:
   given Ordering[Garden] = Ordering.by[Garden, String](garden => garden.planted).reverse
 
 final case class Sprinkler(id: Long = 0,
-                            houseId: Long,
-                            typeof: SprinklerType = SprinklerType.preAction,
-                            installed: String = Entity.now) extends Entity
+                           houseId: Long,
+                           typeof: SprinklerType = SprinklerType.preAction,
+                           installed: String = Entity.now) extends Entity
 
 object Sprinkler:
   given JsonValueCodec[Sprinkler] = JsonCodecMaker.make[Sprinkler]

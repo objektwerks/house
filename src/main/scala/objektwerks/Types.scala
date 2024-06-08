@@ -1,132 +1,130 @@
 package objektwerks
 
-sealed trait Typeof
-
-enum HouseType extends Typeof:
+enum HouseType:
   case primary, secondary, vacation
 
 // Structure
 
-enum FoundationType extends Typeof:
+enum FoundationType:
   case slab, basement, wood, crawl
 
-enum FrameType extends Typeof:
+enum FrameType:
   case platform, steel
 
-enum AtticType extends Typeof:
+enum AtticType:
   case finished, unfinished, scuttle
 
-enum InsulationType extends Typeof:
+enum InsulationType:
   case blanket, blown, foam
 
-enum DuctworkType extends Typeof:
+enum DuctworkType:
   case airduct, supply, `return`, rigid, flexible, insulated
 
-enum VentilationType extends Typeof:
+enum VentilationType:
   case balanced, exhaust, supply, heat
 
-enum BalconyType extends Typeof:
+enum BalconyType:
   case cantilevered, hung, stacked, juliet, mezzanine, loggia
 
-enum DrywallType extends Typeof:
+enum DrywallType:
   case standard, specialty
 
-enum RoomType extends Typeof:
+enum RoomType:
   case kitchen, bathroom, bedroom, living, dining, den, study, laundry, office, closet
 
-enum RoofType extends Typeof:
+enum RoofType:
   case alluminum, galvalume, tile, shingle
 
-enum ChimneyType extends Typeof:
+enum ChimneyType:
   case masonry, metal
 
-enum DrivewayType extends Typeof:
+enum DrivewayType:
   case asphalt, concrete, gravel, paver
 
-enum GarageType extends Typeof:
+enum GarageType:
   case attached, detached
 
-enum PorchType extends Typeof:
+enum PorchType:
   case open, front, back, deck, screened, detached
 
-enum PatioType extends Typeof:
+enum PatioType:
   case concrete, paver, tile, wood
 
-enum PoolType extends Typeof:
+enum PoolType:
   case aboveground, inground
 
 // Integral
 
-enum SidingType extends Typeof:
+enum SidingType:
   case vinyl, wood, metal, cement, brick, stone, composite, clapboard
 
-enum GutterType extends Typeof:
+enum GutterType:
   case kstyle, halfround, fascia, seamless, vinyl, aluminum, steel, copper
 
-enum SoffitType extends Typeof:
+enum SoffitType:
   case wood, aluminum, cement, vinyl, steel
 
-enum WindowType extends Typeof:
+enum WindowType:
   case single, double, bay, slide
 
-enum DoorType extends Typeof:
+enum DoorType:
   case wood, fiberglass, steel, glass
 
-enum PlumbingType extends Typeof:
+enum PlumbingType:
   case pex, pvc, copper, abs
 
-enum ElectricalType extends Typeof:
+enum ElectricalType:
   case nm, romex, armored, undergroundFeeder, lowVoltage, thhn, thwn, phone, data
 
-enum FuseboxType extends Typeof:
+enum FuseboxType:
   case typeS, typeT, circuitBreaker, mainBreaker
 
-enum AlarmType extends Typeof:
+enum AlarmType:
   case wireless, monitored, smart, passiveInfrared, dome, wirelessMotionDetector, windowSensor, doorSensor, dummy
 
-enum HeaterType extends Typeof:
+enum HeaterType:
   case furnace, boiler, heatPump, inFloorRadiant, electricResistance, baseboardHeater, solar
 
-enum AirConditionerType extends Typeof:
+enum AirConditionerType:
   case central, ductless, window, portable, floor, airSourceHeatPump
 
-enum FloorType extends Typeof:
+enum FloorType:
   case carpet, concrete, tile, wood, synthetic
 
-enum LightingType extends Typeof:
+enum LightingType:
   case general, task, accent
 
 // External
 
-enum SewageType extends Typeof:
+enum SewageType:
   case sanitarySewer, subsurfaceDrainageSystem, septicSystem, aerobicTreatmentUnit, anaerobicSystem
 
-enum WellType extends Typeof:
+enum WellType:
   case dug, drilled, driven
 
-enum WaterType extends Typeof:
+enum WaterType:
   case city, well, direct, indirect, singleStack
 
-enum WaterHeaterType extends Typeof:
+enum WaterHeaterType:
   case tank, tankless, hybrid, pointOfUse, solar
 
-enum LawnType extends Typeof:
+enum LawnType:
   case grass, rock, sand
 
-enum GardenType extends Typeof:
+enum GardenType:
   case flower, vegetable
 
-enum SprinklerType extends Typeof:
+enum SprinklerType:
   case multiUse, wetPipe, deluge, preAction
 
-enum ShedType extends Typeof:
+enum ShedType:
   case storage, workshop
 
-enum SolarPanelType extends Typeof:
+enum SolarPanelType:
   case monocrystalline, polycrystalline, thinFilm
 
-enum DockType extends Typeof:
+enum DockType:
   case floating, stationary, combination, permanent
 
-enum MailboxType extends Typeof:
+enum MailboxType:
   case postMount, wallMount

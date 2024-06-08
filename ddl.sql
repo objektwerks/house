@@ -219,3 +219,10 @@ CREATE TABLE water (
   typeof VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
+
+CREATE TABLE water_heater (
+  id BIGSERIAL PRIMARY KEY,
+  account_id BIGINT REFERENCES account(id),
+  typeof VARCHAR NOT NULL,
+  installed VARCHAR NOT NULL
+);

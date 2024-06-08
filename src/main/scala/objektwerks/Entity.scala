@@ -335,7 +335,7 @@ final case class Sprinkler(id: Long = 0,
 
 object Sprinkler:
   given JsonValueCodec[Sprinkler] = JsonCodecMaker.make[Sprinkler]
-  given Ordering[Sprinkler] = Ordering.by[Sprinkler, String](irrigation => irrigation.installed).reverse
+  given Ordering[Sprinkler] = Ordering.by[Sprinkler, String](sprinkler => sprinkler.installed).reverse
 
 final case class Shed(id: Long = 0,
                       houseId: Long,

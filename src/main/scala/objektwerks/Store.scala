@@ -1002,3 +1002,35 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listWaters(houseId: Long): List[Water] =
+    DB readOnly { implicit session =>
+      sql"select * from water where house_id = $houseId order by installed"
+        .map(rs =>
+          Water(
+            rs.long("id"),
+            rs.long("house_id"),
+            WaterType.valueOf( rs.string("typeof") ),
+            rs.string("installed")
+          )
+        )
+        .list()
+    }
+
+  def addWater(lighting: Lighting): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into lighting(house_id, typeof, installed)
+        values(${lighting.homeId}, ${lighting.typeof.toString}, ${lighting.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }
+
+  def updateWater(lighting: Lighting): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update lighting set typeof = ${lighting.typeof.toString}, installed = ${lighting.installed}
+        where id = ${lighting.id}
+        """
+        .update()
+    }

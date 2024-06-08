@@ -125,7 +125,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into foundation(house_id, typeof, built)
-        values(${foundation.homeId}, ${foundation.typeof.toString}, ${foundation.built})
+        values(${foundation.houseId}, ${foundation.typeof.toString}, ${foundation.built})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -157,7 +157,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into frame(house_id, typeof, built)
-        values(${frame.homeId}, ${frame.typeof.toString}, ${frame.built})
+        values(${frame.houseId}, ${frame.typeof.toString}, ${frame.built})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -189,7 +189,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into attic(house_id, typeof, built)
-        values(${attic.homeId}, ${attic.typeof.toString}, ${attic.built})
+        values(${attic.houseId}, ${attic.typeof.toString}, ${attic.built})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -221,7 +221,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into insulation(house_id, typeof, installed)
-        values(${insulation.homeId}, ${insulation.typeof.toString}, ${insulation.installed})
+        values(${insulation.houseId}, ${insulation.typeof.toString}, ${insulation.installed})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -253,7 +253,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into ductwork(house_id, typeof, installed)
-        values(${ductwork.homeId}, ${ductwork.typeof.toString}, ${ductwork.installed})
+        values(${ductwork.houseId}, ${ductwork.typeof.toString}, ${ductwork.installed})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -285,7 +285,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into ventilation(house_id, typeof, installed)
-        values(${ventilation.homeId}, ${ventilation.typeof.toString}, ${ventilation.installed})
+        values(${ventilation.houseId}, ${ventilation.typeof.toString}, ${ventilation.installed})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -317,7 +317,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into roof(house_id, typeof, built)
-        values(${roof.homeId}, ${roof.typeof.toString}, ${roof.built})
+        values(${roof.houseId}, ${roof.typeof.toString}, ${roof.built})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -349,7 +349,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into chimney(house_id, typeof, built)
-        values(${chimney.homeId}, ${chimney.typeof.toString}, ${chimney.built})
+        values(${chimney.houseId}, ${chimney.typeof.toString}, ${chimney.built})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -381,7 +381,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into balcony(house_id, typeof, built)
-        values(${balcony.homeId}, ${balcony.typeof.toString}, ${balcony.built})
+        values(${balcony.houseId}, ${balcony.typeof.toString}, ${balcony.built})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -413,7 +413,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into drywall(house_id, typeof, built)
-        values(${drywall.homeId}, ${drywall.typeof.toString}, ${drywall.built})
+        values(${drywall.houseId}, ${drywall.typeof.toString}, ${drywall.built})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -445,7 +445,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into room(house_id, typeof, built)
-        values(${room.homeId}, ${room.typeof.toString}, ${room.built})
+        values(${room.houseId}, ${room.typeof.toString}, ${room.built})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -477,7 +477,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into driveway(house_id, typeof, built)
-        values(${driveway.homeId}, ${driveway.typeof.toString}, ${driveway.built})
+        values(${driveway.houseId}, ${driveway.typeof.toString}, ${driveway.built})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -509,7 +509,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into garage(house_id, typeof, built)
-        values(${garage.homeId}, ${garage.typeof.toString}, ${garage.built})
+        values(${garage.houseId}, ${garage.typeof.toString}, ${garage.built})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -541,7 +541,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into siding(house_id, typeof, installed)
-        values(${siding.homeId}, ${siding.typeof.toString}, ${siding.installed})
+        values(${siding.houseId}, ${siding.typeof.toString}, ${siding.installed})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -573,7 +573,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into gutter(house_id, typeof, installed)
-        values(${gutter.homeId}, ${gutter.typeof.toString}, ${gutter.installed})
+        values(${gutter.houseId}, ${gutter.typeof.toString}, ${gutter.installed})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -605,7 +605,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into soffit(house_id, typeof, installed)
-        values(${soffit.homeId}, ${soffit.typeof.toString}, ${soffit.installed})
+        values(${soffit.houseId}, ${soffit.typeof.toString}, ${soffit.installed})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -637,7 +637,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into window(house_id, typeof, installed)
-        values(${window.homeId}, ${window.typeof.toString}, ${window.installed})
+        values(${window.houseId}, ${window.typeof.toString}, ${window.installed})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -669,7 +669,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into door(house_id, typeof, installed)
-        values(${door.homeId}, ${door.typeof.toString}, ${door.installed})
+        values(${door.houseId}, ${door.typeof.toString}, ${door.installed})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -701,7 +701,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into plumbing(house_id, typeof, installed)
-        values(${plumbing.homeId}, ${plumbing.typeof.toString}, ${plumbing.installed})
+        values(${plumbing.houseId}, ${plumbing.typeof.toString}, ${plumbing.installed})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -733,7 +733,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into electrical(house_id, typeof, installed)
-        values(${electrical.homeId}, ${electrical.typeof.toString}, ${electrical.installed})
+        values(${electrical.houseId}, ${electrical.typeof.toString}, ${electrical.installed})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -765,7 +765,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into fusebox(house_id, typeof, installed)
-        values(${fusebox.homeId}, ${fusebox.typeof.toString}, ${fusebox.installed})
+        values(${fusebox.houseId}, ${fusebox.typeof.toString}, ${fusebox.installed})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -797,7 +797,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into alarm(house_id, typeof, installed)
-        values(${alarm.homeId}, ${alarm.typeof.toString}, ${alarm.installed})
+        values(${alarm.houseId}, ${alarm.typeof.toString}, ${alarm.installed})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -829,7 +829,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into heater(house_id, typeof, installed)
-        values(${heater.homeId}, ${heater.typeof.toString}, ${heater.installed})
+        values(${heater.houseId}, ${heater.typeof.toString}, ${heater.installed})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -861,7 +861,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into ac(house_id, typeof, installed)
-        values(${ac.homeId}, ${ac.typeof.toString}, ${ac.installed})
+        values(${ac.houseId}, ${ac.typeof.toString}, ${ac.installed})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -893,7 +893,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into floor(house_id, typeof, installed)
-        values(${floor.homeId}, ${floor.typeof.toString}, ${floor.installed})
+        values(${floor.houseId}, ${floor.typeof.toString}, ${floor.installed})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -925,7 +925,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into lighting(house_id, typeof, installed)
-        values(${lighting.homeId}, ${lighting.typeof.toString}, ${lighting.installed})
+        values(${lighting.houseId}, ${lighting.typeof.toString}, ${lighting.installed})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -957,7 +957,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into sewage(house_id, typeof, built)
-        values(${sewage.homeId}, ${sewage.typeof.toString}, ${sewage.built})
+        values(${sewage.houseId}, ${sewage.typeof.toString}, ${sewage.built})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -989,7 +989,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into well(house_id, typeof, built)
-        values(${well.homeId}, ${well.typeof.toString}, ${well.built})
+        values(${well.houseId}, ${well.typeof.toString}, ${well.built})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -1021,7 +1021,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into water(house_id, typeof, installed)
-        values(${water.homeId}, ${water.typeof.toString}, ${water.installed})
+        values(${water.houseId}, ${water.typeof.toString}, ${water.installed})
         """
         .updateAndReturnGeneratedKey()
     }
@@ -1053,7 +1053,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into water_heater(house_id, typeof, installed)
-        values(${waterHeater.homeId}, ${waterHeater.typeof.toString}, ${waterHeater.installed})
+        values(${waterHeater.houseId}, ${waterHeater.typeof.toString}, ${waterHeater.installed})
         """
         .updateAndReturnGeneratedKey()
     }

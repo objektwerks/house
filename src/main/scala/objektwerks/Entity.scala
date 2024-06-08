@@ -24,8 +24,6 @@ final case class Account(id: Long = 0,
 object Account:
   given JsonValueCodec[Account] = JsonCodecMaker.make[Account]
 
-  val empty = Account(license = "", email = "", pin = "")
-
 final case class House(id: Long = 0,
                        accountId: Long,
                        typeof: HouseType = HouseType.primary,

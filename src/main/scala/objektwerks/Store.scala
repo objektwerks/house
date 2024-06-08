@@ -1057,3 +1057,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateWaterHeater(waterHeater: WaterHeater): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update water_heater set typeof = ${waterHeater.typeof.toString}, installed = ${waterHeater.installed}
+        where id = ${waterHeater.id}
+        """
+        .update()
+    }

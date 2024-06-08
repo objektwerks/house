@@ -1034,3 +1034,17 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listWaterHeaters(houseId: Long): List[WaterHeater] =
+    DB readOnly { implicit session =>
+      sql"select * from water_heater where house_id = $houseId order by installed"
+        .map(rs =>
+          WaterHeater(
+            rs.long("id"),
+            rs.long("house_id"),
+            WaterHeaterType.valueOf( rs.string("typeof") ),
+            rs.string("installed")
+          )
+        )
+        .list()
+    }

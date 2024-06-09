@@ -240,3 +240,10 @@ CREATE TABLE garden (
   typeof VARCHAR NOT NULL,
   planted VARCHAR NOT NULL
 );
+
+CREATE TABLE sprinkler (
+  id BIGSERIAL PRIMARY KEY,
+  account_id BIGINT REFERENCES account(id),
+  typeof VARCHAR NOT NULL,
+  installed VARCHAR NOT NULL
+);

@@ -226,3 +226,10 @@ CREATE TABLE water_heater (
   typeof VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
+
+CREATE TABLE lawn (
+  id BIGSERIAL PRIMARY KEY,
+  account_id BIGINT REFERENCES account(id),
+  typeof VARCHAR NOT NULL,
+  planted VARCHAR NOT NULL
+);

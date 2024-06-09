@@ -1379,11 +1379,11 @@ final class Store(config: Config,
         .updateAndReturnGeneratedKey()
     }
 
-  def updateMailbox(solarpanel: SolarPanel): Int =
+  def updateMailbox(mailbox: Mailbox): Int =
     DB localTx { implicit session =>
       sql"""
-        update solarpanel set typeof = ${solarpanel.typeof.toString}, installed = ${solarpanel.installed}
-        where id = ${solarpanel.id}
+        update mailbox set typeof = ${mailbox.typeof.toString}, installed = ${mailbox.installed}
+        where id = ${mailbox.id}
         """
         .update()
     }

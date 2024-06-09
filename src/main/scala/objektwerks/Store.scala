@@ -1314,3 +1314,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updatePool(pool: Pool): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update pool set typeof = ${pool.typeof.toString}, gallons = ${pool.gallons}, built = ${pool.built}
+        where id = ${pool.id}
+        """
+        .update()
+    }

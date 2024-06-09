@@ -4,9 +4,7 @@ House
 
 Todo
 ----
-1. Enhance Entities
-2. Enhance Store
-3. Enhance StoreTest
+1. Enhance Entity, Store and StoreTest
 
 Install
 -------

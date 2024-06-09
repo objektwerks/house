@@ -1370,6 +1370,15 @@ final class Store(config: Config,
         .list()
     }
 
+  def addGazebo(gazebo: Gazebo): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into gazebo(house_id, typeof, built)
+        values(${gazebo.houseId}, ${gazebo.typeof.toString}, ${gazebo.built})
+        """
+        .updateAndReturnGeneratedKey()
+    }
+
   def listMailboxes(houseId: Long): List[Mailbox] =
     DB readOnly { implicit session =>
       sql"select * from mailbox where house_id = $houseId order by installed"

@@ -1145,11 +1145,11 @@ final class Store(config: Config,
         .list()
     }
 
-  def addSprinkler(water: Water): Long =
+  def addSprinkler(sprinkler: Sprinkler): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into water(house_id, typeof, installed)
-        values(${water.houseId}, ${water.typeof.toString}, ${water.installed})
+        insert into sprinkler(house_id, typeof, installed)
+        values(${sprinkler.houseId}, ${sprinkler.typeof.toString}, ${sprinkler.installed})
         """
         .updateAndReturnGeneratedKey()
     }

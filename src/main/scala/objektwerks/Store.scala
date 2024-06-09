@@ -1066,3 +1066,17 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listLawns(houseId: Long): List[Lawn] =
+    DB readOnly { implicit session =>
+      sql"select * from lawn where house_id = $houseId order by planted"
+        .map(rs =>
+          Lawn(
+            rs.long("id"),
+            rs.long("house_id"),
+            LawnType.valueOf( rs.string("typeof") ),
+            rs.string("planted")
+          )
+        )
+        .list()
+    }

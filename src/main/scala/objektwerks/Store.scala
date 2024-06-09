@@ -1241,11 +1241,11 @@ final class Store(config: Config,
         .list()
     }
 
-  def addPorch(shed: Shed): Long =
+  def addPorch(porch: Porch): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into shed(house_id, typeof, built)
-        values(${shed.houseId}, ${shed.typeof.toString}, ${shed.built})
+        insert into porch(house_id, typeof, built)
+        values(${porch.houseId}, ${porch.typeof.toString}, ${porch.built})
         """
         .updateAndReturnGeneratedKey()
     }

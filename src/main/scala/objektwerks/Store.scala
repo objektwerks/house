@@ -1290,3 +1290,18 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listPools(houseId: Long): List[Pool] =
+    DB readOnly { implicit session =>
+      sql"select * from pool where house_id = $houseId order by built"
+        .map(rs =>
+          Pool(
+            rs.long("id"),
+            rs.long("house_id"),
+            PoolType.valueOf( rs.string("typeof") ),
+            rs.int("gallons"),
+            rs.string("built")
+          )
+        )
+        .list()
+    }

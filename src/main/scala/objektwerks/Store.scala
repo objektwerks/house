@@ -1272,3 +1272,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addPatio(patio: Patio): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into patio(house_id, typeof, built)
+        values(${patio.houseId}, ${patio.typeof.toString}, ${patio.built})
+        """
+        .updateAndReturnGeneratedKey()
+    }

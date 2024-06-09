@@ -1084,7 +1084,7 @@ final class Store(config: Config,
   def addLawn(lawn: Lawn): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into lwan(house_id, typeof, planted)
+        insert into lawn(house_id, typeof, planted)
         values(${lawn.houseId}, ${lawn.typeof.toString}, ${lawn.planted})
         """
         .updateAndReturnGeneratedKey()
@@ -1093,7 +1093,7 @@ final class Store(config: Config,
   def updateLawn(lawn: Lawn): Int =
     DB localTx { implicit session =>
       sql"""
-        update lwan set typeof = ${lawn.typeof.toString}, planted = ${lawn.planted}
+        update lawn set typeof = ${lawn.typeof.toString}, planted = ${lawn.planted}
         where id = ${lawn.id}
         """
         .update()
@@ -1111,4 +1111,13 @@ final class Store(config: Config,
           )
         )
         .list()
+    }
+
+  def addGarden(garden: Garden): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into garden(house_id, typeof, planted)
+        values(${garden.houseId}, ${garden.typeof.toString}, ${garden.planted})
+        """
+        .updateAndReturnGeneratedKey()
     }

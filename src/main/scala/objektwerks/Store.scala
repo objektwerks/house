@@ -1080,3 +1080,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addLawn(lawn: Lawn): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into lwan(house_id, typeof, planted)
+        values(${lawn.houseId}, ${lawn.typeof.toString}, ${lawn.planted})
+        """
+        .updateAndReturnGeneratedKey()
+    }

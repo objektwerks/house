@@ -76,7 +76,7 @@ final class Store(config: Config,
 
   def listHouses(accountId: Long): List[House] =
     DB readOnly { implicit session =>
-      sql"select * from house where account_id = $accountId order by built"
+      sql"select * from house where account_id = $accountId order by built desc"
         .map(rs =>
           House(
             rs.long("id"),
@@ -109,7 +109,7 @@ final class Store(config: Config,
 
   def listFoundations(houseId: Long): List[Foundation] =
     DB readOnly { implicit session =>
-      sql"select * from foundation where house_id = $houseId order by built"
+      sql"select * from foundation where house_id = $houseId order by built desc"
         .map(rs =>
           Foundation(
             rs.long("id"),
@@ -141,7 +141,7 @@ final class Store(config: Config,
 
   def listFrames(houseId: Long): List[Frame] =
     DB readOnly { implicit session =>
-      sql"select * from frame where house_id = $houseId order by built"
+      sql"select * from frame where house_id = $houseId order by built desc"
         .map(rs =>
           Frame(
             rs.long("id"),
@@ -173,7 +173,7 @@ final class Store(config: Config,
 
   def listAttics(houseId: Long): List[Attic] =
     DB readOnly { implicit session =>
-      sql"select * from attic where house_id = $houseId order by built"
+      sql"select * from attic where house_id = $houseId order by built desc"
         .map(rs =>
           Attic(
             rs.long("id"),
@@ -205,7 +205,7 @@ final class Store(config: Config,
 
   def listInsulations(houseId: Long): List[Insulation] =
     DB readOnly { implicit session =>
-      sql"select * from insulation where house_id = $houseId order by installed"
+      sql"select * from insulation where house_id = $houseId order by installed desc"
         .map(rs =>
           Insulation(
             rs.long("id"),
@@ -237,7 +237,7 @@ final class Store(config: Config,
 
   def listDuctworks(houseId: Long): List[Ductwork] =
     DB readOnly { implicit session =>
-      sql"select * from ductwork where house_id = $houseId order by installed"
+      sql"select * from ductwork where house_id = $houseId order by installed desc"
         .map(rs =>
           Ductwork(
             rs.long("id"),
@@ -269,7 +269,7 @@ final class Store(config: Config,
 
   def listVentilations(houseId: Long): List[Ventilation] =
     DB readOnly { implicit session =>
-      sql"select * from ventilation where house_id = $houseId order by installed"
+      sql"select * from ventilation where house_id = $houseId order by installed desc"
         .map(rs =>
           Ventilation(
             rs.long("id"),
@@ -301,7 +301,7 @@ final class Store(config: Config,
 
   def listRoofs(houseId: Long): List[Roof] =
     DB readOnly { implicit session =>
-      sql"select * from roof where house_id = $houseId order by built"
+      sql"select * from roof where house_id = $houseId order by built desc"
         .map(rs =>
           Roof(
             rs.long("id"),
@@ -333,7 +333,7 @@ final class Store(config: Config,
 
   def listChimneys(houseId: Long): List[Chimney] =
     DB readOnly { implicit session =>
-      sql"select * from chimney where house_id = $houseId order by built"
+      sql"select * from chimney where house_id = $houseId order by built desc"
         .map(rs =>
           Chimney(
             rs.long("id"),
@@ -365,7 +365,7 @@ final class Store(config: Config,
 
   def listBalconys(houseId: Long): List[Balcony] =
     DB readOnly { implicit session =>
-      sql"select * from balcony where house_id = $houseId order by built"
+      sql"select * from balcony where house_id = $houseId order by built desc"
         .map(rs =>
           Balcony(
             rs.long("id"),
@@ -397,7 +397,7 @@ final class Store(config: Config,
 
   def listDrywalls(houseId: Long): List[Drywall] =
     DB readOnly { implicit session =>
-      sql"select * from drywall where house_id = $houseId order by built"
+      sql"select * from drywall where house_id = $houseId order by built desc"
         .map(rs =>
           Drywall(
             rs.long("id"),
@@ -429,7 +429,7 @@ final class Store(config: Config,
 
   def listRooms(houseId: Long): List[Room] =
     DB readOnly { implicit session =>
-      sql"select * from room where house_id = $houseId order by built"
+      sql"select * from room where house_id = $houseId order by built desc"
         .map(rs =>
           Room(
             rs.long("id"),
@@ -461,7 +461,7 @@ final class Store(config: Config,
 
   def listDriveways(houseId: Long): List[Driveway] =
     DB readOnly { implicit session =>
-      sql"select * from driveway where house_id = $houseId order by built"
+      sql"select * from driveway where house_id = $houseId order by built desc"
         .map(rs =>
           Driveway(
             rs.long("id"),
@@ -493,7 +493,7 @@ final class Store(config: Config,
 
   def listGarages(houseId: Long): List[Garage] =
     DB readOnly { implicit session =>
-      sql"select * from garage where house_id = $houseId order by built"
+      sql"select * from garage where house_id = $houseId order by built desc"
         .map(rs =>
           Garage(
             rs.long("id"),
@@ -525,7 +525,7 @@ final class Store(config: Config,
 
   def listSidings(houseId: Long): List[Siding] =
     DB readOnly { implicit session =>
-      sql"select * from siding where house_id = $houseId order by installed"
+      sql"select * from siding where house_id = $houseId order by installed desc"
         .map(rs =>
           Siding(
             rs.long("id"),
@@ -557,7 +557,7 @@ final class Store(config: Config,
 
   def listGutters(houseId: Long): List[Gutter] =
     DB readOnly { implicit session =>
-      sql"select * from gutter where house_id = $houseId order by installed"
+      sql"select * from gutter where house_id = $houseId order by installed desc"
         .map(rs =>
           Gutter(
             rs.long("id"),
@@ -589,7 +589,7 @@ final class Store(config: Config,
 
   def listSoffits(houseId: Long): List[Soffit] =
     DB readOnly { implicit session =>
-      sql"select * from soffit where house_id = $houseId order by installed"
+      sql"select * from soffit where house_id = $houseId order by installed desc"
         .map(rs =>
           Soffit(
             rs.long("id"),
@@ -621,7 +621,7 @@ final class Store(config: Config,
 
   def listWindows(houseId: Long): List[Window] =
     DB readOnly { implicit session =>
-      sql"select * from window where house_id = $houseId order by installed"
+      sql"select * from window where house_id = $houseId order by installed desc"
         .map(rs =>
           Window(
             rs.long("id"),
@@ -653,7 +653,7 @@ final class Store(config: Config,
 
   def listDoors(houseId: Long): List[Door] =
     DB readOnly { implicit session =>
-      sql"select * from door where house_id = $houseId order by installed"
+      sql"select * from door where house_id = $houseId order by installed desc"
         .map(rs =>
           Door(
             rs.long("id"),
@@ -685,7 +685,7 @@ final class Store(config: Config,
 
   def listPlumbings(houseId: Long): List[Plumbing] =
     DB readOnly { implicit session =>
-      sql"select * from plumbing where house_id = $houseId order by installed"
+      sql"select * from plumbing where house_id = $houseId order by installed desc"
         .map(rs =>
           Plumbing(
             rs.long("id"),
@@ -717,7 +717,7 @@ final class Store(config: Config,
 
   def listElectricals(houseId: Long): List[Electrical] =
     DB readOnly { implicit session =>
-      sql"select * from electrical where house_id = $houseId order by installed"
+      sql"select * from electrical where house_id = $houseId order by installed desc"
         .map(rs =>
           Electrical(
             rs.long("id"),
@@ -749,7 +749,7 @@ final class Store(config: Config,
 
   def listFuseboxes(houseId: Long): List[Fusebox] =
     DB readOnly { implicit session =>
-      sql"select * from fusebox where house_id = $houseId order by installed"
+      sql"select * from fusebox where house_id = $houseId order by installed desc"
         .map(rs =>
           Fusebox(
             rs.long("id"),
@@ -781,7 +781,7 @@ final class Store(config: Config,
 
   def listAlarms(houseId: Long): List[Alarm] =
     DB readOnly { implicit session =>
-      sql"select * from alarm where house_id = $houseId order by installed"
+      sql"select * from alarm where house_id = $houseId order by installed desc"
         .map(rs =>
           Alarm(
             rs.long("id"),
@@ -813,7 +813,7 @@ final class Store(config: Config,
 
   def listHeaters(houseId: Long): List[Heater] =
     DB readOnly { implicit session =>
-      sql"select * from heater where house_id = $houseId order by installed"
+      sql"select * from heater where house_id = $houseId order by installed desc"
         .map(rs =>
           Heater(
             rs.long("id"),
@@ -845,7 +845,7 @@ final class Store(config: Config,
 
   def listAirConditioners(houseId: Long): List[AirConditioner] =
     DB readOnly { implicit session =>
-      sql"select * from ac where house_id = $houseId order by installed"
+      sql"select * from ac where house_id = $houseId order by installed desc"
         .map(rs =>
           AirConditioner(
             rs.long("id"),
@@ -875,9 +875,9 @@ final class Store(config: Config,
         .update()
     }
 
-  def listFlors(houseId: Long): List[Floor] =
+  def listFloors(houseId: Long): List[Floor] =
     DB readOnly { implicit session =>
-      sql"select * from floor where house_id = $houseId order by installed"
+      sql"select * from floor where house_id = $houseId order by installed desc"
         .map(rs =>
           Floor(
             rs.long("id"),
@@ -909,7 +909,7 @@ final class Store(config: Config,
 
   def listLightings(houseId: Long): List[Lighting] =
     DB readOnly { implicit session =>
-      sql"select * from lighting where house_id = $houseId order by installed"
+      sql"select * from lighting where house_id = $houseId order by installed desc"
         .map(rs =>
           Lighting(
             rs.long("id"),
@@ -941,7 +941,7 @@ final class Store(config: Config,
 
   def listSewages(houseId: Long): List[Sewage] =
     DB readOnly { implicit session =>
-      sql"select * from sewage where house_id = $houseId order by built"
+      sql"select * from sewage where house_id = $houseId order by built desc"
         .map(rs =>
           Sewage(
             rs.long("id"),
@@ -973,7 +973,7 @@ final class Store(config: Config,
 
   def listWells(houseId: Long): List[Well] =
     DB readOnly { implicit session =>
-      sql"select * from well where house_id = $houseId order by built"
+      sql"select * from well where house_id = $houseId order by built desc"
         .map(rs =>
           Well(
             rs.long("id"),
@@ -1005,7 +1005,7 @@ final class Store(config: Config,
 
   def listWaters(houseId: Long): List[Water] =
     DB readOnly { implicit session =>
-      sql"select * from water where house_id = $houseId order by installed"
+      sql"select * from water where house_id = $houseId order by installed desc"
         .map(rs =>
           Water(
             rs.long("id"),
@@ -1037,7 +1037,7 @@ final class Store(config: Config,
 
   def listWaterHeaters(houseId: Long): List[WaterHeater] =
     DB readOnly { implicit session =>
-      sql"select * from water_heater where house_id = $houseId order by installed"
+      sql"select * from water_heater where house_id = $houseId order by installed desc"
         .map(rs =>
           WaterHeater(
             rs.long("id"),
@@ -1069,7 +1069,7 @@ final class Store(config: Config,
 
   def listLawns(houseId: Long): List[Lawn] =
     DB readOnly { implicit session =>
-      sql"select * from lawn where house_id = $houseId order by planted"
+      sql"select * from lawn where house_id = $houseId order by planted desc"
         .map(rs =>
           Lawn(
             rs.long("id"),
@@ -1101,7 +1101,7 @@ final class Store(config: Config,
 
   def listGardens(houseId: Long): List[Garden] =
     DB readOnly { implicit session =>
-      sql"select * from garden where house_id = $houseId order by planted"
+      sql"select * from garden where house_id = $houseId order by planted desc"
         .map(rs =>
           Garden(
             rs.long("id"),
@@ -1133,7 +1133,7 @@ final class Store(config: Config,
 
   def listSprinklers(houseId: Long): List[Sprinkler] =
     DB readOnly { implicit session =>
-      sql"select * from sprinkler where house_id = $houseId order by installed"
+      sql"select * from sprinkler where house_id = $houseId order by installed desc"
         .map(rs =>
           Sprinkler(
             rs.long("id"),
@@ -1165,7 +1165,7 @@ final class Store(config: Config,
 
   def listSheds(houseId: Long): List[Shed] =
     DB readOnly { implicit session =>
-      sql"select * from shed where house_id = $houseId order by built"
+      sql"select * from shed where house_id = $houseId order by built desc"
         .map(rs =>
           Shed(
             rs.long("id"),
@@ -1197,7 +1197,7 @@ final class Store(config: Config,
 
   def listSolarPanels(houseId: Long): List[SolarPanel] =
     DB readOnly { implicit session =>
-      sql"select * from solarpanel where house_id = $houseId order by installed"
+      sql"select * from solarpanel where house_id = $houseId order by installed desc"
         .map(rs =>
           SolarPanel(
             rs.long("id"),
@@ -1229,7 +1229,7 @@ final class Store(config: Config,
 
   def listPorches(houseId: Long): List[Porch] =
     DB readOnly { implicit session =>
-      sql"select * from porch where house_id = $houseId order by built"
+      sql"select * from porch where house_id = $houseId order by built desc"
         .map(rs =>
           Porch(
             rs.long("id"),
@@ -1261,7 +1261,7 @@ final class Store(config: Config,
 
   def listPatios(houseId: Long): List[Patio] =
     DB readOnly { implicit session =>
-      sql"select * from patio where house_id = $houseId order by built"
+      sql"select * from patio where house_id = $houseId order by built desc"
         .map(rs =>
           Patio(
             rs.long("id"),
@@ -1293,7 +1293,7 @@ final class Store(config: Config,
 
   def listPools(houseId: Long): List[Pool] =
     DB readOnly { implicit session =>
-      sql"select * from pool where house_id = $houseId order by built"
+      sql"select * from pool where house_id = $houseId order by built desc"
         .map(rs =>
           Pool(
             rs.long("id"),
@@ -1326,7 +1326,7 @@ final class Store(config: Config,
 
   def listDocks(houseId: Long): List[Dock] =
     DB readOnly { implicit session =>
-      sql"select * from dock where house_id = $houseId order by built"
+      sql"select * from dock where house_id = $houseId order by built desc"
         .map(rs =>
           Dock(
             rs.long("id"),
@@ -1358,7 +1358,7 @@ final class Store(config: Config,
 
   def listGazebos(houseId: Long): List[Gazebo] =
     DB readOnly { implicit session =>
-      sql"select * from gazebo where house_id = $houseId order by built"
+      sql"select * from gazebo where house_id = $houseId order by built desc"
         .map(rs =>
           Gazebo(
             rs.long("id"),
@@ -1390,7 +1390,7 @@ final class Store(config: Config,
 
   def listMailboxes(houseId: Long): List[Mailbox] =
     DB readOnly { implicit session =>
-      sql"select * from mailbox where house_id = $houseId order by installed"
+      sql"select * from mailbox where house_id = $houseId order by installed desc"
         .map(rs =>
           Mailbox(
             rs.long("id"),

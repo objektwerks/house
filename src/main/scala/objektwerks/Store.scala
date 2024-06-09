@@ -1177,11 +1177,11 @@ final class Store(config: Config,
         .list()
     }
 
-  def addShed(well: Well): Long =
+  def addShed(shed: Shed): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into well(house_id, typeof, built)
-        values(${well.houseId}, ${well.typeof.toString}, ${well.built})
+        insert into shed(house_id, typeof, built)
+        values(${shed.houseId}, ${shed.typeof.toString}, ${shed.built})
         """
         .updateAndReturnGeneratedKey()
     }

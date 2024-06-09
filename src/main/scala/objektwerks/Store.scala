@@ -1250,11 +1250,11 @@ final class Store(config: Config,
         .updateAndReturnGeneratedKey()
     }
 
-  def updatePorch(shed: Shed): Int =
+  def updatePorch(porch: Porch): Int =
     DB localTx { implicit session =>
       sql"""
-        update shed set typeof = ${shed.typeof.toString}, built = ${shed.built}
-        where id = ${shed.id}
+        update porch set typeof = ${porch.typeof.toString}, built = ${porch.built}
+        where id = ${porch.id}
         """
         .update()
     }

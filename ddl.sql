@@ -268,3 +268,10 @@ CREATE TABLE porch (
   typeof VARCHAR NOT NULL,
   built VARCHAR NOT NULL
 );
+
+CREATE TABLE patio (
+  id BIGSERIAL PRIMARY KEY,
+  account_id BIGINT REFERENCES account(id),
+  typeof VARCHAR NOT NULL,
+  built VARCHAR NOT NULL
+);

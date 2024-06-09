@@ -36,7 +36,7 @@ Integral
 
 External
 --------
->Sewage, Well, Water, WaterHeater, Lawn, Garden, Sprinkler, Shed, SolarPanel, Dock, Porch, Patio, Pool, Mailbox
+>Sewage, Well, Water, WaterHeater, Lawn, Garden, Sprinkler, Shed, SolarPanel, Porch, Patio, Pool, Dock, Mailbox
 
 Postgresql
 ----------

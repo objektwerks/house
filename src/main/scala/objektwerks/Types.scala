@@ -44,15 +44,6 @@ enum DrivewayType:
 enum GarageType:
   case attached, detached
 
-enum PorchType:
-  case open, front, back, deck, screened, detached
-
-enum PatioType:
-  case concrete, paver, tile, wood
-
-enum PoolType:
-  case aboveground, inground
-
 // Integral
 
 enum SidingType:
@@ -122,6 +113,15 @@ enum ShedType:
 
 enum SolarPanelType:
   case monocrystalline, polycrystalline, thinFilm
+
+enum PorchType:
+  case open, front, back, deck, screened, detached
+
+enum PatioType:
+  case concrete, paver, tile, wood
+
+enum PoolType:
+  case aboveground, inground
 
 enum DockType:
   case floating, stationary, combination, permanent

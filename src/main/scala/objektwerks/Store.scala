@@ -1194,3 +1194,35 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listSolarPanels(houseId: Long): List[SolarPanel] =
+    DB readOnly { implicit session =>
+      sql"select * from solarpanel where house_id = $houseId order by installed"
+        .map(rs =>
+          SolarPanel(
+            rs.long("id"),
+            rs.long("house_id"),
+            SolarPanelType.valueOf( rs.string("typeof") ),
+            rs.string("installed")
+          )
+        )
+        .list()
+    }
+
+  def addSolarPanel(sprinkler: Sprinkler): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into sprinkler(house_id, typeof, installed)
+        values(${sprinkler.houseId}, ${sprinkler.typeof.toString}, ${sprinkler.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }
+
+  def updateSolarPanel(sprinkler: Sprinkler): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update sprinkler set typeof = ${sprinkler.typeof.toString}, installed = ${sprinkler.installed}
+        where id = ${sprinkler.id}
+        """
+        .update()
+    }

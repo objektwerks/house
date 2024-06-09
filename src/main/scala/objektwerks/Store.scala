@@ -1226,3 +1226,35 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listPorches(houseId: Long): List[Porch] =
+    DB readOnly { implicit session =>
+      sql"select * from porch where house_id = $houseId order by built"
+        .map(rs =>
+          Porch(
+            rs.long("id"),
+            rs.long("house_id"),
+            PorchType.valueOf( rs.string("typeof") ),
+            rs.string("built")
+          )
+        )
+        .list()
+    }
+
+  def addPorch(shed: Shed): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into shed(house_id, typeof, built)
+        values(${shed.houseId}, ${shed.typeof.toString}, ${shed.built})
+        """
+        .updateAndReturnGeneratedKey()
+    }
+
+  def updatePorch(shed: Shed): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update shed set typeof = ${shed.typeof.toString}, built = ${shed.built}
+        where id = ${shed.id}
+        """
+        .update()
+    }

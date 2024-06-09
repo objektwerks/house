@@ -392,6 +392,15 @@ object Dock:
   given JsonValueCodec[Dock] = JsonCodecMaker.make[Dock]
   given Ordering[Dock] = Ordering.by[Dock, String](dock => dock.built).reverse
 
+final case class Gazebo(id: Long = 0,
+                        houseId: Long,
+                        typeof: GazeboType = GazeboType.wood,
+                        built: String = Entity.now) extends Entity
+
+object Gazebo:
+  given JsonValueCodec[Gazebo] = JsonCodecMaker.make[Gazebo]
+  given Ordering[Gazebo] = Ordering.by[Gazebo, String](gazebo => gazebo.built).reverse
+
 final case class Mailbox(id: Long = 0,
                          houseId: Long,
                          typeof: MailboxType = MailboxType.postMount,

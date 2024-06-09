@@ -126,5 +126,8 @@ enum PoolType:
 enum DockType:
   case floating, stationary, combination, permanent
 
+enum GazeboType:
+  case steel, wood
+
 enum MailboxType:
   case postMount, wallMount

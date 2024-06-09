@@ -1154,11 +1154,11 @@ final class Store(config: Config,
         .updateAndReturnGeneratedKey()
     }
 
-  def updateSprinkler(water: Water): Int =
+  def updateSprinkler(sprinkler: Sprinkler): Int =
     DB localTx { implicit session =>
       sql"""
-        update water set typeof = ${water.typeof.toString}, installed = ${water.installed}
-        where id = ${water.id}
+        update sprinkler set typeof = ${sprinkler.typeof.toString}, installed = ${sprinkler.installed}
+        where id = ${sprinkler.id}
         """
         .update()
     }

@@ -1337,3 +1337,12 @@ final class Store(config: Config,
         )
         .list()
     }
+
+  def addDock(dock: Dock): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into dock(house_id, typeof, built)
+        values(${dock.houseId}, ${dock.typeof.toString}, ${dock.built})
+        """
+        .updateAndReturnGeneratedKey()
+    }

@@ -261,3 +261,10 @@ CREATE TABLE solarpanel (
   typeof VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
+
+CREATE TABLE porch (
+  id BIGSERIAL PRIMARY KEY,
+  account_id BIGINT REFERENCES account(id),
+  typeof VARCHAR NOT NULL,
+  built VARCHAR NOT NULL
+);

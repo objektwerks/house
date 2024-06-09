@@ -1323,3 +1323,17 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listDocks(houseId: Long): List[Dock] =
+    DB readOnly { implicit session =>
+      sql"select * from dock where house_id = $houseId order by built"
+        .map(rs =>
+          Dock(
+            rs.long("id"),
+            rs.long("house_id"),
+            DockType.valueOf( rs.string("typeof") ),
+            rs.string("built")
+          )
+        )
+        .list()
+    }

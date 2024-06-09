@@ -1162,3 +1162,35 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listSheds(houseId: Long): List[Shed] =
+    DB readOnly { implicit session =>
+      sql"select * from shed where house_id = $houseId order by built"
+        .map(rs =>
+          Shed(
+            rs.long("id"),
+            rs.long("house_id"),
+            ShedType.valueOf( rs.string("typeof") ),
+            rs.string("built")
+          )
+        )
+        .list()
+    }
+
+  def addShed(well: Well): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into well(house_id, typeof, built)
+        values(${well.houseId}, ${well.typeof.toString}, ${well.built})
+        """
+        .updateAndReturnGeneratedKey()
+    }
+
+  def updateShed(well: Well): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update well set typeof = ${well.typeof.toString}, built = ${well.built}
+        where id = ${well.id}
+        """
+        .update()
+    }

@@ -1346,3 +1346,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateDock(dock: Dock): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update dock set typeof = ${dock.typeof.toString}, built = ${dock.built}
+        where id = ${dock.id}
+        """
+        .update()
+    }

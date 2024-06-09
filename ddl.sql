@@ -290,6 +290,13 @@ CREATE TABLE dock (
   built VARCHAR NOT NULL
 );
 
+CREATE TABLE gazebo (
+  id BIGSERIAL PRIMARY KEY,
+  account_id BIGINT REFERENCES account(id),
+  typeof VARCHAR NOT NULL,
+  built VARCHAR NOT NULL
+);
+
 CREATE TABLE mailbox (
   id BIGSERIAL PRIMARY KEY,
   account_id BIGINT REFERENCES account(id),

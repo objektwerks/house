@@ -247,3 +247,10 @@ CREATE TABLE sprinkler (
   typeof VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
+
+CREATE TABLE shed (
+  id BIGSERIAL PRIMARY KEY,
+  account_id BIGINT REFERENCES account(id),
+  typeof VARCHAR NOT NULL,
+  built VARCHAR NOT NULL
+);

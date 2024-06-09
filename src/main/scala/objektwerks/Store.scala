@@ -1355,3 +1355,35 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listMailboxes(houseId: Long): List[Mailbox] =
+    DB readOnly { implicit session =>
+      sql"select * from mailbox where house_id = $houseId order by installed"
+        .map(rs =>
+          Mailbox(
+            rs.long("id"),
+            rs.long("house_id"),
+            MailboxType.valueOf( rs.string("typeof") ),
+            rs.string("installed")
+          )
+        )
+        .list()
+    }
+
+  def addMailbox(solarpanel: SolarPanel): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into solarpanel(house_id, typeof, installed)
+        values(${solarpanel.houseId}, ${solarpanel.typeof.toString}, ${solarpanel.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }
+
+  def updateMailbox(solarpanel: SolarPanel): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update solarpanel set typeof = ${solarpanel.typeof.toString}, installed = ${solarpanel.installed}
+        where id = ${solarpanel.id}
+        """
+        .update()
+    }

@@ -1218,11 +1218,11 @@ final class Store(config: Config,
         .updateAndReturnGeneratedKey()
     }
 
-  def updateSolarPanel(sprinkler: Sprinkler): Int =
+  def updateSolarPanel(solarpanel: SolarPanel): Int =
     DB localTx { implicit session =>
       sql"""
-        update sprinkler set typeof = ${sprinkler.typeof.toString}, installed = ${sprinkler.installed}
-        where id = ${sprinkler.id}
+        update solarpanel set typeof = ${solarpanel.typeof.toString}, installed = ${solarpanel.installed}
+        where id = ${solarpanel.id}
         """
         .update()
     }

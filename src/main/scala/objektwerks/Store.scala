@@ -1258,3 +1258,17 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listPatios(houseId: Long): List[Patio] =
+    DB readOnly { implicit session =>
+      sql"select * from patio where house_id = $houseId order by built"
+        .map(rs =>
+          Patio(
+            rs.long("id"),
+            rs.long("house_id"),
+            PatioType.valueOf( rs.string("typeof") ),
+            rs.string("built")
+          )
+        )
+        .list()
+    }

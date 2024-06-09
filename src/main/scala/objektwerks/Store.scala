@@ -1356,6 +1356,20 @@ final class Store(config: Config,
         .update()
     }
 
+  def listGazebos(houseId: Long): List[Gazebo] =
+    DB readOnly { implicit session =>
+      sql"select * from gazebo where house_id = $houseId order by built"
+        .map(rs =>
+          Gazebo(
+            rs.long("id"),
+            rs.long("house_id"),
+            GazeboType.valueOf( rs.string("typeof") ),
+            rs.string("built")
+          )
+        )
+        .list()
+    }
+
   def listMailboxes(houseId: Long): List[Mailbox] =
     DB readOnly { implicit session =>
       sql"select * from mailbox where house_id = $houseId order by installed"

@@ -1186,11 +1186,11 @@ final class Store(config: Config,
         .updateAndReturnGeneratedKey()
     }
 
-  def updateShed(well: Well): Int =
+  def updateShed(shed: Shed): Int =
     DB localTx { implicit session =>
       sql"""
-        update well set typeof = ${well.typeof.toString}, built = ${well.built}
-        where id = ${well.id}
+        update shed set typeof = ${shed.typeof.toString}, built = ${shed.built}
+        where id = ${shed.id}
         """
         .update()
     }

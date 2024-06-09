@@ -1089,3 +1089,12 @@ final class Store(config: Config,
         """
         .updateAndReturnGeneratedKey()
     }
+
+  def updateLawn(lawn: Lawn): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update lwan set typeof = ${lawn.typeof.toString}, planted = ${lawn.planted}
+        where id = ${lawn.id}
+        """
+        .update()
+    }

@@ -254,3 +254,10 @@ CREATE TABLE shed (
   typeof VARCHAR NOT NULL,
   built VARCHAR NOT NULL
 );
+
+CREATE TABLE solarpanel (
+  id BIGSERIAL PRIMARY KEY,
+  account_id BIGINT REFERENCES account(id),
+  typeof VARCHAR NOT NULL,
+  installed VARCHAR NOT NULL
+);

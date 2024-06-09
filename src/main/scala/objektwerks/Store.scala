@@ -1130,3 +1130,35 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listSprinklers(houseId: Long): List[Sprinkler] =
+    DB readOnly { implicit session =>
+      sql"select * from sprinkler where house_id = $houseId order by installed"
+        .map(rs =>
+          Sprinkler(
+            rs.long("id"),
+            rs.long("house_id"),
+            SprinklerType.valueOf( rs.string("typeof") ),
+            rs.string("installed")
+          )
+        )
+        .list()
+    }
+
+  def addSprinkler(water: Water): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into water(house_id, typeof, installed)
+        values(${water.houseId}, ${water.typeof.toString}, ${water.installed})
+        """
+        .updateAndReturnGeneratedKey()
+    }
+
+  def updateSprinkler(water: Water): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update water set typeof = ${water.typeof.toString}, installed = ${water.installed}
+        where id = ${water.id}
+        """
+        .update()
+    }

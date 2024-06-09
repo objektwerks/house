@@ -1370,11 +1370,11 @@ final class Store(config: Config,
         .list()
     }
 
-  def addMailbox(solarpanel: SolarPanel): Long =
+  def addMailbox(mailbox: Mailbox): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into solarpanel(house_id, typeof, installed)
-        values(${solarpanel.houseId}, ${solarpanel.typeof.toString}, ${solarpanel.installed})
+        insert into mailbox(house_id, typeof, installed)
+        values(${mailbox.houseId}, ${mailbox.typeof.toString}, ${mailbox.installed})
         """
         .updateAndReturnGeneratedKey()
     }

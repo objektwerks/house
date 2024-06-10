@@ -486,7 +486,7 @@ final class Store(config: Config,
   def updateDriveway(driveway: Driveway): Int =
     DB localTx { implicit session =>
       sql"""
-        update driveway set typeof = ${driveway.typeof.toString}, built = ${driveway.built}
+        update driveway set typeof = ${driveway.typeof.toString}, culvert_typeof = ${driveway.culvertTypeof.toString}, built = ${driveway.built}
         where id = ${driveway.id}
         """
         .update()

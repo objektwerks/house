@@ -1,5 +1,5 @@
 House
-----
+-----
 >House model using Jsoniter, ScalikeJdbc, Scaffeine, HikariCP, Postgresql and Scala 3.
 
 Todo

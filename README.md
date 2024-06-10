@@ -82,10 +82,6 @@ export HOUSE_POSTGRESQL_USER="tripletail"
 export HOUSE_POSTGRESQL_PASSWORD="house"
 ```
 
-Resources
----------
-* [House Parts](https://www.hippo.com/learn-center/parts-of-a-house)
-
 License
 -------
 >Copyright (c) [2024] [Objektwerks]

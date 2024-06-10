@@ -467,6 +467,7 @@ final class Store(config: Config,
             rs.long("id"),
             rs.long("house_id"),
             DrivewayType.valueOf( rs.string("typeof") ),
+            CulvertType.valueOf( rs.string("culvert_typeof") ),
             rs.string("built")
           )
         )

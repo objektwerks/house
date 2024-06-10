@@ -39,7 +39,7 @@ enum ChimneyType:
   case masonry, metal
 
 enum CulvertType:
-  case concrete, steel, pvc
+  case concrete, steel, pvc, none
 
 enum DrivewayType:
   case asphalt, concrete, gravel, paver

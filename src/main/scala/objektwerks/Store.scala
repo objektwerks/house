@@ -1301,6 +1301,7 @@ final class Store(config: Config,
             rs.long("house_id"),
             PoolType.valueOf( rs.string("typeof") ),
             rs.int("gallons"),
+            rs.boolean("caged"),
             rs.string("built")
           )
         )

@@ -1320,7 +1320,7 @@ final class Store(config: Config,
   def updatePool(pool: Pool): Int =
     DB localTx { implicit session =>
       sql"""
-        update pool set typeof = ${pool.typeof.toString}, gallons = ${pool.gallons}, built = ${pool.built}
+        update pool set typeof = ${pool.typeof.toString}, gallons = ${pool.gallons}, caged = ${pool.caged}, built = ${pool.built}
         where id = ${pool.id}
         """
         .update()

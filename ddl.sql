@@ -274,7 +274,6 @@ CREATE TABLE patio (
   id BIGSERIAL PRIMARY KEY,
   account_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
-  caged BOOLEAN NOT NULL,
   built VARCHAR NOT NULL
 );
 

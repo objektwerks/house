@@ -378,6 +378,7 @@ final case class Pool(id: Long = 0,
                       houseId: Long,
                       typeof: PoolType = PoolType.inground,
                       gallons: Int,
+                      caged: Boolean = false,
                       built: String = Entity.now) extends Entity
 
 object Pool:

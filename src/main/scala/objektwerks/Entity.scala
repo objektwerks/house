@@ -138,6 +138,7 @@ object Room:
 final case class Driveway(id: Long = 0,
                           houseId: Long,
                           typeof: DrivewayType = DrivewayType.concrete,
+                          culvertTypeof: CulvertType = CulvertType.concrete,
                           built: String = Entity.now) extends Entity
 
 object Driveway:

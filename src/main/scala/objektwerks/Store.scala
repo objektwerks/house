@@ -622,7 +622,7 @@ final class Store(config: Config,
 
   def listWindows(houseId: Long): List[Window] =
     DB readOnly { implicit session =>
-      sql"select * from window where house_id = $houseId order by installed desc"
+      sql"select * from wndow where house_id = $houseId order by installed desc"
         .map(rs =>
           Window(
             rs.long("id"),
@@ -637,7 +637,7 @@ final class Store(config: Config,
   def addWindow(window: Window): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into window(house_id, typeof, installed)
+        insert into wndow(house_id, typeof, installed)
         values(${window.houseId}, ${window.typeof.toString}, ${window.installed})
         """
         .updateAndReturnGeneratedKey()
@@ -646,7 +646,7 @@ final class Store(config: Config,
   def updateWindow(window: Window): Int =
     DB localTx { implicit session =>
       sql"""
-        update window set typeof = ${window.typeof.toString}, installed = ${window.installed}
+        update wndow set typeof = ${window.typeof.toString}, installed = ${window.installed}
         where id = ${window.id}
         """
         .update()

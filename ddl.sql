@@ -281,6 +281,8 @@ CREATE TABLE pool (
   id BIGSERIAL PRIMARY KEY,
   account_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
+  gallons INT NOT NULL,
+  caged BOOLEAN NOT NULL,
   built VARCHAR NOT NULL
 );
 

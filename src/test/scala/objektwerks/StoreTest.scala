@@ -75,8 +75,7 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateFoundation(foundation: Foundation): Unit =
     val update = foundation.copy(typeof = FoundationType.crawl)
-    val count = store.updateFoundation(update)
-    count == 1 shouldBe true
+    store.updateFoundation(update) shouldBe 1
 
   def listFoundations(): Unit =
     store.listFoundations(testHouse.id).length shouldBe 1

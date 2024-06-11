@@ -166,3 +166,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateChimney(update: Chimney): Unit =
     store.updateChimney( update.copy(typeof = ChimneyType.metal) ) shouldBe 1
+
+  def listChimneys(): Unit =
+    store.listChimneys(testHouse.id).length shouldBe 1

@@ -106,3 +106,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateInsulation(update: Insulation): Unit =
     store.updateInsulation( update.copy(typeof = InsulationType.foam) ) shouldBe 1
+
+  def listInsulation(): Unit =
+    store.listInsulations(testHouse.id).length shouldBe 1

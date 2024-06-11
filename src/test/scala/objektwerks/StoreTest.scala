@@ -136,3 +136,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateVentilation(update: Ventilation): Unit =
     store.updateVentilation( update.copy(typeof = VentilationType.exhaust) ) shouldBe 1
+
+  def listVentilations(): Unit =
+    store.listVentilations(testHouse.id).length shouldBe 1

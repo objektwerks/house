@@ -61,8 +61,7 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateHouse(): Unit =
     testHouse = testHouse.copy(location = "100 Rocky Road")
-    val count = store.updateHouse(testHouse)
-    count == 1 shouldBe true
+    store.updateHouse(testHouse) shouldBe 1
 
   def listHouses(): Unit =
     store.listHouses(testHouse.accountId).length shouldBe 1

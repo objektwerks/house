@@ -22,23 +22,13 @@ final class StoreTest extends AnyFunSuite with Matchers:
   test("store"):
     register()
     login()
-
     isAuthorized()
+
     addHouse()
-
-    isAuthorized()
     updateHouse()
-
-    isAuthorized()
     listHouses()
 
-    isAuthorized()
-    val foundation = addFoundation()
-
-    isAuthorized()
-    updateFoundation(foundation)
-
-    isAuthorized()
+    updateFoundation( addFoundation() )
     listFoundations()
 
   def register(): Unit =

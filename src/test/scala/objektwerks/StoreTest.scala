@@ -103,3 +103,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addInsulation(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateInsulation(update: Insulation): Unit =
+    store.updateInsulation( update.copy(typeof = InsulationType.foam) ) shouldBe 1

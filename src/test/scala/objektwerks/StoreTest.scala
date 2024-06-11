@@ -133,3 +133,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addVentilation(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateVentilation(update: Ventilation): Unit =
+    store.updateVentilation( update.copy(typeof = VentilationType.exhaust) ) shouldBe 1

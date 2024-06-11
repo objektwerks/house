@@ -124,3 +124,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateDuctwork(update: Ductwork): Unit =
     store.updateDuctwork( update.copy(typeof = DuctworkType.flexible) ) shouldBe 1
+
+  def listDuctworks(): Unit =
+    store.listDuctworks(testHouse.id).length shouldBe 1

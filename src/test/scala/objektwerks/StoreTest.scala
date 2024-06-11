@@ -37,6 +37,9 @@ final class StoreTest extends AnyFunSuite with Matchers:
     updateAttic( addAttic() )
     listAttics()
 
+    updateInsulation( addInsulation() )
+    listInsulations()
+
   def register(): Unit =
     val id = store.register(testAccount)
     id > 0 shouldBe true
@@ -107,5 +110,5 @@ final class StoreTest extends AnyFunSuite with Matchers:
   def updateInsulation(update: Insulation): Unit =
     store.updateInsulation( update.copy(typeof = InsulationType.foam) ) shouldBe 1
 
-  def listInsulation(): Unit =
+  def listInsulations(): Unit =
     store.listInsulations(testHouse.id).length shouldBe 1

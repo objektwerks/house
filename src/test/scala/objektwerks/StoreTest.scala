@@ -73,3 +73,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addFrame(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateFrame(update: Frame): Unit =
+    store.updateFrame( update.copy(typeof = FrameType.steel) ) shouldBe 1

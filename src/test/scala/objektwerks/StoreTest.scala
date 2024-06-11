@@ -118,3 +118,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addDuctwork(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateDuctwork(update: Ductwork): Unit =
+    store.updateDuctwork( update.copy(typeof = DuctworkType.flexible) ) shouldBe 1

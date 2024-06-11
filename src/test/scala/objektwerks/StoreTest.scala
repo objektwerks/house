@@ -88,3 +88,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addAttic(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateAttic(update: Attic): Unit =
+    store.updateAttic( update.copy(typeof = AtticType.unfinished) ) shouldBe 1

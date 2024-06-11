@@ -57,10 +57,10 @@ final class StoreTest extends AnyFunSuite with Matchers:
     store.listHouses(testHouse.accountId).length shouldBe 1
 
   def addFoundation(): Foundation =
-    val foundation = Foundation(houseId = testHouse.id)
-    val id = store.addFoundation(foundation)
+    val add = Foundation(houseId = testHouse.id)
+    val id = store.addFoundation(add)
     id > 0 shouldBe true
-    foundation.copy(id = id)
+    add.copy(id = id)
 
   def updateFoundation(foundation: Foundation): Unit =
     store.updateFoundation( foundation.copy(typeof = FoundationType.crawl) ) shouldBe 1

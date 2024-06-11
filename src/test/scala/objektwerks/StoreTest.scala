@@ -32,6 +32,15 @@ final class StoreTest extends AnyFunSuite with Matchers:
     isAuthorized()
     listHouses()
 
+    isAuthorized()
+    val foundation = addFoundation()
+
+    isAuthorized()
+    updateFoundation(foundation)
+
+    isAuthorized()
+    listFoundations()
+
   def register(): Unit =
     val id = store.register(testAccount)
     id > 0 shouldBe true

@@ -58,3 +58,8 @@ final class StoreTest extends AnyFunSuite with Matchers:
   def listHouses(): Unit =
     val houses = store.listHouses(testHouse.accountId)
     houses.length == 1 shouldBe true
+
+  def addFoundation(): Unit =
+    val foundation = Foundation(houseId = testHouse.id)
+    val id = store.addFoundation(foundation)
+    id > 0 shouldBe true

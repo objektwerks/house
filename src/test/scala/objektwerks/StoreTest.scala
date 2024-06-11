@@ -163,3 +163,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addChimney(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateChimney(update: Chimney): Unit =
+    store.updateChimney( update.copy(typeof = ChimneyType.metal) ) shouldBe 1

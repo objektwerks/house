@@ -49,6 +49,9 @@ final class StoreTest extends AnyFunSuite with Matchers:
     updateRoof( addRoof() )
     listRoofs()
 
+    updateChimney( addChimney() )
+    listChimneys()
+
   def register(): Unit =
     val id = store.register(testAccount)
     id > 0 shouldBe true

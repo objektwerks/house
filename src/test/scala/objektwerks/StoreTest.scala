@@ -76,3 +76,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateFrame(update: Frame): Unit =
     store.updateFrame( update.copy(typeof = FrameType.steel) ) shouldBe 1
+
+  def listFrames(): Unit =
+    store.listFrames(testHouse.id).length shouldBe 1

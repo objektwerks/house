@@ -478,7 +478,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into driveway(house_id, typeof, culvert_typeof, built)
-        values(${driveway.houseId}, ${driveway.typeof.toString}, ${driveway.culvertTypeof}, ${driveway.built})
+        values(${driveway.houseId}, ${driveway.typeof.toString}, ${driveway.culvertTypeof.toString}, ${driveway.built})
         """
         .updateAndReturnGeneratedKey()
     }

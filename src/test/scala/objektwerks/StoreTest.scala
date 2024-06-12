@@ -208,3 +208,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addRoom(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateRoom(update: Room): Unit =
+    store.updateRoom( update.copy(typeof = RoomType.bathroom) ) shouldBe 1

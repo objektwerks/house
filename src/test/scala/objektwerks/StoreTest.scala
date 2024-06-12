@@ -241,3 +241,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateGarage(update: Garage): Unit =
     store.updateGarage( update.copy(typeof = GarageType.detached) ) shouldBe 1
+
+  def listGarages(): Unit =
+    store.listGarages(testHouse.id).length shouldBe 1

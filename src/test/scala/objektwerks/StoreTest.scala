@@ -55,6 +55,9 @@ final class StoreTest extends AnyFunSuite with Matchers:
     updateBalcony( addBalcony() )
     listBalconys()
 
+    updateDrywall( addDrywall() )
+    listDrywalls()
+
   def register(): Unit =
     val id = store.register(testAccount)
     id > 0 shouldBe true

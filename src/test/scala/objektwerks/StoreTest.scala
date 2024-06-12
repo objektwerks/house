@@ -316,3 +316,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateDoor(update: Door): Unit =
     store.updateDoor( update.copy(typeof = DoorType.glass) ) shouldBe 1
+
+  def listDoors(): Unit =
+    store.listDoors(testHouse.id).length shouldBe 1

@@ -253,3 +253,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addSiding(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateSiding(update: Siding): Unit =
+    store.updateSiding( update.copy(typeof = SidingType.clapboard) ) shouldBe 1

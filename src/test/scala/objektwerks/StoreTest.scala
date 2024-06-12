@@ -64,6 +64,9 @@ final class StoreTest extends AnyFunSuite with Matchers:
     updateDriveway( addDriveway() )
     listDriveways()
 
+    updateGarage( addGarage() )
+    listGarages()
+
   def register(): Unit =
     val id = store.register(testAccount)
     id > 0 shouldBe true

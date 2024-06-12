@@ -226,3 +226,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateDriveway(update: Driveway): Unit =
     store.updateDriveway( update.copy(typeof = DrivewayType.asphalt) ) shouldBe 1
+
+  def listDriveways(): Unit =
+    store.listDriveways(testHouse.id).length shouldBe 1

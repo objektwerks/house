@@ -217,3 +217,9 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def listRooms(): Unit =
     store.listRooms(testHouse.id).length shouldBe 1
+
+  def addDriveway(): Driveway =
+    val add = Driveway(houseId = testHouse.id)
+    val id = store.addDriveway(add)
+    id > 0 shouldBe true
+    add.copy(id = id)

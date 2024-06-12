@@ -298,3 +298,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addWindow(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateWindow(update: Window): Unit =
+    store.updateWindow( update.copy(typeof = WindowType.bay) ) shouldBe 1

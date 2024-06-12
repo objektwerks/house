@@ -286,3 +286,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateSoffit(update: Soffit): Unit =
     store.updateSoffit( update.copy(typeof = SoffitType.aluminum) ) shouldBe 1
+
+  def listSoffits(): Unit =
+    store.listSoffits(testHouse.id).length shouldBe 1

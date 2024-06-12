@@ -181,3 +181,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateBalcony(update: Balcony): Unit =
     store.updateBalcony( update.copy(typeof = BalconyType.juliet) ) shouldBe 1
+
+  def listBalconys(): Unit =
+    store.listBalconys(testHouse.id).length shouldBe 1

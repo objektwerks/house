@@ -196,3 +196,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateDrywall(update: Drywall): Unit =
     store.updateDrywall( update.copy(typeof = DrywallType.specialty) ) shouldBe 1
+
+  def listDrywalls(): Unit =
+    store.listDrywalls(testHouse.id).length shouldBe 1

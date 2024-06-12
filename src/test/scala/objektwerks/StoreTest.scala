@@ -301,3 +301,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateWindow(update: Window): Unit =
     store.updateWindow( update.copy(typeof = WindowType.bay) ) shouldBe 1
+
+  def listWindows(): Unit =
+    store.listWindows(testHouse.id).length shouldBe 1

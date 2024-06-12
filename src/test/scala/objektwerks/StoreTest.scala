@@ -223,3 +223,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addDriveway(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateDriveway(update: Driveway): Unit =
+    store.updateDriveway( update.copy(typeof = DrivewayType.asphalt) ) shouldBe 1

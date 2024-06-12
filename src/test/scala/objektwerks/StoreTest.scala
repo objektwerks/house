@@ -256,3 +256,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateSiding(update: Siding): Unit =
     store.updateSiding( update.copy(typeof = SidingType.clapboard) ) shouldBe 1
+
+  def listSidings(): Unit =
+    store.listSidings(testHouse.id).length shouldBe 1

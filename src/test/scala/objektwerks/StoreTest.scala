@@ -346,3 +346,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateElectrical(update: Electrical): Unit =
     store.updateElectrical( update.copy(typeof = ElectricalType.romex) ) shouldBe 1
+
+  def listElectricals(): Unit =
+    store.listElectricals(testHouse.id).length shouldBe 1

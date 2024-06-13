@@ -352,3 +352,9 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def listElectricals(): Unit =
     store.listElectricals(testHouse.id).length shouldBe 1
+
+  def addFusebox(): Fusebox =
+    val add = Fusebox(houseId = testHouse.id)
+    val id = store.addFusebox(add)
+    id > 0 shouldBe true
+    add.copy(id = id)

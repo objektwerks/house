@@ -358,3 +358,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addFusebox(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateFusebox(update: Fusebox): Unit =
+    store.updateFusebox( update.copy(typeof = FuseboxType.typeS) ) shouldBe 1

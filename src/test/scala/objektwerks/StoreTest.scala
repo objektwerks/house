@@ -361,3 +361,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateFusebox(update: Fusebox): Unit =
     store.updateFusebox( update.copy(typeof = FuseboxType.typeS) ) shouldBe 1
+
+  def listFuseboxes(): Unit =
+    store.listFuseboxes(testHouse.id).length shouldBe 1

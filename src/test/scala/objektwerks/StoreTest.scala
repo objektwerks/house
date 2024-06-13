@@ -376,3 +376,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateAlarm(update: Alarm): Unit =
     store.updateAlarm( update.copy(typeof = AlarmType.smart) ) shouldBe 1
+
+  def listAlarms(): Unit =
+    store.listAlarms(testHouse.id).length shouldBe 1

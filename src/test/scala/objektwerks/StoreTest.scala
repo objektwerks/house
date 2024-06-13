@@ -343,3 +343,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addElectrical(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateElectrical(update: Electrical): Unit =
+    store.updateElectrical( update.copy(typeof = ElectricalType.romex) ) shouldBe 1

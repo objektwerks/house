@@ -373,3 +373,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addAlarm(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateAlarm(update: Alarm): Unit =
+    store.updateAlarm( update.copy(typeof = AlarmType.smart) ) shouldBe 1

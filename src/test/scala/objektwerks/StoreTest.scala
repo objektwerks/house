@@ -331,3 +331,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updatePlumbing(update: Plumbing): Unit =
     store.updatePlumbing( update.copy(typeof = PlumbingType.pex) ) shouldBe 1
+
+  def listPlumbings(): Unit =
+    store.listPlumbings(testHouse.id).length shouldBe 1

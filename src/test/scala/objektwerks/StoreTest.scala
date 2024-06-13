@@ -86,10 +86,10 @@ final class StoreTest extends AnyFunSuite with Matchers:
     listPlumbings()
 
     updateElectrical( addElectrical() )
-    listFuseboxes()
+    listElectricals()
 
     updateFusebox( addFusebox() )
-    listElectricals()
+    listFuseboxes()
 
     updateAlarm( addAlarm() )
     listAlarms()

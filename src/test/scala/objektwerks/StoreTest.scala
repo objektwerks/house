@@ -86,6 +86,9 @@ final class StoreTest extends AnyFunSuite with Matchers:
     listPlumbings()
 
     updateElectrical( addElectrical() )
+    listFuseboxes()
+
+    updateFusebox( addFusebox() )
     listElectricals()
 
   def register(): Unit =

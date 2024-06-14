@@ -418,3 +418,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addFloor(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateFloor(update: Floor): Unit =
+    store.updateFloor( update.copy(typeof = FloorType.synthetic) ) shouldBe 1

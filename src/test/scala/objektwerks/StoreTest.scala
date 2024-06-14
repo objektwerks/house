@@ -496,3 +496,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateWaterHeater(update: WaterHeater): Unit =
     store.updateWaterHeater( update.copy(typeof = WaterHeaterType.solar) ) shouldBe 1
+
+  def listWaterHeaters(): Unit =
+    store.listWaterHeaters(testHouse.id).length shouldBe 1

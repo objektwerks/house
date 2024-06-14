@@ -463,3 +463,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addWell(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateWell(update: Well): Unit =
+    store.updateWell( update.copy(typeof = WellType.driven) ) shouldBe 1

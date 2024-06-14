@@ -403,3 +403,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addAirConditioner(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateAirconditioner(update: AirConditioner): Unit =
+    store.updateAirConditioner( update.copy(typeof = AirConditionerType.airSourceHeatPump) ) shouldBe 1

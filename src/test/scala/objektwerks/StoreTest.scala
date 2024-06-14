@@ -436,3 +436,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateLighting(update: Lighting): Unit =
     store.updateLighting( update.copy(typeof = LightingType.accent) ) shouldBe 1
+
+  def listLightings(): Unit =
+    store.listLightings(testHouse.id).length shouldBe 1

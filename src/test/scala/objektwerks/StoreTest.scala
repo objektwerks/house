@@ -433,3 +433,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addLighting(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateLighting(update: Lighting): Unit =
+    store.updateLighting( update.copy(typeof = LightingType.accent) ) shouldBe 1

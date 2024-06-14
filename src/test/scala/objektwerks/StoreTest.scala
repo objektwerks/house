@@ -526,3 +526,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateGarden(update: Garden): Unit =
     store.updateGarden( update.copy(typeof = GardenType.flower) ) shouldBe 1
+
+  def listGardens(): Unit =
+    store.listGardens(testHouse.id).length shouldBe 1

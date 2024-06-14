@@ -451,3 +451,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateSewage(update: Sewage): Unit =
     store.updateSewage( update.copy(typeof = SewageType.sanitarySewer) ) shouldBe 1
+
+  def listSewages(): Unit =
+    store.listSewages(testHouse.id).length shouldBe 1

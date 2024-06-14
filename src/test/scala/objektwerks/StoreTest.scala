@@ -493,3 +493,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addWaterHeater(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateWaterHeater(update: WaterHeater): Unit =
+    store.updateWaterHeater( update.copy(typeof = WaterHeaterType.solar) ) shouldBe 1

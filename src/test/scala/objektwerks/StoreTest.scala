@@ -115,6 +115,9 @@ final class StoreTest extends AnyFunSuite with Matchers:
     updateWater( addWater() )
     listWaters()
 
+    updateWaterHeater( addWaterHeater() )
+    listWaterHeaters()
+
   def register(): Unit =
     val id = store.register(testAccount)
     id > 0 shouldBe true

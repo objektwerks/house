@@ -202,84 +202,84 @@ CREATE TABLE lighting (
 
 CREATE TABLE sewage (
   id BIGSERIAL PRIMARY KEY,
-  account_id BIGINT REFERENCES account(id),
+  house_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
   built VARCHAR NOT NULL
 );
 
 CREATE TABLE well (
   id BIGSERIAL PRIMARY KEY,
-  account_id BIGINT REFERENCES account(id),
+  house_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
   built VARCHAR NOT NULL
 );
 
 CREATE TABLE water (
   id BIGSERIAL PRIMARY KEY,
-  account_id BIGINT REFERENCES account(id),
+  house_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
 
 CREATE TABLE water_heater (
   id BIGSERIAL PRIMARY KEY,
-  account_id BIGINT REFERENCES account(id),
+  house_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
 
 CREATE TABLE lawn (
   id BIGSERIAL PRIMARY KEY,
-  account_id BIGINT REFERENCES account(id),
+  house_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
   planted VARCHAR NOT NULL
 );
 
 CREATE TABLE garden (
   id BIGSERIAL PRIMARY KEY,
-  account_id BIGINT REFERENCES account(id),
+  house_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
   planted VARCHAR NOT NULL
 );
 
 CREATE TABLE sprinkler (
   id BIGSERIAL PRIMARY KEY,
-  account_id BIGINT REFERENCES account(id),
+  house_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
 
 CREATE TABLE shed (
   id BIGSERIAL PRIMARY KEY,
-  account_id BIGINT REFERENCES account(id),
+  house_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
   built VARCHAR NOT NULL
 );
 
 CREATE TABLE solarpanel (
   id BIGSERIAL PRIMARY KEY,
-  account_id BIGINT REFERENCES account(id),
+  house_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
 
 CREATE TABLE porch (
   id BIGSERIAL PRIMARY KEY,
-  account_id BIGINT REFERENCES account(id),
+  house_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
   built VARCHAR NOT NULL
 );
 
 CREATE TABLE patio (
   id BIGSERIAL PRIMARY KEY,
-  account_id BIGINT REFERENCES account(id),
+  house_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
   built VARCHAR NOT NULL
 );
 
 CREATE TABLE pool (
   id BIGSERIAL PRIMARY KEY,
-  account_id BIGINT REFERENCES account(id),
+  house_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
   gallons INT NOT NULL,
   caged BOOLEAN NOT NULL,
@@ -288,21 +288,21 @@ CREATE TABLE pool (
 
 CREATE TABLE dock (
   id BIGSERIAL PRIMARY KEY,
-  account_id BIGINT REFERENCES account(id),
+  house_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
   built VARCHAR NOT NULL
 );
 
 CREATE TABLE gazebo (
   id BIGSERIAL PRIMARY KEY,
-  account_id BIGINT REFERENCES account(id),
+  house_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
   built VARCHAR NOT NULL
 );
 
 CREATE TABLE mailbox (
   id BIGSERIAL PRIMARY KEY,
-  account_id BIGINT REFERENCES account(id),
+  house_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );

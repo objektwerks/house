@@ -421,3 +421,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateFloor(update: Floor): Unit =
     store.updateFloor( update.copy(typeof = FloorType.synthetic) ) shouldBe 1
+
+  def listFloors(): Unit =
+    store.listFloors(testHouse.id).length shouldBe 1

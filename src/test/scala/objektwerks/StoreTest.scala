@@ -391,3 +391,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateHeater(update: Heater): Unit =
     store.updateHeater( update.copy(typeof = HeaterType.heatPump) ) shouldBe 1
+
+  def listHeaters(): Unit =
+    store.listHeaters(testHouse.id).length shouldBe 1

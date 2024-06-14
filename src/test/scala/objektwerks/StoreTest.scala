@@ -448,3 +448,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addSewage(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateSewage(update: Sewage): Unit =
+    store.updateSewage( update.copy(typeof = SewageType.sanitarySewer) ) shouldBe 1

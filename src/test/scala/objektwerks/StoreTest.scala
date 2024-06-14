@@ -466,3 +466,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateWell(update: Well): Unit =
     store.updateWell( update.copy(typeof = WellType.driven) ) shouldBe 1
+
+  def listWells(): Unit =
+    store.listWells(testHouse.id).length shouldBe 1

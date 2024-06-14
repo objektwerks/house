@@ -112,6 +112,9 @@ final class StoreTest extends AnyFunSuite with Matchers:
     updateWell( addWell() )
     listWells()
 
+    updateWater( addWater() )
+    listWaters()
+
   def register(): Unit =
     val id = store.register(testAccount)
     id > 0 shouldBe true

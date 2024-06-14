@@ -397,3 +397,9 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def listHeaters(): Unit =
     store.listHeaters(testHouse.id).length shouldBe 1
+
+  def addAirConditioner(): AirConditioner =
+    val add = AirConditioner(houseId = testHouse.id)
+    val id = store.addAirConditioner(add)
+    id > 0 shouldBe true
+    add.copy(id = id)

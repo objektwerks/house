@@ -406,3 +406,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateAirconditioner(update: AirConditioner): Unit =
     store.updateAirConditioner( update.copy(typeof = AirConditionerType.airSourceHeatPump) ) shouldBe 1
+
+  def listAirconditioners(): Unit =
+    store.listAirConditioners(testHouse.id).length shouldBe 1

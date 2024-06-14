@@ -388,3 +388,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addHeater(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateHeater(update: Heater): Unit =
+    store.updateHeater( update.copy(typeof = HeaterType.heatPump) ) shouldBe 1

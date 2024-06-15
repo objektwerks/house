@@ -616,3 +616,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updatePool(update: Pool): Unit =
     store.updatePool( update.copy(typeof = PoolType.aboveground) ) shouldBe 1
+
+  def listPools(): Unit =
+    store.listPools(testHouse.id).length shouldBe 1

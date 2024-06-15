@@ -127,6 +127,9 @@ final class StoreTest extends AnyFunSuite with Matchers:
     updateSprinkler( addSprinkler() )
     listSprinklers()
 
+    updateShed( addShed() )
+    listSheds()
+
   def register(): Unit =
     val id = store.register(testAccount)
     id > 0 shouldBe true

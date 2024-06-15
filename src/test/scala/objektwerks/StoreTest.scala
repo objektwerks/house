@@ -538,3 +538,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addSprinkler(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateSprinkler(update: Sprinkler): Unit =
+    store.updateSprinkler( update.copy(typeof = SprinklerType.multiUse) ) shouldBe 1

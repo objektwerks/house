@@ -547,3 +547,9 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def listSprinklers(): Unit =
     store.listSprinklers(testHouse.id).length shouldBe 1
+
+  def addShed(): Shed =
+    val add = Shed(houseId = testHouse.id)
+    val id = store.addShed(add)
+    id > 0 shouldBe true
+    add.copy(id = id)

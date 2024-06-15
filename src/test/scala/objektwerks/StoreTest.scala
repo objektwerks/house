@@ -553,3 +553,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addShed(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateShed(update: Shed): Unit =
+    store.updateShed( update.copy(typeof = ShedType.storage) ) shouldBe 1

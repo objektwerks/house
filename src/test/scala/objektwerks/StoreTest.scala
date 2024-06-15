@@ -592,3 +592,9 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def listPorches(): Unit =
     store.listPorches(testHouse.id).length shouldBe 1
+
+  def addPatio(): Patio =
+    val add = Patio(houseId = testHouse.id)
+    val id = store.addPatio(add)
+    id > 0 shouldBe true
+    add.copy(id = id)

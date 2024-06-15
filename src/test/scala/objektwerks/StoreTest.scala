@@ -628,3 +628,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addDock(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateDock(update: Dock): Unit =
+    store.updateDock( update.copy(typeof = DockType.floating) ) shouldBe 1

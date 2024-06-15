@@ -541,3 +541,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateSprinkler(update: Sprinkler): Unit =
     store.updateSprinkler( update.copy(typeof = SprinklerType.multiUse) ) shouldBe 1
+
+  def listSprinklers(): Unit =
+    store.listSprinklers(testHouse.id).length shouldBe 1

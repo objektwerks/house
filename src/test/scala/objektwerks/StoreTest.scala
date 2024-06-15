@@ -562,3 +562,9 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def listSheds(): Unit =
     store.listSheds(testHouse.id).length shouldBe 1
+
+  def addSolarPanel(): SolarPanel =
+    val add = SolarPanel(houseId = testHouse.id)
+    val id = store.addSolarPanel(add)
+    id > 0 shouldBe true
+    add.copy(id = id)

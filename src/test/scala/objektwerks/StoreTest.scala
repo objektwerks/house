@@ -649,3 +649,9 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def listGazebos(): Unit =
     store.listGazebos(testHouse.id).length shouldBe 1
+
+  def addMailbox(): Mailbox =
+    val add = Mailbox(houseId = testHouse.id)
+    val id = store.addMailbox(add)
+    id > 0 shouldBe true
+    add.copy(id = id)

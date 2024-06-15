@@ -643,3 +643,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateGazebo(update: Gazebo): Unit =
     store.updateGazebo( update.copy(typeof = GazeboType.steel) ) shouldBe 1
+
+  def listGazebos(): Unit =
+    store.listGazebos(testHouse.id).length shouldBe 1

@@ -568,3 +568,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addSolarPanel(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateSolarPanel(update: SolarPanel): Unit =
+    store.updateSolarPanel( update.copy(typeof = SolarPanelType.polycrystalline) ) shouldBe 1

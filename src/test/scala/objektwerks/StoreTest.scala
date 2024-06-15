@@ -571,3 +571,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateSolarPanel(update: SolarPanel): Unit =
     store.updateSolarPanel( update.copy(typeof = SolarPanelType.polycrystalline) ) shouldBe 1
+
+  def listSolarPanels(): Unit =
+    store.listSolarPanels(testHouse.id).length shouldBe 1

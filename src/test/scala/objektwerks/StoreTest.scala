@@ -622,3 +622,9 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def listPools(): Unit =
     store.listPools(testHouse.id).length shouldBe 1
+
+  def addDock(): Dock =
+    val add = Dock(houseId = testHouse.id)
+    val id = store.addDock(add)
+    id > 0 shouldBe true
+    add.copy(id = id)

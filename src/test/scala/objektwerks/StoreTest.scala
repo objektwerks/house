@@ -631,3 +631,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateDock(update: Dock): Unit =
     store.updateDock( update.copy(typeof = DockType.floating) ) shouldBe 1
+
+  def listDocks(): Unit =
+    store.listDocks(testHouse.id).length shouldBe 1

@@ -658,3 +658,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   def updateMailbox(update: Mailbox): Unit =
     store.updateMailbox( update.copy(typeof = MailboxType.wallMount) ) shouldBe 1
+
+  def listMailboxes(): Unit =
+    store.listMailboxes(testHouse.id).length shouldBe 1

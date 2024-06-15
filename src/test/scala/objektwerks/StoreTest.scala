@@ -613,3 +613,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addPool(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updatePool(update: Pool): Unit =
+    store.updatePool( update.copy(typeof = PoolType.aboveground) ) shouldBe 1

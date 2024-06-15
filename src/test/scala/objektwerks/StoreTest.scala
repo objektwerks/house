@@ -655,3 +655,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addMailbox(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateMailbox(update: Mailbox): Unit =
+    store.updateMailbox( update.copy(typeof = MailboxType.wallMount) ) shouldBe 1

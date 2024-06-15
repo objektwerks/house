@@ -640,3 +640,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
     val id = store.addGazebo(add)
     id > 0 shouldBe true
     add.copy(id = id)
+
+  def updateGazebo(update: Gazebo): Unit =
+    store.updateGazebo( update.copy(typeof = GazeboType.steel) ) shouldBe 1

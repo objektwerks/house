@@ -128,6 +128,8 @@ object Chimney:
 final case class Balcony(id: Long = 0,
                          houseId: Long,
                          typeof: BalconyType = BalconyType.cantilevered,
+                         label: String = "",
+                         note: String = "",
                          built: String = Entity.now) extends Entity
 
 object Balcony:

@@ -28,7 +28,7 @@ final case class House(id: Long = 0,
                        accountId: Long,
                        typeof: HouseType = HouseType.primary,
                        location: String,
-                       note: String,
+                       note: String = "",
                        built: String = Entity.now) extends Entity
 
 object House:
@@ -40,8 +40,8 @@ object House:
 final case class Foundation(id: Long = 0,
                             houseId: Long,
                             typeof: FoundationType = FoundationType.slab,
-                            label: String,
-                            note: String,
+                            label: String = "",
+                            note: String = "",
                             built: String = Entity.now) extends Entity
 
 object Foundation:
@@ -51,6 +51,8 @@ object Foundation:
 final case class Frame(id: Long = 0,
                        houseId: Long,
                        typeof: FrameType = FrameType.platform,
+                       label: String = "",
+                       note: String = "",
                        built: String = Entity.now) extends Entity
 
 object Frame:

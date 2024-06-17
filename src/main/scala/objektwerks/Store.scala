@@ -204,7 +204,7 @@ final class Store(config: Config,
   def updateAttic(attic: Attic): Int =
     DB localTx { implicit session =>
       sql"""
-        update attic set typeof = ${attic.typeof.toString}, built = ${attic.built}
+        update attic set typeof = ${attic.typeof.toString},  label = ${attic.label},  note = ${attic.note}, built = ${attic.built}
         where id = ${attic.id}
         """
         .update()

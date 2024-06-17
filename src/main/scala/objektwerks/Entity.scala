@@ -106,6 +106,8 @@ object Ventilation:
 final case class Roof(id: Long = 0,
                       houseId: Long,
                       typeof: RoofType = RoofType.shingle,
+                      label: String = "",
+                      note: String = "",
                       built: String = Entity.now) extends Entity
 
 object Roof:

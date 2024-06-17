@@ -340,7 +340,7 @@ final class Store(config: Config,
   def updateRoof(roof: Roof): Int =
     DB localTx { implicit session =>
       sql"""
-        update roof set typeof = ${roof.typeof.toString}, built = ${roof.built}
+        update roof set typeof = ${roof.typeof.toString}, label = ${roof.label}, note = ${roof.note}, built = ${roof.built}
         where id = ${roof.id}
         """
         .update()

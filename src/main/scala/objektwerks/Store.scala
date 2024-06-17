@@ -238,8 +238,8 @@ final class Store(config: Config,
   def updateInsulation(insulation: Insulation): Int =
     DB localTx { implicit session =>
       sql"""
-        update insulation set typeof = ${insulation.typeof.toString}, installed = ${insulation.installed}
-        where id = ${insulation.id}
+        update insulation set typeof = ${insulation.typeof.toString}, label = ${insulation.label}, note = ${insulation.note},
+        installed = ${insulation.installed} where id = ${insulation.id}
         """
         .update()
     }

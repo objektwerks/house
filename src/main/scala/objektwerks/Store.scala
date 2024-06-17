@@ -102,7 +102,7 @@ final class Store(config: Config,
   def updateHouse(house: House): Int =
     DB localTx { implicit session =>
       sql"""
-        update house set typeof = ${house.typeof.toString}, location = ${house.location}, built = ${house.built}
+        update house set typeof = ${house.typeof.toString}, location = ${house.location}, note = ${house.note}, built = ${house.built}
         where id = ${house.id}
         """
         .update()

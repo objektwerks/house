@@ -272,8 +272,8 @@ final class Store(config: Config,
   def updateDuctwork(ductwork: Ductwork): Int =
     DB localTx { implicit session =>
       sql"""
-        update ductwork set typeof = ${ductwork.typeof.toString}, installed = ${ductwork.installed}
-        where id = ${ductwork.id}
+        update ductwork set typeof = ${ductwork.typeof.toString}, label = ${ductwork.label}, note = ${ductwork.note},
+        installed = ${ductwork.installed} where id = ${ductwork.id}
         """
         .update()
     }

@@ -365,8 +365,8 @@ final class Store(config: Config,
   def addChimney(chimney: Chimney): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into chimney(house_id, typeof, built)
-        values(${chimney.houseId}, ${chimney.typeof.toString}, ${chimney.built})
+        insert into chimney(house_id, typeof, label, note, built)
+        values(${chimney.houseId}, ${chimney.typeof.toString}, ${chimney.label}, ${chimney.note}, ${chimney.built})
         """
         .updateAndReturnGeneratedKey()
     }

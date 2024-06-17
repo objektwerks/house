@@ -399,8 +399,8 @@ final class Store(config: Config,
   def addBalcony(balcony: Balcony): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into balcony(house_id, typeof, built)
-        values(${balcony.houseId}, ${balcony.typeof.toString}, ${balcony.built})
+        insert into balcony(house_id, typeof, label, note, built)
+        values(${balcony.houseId}, ${balcony.typeof.toString}, ${balcony.label}, ${balcony.note}, ${balcony.built})
         """
         .updateAndReturnGeneratedKey()
     }

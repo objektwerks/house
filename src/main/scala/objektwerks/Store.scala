@@ -263,8 +263,8 @@ final class Store(config: Config,
   def addDuctwork(ductwork: Ductwork): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into ductwork(house_id, typeof, installed)
-        values(${ductwork.houseId}, ${ductwork.typeof.toString}, ${ductwork.installed})
+        insert into ductwork(house_id, typeof, label, note, installed)
+        values(${ductwork.houseId}, ${ductwork.typeof.toString}, ${ductwork.label}, ${ductwork.note}, ${ductwork.installed})
         """
         .updateAndReturnGeneratedKey()
     }

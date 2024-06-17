@@ -252,6 +252,8 @@ final class Store(config: Config,
             rs.long("id"),
             rs.long("house_id"),
             DuctworkType.valueOf( rs.string("typeof") ),
+            rs.string("label"),
+            rs.string("note"),
             rs.string("installed")
           )
         )

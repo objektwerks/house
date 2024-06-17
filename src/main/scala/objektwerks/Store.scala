@@ -195,8 +195,8 @@ final class Store(config: Config,
   def addAttic(attic: Attic): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into attic(house_id, typeof, built)
-        values(${attic.houseId}, ${attic.typeof.toString}, ${attic.built})
+        insert into attic(house_id, typeof, label, note, built)
+        values(${attic.houseId}, ${attic.typeof.toString}, ${attic.label}, ${attic.note}, ${attic.built})
         """
         .updateAndReturnGeneratedKey()
     }

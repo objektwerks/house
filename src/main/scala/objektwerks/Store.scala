@@ -93,8 +93,8 @@ final class Store(config: Config,
   def addHouse(house: House): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into house(account_id, typeof, location, built)
-        values(${house.accountId}, ${house.typeof.toString}, ${house.location}, ${house.built})
+        insert into house(account_id, typeof, location, note, built)
+        values(${house.accountId}, ${house.typeof.toString}, ${house.location}, ${house.note}, ${house.built})
         """
         .updateAndReturnGeneratedKey()
     }

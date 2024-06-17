@@ -408,7 +408,7 @@ final class Store(config: Config,
   def updateBalcony(balcony: Balcony): Int =
     DB localTx { implicit session =>
       sql"""
-        update balcony set typeof = ${balcony.typeof.toString}, built = ${balcony.built}
+        update balcony set typeof = ${balcony.typeof.toString}, label = ${balcony.label}, note = ${balcony.note}, built = ${balcony.built}
         where id = ${balcony.id}
         """
         .update()

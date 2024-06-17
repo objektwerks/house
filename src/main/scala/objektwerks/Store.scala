@@ -137,8 +137,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         update foundation set typeof = ${foundation.typeof.toString}, label = ${foundation.label}, note = ${foundation.note},
-        built = ${foundation.built}
-        where id = ${foundation.id}
+        built = ${foundation.built} where id = ${foundation.id}
         """
         .update()
     }

@@ -170,7 +170,7 @@ final class Store(config: Config,
   def updateFrame(frame: Frame): Int =
     DB localTx { implicit session =>
       sql"""
-        update frame set typeof = ${frame.typeof.toString}, built = ${frame.built}
+        update frame set typeof = ${frame.typeof.toString}, label = ${frame.label}, note = ${frame.note}, built = ${frame.built}
         where id = ${frame.id}
         """
         .update()

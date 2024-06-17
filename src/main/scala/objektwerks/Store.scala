@@ -297,8 +297,8 @@ final class Store(config: Config,
   def addVentilation(ventilation: Ventilation): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into ventilation(house_id, typeof, installed)
-        values(${ventilation.houseId}, ${ventilation.typeof.toString}, ${ventilation.installed})
+        insert into ventilation(house_id, typeof, label, note, installed)
+        values(${ventilation.houseId}, ${ventilation.typeof.toString}, ${ventilation.label}, ${ventilation.note}, ${ventilation.installed})
         """
         .updateAndReturnGeneratedKey()
     }

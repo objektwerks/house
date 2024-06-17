@@ -62,6 +62,8 @@ object Frame:
 final case class Attic(id: Long = 0,
                        houseId: Long,
                        typeof: AtticType = AtticType.scuttle,
+                       label: String = "",
+                       note: String = "",
                        built: String = Entity.now) extends Entity
 
 object Attic:

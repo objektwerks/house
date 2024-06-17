@@ -161,8 +161,8 @@ final class Store(config: Config,
   def addFrame(frame: Frame): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into frame(house_id, typeof, built)
-        values(${frame.houseId}, ${frame.typeof.toString}, ${frame.built})
+        insert into frame(house_id, typeof, label, note, built)
+        values(${frame.houseId}, ${frame.typeof.toString},  ${frame.label}),  ${frame.note}), ${frame.built})
         """
         .updateAndReturnGeneratedKey()
     }

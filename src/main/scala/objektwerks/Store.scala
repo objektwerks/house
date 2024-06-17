@@ -306,8 +306,8 @@ final class Store(config: Config,
   def updateVentilation(ventilation: Ventilation): Int =
     DB localTx { implicit session =>
       sql"""
-        update ventilation set typeof = ${ventilation.typeof.toString}, installed = ${ventilation.installed}
-        where id = ${ventilation.id}
+        update ventilation set typeof = ${ventilation.typeof.toString}, label = ${ventilation.label}, note = ${ventilation.note},
+        installed = ${ventilation.installed} where id = ${ventilation.id}
         """
         .update()
     }

@@ -785,8 +785,8 @@ final class Store(config: Config,
   def updateElectrical(electrical: Electrical): Int =
     DB localTx { implicit session =>
       sql"""
-        update electrical set typeof = ${electrical.typeof.toString}, installed = ${electrical.installed}
-        where id = ${electrical.id}
+        update electrical set typeof = ${electrical.typeof.toString}, label = ${electrical.label}, note = ${electrical.note},
+        installed = ${electrical.installed} where id = ${electrical.id}
         """
         .update()
     }

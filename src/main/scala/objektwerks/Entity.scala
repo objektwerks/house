@@ -208,6 +208,8 @@ object Gutter:
 final case class Soffit(id: Long = 0,
                         houseId: Long,
                         typeof: SoffitType = SoffitType.aluminum,
+                        label: String = "",
+                        note: String = "",
                         installed: String = Entity.now) extends Entity
 
 object Soffit:

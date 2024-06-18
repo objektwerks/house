@@ -649,8 +649,8 @@ final class Store(config: Config,
   def updateSoffit(soffit: Soffit): Int =
     DB localTx { implicit session =>
       sql"""
-        update soffit set typeof = ${soffit.typeof.toString}, installed = ${soffit.installed}
-        where id = ${soffit.id}
+        update soffit set typeof = ${soffit.typeof.toString}, label = ${soffit.label}, note = ${soffit.note},
+        installed = ${soffit.installed} where id = ${soffit.id}
         """
         .update()
     }

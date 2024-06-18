@@ -742,8 +742,8 @@ final class Store(config: Config,
   def addPlumbing(plumbing: Plumbing): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into plumbing(house_id, typeof, installed)
-        values(${plumbing.houseId}, ${plumbing.typeof.toString}, ${plumbing.installed})
+        insert into plumbing(house_id, typeof, label, note, installed)
+        values(${plumbing.houseId}, ${plumbing.typeof.toString}, ${plumbing.label}, ${plumbing.note}, ${plumbing.installed})
         """
         .updateAndReturnGeneratedKey()
     }

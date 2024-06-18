@@ -230,6 +230,8 @@ object Window:
 final case class Door(id: Long = 0,
                       houseId: Long,
                       typeof: DoorType = DoorType.fiberglass,
+                      label: String = "",
+                      note: String = "",
                       installed: String = Entity.now) extends Entity
 
 object Door:

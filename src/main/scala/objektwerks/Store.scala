@@ -467,8 +467,8 @@ final class Store(config: Config,
   def addRoom(room: Room): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into room(house_id, typeof, built)
-        values(${room.houseId}, ${room.typeof.toString}, ${room.built})
+        insert into room(house_id, typeof, label, note, built)
+        values(${room.houseId}, ${room.typeof.toString}, ${room.label}, ${room.note}, ${room.built})
         """
         .updateAndReturnGeneratedKey()
     }

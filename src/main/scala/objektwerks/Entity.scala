@@ -139,6 +139,8 @@ object Balcony:
 final case class Drywall(id: Long = 0,
                          houseId: Long,
                          typeof: DrywallType = DrywallType.standard,
+                         label: String = "",
+                         note: String = "",
                          built: String = Entity.now) extends Entity
 
 object Drywall:

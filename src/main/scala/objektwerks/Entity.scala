@@ -252,6 +252,8 @@ object Plumbing:
 final case class Electrical(id: Long = 0,
                             houseId: Long,
                             typeof: ElectricalType = ElectricalType.nm,
+                            label: String = "",
+                            note: String = "",
                             installed: String = Entity.now) extends Entity
 
 object Electrical:

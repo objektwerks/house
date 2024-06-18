@@ -606,8 +606,8 @@ final class Store(config: Config,
   def addGutter(gutter: Gutter): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into gutter(house_id, typeof, installed)
-        values(${gutter.houseId}, ${gutter.typeof.toString}, ${gutter.installed})
+        insert into gutter(house_id, typeof, label, note, installed)
+        values(${gutter.houseId}, ${gutter.typeof.toString}, ${gutter.label}, ${gutter.note}, ${gutter.installed})
         """
         .updateAndReturnGeneratedKey()
     }

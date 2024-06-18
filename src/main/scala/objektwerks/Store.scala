@@ -581,8 +581,8 @@ final class Store(config: Config,
   def updateSiding(siding: Siding): Int =
     DB localTx { implicit session =>
       sql"""
-        update siding set typeof = ${siding.typeof.toString}, installed = ${siding.installed}
-        where id = ${siding.id}
+        update siding set typeof = ${siding.typeof.toString}, label = ${siding.label}, note = ${siding.note},
+        installed = ${siding.installed} where id = ${siding.id}
         """
         .update()
     }

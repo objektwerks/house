@@ -547,7 +547,7 @@ final class Store(config: Config,
   def updateGarage(garage: Garage): Int =
     DB localTx { implicit session =>
       sql"""
-        update garage set typeof = ${garage.typeof.toString}, built = ${garage.built}
+        update garage set typeof = ${garage.typeof.toString}, label = ${garage.label}, note = ${garage.note}, built = ${garage.built}
         where id = ${garage.id}
         """
         .update()

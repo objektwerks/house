@@ -442,7 +442,7 @@ final class Store(config: Config,
   def updateDrywall(drywall: Drywall): Int =
     DB localTx { implicit session =>
       sql"""
-        update drywall set typeof = ${drywall.typeof.toString}, built = ${drywall.built}
+        update drywall set typeof = ${drywall.typeof.toString}, label = ${drywall.label}, note = ${drywall.note}, built = ${drywall.built}
         where id = ${drywall.id}
         """
         .update()

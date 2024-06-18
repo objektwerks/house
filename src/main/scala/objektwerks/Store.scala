@@ -476,7 +476,7 @@ final class Store(config: Config,
   def updateRoom(room: Room): Int =
     DB localTx { implicit session =>
       sql"""
-        update room set typeof = ${room.typeof.toString}, built = ${room.built}
+        update room set typeof = ${room.typeof.toString}, label = ${room.label}, note = ${room.note}, built = ${room.built}
         where id = ${room.id}
         """
         .update()

@@ -433,8 +433,8 @@ final class Store(config: Config,
   def addDrywall(drywall: Drywall): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into drywall(house_id, typeof, built)
-        values(${drywall.houseId}, ${drywall.typeof.toString}, ${drywall.built})
+        insert into drywall(house_id, typeof, label, note, built)
+        values(${drywall.houseId}, ${drywall.typeof.toString}, ${drywall.label}, ${drywall.note}, ${drywall.built})
         """
         .updateAndReturnGeneratedKey()
     }

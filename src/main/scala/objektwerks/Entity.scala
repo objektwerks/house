@@ -219,6 +219,8 @@ object Soffit:
 final case class Window(id: Long = 0,
                         houseId: Long,
                         typeof: WindowType = WindowType.single,
+                        label: String = "",
+                        note: String = "",
                         installed: String = Entity.now) extends Entity
 
 object Window:

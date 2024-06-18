@@ -186,6 +186,8 @@ object Garage:
 final case class Siding(id: Long = 0,
                         houseId: Long,
                         typeof: SidingType = SidingType.vinyl,
+                        label: String = "",
+                        note: String = "",
                         installed: String = Entity.now) extends Entity
 
 object Siding:

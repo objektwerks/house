@@ -674,8 +674,8 @@ final class Store(config: Config,
   def addWindow(window: Window): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into wndow(house_id, typeof, installed)
-        values(${window.houseId}, ${window.typeof.toString}, ${window.installed})
+        insert into wndow(house_id, typeof, label, note, installed)
+        values(${window.houseId}, ${window.typeof.toString}, ${window.label}, ${window.note}, ${window.installed})
         """
         .updateAndReturnGeneratedKey()
     }

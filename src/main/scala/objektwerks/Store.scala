@@ -751,8 +751,8 @@ final class Store(config: Config,
   def updatePlumbing(plumbing: Plumbing): Int =
     DB localTx { implicit session =>
       sql"""
-        update plumbing set typeof = ${plumbing.typeof.toString}, installed = ${plumbing.installed}
-        where id = ${plumbing.id}
+        update plumbing set typeof = ${plumbing.typeof.toString}, label = ${plumbing.label}, note = ${plumbing.note},
+        installed = ${plumbing.installed} where id = ${plumbing.id}
         """
         .update()
     }

@@ -173,6 +173,8 @@ object Driveway:
 final case class Garage(id: Long = 0,
                         houseId: Long,
                         typeof: GarageType = GarageType.attached,
+                        label: String = "",
+                        note: String = "",
                         built: String = Entity.now) extends Entity
 
 object Garage:

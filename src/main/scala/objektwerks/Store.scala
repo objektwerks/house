@@ -683,8 +683,8 @@ final class Store(config: Config,
   def updateWindow(window: Window): Int =
     DB localTx { implicit session =>
       sql"""
-        update wndow set typeof = ${window.typeof.toString}, installed = ${window.installed}
-        where id = ${window.id}
+        update wndow set typeof = ${window.typeof.toString}, label = ${window.label}, note = ${window.note},
+        installed = ${window.installed} where id = ${window.id}
         """
         .update()
     }

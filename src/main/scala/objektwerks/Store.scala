@@ -640,8 +640,8 @@ final class Store(config: Config,
   def addSoffit(soffit: Soffit): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into soffit(house_id, typeof, installed)
-        values(${soffit.houseId}, ${soffit.typeof.toString}, ${soffit.installed})
+        insert into soffit(house_id, typeof, label, note, installed)
+        values(${soffit.houseId}, ${soffit.typeof.toString}, ${soffit.label}, ${soffit.note}, ${soffit.installed})
         """
         .updateAndReturnGeneratedKey()
     }

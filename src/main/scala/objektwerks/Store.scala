@@ -708,8 +708,8 @@ final class Store(config: Config,
   def addDoor(door: Door): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into door(house_id, typeof, installed)
-        values(${door.houseId}, ${door.typeof.toString}, ${door.installed})
+        insert into door(house_id, typeof, label, note, installed)
+        values(${door.houseId}, ${door.typeof.toString}, ${door.label}, ${door.note}, ${door.installed})
         """
         .updateAndReturnGeneratedKey()
     }

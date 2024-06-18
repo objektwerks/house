@@ -241,6 +241,8 @@ object Door:
 final case class Plumbing(id: Long = 0,
                           houseId: Long,
                           typeof: PlumbingType = PlumbingType.pvc,
+                          label: String = "",
+                          note: String = "",
                           installed: String = Entity.now) extends Entity
 
 object Plumbing:

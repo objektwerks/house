@@ -538,8 +538,8 @@ final class Store(config: Config,
   def addGarage(garage: Garage): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into garage(house_id, typeof, built)
-        values(${garage.houseId}, ${garage.typeof.toString}, ${garage.built})
+        insert into garage(house_id, typeof, label, note, built)
+        values(${garage.houseId}, ${garage.typeof.toString}, ${garage.label}, ${garage.note},${garage.built})
         """
         .updateAndReturnGeneratedKey()
     }

@@ -1048,8 +1048,8 @@ final class Store(config: Config,
   def addWell(well: Well): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into well(house_id, typeof, built)
-        values(${well.houseId}, ${well.typeof.toString}, ${well.built})
+        insert into well(house_id, typeof, label, note, built)
+        values(${well.houseId}, ${well.typeof.toString}, ${well.label}, ${well.note}, ${well.built})
         """
         .updateAndReturnGeneratedKey()
     }

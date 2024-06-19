@@ -989,8 +989,8 @@ final class Store(config: Config,
   def updateLighting(lighting: Lighting): Int =
     DB localTx { implicit session =>
       sql"""
-        update lighting set typeof = ${lighting.typeof.toString}, installed = ${lighting.installed}
-        where id = ${lighting.id}
+        update lighting set typeof = ${lighting.typeof.toString}, label = ${lighting.label}, note = ${lighting.note},
+        installed = ${lighting.installed} where id = ${lighting.id}
         """
         .update()
     }

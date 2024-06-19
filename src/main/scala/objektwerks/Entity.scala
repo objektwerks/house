@@ -353,6 +353,8 @@ object Well:
 final case class Water(id: Long = 0,
                        houseId: Long,
                        typeof: WaterType = WaterType.well,
+                       label: String = "",
+                       note: String = "",
                        installed: String = Entity.now) extends Entity
 
 object Water:

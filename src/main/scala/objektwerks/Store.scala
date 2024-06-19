@@ -955,8 +955,8 @@ final class Store(config: Config,
   def updateFloor(floor: Floor): Int =
     DB localTx { implicit session =>
       sql"""
-        update floor set typeof = ${floor.typeof.toString}, installed = ${floor.installed}
-        where id = ${floor.id}
+        update floor set typeof = ${floor.typeof.toString}, label = ${floor.label}, note = ${floor.note},
+        installed = ${floor.installed} where id = ${floor.id}
         """
         .update()
     }

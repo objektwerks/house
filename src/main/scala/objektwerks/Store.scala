@@ -819,8 +819,8 @@ final class Store(config: Config,
   def updateFusebox(fusebox: Fusebox): Int =
     DB localTx { implicit session =>
       sql"""
-        update fusebox set typeof = ${fusebox.typeof.toString}, installed = ${fusebox.installed}
-        where id = ${fusebox.id}
+        update fusebox set typeof = ${fusebox.typeof.toString}, label = ${fusebox.label}, note = ${fusebox.note},
+        installed = ${fusebox.installed} where id = ${fusebox.id}
         """
         .update()
     }

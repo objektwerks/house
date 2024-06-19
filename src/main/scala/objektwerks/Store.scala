@@ -921,7 +921,7 @@ final class Store(config: Config,
   def updateAirConditioner(ac: AirConditioner): Int =
     DB localTx { implicit session =>
       sql"""
-        update ac set typeof = ${ac.typeof.toString}, installed = ${ac.installed}
+        update ac set typeof = ${ac.typeof.toString}, label = ${ac.label}, note = ${ac.note},installed = ${ac.installed}
         where id = ${ac.id}
         """
         .update()

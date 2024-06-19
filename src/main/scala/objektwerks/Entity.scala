@@ -331,6 +331,8 @@ object Lighting:
 final case class Sewage(id: Long = 0,
                         houseId: Long,
                         typeof: SewageType = SewageType.anaerobicSystem,
+                        label: String = "",
+                        note: String = "",
                         built: String = Entity.now) extends Entity
 
 object Sewage:

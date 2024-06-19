@@ -1023,7 +1023,7 @@ final class Store(config: Config,
   def updateSewage(sewage: Sewage): Int =
     DB localTx { implicit session =>
       sql"""
-        update sewage set typeof = ${sewage.typeof.toString}, built = ${sewage.built}
+        update sewage set typeof = ${sewage.typeof.toString}, label = ${sewage.label}, note = ${sewage.note}, built = ${sewage.built}
         where id = ${sewage.id}
         """
         .update()

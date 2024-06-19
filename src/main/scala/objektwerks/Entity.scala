@@ -274,6 +274,8 @@ object Fusebox:
 final case class Alarm(id: Long = 0,
                        houseId: Long,
                        typeof: AlarmType = AlarmType.wireless,
+                       label: String = "",
+                       note: String = "",
                        installed: String = Entity.now) extends Entity
 
 object Alarm:

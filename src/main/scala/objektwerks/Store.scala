@@ -1057,7 +1057,7 @@ final class Store(config: Config,
   def updateWell(well: Well): Int =
     DB localTx { implicit session =>
       sql"""
-        update well set typeof = ${well.typeof.toString}, built = ${well.built}
+        update well set typeof = ${well.typeof.toString}, label = ${well.label}, note = ${well.note}, built = ${well.built}
         where id = ${well.id}
         """
         .update()

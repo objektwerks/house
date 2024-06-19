@@ -887,8 +887,8 @@ final class Store(config: Config,
   def updateHeater(heater: Heater): Int =
     DB localTx { implicit session =>
       sql"""
-        update heater set typeof = ${heater.typeof.toString}, installed = ${heater.installed}
-        where id = ${heater.id}
+        update heater set typeof = ${heater.typeof.toString}, label = ${heater.label}, note = ${heater.note},
+        installed = ${heater.installed} where id = ${heater.id}
         """
         .update()
     }

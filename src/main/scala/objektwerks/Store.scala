@@ -853,8 +853,8 @@ final class Store(config: Config,
   def updateAlarm(alarm: Alarm): Int =
     DB localTx { implicit session =>
       sql"""
-        update alarm set typeof = ${alarm.typeof.toString}, installed = ${alarm.installed}
-        where id = ${alarm.id}
+        update alarm set typeof = ${alarm.typeof.toString}, label = ${alarm.label}, note = ${alarm.note},
+        installed = ${alarm.installed} where id = ${alarm.id}
         """
         .update()
     }

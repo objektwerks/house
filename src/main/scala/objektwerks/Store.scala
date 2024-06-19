@@ -912,8 +912,8 @@ final class Store(config: Config,
   def addAirConditioner(ac: AirConditioner): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into ac(house_id, typeof, installed)
-        values(${ac.houseId}, ${ac.typeof.toString}, ${ac.installed})
+        insert into ac(house_id, typeof, label, note, installed)
+        values(${ac.houseId}, ${ac.typeof.toString}, ${ac.label}, ${ac.note}, ${ac.installed})
         """
         .updateAndReturnGeneratedKey()
     }

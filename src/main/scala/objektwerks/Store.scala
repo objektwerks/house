@@ -946,8 +946,8 @@ final class Store(config: Config,
   def addFloor(floor: Floor): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into floor(house_id, typeof, installed)
-        values(${floor.houseId}, ${floor.typeof.toString}, ${floor.installed})
+        insert into floor(house_id, typeof, label, note, installed)
+        values(${floor.houseId}, ${floor.typeof.toString}, ${floor.label}, ${floor.note}, ${floor.installed})
         """
         .updateAndReturnGeneratedKey()
     }

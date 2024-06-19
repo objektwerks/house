@@ -1091,8 +1091,8 @@ final class Store(config: Config,
   def updateWater(water: Water): Int =
     DB localTx { implicit session =>
       sql"""
-        update water set typeof = ${water.typeof.toString}, installed = ${water.installed}
-        where id = ${water.id}
+        update water set typeof = ${water.typeof.toString}, label = ${water.label}, note = ${water.note},
+        installed = ${water.installed} where id = ${water.id}
         """
         .update()
     }

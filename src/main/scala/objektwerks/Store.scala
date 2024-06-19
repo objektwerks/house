@@ -1116,8 +1116,8 @@ final class Store(config: Config,
   def addWaterHeater(waterHeater: WaterHeater): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into water_heater(house_id, typeof, installed)
-        values(${waterHeater.houseId}, ${waterHeater.typeof.toString}, ${waterHeater.installed})
+        insert into water_heater(house_id, typeof, label, note, installed)
+        values(${waterHeater.houseId}, ${waterHeater.typeof.toString}, ${waterHeater.label}, ${waterHeater.note}, ${waterHeater.installed})
         """
         .updateAndReturnGeneratedKey()
     }

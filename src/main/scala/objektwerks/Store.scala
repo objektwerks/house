@@ -980,8 +980,8 @@ final class Store(config: Config,
   def addLighting(lighting: Lighting): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into lighting(house_id, typeof, installed)
-        values(${lighting.houseId}, ${lighting.typeof.toString}, ${lighting.installed})
+        insert into lighting(house_id, typeof, label, note, installed)
+        values(${lighting.houseId}, ${lighting.typeof.toString}, ${lighting.label}, ${lighting.note}, ${lighting.installed})
         """
         .updateAndReturnGeneratedKey()
     }

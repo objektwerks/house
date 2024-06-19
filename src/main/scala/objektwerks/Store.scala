@@ -1014,8 +1014,8 @@ final class Store(config: Config,
   def addSewage(sewage: Sewage): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into sewage(house_id, typeof, built)
-        values(${sewage.houseId}, ${sewage.typeof.toString}, ${sewage.built})
+        insert into sewage(house_id, typeof, label, note, built)
+        values(${sewage.houseId}, ${sewage.typeof.toString}, ${sewage.label}, ${sewage.note}, ${sewage.built})
         """
         .updateAndReturnGeneratedKey()
     }

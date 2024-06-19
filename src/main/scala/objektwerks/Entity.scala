@@ -318,6 +318,8 @@ object Floor:
 final case class Lighting(id: Long = 0,
                           houseId: Long,
                           typeof: LightingType = LightingType.general,
+                          label: String = "",
+                          note: String = "",
                           installed: String = Entity.now) extends Entity
 
 object Lighting:

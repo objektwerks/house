@@ -342,6 +342,8 @@ object Sewage:
 final case class Well(id: Long = 0,
                       houseId: Long,
                       typeof: WellType = WellType.drilled,
+                      label: String = "",
+                      note: String = "",
                       built: String = Entity.now) extends Entity
 
 object Well:

@@ -285,6 +285,8 @@ object Alarm:
 final case class Heater(id: Long = 0,
                         houseId: Long,
                         typeof: HeaterType = HeaterType.furnace,
+                        label: String = "",
+                        note: String = "",
                         installed: String = Entity.now) extends Entity
 
 object Heater:

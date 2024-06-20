@@ -1159,7 +1159,7 @@ final class Store(config: Config,
   def updateLawn(lawn: Lawn): Int =
     DB localTx { implicit session =>
       sql"""
-        update lawn set typeof = ${lawn.typeof.toString}, planted = ${lawn.planted}
+        update lawn set typeof = ${lawn.typeof.toString}, label = ${lawn.label}, note = ${lawn.note}, planted = ${lawn.planted}
         where id = ${lawn.id}
         """
         .update()

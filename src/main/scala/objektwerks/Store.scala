@@ -1286,8 +1286,8 @@ final class Store(config: Config,
   def addSolarPanel(solarpanel: SolarPanel): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into solarpanel(house_id, typeof, installed)
-        values(${solarpanel.houseId}, ${solarpanel.typeof.toString}, ${solarpanel.installed})
+        insert into solarpanel(house_id, typeof, label, note, installed)
+        values(${solarpanel.houseId}, ${solarpanel.typeof.toString}, ${solarpanel.label}, ${solarpanel.note}, ${solarpanel.installed})
         """
         .updateAndReturnGeneratedKey()
     }

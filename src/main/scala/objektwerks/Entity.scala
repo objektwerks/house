@@ -441,6 +441,8 @@ object Porch:
 final case class Patio(id: Long = 0,
                        houseId: Long,
                        typeof: PatioType = PatioType.paver,
+                       label: String = "",
+                       note: String = "",
                        built: String = Entity.now) extends Entity
 
 object Patio:

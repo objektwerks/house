@@ -1320,8 +1320,8 @@ final class Store(config: Config,
   def addPorch(porch: Porch): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into porch(house_id, typeof, built)
-        values(${porch.houseId}, ${porch.typeof.toString}, ${porch.built})
+        insert into porch(house_id, typeof, label, note, built)
+        values(${porch.houseId}, ${porch.typeof.toString}, ${porch.label}, ${porch.note}, ${porch.built})
         """
         .updateAndReturnGeneratedKey()
     }

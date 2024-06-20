@@ -386,6 +386,8 @@ object Lawn:
 final case class Garden(id: Long = 0,
                         houseId: Long,
                         typeof: GardenType = GardenType.vegetable,
+                        label: String = "",
+                        note: String = "",
                         planted: String = Entity.now) extends Entity
 
 object Garden:

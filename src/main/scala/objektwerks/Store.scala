@@ -1468,7 +1468,7 @@ final class Store(config: Config,
   def updateGazebo(gazebo: Gazebo): Int =
     DB localTx { implicit session =>
       sql"""
-        update gazebo set typeof = ${gazebo.typeof.toString}, built = ${gazebo.built}
+        update gazebo set typeof = ${gazebo.typeof.toString}, label = ${gazebo.label}, note = ${gazebo.note}, built = ${gazebo.built}
         where id = ${gazebo.id}
         """
         .update()

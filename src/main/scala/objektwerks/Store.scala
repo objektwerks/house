@@ -1434,7 +1434,7 @@ final class Store(config: Config,
   def updateDock(dock: Dock): Int =
     DB localTx { implicit session =>
       sql"""
-        update dock set typeof = ${dock.typeof.toString}, built = ${dock.built}
+        update dock set typeof = ${dock.typeof.toString}, label = ${dock.label}, note = ${dock.note}, built = ${dock.built}
         where id = ${dock.id}
         """
         .update()

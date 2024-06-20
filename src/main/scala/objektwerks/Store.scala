@@ -1459,8 +1459,8 @@ final class Store(config: Config,
   def addGazebo(gazebo: Gazebo): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into gazebo(house_id, typeof, built)
-        values(${gazebo.houseId}, ${gazebo.typeof.toString}, ${gazebo.built})
+        insert into gazebo(house_id, typeof, label, note, built)
+        values(${gazebo.houseId}, ${gazebo.typeof.toString}, ${gazebo.label}, ${gazebo.note}, ${gazebo.built})
         """
         .updateAndReturnGeneratedKey()
     }

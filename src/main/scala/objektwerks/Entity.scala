@@ -430,6 +430,8 @@ object SolarPanel:
 final case class Porch(id: Long = 0,
                        houseId: Long,
                        typeof: PorchType = PorchType.back,
+                       label: String = "",
+                       note: String = "",
                        built: String = Entity.now) extends Entity
 
 object Porch:

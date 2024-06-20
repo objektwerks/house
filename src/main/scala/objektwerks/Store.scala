@@ -1261,7 +1261,7 @@ final class Store(config: Config,
   def updateShed(shed: Shed): Int =
     DB localTx { implicit session =>
       sql"""
-        update shed set typeof = ${shed.typeof.toString}, built = ${shed.built}
+        update shed set typeof = ${shed.typeof.toString}, lebel = ${shed.label}, note = ${shed.note}, built = ${shed.built}
         where id = ${shed.id}
         """
         .update()

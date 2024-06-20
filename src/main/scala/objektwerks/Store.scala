@@ -1227,8 +1227,8 @@ final class Store(config: Config,
   def updateSprinkler(sprinkler: Sprinkler): Int =
     DB localTx { implicit session =>
       sql"""
-        update sprinkler set typeof = ${sprinkler.typeof.toString}, installed = ${sprinkler.installed}
-        where id = ${sprinkler.id}
+        update sprinkler set typeof = ${sprinkler.typeof.toString}, label = ${sprinkler.label}, note = ${sprinkler.note},
+        installed = ${sprinkler.installed} where id = ${sprinkler.id}
         """
         .update()
     }

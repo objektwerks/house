@@ -1139,6 +1139,8 @@ final class Store(config: Config,
             rs.long("id"),
             rs.long("house_id"),
             LawnType.valueOf( rs.string("typeof") ),
+            rs.string("label"),
+            rs.string("note"),
             rs.string("planted")
           )
         )

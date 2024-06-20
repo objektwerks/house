@@ -1379,6 +1379,8 @@ final class Store(config: Config,
             PoolType.valueOf( rs.string("typeof") ),
             rs.int("gallons"),
             rs.boolean("caged"),
+            rs.string("label"),
+            rs.string("note"),
             rs.string("built")
           )
         )

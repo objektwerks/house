@@ -1363,7 +1363,7 @@ final class Store(config: Config,
   def updatePatio(patio: Patio): Int =
     DB localTx { implicit session =>
       sql"""
-        update patio set typeof = ${patio.typeof.toString}, built = ${patio.built}
+        update patio set typeof = ${patio.typeof.toString}, label = ${patio.label}, note = ${patio.note}, built = ${patio.built}
         where id = ${patio.id}
         """
         .update()

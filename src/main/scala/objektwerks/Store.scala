@@ -1502,8 +1502,8 @@ final class Store(config: Config,
   def updateMailbox(mailbox: Mailbox): Int =
     DB localTx { implicit session =>
       sql"""
-        update mailbox set typeof = ${mailbox.typeof.toString}, installed = ${mailbox.installed}
-        where id = ${mailbox.id}
+        update mailbox set typeof = ${mailbox.typeof.toString}, label = ${mailbox.label}, note = ${mailbox.note},
+        installed = ${mailbox.installed} where id = ${mailbox.id}
         """
         .update()
     }

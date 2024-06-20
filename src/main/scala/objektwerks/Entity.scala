@@ -476,6 +476,8 @@ object Dock:
 final case class Gazebo(id: Long = 0,
                         houseId: Long,
                         typeof: GazeboType = GazeboType.wood,
+                        label: String = "",
+                        note: String = "",
                         built: String = Entity.now) extends Entity
 
 object Gazebo:

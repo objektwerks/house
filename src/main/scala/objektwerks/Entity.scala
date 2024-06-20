@@ -397,6 +397,8 @@ object Garden:
 final case class Sprinkler(id: Long = 0,
                            houseId: Long,
                            typeof: SprinklerType = SprinklerType.preAction,
+                           label: String = "",
+                           note: String = "",
                            installed: String = Entity.now) extends Entity
 
 object Sprinkler:

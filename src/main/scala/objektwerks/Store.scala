@@ -1493,8 +1493,8 @@ final class Store(config: Config,
   def addMailbox(mailbox: Mailbox): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into mailbox(house_id, typeof, installed)
-        values(${mailbox.houseId}, ${mailbox.typeof.toString}, ${mailbox.installed})
+        insert into mailbox(house_id, typeof, label, note, installed)
+        values(${mailbox.houseId}, ${mailbox.typeof.toString}, ${mailbox.label}, ${mailbox.note}, ${mailbox.installed})
         """
         .updateAndReturnGeneratedKey()
     }

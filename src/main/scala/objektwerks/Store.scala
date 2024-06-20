@@ -1329,7 +1329,7 @@ final class Store(config: Config,
   def updatePorch(porch: Porch): Int =
     DB localTx { implicit session =>
       sql"""
-        update porch set typeof = ${porch.typeof.toString}, built = ${porch.built}
+        update porch set typeof = ${porch.typeof.toString}, label = ${porch.label}, note = ${porch.note}, built = ${porch.built}
         where id = ${porch.id}
         """
         .update()

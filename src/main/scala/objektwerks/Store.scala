@@ -1295,8 +1295,8 @@ final class Store(config: Config,
   def updateSolarPanel(solarpanel: SolarPanel): Int =
     DB localTx { implicit session =>
       sql"""
-        update solarpanel set typeof = ${solarpanel.typeof.toString}, installed = ${solarpanel.installed}
-        where id = ${solarpanel.id}
+        update solarpanel set typeof = ${solarpanel.typeof.toString}, label = ${solarpanel.label}, note = ${solarpanel.note},
+        installed = ${solarpanel.installed} where id = ${solarpanel.id}
         """
         .update()
     }

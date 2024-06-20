@@ -1184,8 +1184,8 @@ final class Store(config: Config,
   def addGarden(garden: Garden): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into garden(house_id, typeof, planted)
-        values(${garden.houseId}, ${garden.typeof.toString}, ${garden.planted})
+        insert into garden(house_id, typeof, label, note, planted)
+        values(${garden.houseId}, ${garden.typeof.toString}, ${garden.label}, ${garden.note}, ${garden.planted})
         """
         .updateAndReturnGeneratedKey()
     }

@@ -487,6 +487,8 @@ object Gazebo:
 final case class Mailbox(id: Long = 0,
                          houseId: Long,
                          typeof: MailboxType = MailboxType.postMount,
+                         label: String = "",
+                         note: String = "",
                          installed: String = Entity.now) extends Entity
 
 object Mailbox:

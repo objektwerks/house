@@ -465,6 +465,8 @@ object Pool:
 final case class Dock(id: Long = 0,
                       houseId: Long,
                       typeof: DockType = DockType.permanent,
+                      label: String = "",
+                      note: String = "",
                       built: String = Entity.now) extends Entity
 
 object Dock:

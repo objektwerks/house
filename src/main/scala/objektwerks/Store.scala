@@ -1390,8 +1390,8 @@ final class Store(config: Config,
   def addPool(pool: Pool): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into pool(house_id, typeof, gallons, caged, built)
-        values(${pool.houseId}, ${pool.typeof.toString}, ${pool.gallons}, ${pool.caged}, ${pool.built})
+        insert into pool(house_id, typeof, gallons, caged, label, note, built)
+        values(${pool.houseId}, ${pool.typeof.toString}, ${pool.gallons}, ${pool.caged}, ${pool.label}, ${pool.note}, ${pool.built})
         """
         .updateAndReturnGeneratedKey()
     }

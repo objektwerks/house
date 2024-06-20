@@ -83,6 +83,7 @@ final class Store(config: Config,
             rs.long("account_id"),
             HouseType.valueOf( rs.string("typeof") ),
             rs.string("location"),
+            rs.string("label"),
             rs.string("note"),
             rs.string("built")
           )

@@ -408,6 +408,8 @@ object Sprinkler:
 final case class Shed(id: Long = 0,
                       houseId: Long,
                       typeof: ShedType = ShedType.storage,
+                      label: String = "",
+                      note: String = "",
                       built: String = Entity.now) extends Entity
 
 object Shed:

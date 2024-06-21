@@ -573,7 +573,7 @@ final class Store(config: Config,
   def addSiding(siding: Siding): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into siding(house_id, typeof, label, note,installed)
+        insert into siding(house_id, typeof, label, note, installed)
         values(${siding.houseId}, ${siding.typeof.toString}, ${siding.label}, ${siding.note}, ${siding.installed})
         """
         .updateAndReturnGeneratedKey()

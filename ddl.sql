@@ -141,7 +141,6 @@ CREATE TABLE siding (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),
   typeof VARCHAR NOT NULL,
-  typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
   note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
@@ -150,7 +149,6 @@ CREATE TABLE siding (
 CREATE TABLE gutter (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),
-  typeof VARCHAR NOT NULL,
   typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
   note VARCHAR NOT NULL,
@@ -161,7 +159,6 @@ CREATE TABLE soffit (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),
   typeof VARCHAR NOT NULL,
-  typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
   note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
@@ -170,7 +167,6 @@ CREATE TABLE soffit (
 CREATE TABLE wndow (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),
-  typeof VARCHAR NOT NULL,
   typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
   note VARCHAR NOT NULL,
@@ -181,7 +177,6 @@ CREATE TABLE door (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),
   typeof VARCHAR NOT NULL,
-  typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
   note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
@@ -190,7 +185,6 @@ CREATE TABLE door (
 CREATE TABLE plumbing (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),
-  typeof VARCHAR NOT NULL,
   typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
   note VARCHAR NOT NULL,
@@ -201,7 +195,6 @@ CREATE TABLE electrical (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),
   typeof VARCHAR NOT NULL,
-  typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
   note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
@@ -210,7 +203,6 @@ CREATE TABLE electrical (
 CREATE TABLE fusebox (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),
-  typeof VARCHAR NOT NULL,
   typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
   note VARCHAR NOT NULL,
@@ -221,7 +213,6 @@ CREATE TABLE alarm (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),
   typeof VARCHAR NOT NULL,
-  typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
   note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
@@ -231,7 +222,6 @@ CREATE TABLE heater (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),
   typeof VARCHAR NOT NULL,
-  typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
   note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
@@ -240,7 +230,6 @@ CREATE TABLE heater (
 CREATE TABLE ac (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),
-  typeof VARCHAR NOT NULL,
   typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
   note VARCHAR NOT NULL,

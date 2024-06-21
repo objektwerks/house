@@ -163,7 +163,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into frame(house_id, typeof, label, note, built)
-        values(${frame.houseId}, ${frame.typeof.toString},  ${frame.label}),  ${frame.note}), ${frame.built})
+        values(${frame.houseId}, ${frame.typeof.toString},  ${frame.label},  ${frame.note}, ${frame.built})
         """
         .updateAndReturnGeneratedKey()
     }

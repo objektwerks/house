@@ -323,6 +323,8 @@ CREATE TABLE sprinkler (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
+  label VARCHAR NOT NULL,
+  note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
 

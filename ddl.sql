@@ -186,6 +186,8 @@ CREATE TABLE plumbing (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),
   typeof VARCHAR NOT NULL,
+  typeof VARCHAR NOT NULL,
+  label VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
 

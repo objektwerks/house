@@ -370,6 +370,8 @@ CREATE TABLE pool (
   typeof VARCHAR NOT NULL,
   gallons INT NOT NULL,
   caged BOOLEAN NOT NULL,
+  label VARCHAR NOT NULL,
+  note VARCHAR NOT NULL,
   built VARCHAR NOT NULL
 );
 

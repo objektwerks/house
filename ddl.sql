@@ -95,6 +95,8 @@ CREATE TABLE balcony (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),
   typeof VARCHAR NOT NULL,
+  label VARCHAR NOT NULL,
+  note VARCHAR NOT NULL,
   built VARCHAR NOT NULL
 );
 

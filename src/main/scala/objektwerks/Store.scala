@@ -129,7 +129,7 @@ final class Store(config: Config,
     DB localTx { implicit session =>
       sql"""
         insert into foundation(house_id, typeof, label, note, built)
-        values(${foundation.houseId}, ${foundation.typeof.toString}, ${foundation.label}), ${foundation.note}), ${foundation.built})
+        values(${foundation.houseId}, ${foundation.typeof.toString}, ${foundation.label}, ${foundation.note}, ${foundation.built})
         """
         .updateAndReturnGeneratedKey()
     }

@@ -123,6 +123,8 @@ CREATE TABLE driveway (
   house_id BIGINT REFERENCES house(id),
   typeof VARCHAR NOT NULL,
   culvert_typeof VARCHAR NOT NULL,
+  label VARCHAR NOT NULL,
+  note VARCHAR NOT NULL,
   built VARCHAR NOT NULL
 );
 

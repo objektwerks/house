@@ -379,6 +379,8 @@ CREATE TABLE dock (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES account(id),
   typeof VARCHAR NOT NULL,
+  label VARCHAR NOT NULL,
+  note VARCHAR NOT NULL,
   built VARCHAR NOT NULL
 );
 

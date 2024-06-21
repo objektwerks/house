@@ -143,6 +143,7 @@ CREATE TABLE siding (
   typeof VARCHAR NOT NULL,
   typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
+  note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
 
@@ -152,6 +153,7 @@ CREATE TABLE gutter (
   typeof VARCHAR NOT NULL,
   typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
+  note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
 
@@ -161,6 +163,7 @@ CREATE TABLE soffit (
   typeof VARCHAR NOT NULL,
   typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
+  note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
 
@@ -170,6 +173,7 @@ CREATE TABLE wndow (
   typeof VARCHAR NOT NULL,
   typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
+  note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
 
@@ -179,6 +183,7 @@ CREATE TABLE door (
   typeof VARCHAR NOT NULL,
   typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
+  note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
 
@@ -188,6 +193,7 @@ CREATE TABLE plumbing (
   typeof VARCHAR NOT NULL,
   typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
+  note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
 
@@ -197,6 +203,7 @@ CREATE TABLE electrical (
   typeof VARCHAR NOT NULL,
   typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
+  note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
 
@@ -206,6 +213,7 @@ CREATE TABLE fusebox (
   typeof VARCHAR NOT NULL,
   typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
+  note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
 
@@ -215,6 +223,7 @@ CREATE TABLE alarm (
   typeof VARCHAR NOT NULL,
   typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
+  note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
 
@@ -224,6 +233,7 @@ CREATE TABLE heater (
   typeof VARCHAR NOT NULL,
   typeof VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
+  note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
 
@@ -231,6 +241,9 @@ CREATE TABLE ac (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),
   typeof VARCHAR NOT NULL,
+  typeof VARCHAR NOT NULL,
+  label VARCHAR NOT NULL,
+  note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
 
@@ -238,6 +251,8 @@ CREATE TABLE floor (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),
   typeof VARCHAR NOT NULL,
+  label VARCHAR NOT NULL,
+  note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
 

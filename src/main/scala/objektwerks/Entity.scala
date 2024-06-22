@@ -57,8 +57,6 @@ final case class Insulation(id: Long = 0,
                             note: String = "",
                             installed: String = Entity.now) extends Entity
 
-object Insulation:
-
 final case class Ductwork(id: Long = 0,
                           houseId: Long,
                           typeof: DuctworkType = DuctworkType.airduct,

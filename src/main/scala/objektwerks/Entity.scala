@@ -19,9 +19,6 @@ final case class Account(id: Long = 0,
                          pin: String = Pin.newInstance,
                          activated: String = Entity.now) extends Entity
 
-object Account:
-  given JsonValueCodec[Account] = JsonCodecMaker.make[Account]
-
 final case class House(id: Long = 0,
                        accountId: Long,
                        typeof: HouseType = HouseType.primary,

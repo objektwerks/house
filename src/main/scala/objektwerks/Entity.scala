@@ -43,8 +43,6 @@ final case class Frame(id: Long = 0,
                        note: String = "",
                        built: String = Entity.now) extends Entity
 
-object Frame:
-
 final case class Attic(id: Long = 0,
                        houseId: Long,
                        typeof: AtticType = AtticType.scuttle,

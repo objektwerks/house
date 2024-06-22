@@ -8,3 +8,4 @@ object Sorter:
   given Ordering[Attic] = Ordering.by[Attic, String](attic => attic.built).reverse
   given Ordering[Insulation] = Ordering.by[Insulation, String](insulation => insulation.installed).reverse
   given Ordering[Ductwork] = Ordering.by[Ductwork, String](insulation => insulation.installed).reverse
+  given Ordering[Ventilation] = Ordering.by[Ventilation, String](insulation => insulation.installed).reverse

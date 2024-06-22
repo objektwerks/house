@@ -72,7 +72,6 @@ final case class Ventilation(id: Long = 0,
                              installed: String = Entity.now) extends Entity
 
 object Ventilation:
-  given Ordering[Ventilation] = Ordering.by[Ventilation, String](insulation => insulation.installed).reverse
 
 final case class Roof(id: Long = 0,
                       houseId: Long,

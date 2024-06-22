@@ -9,3 +9,4 @@ object Serializer:
   given JsonValueCodec[House] = JsonCodecMaker.make[House]
   given JsonValueCodec[Foundation] = JsonCodecMaker.make[Foundation]
   given JsonValueCodec[Frame] = JsonCodecMaker.make[Frame]
+  given JsonValueCodec[Attic] = JsonCodecMaker.make[Attic]

@@ -8,3 +8,4 @@ object Serializer:
   given JsonValueCodec[Account] = JsonCodecMaker.make[Account]
   given JsonValueCodec[House] = JsonCodecMaker.make[House]
   given JsonValueCodec[Foundation] = JsonCodecMaker.make[Foundation]
+  given JsonValueCodec[Frame] = JsonCodecMaker.make[Frame]

@@ -44,7 +44,6 @@ final case class Frame(id: Long = 0,
                        built: String = Entity.now) extends Entity
 
 object Frame:
-  given JsonValueCodec[Frame] = JsonCodecMaker.make[Frame]
   given Ordering[Frame] = Ordering.by[Frame, String](frame => frame.built).reverse
 
 final case class Attic(id: Long = 0,

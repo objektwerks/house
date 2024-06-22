@@ -5,3 +5,4 @@ object Sorter:
   given Ordering[House] = Ordering.by[House, String](home => home.built).reverse
   given Ordering[Foundation] = Ordering.by[Foundation, String](foundation => foundation.built).reverse
   given Ordering[Frame] = Ordering.by[Frame, String](frame => frame.built).reverse
+  given Ordering[Attic] = Ordering.by[Attic, String](attic => attic.built).reverse

@@ -51,7 +51,6 @@ final case class Attic(id: Long = 0,
                        built: String = Entity.now) extends Entity
 
 object Attic:
-  given Ordering[Attic] = Ordering.by[Attic, String](attic => attic.built).reverse
 
 final case class Insulation(id: Long = 0,
                             houseId: Long,

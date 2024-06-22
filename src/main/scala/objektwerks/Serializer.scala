@@ -7,3 +7,4 @@ object Serializer:
   given JsonValueCodec[Entity] = JsonCodecMaker.make[Entity](CodecMakerConfig.withDiscriminatorFieldName(None))
   given JsonValueCodec[Account] = JsonCodecMaker.make[Account]
   given JsonValueCodec[House] = JsonCodecMaker.make[House]
+  given JsonValueCodec[Foundation] = JsonCodecMaker.make[Foundation]

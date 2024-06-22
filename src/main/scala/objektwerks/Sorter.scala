@@ -11,3 +11,4 @@ object Sorter:
   given Ordering[Ventilation] = Ordering.by[Ventilation, String](insulation => insulation.installed).reverse
   given Ordering[Roof] = Ordering.by[Roof, String](roof => roof.built).reverse
   given Ordering[Chimney] = Ordering.by[Chimney, String](chimney => chimney.built).reverse
+  given Ordering[Balcony] = Ordering.by[Balcony, String](balcony => balcony.built).reverse

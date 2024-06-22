@@ -65,7 +65,6 @@ final case class Ductwork(id: Long = 0,
                           installed: String = Entity.now) extends Entity
 
 object Ductwork:
-  given JsonValueCodec[Ductwork] = JsonCodecMaker.make[Ductwork]
   given Ordering[Ductwork] = Ordering.by[Ductwork, String](insulation => insulation.installed).reverse
 
 final case class Ventilation(id: Long = 0,

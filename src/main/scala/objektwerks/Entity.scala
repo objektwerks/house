@@ -86,7 +86,6 @@ final case class Chimney(id: Long = 0,
                          built: String = Entity.now) extends Entity
 
 object Chimney:
-  given JsonValueCodec[Chimney] = JsonCodecMaker.make[Chimney]
   given Ordering[Chimney] = Ordering.by[Chimney, String](chimney => chimney.built).reverse
 
 final case class Balcony(id: Long = 0,

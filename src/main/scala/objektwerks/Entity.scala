@@ -37,7 +37,6 @@ final case class Foundation(id: Long = 0,
                             built: String = Entity.now) extends Entity
 
 object Foundation:
-  given Ordering[Foundation] = Ordering.by[Foundation, String](foundation => foundation.built).reverse
 
 final case class Frame(id: Long = 0,
                        houseId: Long,

@@ -32,9 +32,6 @@ final case class House(id: Long = 0,
                        note: String = "",
                        built: String = Entity.now) extends Entity
 
-object House:
-  given Ordering[House] = Ordering.by[House, String](home => home.built).reverse
-
  // Structure
 
 final case class Foundation(id: Long = 0,

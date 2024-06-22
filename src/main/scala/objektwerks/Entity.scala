@@ -64,8 +64,6 @@ final case class Ductwork(id: Long = 0,
                           note: String = "",
                           installed: String = Entity.now) extends Entity
 
-object Ductwork:
-
 final case class Ventilation(id: Long = 0,
                              houseId: Long,
                              typeof: VentilationType = VentilationType.balanced,

@@ -85,8 +85,6 @@ final case class Chimney(id: Long = 0,
                          note: String = "",
                          built: String = Entity.now) extends Entity
 
-object Chimney:
-
 final case class Balcony(id: Long = 0,
                          houseId: Long,
                          typeof: BalconyType = BalconyType.cantilevered,

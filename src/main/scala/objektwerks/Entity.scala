@@ -36,8 +36,6 @@ final case class Foundation(id: Long = 0,
                             note: String = "",
                             built: String = Entity.now) extends Entity
 
-object Foundation:
-
 final case class Frame(id: Long = 0,
                        houseId: Long,
                        typeof: FrameType = FrameType.platform,

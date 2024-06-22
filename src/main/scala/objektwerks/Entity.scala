@@ -50,8 +50,6 @@ final case class Attic(id: Long = 0,
                        note: String = "",
                        built: String = Entity.now) extends Entity
 
-object Attic:
-
 final case class Insulation(id: Long = 0,
                             houseId: Long,
                             typeof: InsulationType = InsulationType.blanket,

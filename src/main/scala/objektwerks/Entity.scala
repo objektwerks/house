@@ -200,8 +200,6 @@ final case class AirConditioner(id: Long = 0,
                                 note: String = "",
                                 installed: String = Entity.now) extends Entity
 
-object AirConditioner:
-
 final case class Floor(id: Long = 0,
                        houseId: Long,
                        typeof: FloorType = FloorType.tile,

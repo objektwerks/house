@@ -180,7 +180,6 @@ final case class Fusebox(id: Long = 0,
                          installed: String = Entity.now) extends Entity
 
 object Fusebox:
-  given JsonValueCodec[Fusebox] = JsonCodecMaker.make[Fusebox]
   given Ordering[Fusebox] = Ordering.by[Fusebox, String](fusebox => fusebox.installed).reverse
 
 final case class Alarm(id: Long = 0,

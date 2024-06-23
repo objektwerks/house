@@ -151,8 +151,6 @@ final case class Window(id: Long = 0,
                         note: String = "",
                         installed: String = Entity.now) extends Entity
 
-object Window:
-
 final case class Door(id: Long = 0,
                       houseId: Long,
                       typeof: DoorType = DoorType.fiberglass,

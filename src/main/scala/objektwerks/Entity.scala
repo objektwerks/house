@@ -138,7 +138,6 @@ final case class Gutter(id: Long = 0,
                         installed: String = Entity.now) extends Entity
 
 object Gutter:
-  given JsonValueCodec[Gutter] = JsonCodecMaker.make[Gutter]
   given Ordering[Gutter] = Ordering.by[Gutter, String](gutter => gutter.installed).reverse
 
 final case class Soffit(id: Long = 0,

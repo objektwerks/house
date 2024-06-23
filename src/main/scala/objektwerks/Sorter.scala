@@ -24,3 +24,4 @@ object Sorter:
   given Ordering[Plumbing] = Ordering.by[Plumbing, String](plumbing => plumbing.installed).reverse
   given Ordering[Electrical] = Ordering.by[Electrical, String](electrical => electrical.installed).reverse
   given Ordering[Fusebox] = Ordering.by[Fusebox, String](fusebox => fusebox.installed).reverse
+  given Ordering[Alarm] = Ordering.by[Alarm, String](alarm => alarm.installed).reverse

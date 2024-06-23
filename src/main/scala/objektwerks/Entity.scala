@@ -215,7 +215,6 @@ final case class Lighting(id: Long = 0,
                           installed: String = Entity.now) extends Entity
 
 object Lighting:
-  given JsonValueCodec[Lighting] = JsonCodecMaker.make[Lighting]
   given Ordering[Lighting] = Ordering.by[Lighting, String](lighting => lighting.installed).reverse
 
 // External

@@ -28,3 +28,4 @@ object Sorter:
   given Ordering[Heater] = Ordering.by[Heater, String](heater => heater.installed).reverse
   given Ordering[AirConditioner] = Ordering.by[AirConditioner, String](ac => ac.installed).reverse
   given Ordering[Floor] = Ordering.by[Floor, String](floor => floor.installed).reverse
+  given Ordering[Lighting] = Ordering.by[Lighting, String](lighting => lighting.installed).reverse

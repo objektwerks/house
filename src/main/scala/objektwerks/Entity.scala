@@ -172,8 +172,6 @@ final case class Electrical(id: Long = 0,
                             note: String = "",
                             installed: String = Entity.now) extends Entity
 
-object Electrical:
-
 final case class Fusebox(id: Long = 0,
                          houseId: Long,
                          typeof: FuseboxType = FuseboxType.circuitBreaker,

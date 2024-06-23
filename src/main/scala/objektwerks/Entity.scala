@@ -130,8 +130,6 @@ final case class Siding(id: Long = 0,
                         note: String = "",
                         installed: String = Entity.now) extends Entity
 
-object Siding:
-
 final case class Gutter(id: Long = 0,
                         houseId: Long,
                         typeof: GutterType = GutterType.kstyle,

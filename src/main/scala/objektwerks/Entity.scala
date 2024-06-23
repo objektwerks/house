@@ -207,8 +207,6 @@ final case class Floor(id: Long = 0,
                        note: String = "",
                        installed: String = Entity.now) extends Entity
 
-object Floor:
-
 final case class Lighting(id: Long = 0,
                           houseId: Long,
                           typeof: LightingType = LightingType.general,

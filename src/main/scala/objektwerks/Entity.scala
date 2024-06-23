@@ -214,8 +214,6 @@ final case class Lighting(id: Long = 0,
                           note: String = "",
                           installed: String = Entity.now) extends Entity
 
-object Lighting:
-
 // External
 
 final case class Sewage(id: Long = 0,

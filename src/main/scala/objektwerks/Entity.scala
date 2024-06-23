@@ -99,8 +99,6 @@ final case class Drywall(id: Long = 0,
                          note: String = "",
                          built: String = Entity.now) extends Entity
 
-object Drywall:
-
 final case class Room(id: Long = 0,
                       houseId: Long,
                       typeof: RoomType = RoomType.bedroom,

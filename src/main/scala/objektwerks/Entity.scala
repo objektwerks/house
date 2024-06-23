@@ -114,8 +114,6 @@ final case class Driveway(id: Long = 0,
                           note: String = "",
                           built: String = Entity.now) extends Entity
 
-object Driveway:
-
 final case class Garage(id: Long = 0,
                         houseId: Long,
                         typeof: GarageType = GarageType.attached,

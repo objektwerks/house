@@ -22,3 +22,4 @@ object Serializer:
   given JsonValueCodec[Garage] = JsonCodecMaker.make[Garage]
   given JsonValueCodec[Siding] = JsonCodecMaker.make[Siding]
   given JsonValueCodec[Gutter] = JsonCodecMaker.make[Gutter]
+  given JsonValueCodec[Soffit] = JsonCodecMaker.make[Soffit]

@@ -15,3 +15,4 @@ object Sorter:
   given Ordering[Drywall] = Ordering.by[Drywall, String](drywall => drywall.built).reverse
   given Ordering[Room] = Ordering.by[Room, String](room => room.built).reverse
   given Ordering[Driveway] = Ordering.by[Driveway, String](driveway => driveway.built).reverse
+  given Ordering[Garage] = Ordering.by[Garage, String](garage => garage.built).reverse

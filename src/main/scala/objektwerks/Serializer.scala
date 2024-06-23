@@ -17,3 +17,4 @@ object Serializer:
   given JsonValueCodec[Chimney] = JsonCodecMaker.make[Chimney]
   given JsonValueCodec[Balcony] = JsonCodecMaker.make[Balcony]
   given JsonValueCodec[Drywall] = JsonCodecMaker.make[Drywall]
+  given JsonValueCodec[Room] = JsonCodecMaker.make[Room]

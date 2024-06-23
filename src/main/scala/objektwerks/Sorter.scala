@@ -21,3 +21,4 @@ object Sorter:
   given Ordering[Soffit] = Ordering.by[Soffit, String](soffit => soffit.installed).reverse
   given Ordering[Window] = Ordering.by[Window, String](window => window.installed).reverse
   given Ordering[Door] = Ordering.by[Door, String](door => door.installed).reverse
+  given Ordering[Plumbing] = Ordering.by[Plumbing, String](plumbing => plumbing.installed).reverse

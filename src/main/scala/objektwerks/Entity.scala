@@ -121,8 +121,6 @@ final case class Garage(id: Long = 0,
                         note: String = "",
                         built: String = Entity.now) extends Entity
 
-object Garage:
-
 // Integral
 
 final case class Siding(id: Long = 0,

@@ -100,7 +100,6 @@ final case class Drywall(id: Long = 0,
                          built: String = Entity.now) extends Entity
 
 object Drywall:
-  given Ordering[Drywall] = Ordering.by[Drywall, String](drywall => drywall.built).reverse
 
 final case class Room(id: Long = 0,
                       houseId: Long,

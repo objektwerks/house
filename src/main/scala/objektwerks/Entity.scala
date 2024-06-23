@@ -144,8 +144,6 @@ final case class Soffit(id: Long = 0,
                         note: String = "",
                         installed: String = Entity.now) extends Entity
 
-object Soffit:
-
 final case class Window(id: Long = 0,
                         houseId: Long,
                         typeof: WindowType = WindowType.single,

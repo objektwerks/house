@@ -25,3 +25,4 @@ object Sorter:
   given Ordering[Electrical] = Ordering.by[Electrical, String](electrical => electrical.installed).reverse
   given Ordering[Fusebox] = Ordering.by[Fusebox, String](fusebox => fusebox.installed).reverse
   given Ordering[Alarm] = Ordering.by[Alarm, String](alarm => alarm.installed).reverse
+  given Ordering[Heater] = Ordering.by[Heater, String](heater => heater.installed).reverse

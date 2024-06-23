@@ -194,7 +194,6 @@ final case class Heater(id: Long = 0,
                         installed: String = Entity.now) extends Entity
 
 object Heater:
-  given Ordering[Heater] = Ordering.by[Heater, String](heater => heater.installed).reverse
 
 final case class AirConditioner(id: Long = 0,
                                 houseId: Long,

@@ -137,8 +137,6 @@ final case class Gutter(id: Long = 0,
                         note: String = "",
                         installed: String = Entity.now) extends Entity
 
-object Gutter:
-
 final case class Soffit(id: Long = 0,
                         houseId: Long,
                         typeof: SoffitType = SoffitType.aluminum,

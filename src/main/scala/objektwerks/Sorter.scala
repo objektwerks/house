@@ -18,3 +18,4 @@ object Sorter:
   given Ordering[Garage] = Ordering.by[Garage, String](garage => garage.built).reverse
   given Ordering[Siding] = Ordering.by[Siding, String](siding => siding.installed).reverse
   given Ordering[Gutter] = Ordering.by[Gutter, String](gutter => gutter.installed).reverse
+  given Ordering[Soffit] = Ordering.by[Soffit, String](soffit => soffit.installed).reverse

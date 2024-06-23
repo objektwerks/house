@@ -115,7 +115,6 @@ final case class Driveway(id: Long = 0,
                           built: String = Entity.now) extends Entity
 
 object Driveway:
-  given Ordering[Driveway] = Ordering.by[Driveway, String](driveway => driveway.built).reverse
 
 final case class Garage(id: Long = 0,
                         houseId: Long,

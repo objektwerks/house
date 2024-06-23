@@ -173,7 +173,6 @@ final case class Electrical(id: Long = 0,
                             installed: String = Entity.now) extends Entity
 
 object Electrical:
-  given JsonValueCodec[Electrical] = JsonCodecMaker.make[Electrical]
   given Ordering[Electrical] = Ordering.by[Electrical, String](electrical => electrical.installed).reverse
 
 final case class Fusebox(id: Long = 0,

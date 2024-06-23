@@ -159,7 +159,6 @@ final case class Door(id: Long = 0,
                       installed: String = Entity.now) extends Entity
 
 object Door:
-  given Ordering[Door] = Ordering.by[Door, String](door => door.installed).reverse
 
 final case class Plumbing(id: Long = 0,
                           houseId: Long,

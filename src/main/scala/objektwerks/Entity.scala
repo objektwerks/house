@@ -158,8 +158,6 @@ final case class Door(id: Long = 0,
                       note: String = "",
                       installed: String = Entity.now) extends Entity
 
-object Door:
-
 final case class Plumbing(id: Long = 0,
                           houseId: Long,
                           typeof: PlumbingType = PlumbingType.pvc,

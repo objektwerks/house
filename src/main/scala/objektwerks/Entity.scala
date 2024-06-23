@@ -131,7 +131,6 @@ final case class Siding(id: Long = 0,
                         installed: String = Entity.now) extends Entity
 
 object Siding:
-  given Ordering[Siding] = Ordering.by[Siding, String](siding => siding.installed).reverse
 
 final case class Gutter(id: Long = 0,
                         houseId: Long,

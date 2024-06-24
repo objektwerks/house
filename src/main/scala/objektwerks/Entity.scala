@@ -324,5 +324,4 @@ final case class Mailbox(id: Long = 0,
                          installed: String = Entity.now) extends Entity
 
 object Mailbox:
-  given JsonValueCodec[Mailbox] = JsonCodecMaker.make[Mailbox]
   given Ordering[Mailbox] = Ordering.by[Mailbox, String](mailbox => mailbox.installed).reverse

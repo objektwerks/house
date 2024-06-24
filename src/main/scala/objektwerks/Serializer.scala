@@ -47,3 +47,4 @@ object Serializer:
   given JsonValueCodec[Pool] = JsonCodecMaker.make[Pool]
   given JsonValueCodec[Dock] = JsonCodecMaker.make[Dock]
   given JsonValueCodec[Gazebo] = JsonCodecMaker.make[Gazebo]
+  given JsonValueCodec[Mailbox] = JsonCodecMaker.make[Mailbox]

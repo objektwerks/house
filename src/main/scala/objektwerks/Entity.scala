@@ -272,10 +272,6 @@ final case class Shed(id: Long = 0,
                       note: String = "",
                       built: String = Entity.now) extends Entity
 
-object Shed:
-  given JsonValueCodec[Shed] = JsonCodecMaker.make[Shed]
-  given Ordering[Shed] = Ordering.by[Shed, String](shed => shed.built).reverse
-
 final case class SolarPanel(id: Long = 0,
                             houseId: Long,
                             typeof: SolarPanelType = SolarPanelType.monocrystalline,

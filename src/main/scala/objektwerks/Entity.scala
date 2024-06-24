@@ -286,10 +286,6 @@ final case class Porch(id: Long = 0,
                        note: String = "",
                        built: String = Entity.now) extends Entity
 
-object Porch:
-  given JsonValueCodec[Porch] = JsonCodecMaker.make[Porch]
-  given Ordering[Porch] = Ordering.by[Porch, String](porch => porch.built).reverse
-
 final case class Patio(id: Long = 0,
                        houseId: Long,
                        typeof: PatioType = PatioType.paver,

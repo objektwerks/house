@@ -322,6 +322,3 @@ final case class Mailbox(id: Long = 0,
                          label: String = "",
                          note: String = "",
                          installed: String = Entity.now) extends Entity
-
-object Mailbox:
-  given Ordering[Mailbox] = Ordering.by[Mailbox, String](mailbox => mailbox.installed).reverse

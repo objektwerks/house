@@ -43,3 +43,4 @@ object Sorter:
   given Ordering[Pool] = Ordering.by[Pool, String](pool => pool.built).reverse
   given Ordering[Dock] = Ordering.by[Dock, String](dock => dock.built).reverse
   given Ordering[Gazebo] = Ordering.by[Gazebo, String](gazebo => gazebo.built).reverse
+  given Ordering[Mailbox] = Ordering.by[Mailbox, String](mailbox => mailbox.installed).reverse

@@ -279,10 +279,6 @@ final case class SolarPanel(id: Long = 0,
                             note: String = "",
                             installed: String = Entity.now) extends Entity
 
-object SolarPanel:
-  given JsonValueCodec[SolarPanel] = JsonCodecMaker.make[SolarPanel]
-  given Ordering[SolarPanel] = Ordering.by[SolarPanel, String](solar => solar.installed).reverse
-
 final case class Porch(id: Long = 0,
                        houseId: Long,
                        typeof: PorchType = PorchType.back,

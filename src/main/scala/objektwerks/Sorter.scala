@@ -33,3 +33,4 @@ object Sorter:
   given Ordering[Well] = Ordering.by[Well, String](well => well.built).reverse
   given Ordering[Water] = Ordering.by[Water, String](water => water.installed).reverse
   given Ordering[WaterHeater] = Ordering.by[WaterHeater, String](water => water.installed).reverse
+  given Ordering[Lawn] = Ordering.by[Lawn, String](lawn => lawn.planted).reverse

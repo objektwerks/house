@@ -252,8 +252,6 @@ final case class Lawn(id: Long = 0,
                       planted: String = Entity.now) extends Entity
 
 object Lawn:
-  given JsonValueCodec[Lawn] = JsonCodecMaker.make[Lawn]
-  given Ordering[Lawn] = Ordering.by[Lawn, String](lawn => lawn.planted).reverse
 
 final case class Garden(id: Long = 0,
                         houseId: Long,

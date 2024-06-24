@@ -14,3 +14,13 @@ object Validator:
       account.email.isEmail &&
       account.pin.isPin &&
       account.activated.nonEmpty
+
+  extension (house: House)
+    def isValid: Boolean =
+      house.id >= 0 &&
+      house.accountId > 0 &&
+      house.typeof == HouseType &&
+      house.location.nonEmpty &&
+      house.label.isEmptyOrNonEmpty &&
+      house.note.isEmptyOrNonEmpty &&
+      house.built.nonEmpty

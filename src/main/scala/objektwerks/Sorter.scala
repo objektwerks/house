@@ -38,3 +38,4 @@ object Sorter:
   given Ordering[Sprinkler] = Ordering.by[Sprinkler, String](sprinkler => sprinkler.installed).reverse
   given Ordering[Shed] = Ordering.by[Shed, String](shed => shed.built).reverse
   given Ordering[SolarPanel] = Ordering.by[SolarPanel, String](solar => solar.installed).reverse
+  given Ordering[Porch] = Ordering.by[Porch, String](porch => porch.built).reverse

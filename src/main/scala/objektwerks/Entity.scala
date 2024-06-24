@@ -237,10 +237,6 @@ final case class Water(id: Long = 0,
                        note: String = "",
                        installed: String = Entity.now) extends Entity
 
-object Water:
-  given JsonValueCodec[Water] = JsonCodecMaker.make[Water]
-  given Ordering[Water] = Ordering.by[Water, String](water => water.installed).reverse
-
 final case class WaterHeater(id: Long = 0,
                              houseId: Long,
                              typeof: WaterHeaterType = WaterHeaterType.tank,

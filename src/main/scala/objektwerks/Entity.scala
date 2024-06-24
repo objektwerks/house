@@ -230,8 +230,6 @@ final case class Well(id: Long = 0,
                       note: String = "",
                       built: String = Entity.now) extends Entity
 
-object Well:
-
 final case class Water(id: Long = 0,
                        houseId: Long,
                        typeof: WaterType = WaterType.well,

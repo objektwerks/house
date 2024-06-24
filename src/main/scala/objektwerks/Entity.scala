@@ -251,8 +251,6 @@ final case class Lawn(id: Long = 0,
                       note: String = "",
                       planted: String = Entity.now) extends Entity
 
-object Lawn:
-
 final case class Garden(id: Long = 0,
                         houseId: Long,
                         typeof: GardenType = GardenType.vegetable,

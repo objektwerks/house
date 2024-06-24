@@ -4,7 +4,7 @@ House
 
 Todo
 ----
-1. Enhance Entity, Types, Store, ddl.sql and StoreTest
+1. Enhance model.
 
 Install
 -------

@@ -41,3 +41,5 @@ object Sorter:
   given Ordering[Porch] = Ordering.by[Porch, String](porch => porch.built).reverse
   given Ordering[Patio] = Ordering.by[Patio, String](patio => patio.built).reverse
   given Ordering[Pool] = Ordering.by[Pool, String](pool => pool.built).reverse
+  given Ordering[Dock] = Ordering.by[Dock, String](dock => dock.built).reverse
+  given Ordering[Gazebo] = Ordering.by[Gazebo, String](gazebo => gazebo.built).reverse

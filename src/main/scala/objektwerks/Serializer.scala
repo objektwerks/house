@@ -40,3 +40,4 @@ object Serializer:
   given JsonValueCodec[Lawn] = JsonCodecMaker.make[Lawn]
   given JsonValueCodec[Garden] = JsonCodecMaker.make[Garden]
   given JsonValueCodec[Sprinkler] = JsonCodecMaker.make[Sprinkler]
+  given JsonValueCodec[Shed] = JsonCodecMaker.make[Shed]

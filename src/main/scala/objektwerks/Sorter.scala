@@ -30,3 +30,4 @@ object Sorter:
   given Ordering[Floor] = Ordering.by[Floor, String](floor => floor.installed).reverse
   given Ordering[Lighting] = Ordering.by[Lighting, String](lighting => lighting.installed).reverse
   given Ordering[Sewage] = Ordering.by[Sewage, String](sewage => sewage.built).reverse
+  given Ordering[Well] = Ordering.by[Well, String](well => well.built).reverse

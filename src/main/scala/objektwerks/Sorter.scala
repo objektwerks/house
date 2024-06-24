@@ -36,3 +36,4 @@ object Sorter:
   given Ordering[Lawn] = Ordering.by[Lawn, String](lawn => lawn.planted).reverse
   given Ordering[Garden] = Ordering.by[Garden, String](garden => garden.planted).reverse
   given Ordering[Sprinkler] = Ordering.by[Sprinkler, String](sprinkler => sprinkler.installed).reverse
+  given Ordering[Shed] = Ordering.by[Shed, String](shed => shed.built).reverse

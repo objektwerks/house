@@ -302,10 +302,6 @@ final case class Pool(id: Long = 0,
                       note: String = "",
                       built: String = Entity.now) extends Entity
 
-object Pool:
-  given JsonValueCodec[Pool] = JsonCodecMaker.make[Pool]
-  given Ordering[Pool] = Ordering.by[Pool, String](pool => pool.built).reverse
-
 final case class Dock(id: Long = 0,
                       houseId: Long,
                       typeof: DockType = DockType.permanent,

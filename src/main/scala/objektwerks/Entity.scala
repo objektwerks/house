@@ -316,10 +316,6 @@ final case class Gazebo(id: Long = 0,
                         note: String = "",
                         built: String = Entity.now) extends Entity
 
-object Gazebo:
-  given JsonValueCodec[Gazebo] = JsonCodecMaker.make[Gazebo]
-  given Ordering[Gazebo] = Ordering.by[Gazebo, String](gazebo => gazebo.built).reverse
-
 final case class Mailbox(id: Long = 0,
                          houseId: Long,
                          typeof: MailboxType = MailboxType.postMount,

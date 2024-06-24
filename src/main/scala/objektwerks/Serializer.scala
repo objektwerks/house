@@ -45,3 +45,4 @@ object Serializer:
   given JsonValueCodec[Porch] = JsonCodecMaker.make[Porch]
   given JsonValueCodec[Patio] = JsonCodecMaker.make[Patio]
   given JsonValueCodec[Pool] = JsonCodecMaker.make[Pool]
+  given JsonValueCodec[Dock] = JsonCodecMaker.make[Dock]

@@ -265,10 +265,6 @@ final case class Sprinkler(id: Long = 0,
                            note: String = "",
                            installed: String = Entity.now) extends Entity
 
-object Sprinkler:
-  given JsonValueCodec[Sprinkler] = JsonCodecMaker.make[Sprinkler]
-  given Ordering[Sprinkler] = Ordering.by[Sprinkler, String](sprinkler => sprinkler.installed).reverse
-
 final case class Shed(id: Long = 0,
                       houseId: Long,
                       typeof: ShedType = ShedType.storage,

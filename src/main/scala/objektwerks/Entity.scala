@@ -309,8 +309,6 @@ final case class Dock(id: Long = 0,
                       note: String = "",
                       built: String = Entity.now) extends Entity
 
-object Dock:
-
 final case class Gazebo(id: Long = 0,
                         houseId: Long,
                         typeof: GazeboType = GazeboType.wood,

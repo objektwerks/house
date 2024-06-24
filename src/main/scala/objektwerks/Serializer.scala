@@ -46,3 +46,4 @@ object Serializer:
   given JsonValueCodec[Patio] = JsonCodecMaker.make[Patio]
   given JsonValueCodec[Pool] = JsonCodecMaker.make[Pool]
   given JsonValueCodec[Dock] = JsonCodecMaker.make[Dock]
+  given JsonValueCodec[Gazebo] = JsonCodecMaker.make[Gazebo]

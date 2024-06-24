@@ -1,8 +1,5 @@
 package objektwerks
 
-import com.github.plokhotnyuk.jsoniter_scala.core.*
-import com.github.plokhotnyuk.jsoniter_scala.macros.*
-
 import java.time.LocalDate
 import java.util.UUID
 

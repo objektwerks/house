@@ -61,6 +61,15 @@ object Validator:
       insulation.note.isEmptyOrNonEmpty &&
       insulation.installed.nonEmpty
 
+  extension (ductwork: Ductwork)
+    def isValid: Boolean =
+      ductwork.id >= 0 &&
+      ductwork.houseId > 0 &&
+      ductwork.typeof == DuctworkType &&
+      ductwork.label.isEmptyOrNonEmpty &&
+      ductwork.note.isEmptyOrNonEmpty &&
+      ductwork.installed.nonEmpty
+
   // TODO - Entity Validators
 
   extension  (license: License)

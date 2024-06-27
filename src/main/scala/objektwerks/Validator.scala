@@ -79,6 +79,15 @@ object Validator:
       ventilation.note.isEmptyOrNonEmpty &&
       ventilation.installed.nonEmpty
 
+  extension (roof: Roof)
+    def isValid: Boolean =
+      roof.id >= 0 &&
+      roof.houseId > 0 &&
+      roof.typeof == RoofType &&
+      roof.label.isEmptyOrNonEmpty &&
+      roof.note.isEmptyOrNonEmpty &&
+      roof.built.nonEmpty
+
   // TODO - Entity Validators
 
   extension  (license: License)

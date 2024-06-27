@@ -106,6 +106,15 @@ object Validator:
       balcony.note.isEmptyOrNonEmpty &&
       balcony.built.nonEmpty
 
+  extension (drywall: Drywall)
+    def isValid: Boolean =
+      drywall.id >= 0 &&
+      drywall.houseId > 0 &&
+      drywall.typeof == DrywallType &&
+      drywall.label.isEmptyOrNonEmpty &&
+      drywall.note.isEmptyOrNonEmpty &&
+      drywall.built.nonEmpty
+
   // TODO - Entity Validators
 
   extension  (license: License)

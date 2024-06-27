@@ -10,4 +10,4 @@ final case class LoggedIn(account: Account) extends Event
 
 final case class EntityListed(entities: List[Entity]) extends Event
 
-final case class EntitySaved(id: Long) extends Event
+final case class EntityAdded(id: Long) extends Event

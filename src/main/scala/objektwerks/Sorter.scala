@@ -1,5 +1,7 @@
 package objektwerks
 
+import java.time.LocalDate
+
 object Sorter:
   given Ordering[Account] = Ordering.by[Account, String](account => account.activated).reverse
   given Ordering[House] = Ordering.by[House, String](home => home.built).reverse
@@ -44,3 +46,5 @@ object Sorter:
   given Ordering[Dock] = Ordering.by[Dock, String](dock => dock.built).reverse
   given Ordering[Gazebo] = Ordering.by[Gazebo, String](gazebo => gazebo.built).reverse
   given Ordering[Mailbox] = Ordering.by[Mailbox, String](mailbox => mailbox.installed).reverse
+
+  given faultOrdering: Ordering[Fault] = Ordering.by[Fault, Long](f => LocalDate.parse(f.occurred).toEpochDay()).reverse

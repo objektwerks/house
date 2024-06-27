@@ -25,6 +25,15 @@ object Validator:
       house.note.isEmptyOrNonEmpty &&
       house.built.nonEmpty
 
+  extension (foundation: Foundation)
+    def isValid: Boolean =
+      foundation.id >= 0 &&
+      foundation.houseId > 0 &&
+      foundation.typeof == FoundationType &&
+      foundation.label.isEmptyOrNonEmpty &&
+      foundation.note.isEmptyOrNonEmpty &&
+      foundation.built.nonEmpty
+
   // TODO - Entity Validators
 
   extension  (license: License)

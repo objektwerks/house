@@ -160,7 +160,7 @@ object Validator:
   extension (listEntity: ListEntity)
     def isValid: Boolean =
       listEntity.license.isLicense &&
-      listEntity.entityClass.nonEmpty &&
+      listEntity.entityType == EntityType &&
       listEntity.accountId > 0
 
   extension (addEntity: AddEntity)

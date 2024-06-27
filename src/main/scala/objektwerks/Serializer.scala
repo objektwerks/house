@@ -58,3 +58,4 @@ object Serializer:
   given JsonValueCodec[UpdateEntity] = JsonCodecMaker.make[UpdateEntity]
 
   given JsonValueCodec[Event] = JsonCodecMaker.make[Event](CodecMakerConfig.withDiscriminatorFieldName(None))
+  given JsonValueCodec[Registered] = JsonCodecMaker.make[Registered]

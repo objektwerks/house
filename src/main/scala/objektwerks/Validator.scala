@@ -97,6 +97,15 @@ object Validator:
       chimney.note.isEmptyOrNonEmpty &&
       chimney.built.nonEmpty
 
+  extension (balcony: Balcony)
+    def isValid: Boolean =
+      balcony.id >= 0 &&
+      balcony.houseId > 0 &&
+      balcony.typeof == BalconyType &&
+      balcony.label.isEmptyOrNonEmpty &&
+      balcony.note.isEmptyOrNonEmpty &&
+      balcony.built.nonEmpty
+
   // TODO - Entity Validators
 
   extension  (license: License)

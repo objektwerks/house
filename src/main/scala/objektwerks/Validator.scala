@@ -124,6 +124,15 @@ object Validator:
       room.note.isEmptyOrNonEmpty &&
       room.built.nonEmpty
 
+  extension (driveway: Driveway)
+    def isValid: Boolean =
+      driveway.id >= 0 &&
+      driveway.houseId > 0 &&
+      driveway.typeof == DrivewayType &&
+      driveway.label.isEmptyOrNonEmpty &&
+      driveway.note.isEmptyOrNonEmpty &&
+      driveway.built.nonEmpty
+
   // TODO - Entity Validators
 
   extension  (license: License)

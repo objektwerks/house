@@ -55,3 +55,12 @@ object Validator:
     def isValid: Boolean =
       updateEntity.license.isLicense &&
       updateEntity.entity != null
+
+  extension (command: Command)
+    def isValid: Boolean =
+      command match
+        case register: Register         => register.isValid
+        case login: Login               => login.isValid
+        case listEntity: ListEntity     => listEntity.isValid
+        case addEntity: AddEntity       => addEntity.isValid
+        case updateEntity: UpdateEntity => updateEntity.isValid

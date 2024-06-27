@@ -34,6 +34,15 @@ object Validator:
       foundation.note.isEmptyOrNonEmpty &&
       foundation.built.nonEmpty
 
+  extension (frame: Frame)
+    def isValid: Boolean =
+      frame.id >= 0 &&
+      frame.houseId > 0 &&
+      frame.typeof == FrameType &&
+      frame.label.isEmptyOrNonEmpty &&
+      frame.note.isEmptyOrNonEmpty &&
+      frame.built.nonEmpty
+
   // TODO - Entity Validators
 
   extension  (license: License)

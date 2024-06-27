@@ -52,3 +52,4 @@ object Serializer:
   given JsonValueCodec[Command] = JsonCodecMaker.make[Command](CodecMakerConfig.withDiscriminatorFieldName(None))
   given JsonValueCodec[License] = JsonCodecMaker.make[License]
   given JsonValueCodec[Register] = JsonCodecMaker.make[Register]
+  given JsonValueCodec[Login] = JsonCodecMaker.make[Login]

@@ -52,6 +52,15 @@ object Validator:
       attic.note.isEmptyOrNonEmpty &&
       attic.built.nonEmpty
 
+  extension (insulation: Insulation)
+    def isValid: Boolean =
+      insulation.id >= 0 &&
+      insulation.houseId > 0 &&
+      insulation.typeof == InsulationType &&
+      insulation.label.isEmptyOrNonEmpty &&
+      insulation.note.isEmptyOrNonEmpty &&
+      insulation.installed.nonEmpty
+
   // TODO - Entity Validators
 
   extension  (license: License)

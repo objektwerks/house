@@ -48,3 +48,5 @@ object Serializer:
   given JsonValueCodec[Dock] = JsonCodecMaker.make[Dock]
   given JsonValueCodec[Gazebo] = JsonCodecMaker.make[Gazebo]
   given JsonValueCodec[Mailbox] = JsonCodecMaker.make[Mailbox]
+
+  given JsonValueCodec[Command] = JsonCodecMaker.make[Command](CodecMakerConfig.withDiscriminatorFieldName(None))

@@ -39,3 +39,9 @@ object Validator:
     def isValid: Boolean =
       login.email.isEmail &&
       login.pin.isPin
+
+  extension (listEntity: ListEntity)
+    def isValid: Boolean =
+      listEntity.license.isLicense &&
+      listEntity.entityClass.nonEmpty &&
+      listEntity.accountId > 0

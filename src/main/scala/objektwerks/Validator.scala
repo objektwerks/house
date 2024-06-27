@@ -115,6 +115,15 @@ object Validator:
       drywall.note.isEmptyOrNonEmpty &&
       drywall.built.nonEmpty
 
+  extension (room: Room)
+    def isValid: Boolean =
+      room.id >= 0 &&
+      room.houseId > 0 &&
+      room.typeof == RoomType &&
+      room.label.isEmptyOrNonEmpty &&
+      room.note.isEmptyOrNonEmpty &&
+      room.built.nonEmpty
+
   // TODO - Entity Validators
 
   extension  (license: License)

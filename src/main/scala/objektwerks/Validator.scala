@@ -30,3 +30,7 @@ object Validator:
   extension  (license: License)
     def isLicense: Boolean =
       license.license.isLicense
+
+  extension (register: Register)
+    def isValid: Boolean =
+      register.email.isEmail

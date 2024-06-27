@@ -53,3 +53,4 @@ object Serializer:
   given JsonValueCodec[License] = JsonCodecMaker.make[License]
   given JsonValueCodec[Register] = JsonCodecMaker.make[Register]
   given JsonValueCodec[Login] = JsonCodecMaker.make[Login]
+  given JsonValueCodec[ListEntity] = JsonCodecMaker.make[ListEntity]

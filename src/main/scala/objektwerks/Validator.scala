@@ -45,3 +45,8 @@ object Validator:
       listEntity.license.isLicense &&
       listEntity.entityClass.nonEmpty &&
       listEntity.accountId > 0
+
+  extension (addEntity: AddEntity)
+    def isValid: Boolean =
+      addEntity.license.isLicense &&
+      addEntity.entity != null

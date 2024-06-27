@@ -34,3 +34,8 @@ object Validator:
   extension (register: Register)
     def isValid: Boolean =
       register.email.isEmail
+
+  extension (login: Login)
+    def isValid: Boolean =
+      login.email.isEmail &&
+      login.pin.isPin

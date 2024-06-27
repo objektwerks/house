@@ -43,6 +43,15 @@ object Validator:
       frame.note.isEmptyOrNonEmpty &&
       frame.built.nonEmpty
 
+  extension (attic: Attic)
+    def isValid: Boolean =
+      attic.id >= 0 &&
+      attic.houseId > 0 &&
+      attic.typeof == AtticType &&
+      attic.label.isEmptyOrNonEmpty &&
+      attic.note.isEmptyOrNonEmpty &&
+      attic.built.nonEmpty
+
   // TODO - Entity Validators
 
   extension  (license: License)

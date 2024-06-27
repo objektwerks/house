@@ -8,3 +8,5 @@ final case class Registered(account: Account) extends Event
 
 final case class LoggedIn(account: Account) extends Event
 
+final case class EntityListed(entities: List[Entity]) extends Event
+

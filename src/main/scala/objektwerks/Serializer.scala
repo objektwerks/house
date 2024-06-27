@@ -63,3 +63,4 @@ object Serializer:
   given JsonValueCodec[EntityListed] = JsonCodecMaker.make[EntityListed]
   given JsonValueCodec[EntityAdded] = JsonCodecMaker.make[EntityAdded]
   given JsonValueCodec[EntityUpdated] = JsonCodecMaker.make[EntityUpdated]
+  given JsonValueCodec[Fault] = JsonCodecMaker.make[Fault]

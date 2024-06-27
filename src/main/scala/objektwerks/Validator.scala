@@ -50,3 +50,8 @@ object Validator:
     def isValid: Boolean =
       addEntity.license.isLicense &&
       addEntity.entity != null
+
+  extension (updateEntity: UpdateEntity)
+    def isValid: Boolean =
+      updateEntity.license.isLicense &&
+      updateEntity.entity != null

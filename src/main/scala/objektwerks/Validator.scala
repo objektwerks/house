@@ -24,3 +24,9 @@ object Validator:
       house.label.isEmptyOrNonEmpty &&
       house.note.isEmptyOrNonEmpty &&
       house.built.nonEmpty
+
+  // TODO - Entity Validators
+
+  extension  (license: License)
+    def isLicense: Boolean =
+      license.license.isLicense

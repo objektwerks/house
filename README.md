@@ -78,8 +78,8 @@ Environment
 ```
 export HOUSE_POSTGRESQL_DRIVER="org.postgresql.ds.PGSimpleDataSource"
 export HOUSE_POSTGRESQL_URL="jdbc:postgresql://localhost:5432/house"
-export HOUSE_POSTGRESQL_USER="tripletail"
-export HOUSE_POSTGRESQL_PASSWORD="house"
+export HOUSE_POSTGRESQL_USER="your.computer.name"
+export HOUSE_POSTGRESQL_PASSWORD="your.password"
 ```
 
 License

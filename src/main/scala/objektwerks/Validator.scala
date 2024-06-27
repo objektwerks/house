@@ -133,6 +133,15 @@ object Validator:
       driveway.note.isEmptyOrNonEmpty &&
       driveway.built.nonEmpty
 
+  extension (garage: Garage)
+    def isValid: Boolean =
+      garage.id >= 0 &&
+      garage.houseId > 0 &&
+      garage.typeof == GarageType &&
+      garage.label.isEmptyOrNonEmpty &&
+      garage.note.isEmptyOrNonEmpty &&
+      garage.built.nonEmpty
+
   // TODO - Entity Validators
 
   extension  (license: License)

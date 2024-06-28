@@ -142,6 +142,15 @@ object Validator:
       garage.note.isEmptyOrNonEmpty &&
       garage.built.nonEmpty
 
+  extension (siding: Siding)
+    def isValid: Boolean =
+      siding.id >= 0 &&
+      siding.houseId > 0 &&
+      siding.typeof == SidingType &&
+      siding.label.isEmptyOrNonEmpty &&
+      siding.note.isEmptyOrNonEmpty &&
+      siding.installed.nonEmpty
+
   // TODO - Entity Validators
 
   extension  (license: License)

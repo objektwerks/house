@@ -349,6 +349,25 @@ object Validator:
       porch.note.isEmptyOrNonEmpty &&
       porch.built.nonEmpty
 
+  extension (patio: Patio)
+    def isValid: Boolean =
+      patio.id >= 0 &&
+      patio.houseId > 0 &&
+      patio.typeof == PatioType &&
+      patio.label.isEmptyOrNonEmpty &&
+      patio.note.isEmptyOrNonEmpty &&
+      patio.built.nonEmpty
+
+  extension (pool: Pool)
+    def isValid: Boolean =
+      pool.id >= 0 &&
+      pool.houseId > 0 &&
+      pool.typeof == PoolType &&
+      pool.gallons >= 1000 &&
+      pool.label.isEmptyOrNonEmpty &&
+      pool.note.isEmptyOrNonEmpty &&
+      pool.built.nonEmpty
+
 
   // TODO - Entity Validators
 

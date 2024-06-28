@@ -241,6 +241,15 @@ object Validator:
       ac.note.isEmptyOrNonEmpty &&
       ac.installed.nonEmpty
 
+  extension (floor: Floor)
+    def isValid: Boolean =
+      floor.id >= 0 &&
+      floor.houseId > 0 &&
+      floor.typeof == FloorType &&
+      floor.label.isEmptyOrNonEmpty &&
+      floor.note.isEmptyOrNonEmpty &&
+      floor.installed.nonEmpty
+
 
   // TODO - Entity Validators
 

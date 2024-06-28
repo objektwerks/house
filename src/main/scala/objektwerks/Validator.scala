@@ -340,6 +340,16 @@ object Validator:
       solarPanel.note.isEmptyOrNonEmpty &&
       solarPanel.installed.nonEmpty
 
+  extension (porch: Porch)
+    def isValid: Boolean =
+      porch.id >= 0 &&
+      porch.houseId > 0 &&
+      porch.typeof == PorchType &&
+      porch.label.isEmptyOrNonEmpty &&
+      porch.note.isEmptyOrNonEmpty &&
+      porch.built.nonEmpty
+
+
   // TODO - Entity Validators
 
   extension  (license: License)

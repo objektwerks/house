@@ -377,6 +377,15 @@ object Validator:
       dock.note.isEmptyOrNonEmpty &&
       dock.built.nonEmpty
 
+  extension (gazebo: Gazebo)
+    def isValid: Boolean =
+      gazebo.id >= 0 &&
+      gazebo.houseId > 0 &&
+      gazebo.typeof == GazeboType &&
+      gazebo.label.isEmptyOrNonEmpty &&
+      gazebo.note.isEmptyOrNonEmpty &&
+      gazebo.built.nonEmpty
+
 
   // TODO - Entity Validators
 

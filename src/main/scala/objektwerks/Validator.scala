@@ -250,6 +250,14 @@ object Validator:
       floor.note.isEmptyOrNonEmpty &&
       floor.installed.nonEmpty
 
+  extension (lighting: Lighting)
+    def isValid: Boolean =
+      lighting.id >= 0 &&
+      lighting.houseId > 0 &&
+      lighting.typeof == LightingType &&
+      lighting.label.isEmptyOrNonEmpty &&
+      lighting.note.isEmptyOrNonEmpty &&
+      lighting.installed.nonEmpty
 
   // TODO - Entity Validators
 

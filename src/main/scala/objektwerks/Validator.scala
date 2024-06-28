@@ -277,6 +277,14 @@ object Validator:
       well.note.isEmptyOrNonEmpty &&
       well.built.nonEmpty
 
+  extension (water: Water)
+    def isValid: Boolean =
+      water.id >= 0 &&
+      water.houseId > 0 &&
+      water.typeof == WaterType &&
+      water.label.isEmptyOrNonEmpty &&
+      water.note.isEmptyOrNonEmpty &&
+      water.installed.nonEmpty
 
   // TODO - Entity Validators
 

@@ -205,6 +205,15 @@ object Validator:
       electrical.note.isEmptyOrNonEmpty &&
       electrical.installed.nonEmpty
 
+  extension (fusebox: Fusebox)
+    def isValid: Boolean =
+      fusebox.id >= 0 &&
+      fusebox.houseId > 0 &&
+      fusebox.typeof == FuseboxType &&
+      fusebox.label.isEmptyOrNonEmpty &&
+      fusebox.note.isEmptyOrNonEmpty &&
+      fusebox.installed.nonEmpty
+
 
   // TODO - Entity Validators
 

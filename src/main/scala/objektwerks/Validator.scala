@@ -259,6 +259,16 @@ object Validator:
       lighting.note.isEmptyOrNonEmpty &&
       lighting.installed.nonEmpty
 
+  extension (sewage: Sewage)
+    def isValid: Boolean =
+      sewage.id >= 0 &&
+      sewage.houseId > 0 &&
+      sewage.typeof == SewageType &&
+      sewage.label.isEmptyOrNonEmpty &&
+      sewage.note.isEmptyOrNonEmpty &&
+      sewage.built.nonEmpty
+
+
   // TODO - Entity Validators
 
   extension  (license: License)

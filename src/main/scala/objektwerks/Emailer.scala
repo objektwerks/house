@@ -47,4 +47,5 @@ final class Emailer(config: Config) extends LazyLogging:
     }
 
   def send(recipients: List[String],
-           message: String): Unit = retry(1)(sendEmail(recipients, message))
+           message: String): Unit =
+    retry(1)(sendEmail(recipients, message))

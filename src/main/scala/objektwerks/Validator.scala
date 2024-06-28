@@ -151,6 +151,16 @@ object Validator:
       siding.note.isEmptyOrNonEmpty &&
       siding.installed.nonEmpty
 
+  extension (gutter: Gutter)
+    def isValid: Boolean =
+      gutter.id >= 0 &&
+      gutter.houseId > 0 &&
+      gutter.typeof == GutterType &&
+      gutter.label.isEmptyOrNonEmpty &&
+      gutter.note.isEmptyOrNonEmpty &&
+      gutter.installed.nonEmpty
+
+
   // TODO - Entity Validators
 
   extension  (license: License)

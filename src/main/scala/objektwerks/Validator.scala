@@ -214,6 +214,15 @@ object Validator:
       fusebox.note.isEmptyOrNonEmpty &&
       fusebox.installed.nonEmpty
 
+  extension (alarm: Alarm)
+    def isValid: Boolean =
+      alarm.id >= 0 &&
+      alarm.houseId > 0 &&
+      alarm.typeof == AlarmType &&
+      alarm.label.isEmptyOrNonEmpty &&
+      alarm.note.isEmptyOrNonEmpty &&
+      alarm.installed.nonEmpty
+
 
   // TODO - Entity Validators
 

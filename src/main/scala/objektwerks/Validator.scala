@@ -386,8 +386,14 @@ object Validator:
       gazebo.note.isEmptyOrNonEmpty &&
       gazebo.built.nonEmpty
 
-
-  // TODO - Entity Validators
+  extension (mailbox: Mailbox)
+    def isValid: Boolean =
+      mailbox.id >= 0 &&
+      mailbox.houseId > 0 &&
+      mailbox.typeof == MailboxType &&
+      mailbox.label.isEmptyOrNonEmpty &&
+      mailbox.note.isEmptyOrNonEmpty &&
+      mailbox.installed.nonEmpty
 
   extension  (license: License)
     def isLicense: Boolean =

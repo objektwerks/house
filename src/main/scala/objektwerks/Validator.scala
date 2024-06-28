@@ -196,6 +196,15 @@ object Validator:
       plumbing.note.isEmptyOrNonEmpty &&
       plumbing.installed.nonEmpty
 
+  extension (electrical: Electrical)
+    def isValid: Boolean =
+      electrical.id >= 0 &&
+      electrical.houseId > 0 &&
+      electrical.typeof == ElectricalType &&
+      electrical.label.isEmptyOrNonEmpty &&
+      electrical.note.isEmptyOrNonEmpty &&
+      electrical.installed.nonEmpty
+
 
   // TODO - Entity Validators
 

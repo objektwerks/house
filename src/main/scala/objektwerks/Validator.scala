@@ -304,6 +304,15 @@ object Validator:
       lawn.note.isEmptyOrNonEmpty &&
       lawn.planted.nonEmpty
 
+  extension (garden: Garden)
+    def isValid: Boolean =
+      garden.id >= 0 &&
+      garden.houseId > 0 &&
+      garden.typeof == GardenType &&
+      garden.label.isEmptyOrNonEmpty &&
+      garden.note.isEmptyOrNonEmpty &&
+      garden.planted.nonEmpty
+
   // TODO - Entity Validators
 
   extension  (license: License)

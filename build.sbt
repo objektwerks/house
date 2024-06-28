@@ -11,7 +11,9 @@ libraryDependencies ++= {
     "com.github.blemale" %% "scaffeine" % "5.2.1",
     "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-core" % jsoniterVersion,
     "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-macros" % jsoniterVersion % Provided,
+    "org.jodd" % "jodd-mail" % "7.0.1",
     "com.typesafe" % "config" % "1.4.3",
+    "com.typesafe.scala-logging" %% "scala-logging" % "3.9.5",
     "ch.qos.logback" % "logback-classic" % "1.5.6",
     "org.scalatest" %% "scalatest" % "3.2.19" % Test
   )

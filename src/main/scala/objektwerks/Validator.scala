@@ -368,6 +368,15 @@ object Validator:
       pool.note.isEmptyOrNonEmpty &&
       pool.built.nonEmpty
 
+  extension (dock: Dock)
+    def isValid: Boolean =
+      dock.id >= 0 &&
+      dock.houseId > 0 &&
+      dock.typeof == DockType &&
+      dock.label.isEmptyOrNonEmpty &&
+      dock.note.isEmptyOrNonEmpty &&
+      dock.built.nonEmpty
+
 
   // TODO - Entity Validators
 

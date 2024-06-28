@@ -232,6 +232,15 @@ object Validator:
       heater.note.isEmptyOrNonEmpty &&
       heater.installed.nonEmpty
 
+  extension (ac: AirConditioner)
+    def isValid: Boolean =
+      ac.id >= 0 &&
+      ac.houseId > 0 &&
+      ac.typeof == AirConditionerType &&
+      ac.label.isEmptyOrNonEmpty &&
+      ac.note.isEmptyOrNonEmpty &&
+      ac.installed.nonEmpty
+
 
   // TODO - Entity Validators
 

@@ -223,6 +223,15 @@ object Validator:
       alarm.note.isEmptyOrNonEmpty &&
       alarm.installed.nonEmpty
 
+  extension (heater: Heater)
+    def isValid: Boolean =
+      heater.id >= 0 &&
+      heater.houseId > 0 &&
+      heater.typeof == HeaterType &&
+      heater.label.isEmptyOrNonEmpty &&
+      heater.note.isEmptyOrNonEmpty &&
+      heater.installed.nonEmpty
+
 
   // TODO - Entity Validators
 

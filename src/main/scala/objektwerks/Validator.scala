@@ -331,6 +331,15 @@ object Validator:
       shed.note.isEmptyOrNonEmpty &&
       shed.built.nonEmpty
 
+  extension (solarPanel: SolarPanel)
+    def isValid: Boolean =
+      solarPanel.id >= 0 &&
+      solarPanel.houseId > 0 &&
+      solarPanel.typeof == SolarPanelType &&
+      solarPanel.label.isEmptyOrNonEmpty &&
+      solarPanel.note.isEmptyOrNonEmpty &&
+      solarPanel.installed.nonEmpty
+
   // TODO - Entity Validators
 
   extension  (license: License)

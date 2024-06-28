@@ -322,6 +322,15 @@ object Validator:
       sprinkler.note.isEmptyOrNonEmpty &&
       sprinkler.installed.nonEmpty
 
+  extension (shed: Shed)
+    def isValid: Boolean =
+      shed.id >= 0 &&
+      shed.houseId > 0 &&
+      shed.typeof == ShedType &&
+      shed.label.isEmptyOrNonEmpty &&
+      shed.note.isEmptyOrNonEmpty &&
+      shed.built.nonEmpty
+
   // TODO - Entity Validators
 
   extension  (license: License)

@@ -169,6 +169,15 @@ object Validator:
       soffit.note.isEmptyOrNonEmpty &&
       soffit.installed.nonEmpty
 
+  extension (window: Window)
+    def isValid: Boolean =
+      window.id >= 0 &&
+      window.houseId > 0 &&
+      window.typeof == WindowType &&
+      window.label.isEmptyOrNonEmpty &&
+      window.note.isEmptyOrNonEmpty &&
+      window.installed.nonEmpty
+
 
   // TODO - Entity Validators
 

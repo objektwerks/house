@@ -160,6 +160,15 @@ object Validator:
       gutter.note.isEmptyOrNonEmpty &&
       gutter.installed.nonEmpty
 
+  extension (soffit: Soffit)
+    def isValid: Boolean =
+      soffit.id >= 0 &&
+      soffit.houseId > 0 &&
+      soffit.typeof == SoffitType &&
+      soffit.label.isEmptyOrNonEmpty &&
+      soffit.note.isEmptyOrNonEmpty &&
+      soffit.installed.nonEmpty
+
 
   // TODO - Entity Validators
 

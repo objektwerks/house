@@ -187,6 +187,15 @@ object Validator:
       door.note.isEmptyOrNonEmpty &&
       door.installed.nonEmpty
 
+  extension (plumbing: Plumbing)
+    def isValid: Boolean =
+      plumbing.id >= 0 &&
+      plumbing.houseId > 0 &&
+      plumbing.typeof == PlumbingType &&
+      plumbing.label.isEmptyOrNonEmpty &&
+      plumbing.note.isEmptyOrNonEmpty &&
+      plumbing.installed.nonEmpty
+
 
   // TODO - Entity Validators
 

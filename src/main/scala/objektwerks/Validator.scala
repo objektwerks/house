@@ -295,6 +295,15 @@ object Validator:
       waterHeater.note.isEmptyOrNonEmpty &&
       waterHeater.installed.nonEmpty
 
+  extension (lawn: Lawn)
+    def isValid: Boolean =
+      lawn.id >= 0 &&
+      lawn.houseId > 0 &&
+      lawn.typeof == LawnType &&
+      lawn.label.isEmptyOrNonEmpty &&
+      lawn.note.isEmptyOrNonEmpty &&
+      lawn.planted.nonEmpty
+
   // TODO - Entity Validators
 
   extension  (license: License)

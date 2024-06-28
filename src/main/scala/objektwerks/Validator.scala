@@ -178,6 +178,15 @@ object Validator:
       window.note.isEmptyOrNonEmpty &&
       window.installed.nonEmpty
 
+  extension (door: Door)
+    def isValid: Boolean =
+      door.id >= 0 &&
+      door.houseId > 0 &&
+      door.typeof == DoorType &&
+      door.label.isEmptyOrNonEmpty &&
+      door.note.isEmptyOrNonEmpty &&
+      door.installed.nonEmpty
+
 
   // TODO - Entity Validators
 

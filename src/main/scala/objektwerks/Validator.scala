@@ -268,6 +268,15 @@ object Validator:
       sewage.note.isEmptyOrNonEmpty &&
       sewage.built.nonEmpty
 
+  extension (well: Well)
+    def isValid: Boolean =
+      well.id >= 0 &&
+      well.houseId > 0 &&
+      well.typeof == WellType &&
+      well.label.isEmptyOrNonEmpty &&
+      well.note.isEmptyOrNonEmpty &&
+      well.built.nonEmpty
+
 
   // TODO - Entity Validators
 

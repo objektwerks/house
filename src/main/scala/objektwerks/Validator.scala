@@ -313,6 +313,15 @@ object Validator:
       garden.note.isEmptyOrNonEmpty &&
       garden.planted.nonEmpty
 
+  extension (sprinkler: Sprinkler)
+    def isValid: Boolean =
+      sprinkler.id >= 0 &&
+      sprinkler.houseId > 0 &&
+      sprinkler.typeof == SprinklerType &&
+      sprinkler.label.isEmptyOrNonEmpty &&
+      sprinkler.note.isEmptyOrNonEmpty &&
+      sprinkler.installed.nonEmpty
+
   // TODO - Entity Validators
 
   extension  (license: License)

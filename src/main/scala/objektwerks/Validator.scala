@@ -429,6 +429,11 @@ object Validator:
       updateEntity.license.isLicense &&
       updateEntity.entity != null
 
+  extension (fault: Fault)
+    def isValid: Boolean =
+      fault.cause.nonEmpty &&
+      fault.occurred.nonEmpty
+
   extension (listFaults: ListFaults)
     def isValid: Boolean =
       listFaults.license.isLicense &&

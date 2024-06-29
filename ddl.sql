@@ -390,3 +390,8 @@ CREATE TABLE mailbox (
   note VARCHAR NOT NULL,
   installed VARCHAR NOT NULL
 );
+
+CREATE TABLE fault (
+  cause VARCHAR NOT NULL,
+  occurred VARCHAR NOT NULL
+);

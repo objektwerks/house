@@ -62,3 +62,5 @@ final class Dispatcher(emailer: Emailer,
   private def listEntity(typeof: EntityType, accountId: Long): Event = ???
 
   private def addEntity(typeof: EntityType, entity: Entity): Event = ???
+
+  private def updateEntity(typeof: EntityType, entity: Entity): Event = ???

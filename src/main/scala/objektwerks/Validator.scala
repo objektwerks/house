@@ -408,11 +408,11 @@ object Validator:
       login.email.isEmail &&
       login.pin.isPin
 
-  extension (listEntity: ListEntity)
+  extension (listEntities: ListEntities)
     def isValid: Boolean =
-      listEntity.license.isLicense &&
-      listEntity.typeof == EntityType &&
-      listEntity.accountId > 0
+      listEntities.license.isLicense &&
+      listEntities.typeof == EntityType &&
+      listEntities.houseId > 0
 
   extension (addEntity: AddEntity)
     def isValid: Boolean =
@@ -429,6 +429,6 @@ object Validator:
       command match
         case register: Register         => register.isValid
         case login: Login               => login.isValid
-        case listEntity: ListEntity     => listEntity.isValid
+        case listEntities: ListEntities => listEntities.isValid
         case addEntity: AddEntity       => addEntity.isValid
         case updateEntity: UpdateEntity => updateEntity.isValid

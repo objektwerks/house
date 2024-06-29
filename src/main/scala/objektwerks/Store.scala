@@ -32,7 +32,7 @@ final class Store(config: Config,
   }
   ConnectionPool.singleton( DataSourceConnectionPool(dataSource) )
 
-  def register(account: Account): Account =
+  def register(account: Account): Long =
     addAccount(account)
 
   def login(email: String, pin: String): Option[Account] =
@@ -65,15 +65,14 @@ final class Store(config: Config,
           true
         else false
 
-  def addAccount(account: Account): Account =
-    val id = DB localTx { implicit session =>
+  def addAccount(account: Account): Long =
+    DB localTx { implicit session =>
       sql"""
         insert into account(license, email, pin, activated)
         values(${account.license}, ${account.email}, ${account.pin}, ${account.activated})
       """
       .updateAndReturnGeneratedKey()
     }
-    account.copy(id = id)
 
   def listHouses(accountId: Long): List[House] =
     DB readOnly { implicit session =>

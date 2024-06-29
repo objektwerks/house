@@ -23,7 +23,7 @@ final class Dispatcher(emailer: Emailer,
       case UpdateEntity(_, typeof, entity)  => updateEntity(typeof, entity)
 
     event match
-      case fault @ Fault => store.addFault(fault)
+      case fault @ Fault(_, _) => store.addFault(fault)
       case _ => event
 
   private def isAuthorized(command: Command): Event =

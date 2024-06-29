@@ -1508,3 +1508,14 @@ final class Store(config: Config,
         """
         .update()
     }
+
+  def listFaults(): List[Fault] = DB readOnly { implicit session =>
+    sql"select * from fault order by occurred desc"
+      .map(rs =>
+        Fault(
+          rs.string("cause"),
+          rs.string("occurred")
+        )
+      )
+      .list()
+  }

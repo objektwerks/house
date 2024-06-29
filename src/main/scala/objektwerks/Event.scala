@@ -22,4 +22,4 @@ final case class Fault(cause: String, occurred: String = LocalDate.now.toString)
 
 final case class FaultsListed(faults: List[Fault]) extends Event
 
-final case class FaultAdded(id: Long) extends Event
+final case class FaultAdded() extends Event

@@ -14,3 +14,5 @@ final case class ListEntity(license: String, typeof: EntityType, accountId: Long
 final case class AddEntity(license: String, typeof: EntityType, entity: Entity) extends Command with License
 
 final case class UpdateEntity(license: String, typeof: EntityType, entity: Entity) extends Command with License
+
+final case class AddFault(license: String, fault: Fault) extends Command with License

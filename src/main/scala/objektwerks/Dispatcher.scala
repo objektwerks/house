@@ -34,3 +34,8 @@ final class Dispatcher(emailer: Emailer,
         }.recover { case NonFatal(error) => Fault(s"Authorization failed: $error") }
          .get
       case Register(_) | Login(_, _) => Authorized(true)
+
+  private def send(email: String,
+                   message: String): Unit =
+    val recipients = List(email)
+    emailer.send(recipients, message)

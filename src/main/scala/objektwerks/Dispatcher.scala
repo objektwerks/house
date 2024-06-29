@@ -4,7 +4,6 @@ import scala.util.Try
 import scala.util.control.NonFatal
 
 import Validator.*
-import java.util.Spliterator.OfLong
 
 final class Dispatcher(emailer: Emailer,
                        store: Store):

@@ -429,6 +429,11 @@ object Validator:
       updateEntity.license.isLicense &&
       updateEntity.entity != null
 
+  extension (listFaults: ListFaults)
+    def isValid: Boolean =
+      listFaults.license.isLicense &&
+      listFaults.accountId > 0
+
   extension (command: Command)
     def isValid: Boolean =
       command match

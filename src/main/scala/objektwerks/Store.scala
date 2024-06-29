@@ -32,7 +32,7 @@ final class Store(config: Config,
   }
   ConnectionPool.singleton( DataSourceConnectionPool(dataSource) )
 
-  def register(account: Account): Accunt =
+  def register(account: Account): Account =
     addAccount(account)
 
   def login(email: String, pin: String): Option[Account] =

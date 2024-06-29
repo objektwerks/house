@@ -453,3 +453,5 @@ object Validator:
         case listEntities: ListEntities => listEntities.isValid
         case addEntity: AddEntity       => addEntity.isValid
         case updateEntity: UpdateEntity => updateEntity.isValid
+        case listFaults: ListFaults     => listFaults.isValid
+        case addFault: AddFault         => addFault.isValid

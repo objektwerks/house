@@ -60,7 +60,7 @@ object Serializer:
   given JsonValueCodec[Event] = JsonCodecMaker.make[Event](CodecMakerConfig.withDiscriminatorFieldName(None))
   given JsonValueCodec[Registered] = JsonCodecMaker.make[Registered]
   given JsonValueCodec[LoggedIn] = JsonCodecMaker.make[LoggedIn]
-  given JsonValueCodec[EntityListed] = JsonCodecMaker.make[EntityListed]
+  given JsonValueCodec[EntitiesListed] = JsonCodecMaker.make[EntitiesListed]
   given JsonValueCodec[EntityAdded] = JsonCodecMaker.make[EntityAdded]
   given JsonValueCodec[EntityUpdated] = JsonCodecMaker.make[EntityUpdated]
   given JsonValueCodec[Fault] = JsonCodecMaker.make[Fault]

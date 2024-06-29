@@ -4,6 +4,7 @@ import scala.util.Try
 import scala.util.control.NonFatal
 
 import Validator.*
+import java.util.Spliterator.OfLong
 
 final class Dispatcher(emailer: Emailer,
                        store: Store):
@@ -57,3 +58,5 @@ final class Dispatcher(emailer: Emailer,
         if optionalAccount.isDefined then LoggedIn(optionalAccount.get)
         else Fault(s"Login failed for email address: $email and pin: $pin")
     )
+
+  private def listEntity(typeof: EntityType, accountId: Long): Event = ???

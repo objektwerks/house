@@ -16,11 +16,11 @@ final class Dispatcher(emailer: Emailer,
       case _ =>
 
     val event = command match
-      case Register(emailAddress)             => register(emailAddress)
-      case Login(emailAddress, pin)           => login(emailAddress, pin)
-      case ListEntities(_, typeof, accountId) => listEntity(typeof, accountId)
-      case AddEntity(_, typeof, entity)       => addEntity(typeof, entity)
-      case UpdateEntity(_, typeof, entity)    => updateEntity(typeof, entity)
+      case Register(emailAddress)           => register(emailAddress)
+      case Login(emailAddress, pin)         => login(emailAddress, pin)
+      case ListEntities(_, typeof, houseId) => listEntities(typeof, houseId)
+      case AddEntity(_, typeof, entity)     => addEntity(typeof, entity)
+      case UpdateEntity(_, typeof, entity)  => updateEntity(typeof, entity)
 
     event match
       case fault @ Fault(_, _) => store.addFault(fault)
@@ -59,7 +59,7 @@ final class Dispatcher(emailer: Emailer,
         else Fault(s"Login failed for email address: $email and pin: $pin")
     )
 
-  private def listEntity(typeof: EntityType, accountId: Long): Event = ???
+  private def listEntities(typeof: EntityType, houseId: Long): Event = ???
 
   private def addEntity(typeof: EntityType, entity: Entity): Event = ???
 

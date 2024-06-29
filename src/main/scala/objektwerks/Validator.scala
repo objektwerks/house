@@ -434,6 +434,11 @@ object Validator:
       listFaults.license.isLicense &&
       listFaults.accountId > 0
 
+  extension (addFault: AddFault)
+    def isValid: Boolean =
+      addFault.license.isLicense &&
+      addFault.fault.isValid
+
   extension (command: Command)
     def isValid: Boolean =
       command match

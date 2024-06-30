@@ -5,6 +5,7 @@ scalaVersion := "3.5.0-RC2"
 libraryDependencies ++= {
   val jsoniterVersion = "2.30.1"
   Seq(
+    "io.helidon.webserver" % "helidon-webserver" % "4.0.10",
     "org.scalikejdbc" %% "scalikejdbc" % "4.3.0",
     "com.zaxxer" % "HikariCP" % "5.1.0" exclude("org.slf4j", "slf4j-api"),
     "org.postgresql" % "postgresql" % "42.7.3",

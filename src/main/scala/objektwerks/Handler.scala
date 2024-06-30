@@ -50,6 +50,9 @@ final class Handler(store: Store,
   def addHouse(entity: Entity): Event =
     EntityAdded( store.addHouse( entity.asInstanceOf[House] ) )
 
+  def updateHouse(entity: Entity): Event =
+    EntityAdded( store.updateHouse( entity.asInstanceOf[House] ) )
+
   def listFaults(): Event =
     FaultsListed( store.listFaults() )
 

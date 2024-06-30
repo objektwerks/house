@@ -1,19 +1,14 @@
 package objektwerks
 
-import scala.util.Try
-import scala.util.control.NonFatal
-
 import Validator.*
 
-final class Dispatcher(emailer: Emailer,
-                       store: Store,
-                       handler: Handler):
+final class Dispatcher(handler: Handler):
   def dispatch[E <: Event](command: Command): Event =
-    if !command.isValid then store.addFault( Fault(s"Command is invalid: $command") )
+    if !command.isValid then handler.addFault( Fault(s"Command is invalid: $command") )
 
-    isAuthorized(command) match
-      case Authorized(isAuthorized) => if !isAuthorized then store.addFault( Fault(s"License is unauthorized: $command") )
-      case fault @ Fault(_, _) => store.addFault(fault)
+    handler.isAuthorized(command) match
+      case Authorized(isAuthorized) => if !isAuthorized then handler.addFault( Fault(s"License is unauthorized: $command") )
+      case fault @ Fault(_, _) => handler.addFault(fault)
       case _ =>
 
     val event = command match
@@ -27,14 +22,5 @@ final class Dispatcher(emailer: Emailer,
       case AddFault(_, fault)               => handler.addFault(fault)
 
     event match
-      case fault @ Fault(_, _) => store.addFault(fault)
+      case fault @ Fault(_, _) => handler.addFault(fault)
       case _ => event
-
-  private def isAuthorized(command: Command): Event =
-    command match
-      case license: License =>
-        Try {
-          Authorized( store.isAuthorized(license.license) )
-        }.recover { case NonFatal(error) => Fault(s"Authorization failed: $error") }
-         .get
-      case Register(_) | Login(_, _) => Authorized(true)

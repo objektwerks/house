@@ -3,9 +3,17 @@ package objektwerks
 import scala.util.Try
 import scala.util.control.NonFatal
 
-import Validator.*
+final class Handler(store: Store,
+                    emailer: Emailer):
+  def isAuthorized(command: Command): Event =
+    command match
+      case license: License =>
+        Try {
+          Authorized( store.isAuthorized(license.license) )
+        }.recover { case NonFatal(error) => Fault(s"Authorization failed: $error") }
+         .get
+      case Register(_) | Login(_, _) => Authorized(true)
 
-final class Handler(store: Store):
   def send(email: String,
                    message: String): Unit =
     val recipients = List(email)

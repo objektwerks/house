@@ -7,8 +7,10 @@ final class Dispatcher(handler: Handler):
     if !command.isValid then handler.addFault( Fault(s"Command is invalid: $command") )
 
     handler.isAuthorized(command) match
-      case Authorized(isAuthorized) => if !isAuthorized then handler.addFault( Fault(s"License is unauthorized: $command") )
-      case fault @ Fault(_, _) => handler.addFault(fault)
+      case Authorized(isAuthorized) =>
+        if !isAuthorized then handler.addFault( Fault(s"License is unauthorized: $command") )
+      case fault @ Fault(_, _) =>
+        handler.addFault(fault)
       case _ =>
 
     val event = command match

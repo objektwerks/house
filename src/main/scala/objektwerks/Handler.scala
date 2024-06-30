@@ -94,3 +94,6 @@ final class Handler(store: Store,
 
   def updateFoundation(entity: Entity): Event =
     EntityAdded( store.updateFoundation( entity.asInstanceOf[Foundation] ) )
+
+  def listFrames(houseId: Long): Event =
+    EntitiesListed( store.listFrames(houseId) )

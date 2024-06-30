@@ -100,3 +100,6 @@ final class Handler(store: Store,
 
   def addFrame(entity: Entity): Event =
     EntityAdded( store.addFrame( entity.asInstanceOf[Frame] ) )
+
+  def updateFrame(entity: Entity): Event =
+    EntityAdded( store.updateFrame( entity.asInstanceOf[Frame] ) )

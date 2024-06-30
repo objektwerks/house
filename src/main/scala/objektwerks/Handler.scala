@@ -59,3 +59,6 @@ final class Handler(store: Store,
   def addEntity(typeof: EntityType, entity: Entity): Event = ???
 
   def updateEntity(typeof: EntityType, entity: Entity): Event = ???
+
+  def listFoundations(houseId: Long): Event =
+    EntitiesListed( store.listFoundations(houseId) )

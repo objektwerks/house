@@ -3,8 +3,21 @@ package objektwerks
 import scala.util.Try
 import scala.util.control.NonFatal
 
+import EntityType.*
+
 final class Handler(store: Store,
                     emailer: Emailer):
+  val list = Map(
+    Foundation -> listFoundations
+  )
+  val add = Map(
+    House -> addHouse,
+    Foundation -> addFoundation
+  )
+  val update = Map(
+    House -> updateHouse,
+    Foundation -> updateFoundation
+  )
   def isAuthorized(command: Command): Event =
     command match
       case license: License =>

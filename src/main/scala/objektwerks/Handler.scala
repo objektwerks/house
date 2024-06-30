@@ -11,12 +11,10 @@ final class Handler(store: Store,
     Foundation -> listFoundations
   )
   val add = Map(
-    House -> addHouse,
-    Foundation -> addFoundation
+    House -> addHouse, Foundation -> addFoundation
   )
   val update = Map(
-    House -> updateHouse,
-    Foundation -> updateFoundation
+    House -> updateHouse, Foundation -> updateFoundation
   )
   def isAuthorized(command: Command): Event =
     command match

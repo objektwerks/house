@@ -62,3 +62,6 @@ final class Handler(store: Store,
 
   def listFoundations(houseId: Long): Event =
     EntitiesListed( store.listFoundations(houseId) )
+
+  def addFoundation(entity: Entity): Event =
+    EntityAdded( store.addFoundation( entity.asInstanceOf[Foundation] ) )

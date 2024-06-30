@@ -62,9 +62,3 @@ final class Dispatcher(emailer: Emailer,
         if optionalAccount.isDefined then LoggedIn(optionalAccount.get)
         else Fault(s"Login failed for email address: $email and pin: $pin")
     )
-
-  private def listEntities(typeof: EntityType, houseId: Long): Event = ???
-
-  private def addEntity(typeof: EntityType, entity: Entity): Event = ???
-
-  private def updateEntity(typeof: EntityType, entity: Entity): Event = ???

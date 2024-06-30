@@ -1,6 +1,12 @@
 package objektwerks
 
 final class Handler(store: Store):
+  def listEntities(typeof: EntityType, houseId: Long): Event = ???
+
+  def addEntity(typeof: EntityType, entity: Entity): Event = ???
+
+  def updateEntity(typeof: EntityType, entity: Entity): Event = ???
+
   def listHouses(accountId: Long): Event =
     HousesListed( store.listHouses(accountId) )
 

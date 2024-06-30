@@ -62,7 +62,8 @@ final class Dispatcher(emailer: Emailer,
         else Fault(s"Login failed for email address: $email and pin: $pin")
     )
 
-  private def listHouses(accountId: Long): Event = ???
+  private def listHouses(accountId: Long): Event =
+    HousesListed( store.listHouses(accountId) )
 
   private def listEntities(typeof: EntityType, houseId: Long): Event = ???
 

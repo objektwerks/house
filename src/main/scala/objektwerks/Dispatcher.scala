@@ -19,12 +19,12 @@ final class Dispatcher(emailer: Emailer,
     val event = command match
       case Register(emailAddress)           => register(emailAddress)
       case Login(emailAddress, pin)         => login(emailAddress, pin)
-      case ListHouses(_, accountId)         => listHouses(accountId)
-      case ListEntities(_, typeof, houseId) => listEntities(typeof, houseId)
-      case AddEntity(_, typeof, entity)     => addEntity(typeof, entity)
-      case UpdateEntity(_, typeof, entity)  => updateEntity(typeof, entity)
-      case ListFaults(_)                    => listFaults()
-      case AddFault(_, fault)               => addFault(fault)
+      case ListHouses(_, accountId)         => handler.listHouses(accountId)
+      case ListEntities(_, typeof, houseId) => handler.listEntities(typeof, houseId)
+      case AddEntity(_, typeof, entity)     => handler.addEntity(typeof, entity)
+      case UpdateEntity(_, typeof, entity)  => handler.updateEntity(typeof, entity)
+      case ListFaults(_)                    => handler.listFaults()
+      case AddFault(_, fault)               => handler.addFault(fault)
 
     event match
       case fault @ Fault(_, _) => store.addFault(fault)

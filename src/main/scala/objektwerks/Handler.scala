@@ -26,7 +26,7 @@ final class Handler(store: Store,
       case Register(_) | Login(_, _) => Authorized(true)
 
   def send(email: String,
-                   message: String): Unit =
+           message: String): Unit =
     val recipients = List(email)
     emailer.send(recipients, message)
 
@@ -41,7 +41,7 @@ final class Handler(store: Store,
      .get
 
   def login(email: String,
-                    pin: String): Event =
+            pin: String): Event =
     Try { store.login(email, pin) }.fold(
       error => Fault(s"Login failed: ${error.getMessage()}"),
       optionalAccount =>
@@ -49,11 +49,9 @@ final class Handler(store: Store,
         else Fault(s"Login failed for email address: $email and pin: $pin")
     )
 
-  def listHouses(accountId: Long): Event =
-    HousesListed( store.listHouses(accountId) )
+  def listHouses(accountId: Long): Event = HousesListed( store.listHouses(accountId) )
 
-  def listFaults(): Event =
-    FaultsListed( store.listFaults() )
+  def listFaults(): Event = FaultsListed( store.listFaults() )
 
   def addFault(fault: Fault): Event =
     store.addFault(fault)

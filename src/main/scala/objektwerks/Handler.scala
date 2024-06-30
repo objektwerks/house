@@ -61,7 +61,12 @@ final class Handler(store: Store,
     store.addFault(fault)
     FaultAdded()
 
-  def listEntities(typeof: EntityType, houseId: Long): Event = ???
+  def listEntities(typeof: EntityType, houseId: Long): Event =
+    Try {
+      val function = list(typeof)
+      function(houseId)
+    }.recover { case NonFatal(error) => Fault(s"List entities for type [${typeof.toString}] failed!") }
+     .get
 
   def addEntity(typeof: EntityType, entity: Entity): Event = ???
 

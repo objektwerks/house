@@ -5,6 +5,8 @@ import com.typesafe.scalalogging.Logger
 
 import io.helidon.webserver.http.{Handler => WebHandler, ServerRequest, ServerResponse}
 
+import Serializer.given
+
 final class Exchanger(dispatcher: Dispatcher,
                       store: Store,
                       logger: Logger) extends WebHandler:

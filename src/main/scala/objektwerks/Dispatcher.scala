@@ -77,3 +77,6 @@ final class Dispatcher(emailer: Emailer,
   private def addFault(fault: Fault): Event =
     store.addFault(fault)
     FaultAdded()
+
+  def addHouse(entity: Entity): Event =
+    EntityAdded( store.addHouse( entity.asInstanceOf[House] ) )

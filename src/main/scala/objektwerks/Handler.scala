@@ -95,3 +95,5 @@ final class Handler(store: Store,
   def addFrame(entity: Entity): Long = store.addFrame( entity.asInstanceOf[Frame] )
 
   def updateFrame(entity: Entity): Int = store.updateFrame( entity.asInstanceOf[Frame] )
+
+  def listAttics(houseId: Long): List[Attic] = store.listAttics(houseId)

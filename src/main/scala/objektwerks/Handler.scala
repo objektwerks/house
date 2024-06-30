@@ -6,3 +6,10 @@ final class Handler(store: Store):
 
   def addHouse(entity: Entity): Event =
     EntityAdded( store.addHouse( entity.asInstanceOf[House] ) )
+
+  def listFaults(): Event =
+    FaultsListed( store.listFaults() )
+
+  def addFault(fault: Fault): Event =
+    store.addFault(fault)
+    FaultAdded()

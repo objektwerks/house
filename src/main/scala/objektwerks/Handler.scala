@@ -41,12 +41,6 @@ final class Handler(store: Store,
   def listHouses(accountId: Long): Event =
     HousesListed( store.listHouses(accountId) )
 
-  def addHouse(entity: Entity): Event =
-    EntityAdded( store.addHouse( entity.asInstanceOf[House] ) )
-
-  def updateHouse(entity: Entity): Event =
-    EntityAdded( store.updateHouse( entity.asInstanceOf[House] ) )
-
   def listFaults(): Event =
     FaultsListed( store.listFaults() )
 
@@ -59,6 +53,12 @@ final class Handler(store: Store,
   def addEntity(typeof: EntityType, entity: Entity): Event = ???
 
   def updateEntity(typeof: EntityType, entity: Entity): Event = ???
+
+  def addHouse(entity: Entity): Event =
+    EntityAdded( store.addHouse( entity.asInstanceOf[House] ) )
+
+  def updateHouse(entity: Entity): Event =
+    EntityAdded( store.updateHouse( entity.asInstanceOf[House] ) )
 
   def listFoundations(houseId: Long): Event =
     EntitiesListed( store.listFoundations(houseId) )

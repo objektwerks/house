@@ -38,12 +38,6 @@ final class Handler(store: Store,
         else Fault(s"Login failed for email address: $email and pin: $pin")
     )
 
-  def listEntities(typeof: EntityType, houseId: Long): Event = ???
-
-  def addEntity(typeof: EntityType, entity: Entity): Event = ???
-
-  def updateEntity(typeof: EntityType, entity: Entity): Event = ???
-
   def listHouses(accountId: Long): Event =
     HousesListed( store.listHouses(accountId) )
 
@@ -59,3 +53,9 @@ final class Handler(store: Store,
   def addFault(fault: Fault): Event =
     store.addFault(fault)
     FaultAdded()
+
+  def listEntities(typeof: EntityType, houseId: Long): Event = ???
+
+  def addEntity(typeof: EntityType, entity: Entity): Event = ???
+
+  def updateEntity(typeof: EntityType, entity: Entity): Event = ???

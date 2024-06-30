@@ -11,7 +11,7 @@ final class Handler(store: Store,
     Foundation -> listFoundations, Frame -> listFrames
   )
   val add = Map(
-    House -> addHouse, Foundation -> addFoundation
+    House -> addHouse, Foundation -> addFoundation, Frame -> addFrame
   )
   val update = Map(
     House -> updateHouse, Foundation -> updateFoundation

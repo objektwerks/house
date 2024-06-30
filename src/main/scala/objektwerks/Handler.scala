@@ -99,3 +99,5 @@ final class Handler(store: Store,
   def listAttics(houseId: Long): List[Attic] = store.listAttics(houseId)
 
   def addAttic(entity: Entity): Long = store.addAttic( entity.asInstanceOf[Attic] )
+
+  def updateAttic(entity: Entity): Int = store.updateAttic( entity.asInstanceOf[Attic] )

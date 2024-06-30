@@ -97,3 +97,6 @@ final class Handler(store: Store,
 
   def listFrames(houseId: Long): Event =
     EntitiesListed( store.listFrames(houseId) )
+
+  def addFrame(entity: Entity): Event =
+    EntityAdded( store.addFrame( entity.asInstanceOf[Frame] ) )

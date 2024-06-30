@@ -71,6 +71,7 @@ final class Dispatcher(emailer: Emailer,
 
   private def updateEntity(typeof: EntityType, entity: Entity): Event = ???
 
-  private def listFaults(): Event = ???
+  private def listFaults(): Event =
+    FaultsListed( store.listFaults() )
 
   private def addFault(fault: Fault): Event = ???

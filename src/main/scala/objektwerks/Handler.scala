@@ -65,3 +65,6 @@ final class Handler(store: Store,
 
   def addFoundation(entity: Entity): Event =
     EntityAdded( store.addFoundation( entity.asInstanceOf[Foundation] ) )
+
+  def updateFoundation(entity: Entity): Event =
+    EntityAdded( store.updateFoundation( entity.asInstanceOf[Foundation] ) )

@@ -69,7 +69,7 @@ final class Handler(store: Store,
   def addEntity(typeof: EntityType, entity: Entity): Event =
     Try {
       val function = add(typeof)
-      function(entity)
+      EntityAdded( function(entity) )
     }.recover { case NonFatal(error) => Fault(s"Add entity for type [${typeof.toString}] failed! Entity: ${entity.toString}") }
      .get
 
@@ -80,16 +80,14 @@ final class Handler(store: Store,
     }.recover { case NonFatal(error) => Fault(s"Update entity for type [${typeof.toString}] failed! Entity: ${entity.toString}") }
      .get
 
-  def addHouse(entity: Entity): Event =
-    EntityAdded( store.addHouse( entity.asInstanceOf[House] ) )
+  def addHouse(entity: Entity): Long = store.addHouse( entity.asInstanceOf[House] )
 
   def updateHouse(entity: Entity): Event =
     EntityAdded( store.updateHouse( entity.asInstanceOf[House] ) )
 
   def listFoundations(houseId: Long): List[Foundation] = store.listFoundations(houseId)
 
-  def addFoundation(entity: Entity): Event =
-    EntityAdded( store.addFoundation( entity.asInstanceOf[Foundation] ) )
+  def addFoundation(entity: Entity): Long = store.addFoundation( entity.asInstanceOf[Foundation] )
 
   def updateFoundation(entity: Entity): Event =
     EntityAdded( store.updateFoundation( entity.asInstanceOf[Foundation] ) )

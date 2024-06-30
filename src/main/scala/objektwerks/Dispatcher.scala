@@ -6,7 +6,8 @@ import scala.util.control.NonFatal
 import Validator.*
 
 final class Dispatcher(emailer: Emailer,
-                       store: Store):
+                       store: Store,
+                       handler: Handler):
   def dispatch[E <: Event](command: Command): Event =
     if !command.isValid then store.addFault( Fault(s"Command is invalid: $command") )
 
@@ -67,10 +68,3 @@ final class Dispatcher(emailer: Emailer,
   private def addEntity(typeof: EntityType, entity: Entity): Event = ???
 
   private def updateEntity(typeof: EntityType, entity: Entity): Event = ???
-
-  private def listFaults(): Event =
-    FaultsListed( store.listFaults() )
-
-  private def addFault(fault: Fault): Event =
-    store.addFault(fault)
-    FaultAdded()

@@ -74,4 +74,6 @@ final class Dispatcher(emailer: Emailer,
   private def listFaults(): Event =
     FaultsListed( store.listFaults() )
 
-  private def addFault(fault: Fault): Event = ???
+  private def addFault(fault: Fault): Event =
+    store.addFault(fault)
+    FaultAdded()

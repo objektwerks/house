@@ -8,7 +8,7 @@ import io.helidon.webserver.http.{Handler => WebHandler, ServerRequest, ServerRe
 import Serializer.given
 
 final class Exchanger(dispatcher: Dispatcher,
-                      store: Store,
+                      handler: Handler,
                       logger: Logger) extends WebHandler:
   override def handle(request: ServerRequest,
                       response: ServerResponse): Unit =
@@ -23,7 +23,7 @@ final class Exchanger(dispatcher: Dispatcher,
     event match
       case fault @ Fault(_, _) =>
         logger.error(s"*** Handler fault: $fault")
-        store.addFault(fault)
+        handler.addFault(fault)
       case _ =>
     val eventJson = writeToString[Event](event)
     logger.info(s"*** Handler event json: $eventJson")

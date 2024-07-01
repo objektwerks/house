@@ -147,3 +147,5 @@ final class Handler(store: Store,
   def addBalcony(entity: Entity): Long = store.addBalcony( entity.asInstanceOf[Balcony] )
 
   def updateBalcony(entity: Entity): Int = store.updateBalcony( entity.asInstanceOf[Balcony] )
+
+  def listDrywalls(houseId: Long): List[Drywall] = store.listDrywalls(houseId)

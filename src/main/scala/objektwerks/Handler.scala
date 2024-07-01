@@ -16,7 +16,7 @@ final class Handler(store: Store,
   val add = Map(
     House -> addHouse, Foundation -> addFoundation, Frame -> addFrame, Attic -> addAttic, Insulation -> addInsulation,
     Ductwork -> addDuctwork, Ventilation -> addVentilation, Roof -> addRoof, Chimney -> addChimney, Balcony -> addBalcony,
-    Drywall -> addDrywall, Room -> addRoom, Driveway -> addDriveway
+    Drywall -> addDrywall, Room -> addRoom, Driveway -> addDriveway, Garage -> addGarage
   )
   val update = Map(
     House -> updateHouse, Foundation -> updateFoundation, Frame -> updateFrame, Attic -> updateAttic,

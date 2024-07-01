@@ -9,7 +9,7 @@ final class Handler(store: Store,
                     emailer: Emailer):
   val list = Map(
     Foundation -> listFoundations, Frame -> listFrames, Attic -> listAttics, Insulation -> listInsulations,
-    Ductwork -> listDuctworks, Ventilation -> listVentilations
+    Ductwork -> listDuctworks, Ventilation -> listVentilations, Roof -> listRoofs
   )
   val add = Map(
     House -> addHouse, Foundation -> addFoundation, Frame -> addFrame, Attic -> addAttic, Insulation -> addInsulation,

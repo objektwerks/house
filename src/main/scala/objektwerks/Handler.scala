@@ -135,3 +135,5 @@ final class Handler(store: Store,
   def updateRoof(entity: Entity): Int = store.updateRoof( entity.asInstanceOf[Roof] )
 
   def listChimneys(houseId: Long): List[Chimney] = store.listChimneys(houseId)
+
+  def addChimney(entity: Entity): Long = store.addChimney( entity.asInstanceOf[Chimney] )

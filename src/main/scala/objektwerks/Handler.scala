@@ -20,7 +20,7 @@ final class Handler(store: Store,
   val update = Map(
     House -> updateHouse, Foundation -> updateFoundation, Frame -> updateFrame, Attic -> updateAttic,
     Insulation -> updateInsulation, Ductwork -> updateDuctwork, Ventilation -> updateVentilation, Roof -> updateRoof,
-    Chimney -> updateRoof, Balcony -> updateBalcony, Drywall -> updateDrywall, Room -> updateRoom
+    Chimney -> updateRoof, Balcony -> updateBalcony, Drywall -> updateDrywall, Room -> updateRoom, Driveway -> updateDriveway
   )
   def isAuthorized(command: Command): Event =
     command match
@@ -166,3 +166,5 @@ final class Handler(store: Store,
   def addDriveway(entity: Entity): Long = store.addDriveway( entity.asInstanceOf[Driveway] )
 
   def updateDriveway(entity: Entity): Int = store.updateDriveway( entity.asInstanceOf[Driveway] )
+
+  def listGarages(houseId: Long): List[Garage] = store.listGarages(houseId)

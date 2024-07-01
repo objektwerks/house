@@ -44,10 +44,13 @@ final class Handler(store: Store,
 
   def login(email: String,
             pin: String): Event =
-    Try { store.login(email, pin) }.fold(
-      error => Fault(s"Login failed: ${error.getMessage()}"),
+    Try {
+      store.login(email, pin)
+    }.fold(
+      error =>
+        Fault(s"Login failed: ${error.getMessage()}"),
       optionalAccount =>
-        if optionalAccount.isDefined then LoggedIn(optionalAccount.get)
+        if optionalAccount.isDefined then LoggedIn( optionalAccount.get )
         else Fault(s"Login failed for email address: $email and pin: $pin")
     )
 

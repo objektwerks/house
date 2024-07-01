@@ -129,3 +129,5 @@ final class Handler(store: Store,
   def updateVentilation(entity: Entity): Int = store.updateVentilation( entity.asInstanceOf[Ventilation] )
 
   def listRoofs(houseId: Long): List[Roof] = store.listRoofs(houseId)
+
+  def addRoof(entity: Entity): Long = store.addRoof( entity.asInstanceOf[Roof] )

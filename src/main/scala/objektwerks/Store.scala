@@ -20,17 +20,17 @@ object Store:
       .expireAfterWrite(expireAfter)
       .build[String, String]()
 
-final class Store(config: Config,
-                  cache: Cache[String, String]):
-  private val dataSource: DataSource = {
+  def datasource(config: Config): DataSource =
     val ds = HikariDataSource()
     ds.setDataSourceClassName(config.getString("db.driver"))
     ds.addDataSourceProperty("url", config.getString("db.url"))
     ds.addDataSourceProperty("user", config.getString("db.user"))
     ds.addDataSourceProperty("password", config.getString("db.password"))
     ds
-  }
-  ConnectionPool.singleton( DataSourceConnectionPool(dataSource) )
+
+final class Store(cache: Cache[String, String],
+                  datasource: DataSource):
+  ConnectionPool.singleton( DataSourceConnectionPool(datasource) )
 
   def register(account: Account): Long =
     addAccount(account)

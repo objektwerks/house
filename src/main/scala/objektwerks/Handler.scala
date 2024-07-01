@@ -131,3 +131,5 @@ final class Handler(store: Store,
   def listRoofs(houseId: Long): List[Roof] = store.listRoofs(houseId)
 
   def addRoof(entity: Entity): Long = store.addRoof( entity.asInstanceOf[Roof] )
+
+  def updateRoof(entity: Entity): Long = store.updateRoof( entity.asInstanceOf[Roof] )

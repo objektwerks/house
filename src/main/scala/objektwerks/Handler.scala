@@ -162,3 +162,5 @@ final class Handler(store: Store,
   def updateRoom(entity: Entity): Int = store.updateRoom( entity.asInstanceOf[Room] )
 
   def listDriveways(houseId: Long): List[Driveway] = store.listDriveways(houseId)
+
+  def addDriveway(entity: Entity): Long = store.addDriveway( entity.asInstanceOf[Driveway] )

@@ -14,9 +14,9 @@ import scalikejdbc.*
 object Store:
   def cache(config: Config): Cache[String, String] =
     Scaffeine()
-      .initialCapacity(config.getInt("initialSize"))
-      .maximumSize(config.getInt("maxSize"))
-      .expireAfterWrite( FiniteDuration( config.getLong("expireAfter"), TimeUnit.HOURS) )
+      .initialCapacity(config.getInt("cache.initialSize"))
+      .maximumSize(config.getInt("cache.maxSize"))
+      .expireAfterWrite( FiniteDuration( config.getLong("cache.expireAfter"), TimeUnit.HOURS) )
       .build[String, String]()
 
   def datasource(config: Config): DataSource =

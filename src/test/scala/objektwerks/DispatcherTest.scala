@@ -26,6 +26,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
 
   test("store"):
     register
+    login
 
   def register: Unit =
     val register = Register(config.getString("email.sender"))
@@ -34,3 +35,9 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         assert( account.isValid )
         testAccount = account
       case fault => fail(s"Invalid registered event: $fault")
+
+  def login: Unit =
+    val login = Login(testAccount.email, testAccount.pin)
+    dispatcher.dispatch(login) match
+      case LoggedIn(account) => account shouldBe testAccount
+      case fault => fail(s"Invalid loggedin event: $fault")

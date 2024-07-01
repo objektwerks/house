@@ -5,7 +5,6 @@ import com.typesafe.config.ConfigFactory
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
-import scala.concurrent.duration.DurationInt
 import scala.sys.process.Process
 
 final class StoreTest extends AnyFunSuite with Matchers:
@@ -14,7 +13,9 @@ final class StoreTest extends AnyFunSuite with Matchers:
 
   val config = ConfigFactory.load("test.conf")
 
-  val store = Store(config, Store.cache(initialSize = 1, maxSize = 1, expireAfter = 1.hour))
+  val cache = Store.cache(config)
+  val datasource = Store.datasource(config)
+  val store = Store(cache, datasource)
 
   var testAccount = Account(email = "your@email.com")
   var testHouse = House(accountId = 0, location = "100 Rocky Way")

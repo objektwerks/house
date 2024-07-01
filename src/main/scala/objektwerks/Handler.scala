@@ -13,7 +13,7 @@ final class Handler(store: Store,
   )
   val add = Map(
     House -> addHouse, Foundation -> addFoundation, Frame -> addFrame, Attic -> addAttic, Insulation -> addInsulation,
-    Ductwork -> addDuctwork
+    Ductwork -> addDuctwork, Ventilation -> addVentilation
   )
   val update = Map(
     House -> updateHouse, Foundation -> updateFoundation, Frame -> updateFrame, Attic -> updateAttic, Insulation -> updateInsulation,

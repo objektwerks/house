@@ -22,3 +22,4 @@ libraryDependencies ++= {
 scalacOptions ++= Seq(
   "-Wunused:all"
 )
+parallelExecution in Test := false

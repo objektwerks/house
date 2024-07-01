@@ -103,3 +103,5 @@ final class Handler(store: Store,
   def listInsulations(houseId: Long): List[Insulation] = store.listInsulations(houseId)
 
   def addInsulation(entity: Entity): Long = store.addInsulation( entity.asInstanceOf[Insulation] )
+
+  def updateInsulation(entity: Entity): Int = store.updateInsulation( entity.asInstanceOf[Insulation] )

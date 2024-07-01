@@ -1,15 +1,14 @@
 package objektwerks
 
 import com.github.plokhotnyuk.jsoniter_scala.core.*
-import com.typesafe.scalalogging.Logger
+import com.typesafe.scalalogging.LazyLogging
 
 import io.helidon.webserver.http.{Handler => WebHandler, ServerRequest, ServerResponse}
 
 import Serializer.given
 
 final class Exchanger(dispatcher: Dispatcher,
-                      handler: Handler,
-                      logger: Logger) extends WebHandler:
+                      handler: Handler) extends WebHandler with LazyLogging:
   override def handle(request: ServerRequest,
                       response: ServerResponse): Unit =
     val commandJson = request.content.as(classOf[String])

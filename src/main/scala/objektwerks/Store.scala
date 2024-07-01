@@ -4,6 +4,7 @@ import com.github.blemale.scaffeine.{Cache, Scaffeine}
 import com.typesafe.config.Config
 import com.zaxxer.hikari.HikariDataSource
 
+import java.util.concurrent.TimeUnit
 import javax.sql.DataSource
 
 import scala.concurrent.duration.FiniteDuration
@@ -11,13 +12,11 @@ import scala.concurrent.duration.FiniteDuration
 import scalikejdbc.*
 
 object Store:
-  def cache(initialSize: Int,
-            maxSize: Int,
-            expireAfter: FiniteDuration): Cache[String, String] =
+  def cache(config: Config): Cache[String, String] =
     Scaffeine()
-      .initialCapacity(initialSize)
-      .maximumSize(maxSize)
-      .expireAfterWrite(expireAfter)
+      .initialCapacity(config.getInt("initialSize"))
+      .maximumSize(config.getInt("maxSize"))
+      .expireAfterWrite( FiniteDuration( config.getLong("expireAfter"), TimeUnit.HOURS) )
       .build[String, String]()
 
   def datasource(config: Config): DataSource =

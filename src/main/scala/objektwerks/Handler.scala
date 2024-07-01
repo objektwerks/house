@@ -81,8 +81,9 @@ final class Handler(store: Store,
     Try {
       val function = update(typeof)
       EntityUpdated( function(entity) )
-    }.recover { case NonFatal(error) => Fault(s"Update entity for type [${typeof.toString}] failed! Entity: ${entity.toString}") }
-     .get
+    }.recover {
+      case NonFatal(error) => Fault(s"Update entity for type [${typeof.toString}] failed! Entity: ${entity.toString}")
+    }.get
 
   def addHouse(entity: Entity): Long = store.addHouse( entity.asInstanceOf[House] )
 

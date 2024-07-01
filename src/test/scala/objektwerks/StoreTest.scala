@@ -12,7 +12,6 @@ final class StoreTest extends AnyFunSuite with Matchers:
   exitCode shouldBe 0
 
   val config = ConfigFactory.load("test.conf")
-
   val cache = Store.cache(config)
   val datasource = Store.datasource(config)
   val store = Store(cache, datasource)

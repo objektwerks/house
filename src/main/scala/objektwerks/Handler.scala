@@ -38,8 +38,9 @@ final class Handler(store: Store,
       send(account.email, message)
       val id = store.register(account)
       Registered( account.copy(id = id) )
-    }.recover { case NonFatal(error) => Fault(s"Registration failed for: $email, because: ${error.getMessage}") }
-     .get
+    }.recover {
+      case NonFatal(error) => Fault(s"Registration failed for: $email, because: ${error.getMessage}")
+    }.get
 
   def login(email: String,
             pin: String): Event =

@@ -6,8 +6,6 @@ import com.typesafe.scalalogging.LazyLogging
 import io.helidon.webserver.WebServer
 import io.helidon.webserver.http.HttpRouting
 
-import scala.concurrent.duration.DurationInt
-
 object Server extends LazyLogging:
   @main def main(): Unit =
     val config = ConfigFactory.load("server.conf")

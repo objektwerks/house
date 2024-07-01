@@ -8,7 +8,8 @@ import EntityType.*
 final class Handler(store: Store,
                     emailer: Emailer):
   val list = Map(
-    Foundation -> listFoundations, Frame -> listFrames, Attic -> listAttics, Insulation -> listInsulations
+    Foundation -> listFoundations, Frame -> listFrames, Attic -> listAttics, Insulation -> listInsulations,
+    Ductwork -> listDuctworks
   )
   val add = Map(
     House -> addHouse, Foundation -> addFoundation, Frame -> addFrame, Attic -> addAttic, Insulation -> addInsulation

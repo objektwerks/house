@@ -47,8 +47,7 @@ final class Handler(store: Store,
     Try {
       store.login(email, pin)
     }.fold(
-      error =>
-        Fault(s"Login failed: ${error.getMessage()}"),
+      error => Fault(s"Login failed: ${error.getMessage()}"),
       optionalAccount =>
         if optionalAccount.isDefined then LoggedIn( optionalAccount.get )
         else Fault(s"Login failed for email address: $email and pin: $pin")
@@ -74,8 +73,9 @@ final class Handler(store: Store,
     Try {
       val function = add(typeof)
       EntityAdded( function(entity) )
-    }.recover { case NonFatal(error) => Fault(s"Add entity for type [${typeof.toString}] failed! Entity: ${entity.toString}") }
-     .get
+    }.recover {
+      case NonFatal(error) => Fault(s"Add entity for type [${typeof.toString}] failed! Entity: ${entity.toString}")
+    }.get
 
   def updateEntity(typeof: EntityType, entity: Entity): Event =
     Try {

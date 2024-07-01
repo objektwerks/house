@@ -17,7 +17,7 @@ final class Handler(store: Store,
   )
   val update = Map(
     House -> updateHouse, Foundation -> updateFoundation, Frame -> updateFrame, Attic -> updateAttic, Insulation -> updateInsulation,
-    Ductwork -> updateDuctwork
+    Ductwork -> updateDuctwork, Ventilation -> updateVentilation
   )
   def isAuthorized(command: Command): Event =
     command match

@@ -154,3 +154,5 @@ final class Handler(store: Store,
   def addDrywall(entity: Entity): Long = store.addDrywall( entity.asInstanceOf[Drywall] )
 
   def updateDrywall(entity: Entity): Int = store.updateDrywall( entity.asInstanceOf[Drywall] )
+
+  def listRooms(houseId: Long): List[Room] = store.listRooms(houseId)

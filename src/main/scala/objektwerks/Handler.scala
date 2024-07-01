@@ -158,3 +158,5 @@ final class Handler(store: Store,
   def listRooms(houseId: Long): List[Room] = store.listRooms(houseId)
 
   def addRoom(entity: Entity): Long = store.addRoom( entity.asInstanceOf[Room] )
+
+  def updateRoom(entity: Entity): Int = store.updateRoom( entity.asInstanceOf[Room] )

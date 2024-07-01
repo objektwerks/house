@@ -80,9 +80,9 @@ export HOUSE_HOST="127.0.0.1"
 export HOUSE_PORT=7070
 export HOUSE_ENDPOINT="/command"
 
-export HOUSE_CACHE_POOL_INITIAL_SIZE=4
-export HOUSE_CACHE_POOL_MAX_SIZE=10
-export HOUSE_CACHE_POOL_EXPIRE_AFTER=24
+export HOUSE_CACHE_INITIAL_SIZE=4
+export HOUSE_CACHE_MAX_SIZE=10
+export HOUSE_CACHE_EXPIRE_AFTER=24
 
 export HOUSE_POSTGRESQL_DRIVER="org.postgresql.ds.PGSimpleDataSource"
 export HOUSE_POSTGRESQL_URL="jdbc:postgresql://localhost:5432/house"

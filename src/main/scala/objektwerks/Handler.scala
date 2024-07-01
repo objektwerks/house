@@ -21,8 +21,9 @@ final class Handler(store: Store,
       case license: License =>
         Try {
           Authorized( store.isAuthorized(license.license) )
-        }.recover { case NonFatal(error) => Fault(s"Authorization failed: $error") }
-         .get
+        }.recover {
+          case NonFatal(error) => Fault(s"Authorization failed: $error")
+        }.get
       case Register(_) | Login(_, _) => Authorized(true)
 
   def send(email: String,

@@ -12,20 +12,20 @@ final class Exchanger(dispatcher: Dispatcher,
   override def handle(request: ServerRequest,
                       response: ServerResponse): Unit =
     val commandJson = request.content.as(classOf[String])
-    logger.info(s"*** Handler command json: $commandJson")
+    logger.info(s"*** Exchanger command json: $commandJson")
 
     val command = readFromString[Command](commandJson)
-    logger.info(s"*** Handler command: $command")
+    logger.info(s"*** Exchanger command: $command")
 
     val event = dispatcher.dispatch(command)
-    logger.info(s"*** Handler event: $event")
+    logger.info(s"*** Exchanger event: $event")
     event match
       case fault @ Fault(_, _) =>
         logger.error(s"*** Handler fault: $fault")
         handler.addFault(fault)
       case _ =>
     val eventJson = writeToString[Event](event)
-    logger.info(s"*** Handler event json: $eventJson")
+    logger.info(s"*** Exchanger event json: $eventJson")
 
     response
       .status(200)

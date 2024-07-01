@@ -41,3 +41,9 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     dispatcher.dispatch(login) match
       case LoggedIn(account) => account shouldBe testAccount
       case fault => fail(s"Invalid loggedin event: $fault")
+
+  def addHouse: Unit = ???
+
+  def updateHouse: Unit = ???
+
+  def listHouses: Unit = ???

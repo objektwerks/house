@@ -21,7 +21,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
   val handler = Handler(store, emailer)
   val dispatcher = Dispatcher(handler)
 
-  var testAccount = Account(email = "your@email.com")
+  var testAccount = Account()
   var testHouse = House(accountId = 0, location = "100 Rocky Way")
 
   test("store"):

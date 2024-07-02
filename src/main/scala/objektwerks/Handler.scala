@@ -59,7 +59,7 @@ final class Handler(store: Store,
     Try {
       store.login(email, pin)
     }.fold(
-      error => Fault(s"Login failed: ${error.getMessage()}"),
+      error => Fault(s"Login failed: ${error.getMessage}"),
       optionalAccount =>
         if optionalAccount.isDefined then LoggedIn( optionalAccount.get )
         else Fault(s"Login failed for email address: $email and pin: $pin")

@@ -443,7 +443,6 @@ object Validator:
       command match
         case register: Register         => register.isValid
         case login: Login               => login.isValid
-        case listHouses: ListHouses     => listHouses.isValid
         case listEntities: ListEntities => listEntities.isValid
         case addEntity: AddEntity       => addEntity.isValid
         case updateEntity: UpdateEntity => updateEntity.isValid

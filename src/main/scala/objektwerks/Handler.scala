@@ -1,14 +1,12 @@
 package objektwerks
 
-import com.typesafe.scalalogging.LazyLogging
-
 import scala.util.Try
 import scala.util.control.NonFatal
 
 import EntityType.*
 
 final class Handler(store: Store,
-                    emailer: Emailer) extends LazyLogging:
+                    emailer: Emailer):
   val list = Map(
     Foundation -> listFoundations, Frame -> listFrames, Attic -> listAttics, Insulation -> listInsulations,
     Ductwork -> listDuctworks, Ventilation -> listVentilations, Roof -> listRoofs, Chimney -> listChimneys,

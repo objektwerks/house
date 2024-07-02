@@ -193,3 +193,5 @@ final class Handler(store: Store,
   def addSoffit(entity: Entity): Long = store.addSoffit( entity.asInstanceOf[Soffit] )
 
   def updateSoffit(entity: Entity): Int = store.updateSoffit( entity.asInstanceOf[Soffit] )
+
+  def listWindows(houseId: Long): List[Window] = store.listWindows(houseId)

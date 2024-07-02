@@ -199,3 +199,7 @@ final class Handler(store: Store,
   def addWindow(entity: Entity): Long = store.addWindow( entity.asInstanceOf[Window] )
 
   def updateWindow(entity: Entity): Int = store.updateWindow( entity.asInstanceOf[Window] )
+
+  def listDoors(houseId: Long): List[Door] = store.listDoors(houseId)
+
+  def addDoor(entity: Entity): Long = store.addDoor( entity.asInstanceOf[Door] )

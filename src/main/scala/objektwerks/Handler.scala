@@ -215,3 +215,5 @@ final class Handler(store: Store,
   def updatePlumbing(entity: Entity): Int = store.updatePlumbing( entity.asInstanceOf[Plumbing] )
 
   def listElectricals(houseId: Long): List[Electrical] = store.listElectricals(houseId)
+
+  def addElectrical(entity: Entity): Long = store.addElectrical( entity.asInstanceOf[Electrical] )

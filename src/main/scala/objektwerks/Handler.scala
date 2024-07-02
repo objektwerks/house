@@ -78,7 +78,8 @@ final class Handler(store: Store,
       val function = list(typeof)
       EntitiesListed( function(houseId) )
     }.recover {
-      case NonFatal(error) => Fault(s"List entities for type [${typeof.toString}] failed: ${error.getMessage}")
+      case NonFatal(error) =>
+        Fault(s"List entities for type [${typeof.toString}] failed: ${error.getMessage}")
     }.get
 
   def addEntity(typeof: EntityType, entity: Entity): Event =
@@ -86,7 +87,8 @@ final class Handler(store: Store,
       val function = add(typeof)
       EntityAdded( function(entity) )
     }.recover {
-      case NonFatal(error) => Fault(s"Add entity for type [${typeof.toString}] failed! Entity: ${entity.toString}")
+      case NonFatal(error) =>
+        Fault(s"Add entity for type [${typeof.toString}] failed: ${error.getMessage} for Entity: ${entity.toString}")
     }.get
 
   def updateEntity(typeof: EntityType, entity: Entity): Event =

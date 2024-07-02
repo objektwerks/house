@@ -175,3 +175,5 @@ final class Handler(store: Store,
   def updateGarage(entity: Entity): Int = store.updateGarage( entity.asInstanceOf[Garage] )
 
   def listSidings(houseId: Long): List[Siding] = store.listSidings(houseId)
+
+  def addSiding(entity: Entity): Long = store.addSiding( entity.asInstanceOf[Siding] )

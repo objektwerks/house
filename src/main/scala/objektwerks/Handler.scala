@@ -217,3 +217,5 @@ final class Handler(store: Store,
   def listElectricals(houseId: Long): List[Electrical] = store.listElectricals(houseId)
 
   def addElectrical(entity: Entity): Long = store.addElectrical( entity.asInstanceOf[Electrical] )
+
+  def updateElectrical(entity: Entity): Int = store.updateElectrical( entity.asInstanceOf[Electrical] )

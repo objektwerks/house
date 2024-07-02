@@ -79,6 +79,11 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         testFoundation = testFoundation.copy(id = id)
       case fault => fail(s"Invalid entity added event: $fault")
 
-  def updateFoundation: Unit = ???
+  def updateFoundation: Unit =
+    testFoundation = testFoundation.copy(label = "super strong")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.Foundation, testFoundation)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(count) => count shouldBe 1
+      case fault => fail(s"Invalid entity updated event: $fault")
 
   def listFoundations: Unit = ???

@@ -11,7 +11,7 @@ final case class Login(email: String, pin: String) extends Command
 
 final case class ListHouses(license: String, accountId: Long) extends Command with License
 
-final case class ListEntities(license: String, typeof: EntityType, houseId: Long) extends Command with License
+final case class ListEntities(license: String, typeof: EntityType, parentId: Long) extends Command with License
 
 final case class AddEntity(license: String, typeof: EntityType, entity: Entity) extends Command with License
 

@@ -417,7 +417,7 @@ object Validator:
     def isValid: Boolean =
       listEntities.license.isLicense &&
       listEntities.typeof == EntityType &&
-      listEntities.houseId > 0
+      listEntities.parentId > 0
 
   extension (addEntity: AddEntity)
     def isValid: Boolean =

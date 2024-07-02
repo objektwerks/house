@@ -182,3 +182,5 @@ final class Handler(store: Store,
   def updateSiding(entity: Entity): Int = store.updateSiding( entity.asInstanceOf[Siding] )
 
   def listGutters(houseId: Long): List[Gutter] = store.listGutters(houseId)
+
+  def addGutter(entity: Entity): Long = store.addGutter( entity.asInstanceOf[Gutter] )

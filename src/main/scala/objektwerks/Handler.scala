@@ -8,7 +8,7 @@ import EntityType.*
 final class Handler(store: Store,
                     emailer: Emailer):
   val list = Map(
-    Foundation -> listFoundations, Frame -> listFrames, Attic -> listAttics, Insulation -> listInsulations,
+    House -> listHouses, Foundation -> listFoundations, Frame -> listFrames, Attic -> listAttics, Insulation -> listInsulations,
     Ductwork -> listDuctworks, Ventilation -> listVentilations, Roof -> listRoofs, Chimney -> listChimneys,
     Balcony -> listBalconys, Drywall -> listDrywalls, Room -> listRooms, Driveway -> listDriveways, Garage -> listGarages,
     Siding -> listSidings, Gutter -> listGutters, Soffit -> listSoffits, Window -> listWindows, Door -> listDoors,
@@ -94,6 +94,8 @@ final class Handler(store: Store,
     }.recover {
       case NonFatal(error) => Fault(s"Update entity [${typeof.toString}] failed: ${error.getMessage} for: ${entity.toString}")
     }.get
+
+  def listHouses(accountId: Long): List[House] = store.listHouses(accountId)
 
   def addHouse(entity: Entity): Long = store.addHouse( entity.asInstanceOf[House] )
 

@@ -64,7 +64,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
       case fault => fail(s"Invalid house updated event: $fault")
 
   def listHouses: Unit =
-    val list = ListEntities(testAccount.license, testHouse.accountId)
+    val list = ListEntities(testAccount.license, EntityType.House, testHouse.accountId)
     dispatcher.dispatch(list) match
       case EntitiesListed(list) =>
         list.length shouldBe 1

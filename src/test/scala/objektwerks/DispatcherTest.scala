@@ -28,6 +28,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     register
     login
 
+    addHouse
+    updateHouse
+    listHouses
+
   def register: Unit =
     val register = Register(config.getString("email.sender"))
     dispatcher.dispatch(register) match

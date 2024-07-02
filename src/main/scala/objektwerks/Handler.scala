@@ -222,3 +222,5 @@ final class Handler(store: Store,
   def updateElectrical(entity: Entity): Int = store.updateElectrical( entity.asInstanceOf[Electrical] )
 
   def listFuseboxes(houseId: Long): List[Fusebox] = store.listFuseboxes(houseId)
+
+  def addFusebox(entity: Entity): Long = store.addFusebox( entity.asInstanceOf[Fusebox] )

@@ -26,7 +26,7 @@ final class Handler(store: Store,
     Insulation -> updateInsulation, Ductwork -> updateDuctwork, Ventilation -> updateVentilation, Roof -> updateRoof,
     Chimney -> updateRoof, Balcony -> updateBalcony, Drywall -> updateDrywall, Room -> updateRoom, Driveway -> updateDriveway,
     Garage -> updateGarage, Siding -> updateSiding, Gutter -> updateGutter, Soffit -> updateSoffit, Window -> updateWindow,
-    Door -> updateDoor, Plumbing -> updatePlumbing
+    Door -> updateDoor, Plumbing -> updatePlumbing, Electrical -> updateElectrical
   )
   def isAuthorized(command: Command): Event =
     command match

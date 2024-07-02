@@ -69,3 +69,9 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         houses.length shouldBe 1
         houses.head shouldBe testHouse
       case fault => fail(s"Invalid houses listed event: $fault")
+
+  def addFoundation: Unit = ???
+
+  def updateFoundation: Unit = ???
+
+  def listFoundations: Unit = ???

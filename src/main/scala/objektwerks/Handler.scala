@@ -10,7 +10,8 @@ final class Handler(store: Store,
   val list = Map(
     Foundation -> listFoundations, Frame -> listFrames, Attic -> listAttics, Insulation -> listInsulations,
     Ductwork -> listDuctworks, Ventilation -> listVentilations, Roof -> listRoofs, Chimney -> listChimneys,
-    Balcony -> listBalconys, Drywall -> listDrywalls, Room -> listRooms, Driveway -> listDriveways, Garage -> listGarages
+    Balcony -> listBalconys, Drywall -> listDrywalls, Room -> listRooms, Driveway -> listDriveways, Garage -> listGarages,
+    Siding -> listSidings
   )
   val add = Map(
     House -> addHouse, Foundation -> addFoundation, Frame -> addFrame, Attic -> addAttic, Insulation -> addInsulation,
@@ -177,3 +178,5 @@ final class Handler(store: Store,
   def listSidings(houseId: Long): List[Siding] = store.listSidings(houseId)
 
   def addSiding(entity: Entity): Long = store.addSiding( entity.asInstanceOf[Siding] )
+
+  def updateSiding(entity: Entity): Int = store.updateSiding( entity.asInstanceOf[Siding] )

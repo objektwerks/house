@@ -54,21 +54,21 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
       case EntityAdded(id) =>
         id > 0 shouldBe true
         testHouse = testHouse.copy(id = id)
-      case fault => fail(s"Invalid entity added event: $fault")
+      case fault => fail(s"Invalid house added event: $fault")
 
   def updateHouse: Unit =
     testHouse = testHouse.copy(location = "200 Softy Road")
     val updateEntity = UpdateEntity(testAccount.license, EntityType.House, testHouse)
     dispatcher.dispatch(updateEntity) match
       case EntityUpdated(id) => id shouldBe testHouse.id
-      case fault => fail(s"Invalid entity updated event: $fault")
+      case fault => fail(s"Invalid house updated event: $fault")
 
   def listHouses: Unit =
-    val houses = ListHouses(testAccount.license, testHouse.accountId)
-    dispatcher.dispatch(houses) match
-      case HousesListed(houses) =>
-        houses.length shouldBe 1
-        houses.head shouldBe testHouse
+    val list = ListHouses(testAccount.license, testHouse.accountId)
+    dispatcher.dispatch(list) match
+      case HousesListed(list) =>
+        list.length shouldBe 1
+        list.head shouldBe testHouse
       case fault => fail(s"Invalid houses listed event: $fault")
 
   def addFoundation: Unit =
@@ -77,13 +77,19 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
       case EntityAdded(id) =>
         id > 0 shouldBe true
         testFoundation = testFoundation.copy(id = id)
-      case fault => fail(s"Invalid entity added event: $fault")
+      case fault => fail(s"Invalid foundation added event: $fault")
 
   def updateFoundation: Unit =
     testFoundation = testFoundation.copy(label = "super strong")
     val updateEntity = UpdateEntity(testAccount.license, EntityType.Foundation, testFoundation)
     dispatcher.dispatch(updateEntity) match
       case EntityUpdated(count) => count shouldBe 1
-      case fault => fail(s"Invalid entity updated event: $fault")
+      case fault => fail(s"Invalid foundation updated event: $fault")
 
-  def listFoundations: Unit = ???
+  def listFoundations: Unit =
+    val list = ListEntities(testAccount.license, EntityType.Foundation, testFoundation.id)
+    dispatcher.dispatch(list) match
+      case EntitiesListed(list) =>
+        list.length shouldBe 1
+        list.head shouldBe testFoundation
+      case fault => fail(s"Invalid foundations listed event: $fault")

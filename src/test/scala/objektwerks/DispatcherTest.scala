@@ -42,14 +42,20 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
       case LoggedIn(account) => account shouldBe testAccount
       case fault => fail(s"Invalid loggedin event: $fault")
 
-  def addHouse: Unit = ???
-
+  def addHouse: Unit =
+    testHouse = testHouse.copy(accountId = testAccount.id)
+    val addEntity = AddEntity(testAccount.license, EntityType.House, testHouse)
+    dispatcher.dispatch(addEntity) match
+      case EntityAdded(id) =>
+        id should not be 0
+        testHouse = testHouse.copy(id = id)
+      case fault => fail(s"Invalid entity added event: $fault")
 
   def updateHouse: Unit =
     testHouse = testHouse.copy(location = "200 Softy Road")
-    val addEntity = AddEntity(testAccount.license, EntityType.House, testHouse)
-    dispatcher.dispatch(addEntity) match
-      case EntityAdded(id) => id shouldBe testHouse.id
-      case fault => fail(s"Invalid entity added event: $fault")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.House, testHouse)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(id) => id shouldBe testHouse.id
+      case fault => fail(s"Invalid entity updated event: $fault")
 
   def listHouses: Unit = ???

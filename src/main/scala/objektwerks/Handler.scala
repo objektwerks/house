@@ -65,8 +65,6 @@ final class Handler(store: Store,
         else Fault(s"Login failed for email address: $email and pin: $pin")
     )
 
-  def listHouses(accountId: Long): Event = HousesListed( store.listHouses(accountId) )
-
   def listFaults(): Event = FaultsListed( store.listFaults() )
 
   def addFault(fault: Fault): Event =

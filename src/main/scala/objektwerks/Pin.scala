@@ -13,7 +13,6 @@ object Pin:
       Random
         .alphanumeric
         .take(5)
-        .mkString
         .prepended(newSpecialChar)
         .appended(newSpecialChar)
     ).mkString

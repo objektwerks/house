@@ -23,6 +23,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
 
   var testAccount = Account()
   var testHouse = House(accountId = 0, location = "100 Rocky Way")
+  var testFoundation =  Foundation(houseId = testHouse.id)
 
   test("store"):
     register
@@ -51,7 +52,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     val addEntity = AddEntity(testAccount.license, EntityType.House, testHouse)
     dispatcher.dispatch(addEntity) match
       case EntityAdded(id) =>
-        id should not be 0
+        id > 0 shouldBe true
         testHouse = testHouse.copy(id = id)
       case fault => fail(s"Invalid entity added event: $fault")
 
@@ -70,7 +71,13 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         houses.head shouldBe testHouse
       case fault => fail(s"Invalid houses listed event: $fault")
 
-  def addFoundation: Unit = ???
+  def addFoundation: Unit =
+    val addEntity = AddEntity(testAccount.license, EntityType.Foundation, testFoundation)
+    dispatcher.dispatch(addEntity) match
+      case EntityAdded(id) =>
+        id > 0 shouldBe true
+        testFoundation = testFoundation.copy(id = id)
+      case fault => fail(s"Invalid entity added event: $fault")
 
   def updateFoundation: Unit = ???
 

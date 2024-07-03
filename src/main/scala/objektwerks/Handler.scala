@@ -263,3 +263,5 @@ final class Handler(store: Store,
   def listSewages(houseId: Long): List[Sewage] = store.listSewages(houseId)
 
   def addSewage(entity: Entity): Long = store.addSewage( entity.asInstanceOf[Sewage] )
+
+  def updateSewage(entity: Entity): Int = store.updateSewage( entity.asInstanceOf[Sewage] )

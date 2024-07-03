@@ -3,7 +3,7 @@ organization := "objektwerks"
 version := "0.13-SNAPSHOT"
 scalaVersion := "3.5.0-RC2"
 libraryDependencies ++= {
-  val jsoniterVersion = "2.30.1"
+  val jsoniterVersion = "2.30.2"
   Seq(
     "io.helidon.webserver" % "helidon-webserver" % "4.0.10",
     "org.scalikejdbc" %% "scalikejdbc" % "4.3.0",

@@ -259,3 +259,5 @@ final class Handler(store: Store,
   def addLighting(entity: Entity): Long = store.addLighting( entity.asInstanceOf[Lighting] )
 
   def updateLighting(entity: Entity): Int = store.updateLighting( entity.asInstanceOf[Lighting] )
+
+  def listSewages(houseId: Long): List[Sewage] = store.listSewages(houseId)

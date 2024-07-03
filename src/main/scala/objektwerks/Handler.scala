@@ -255,3 +255,5 @@ final class Handler(store: Store,
   def updateFloor(entity: Entity): Int = store.updateFloor( entity.asInstanceOf[Floor] )
 
   def listLightings(houseId: Long): List[Lighting] = store.listLightings(houseId)
+
+  def addLighting(entity: Entity): Long = store.addLighting( entity.asInstanceOf[Lighting] )

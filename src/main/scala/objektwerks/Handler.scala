@@ -234,3 +234,5 @@ final class Handler(store: Store,
   def updateAlarm(entity: Entity): Int = store.updateAlarm( entity.asInstanceOf[Alarm] )
 
   def listHeaters(houseId: Long): List[Heater] = store.listHeaters(houseId)
+
+  def addHeater(entity: Entity): Long = store.addHeater( entity.asInstanceOf[Heater] )

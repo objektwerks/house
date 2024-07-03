@@ -226,3 +226,5 @@ final class Handler(store: Store,
   def addFusebox(entity: Entity): Long = store.addFusebox( entity.asInstanceOf[Fusebox] )
 
   def updateFusebox(entity: Entity): Int = store.updateFusebox( entity.asInstanceOf[Fusebox] )
+
+  def listAlarms(houseId: Long): List[Alarm] = store.listAlarms(houseId)

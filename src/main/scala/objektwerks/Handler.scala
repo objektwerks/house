@@ -241,3 +241,5 @@ final class Handler(store: Store,
   def updateHeater(entity: Entity): Int = store.updateHeater( entity.asInstanceOf[Heater] )
 
   def listAirConditioners(houseId: Long): List[AirConditioner] = store.listAirConditioners(houseId)
+
+  def addAirConditioner(entity: Entity): Long = store.addAirConditioner( entity.asInstanceOf[AirConditioner] )

@@ -250,3 +250,5 @@ final class Handler(store: Store,
   def listFloors(houseId: Long): List[Floor] = store.listFloors(houseId)
 
   def addFloor(entity: Entity): Long = store.addFloor( entity.asInstanceOf[Floor] )
+
+  def updateFloor(entity: Entity): Int = store.updateFloor( entity.asInstanceOf[Floor] )

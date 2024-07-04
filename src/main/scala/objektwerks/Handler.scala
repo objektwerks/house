@@ -283,3 +283,5 @@ final class Handler(store: Store,
   def listWaterHeaters(houseId: Long): List[WaterHeater] = store.listWaterHeaters(houseId)
 
   def addWaterHeater(entity: Entity): Long = store.addWaterHeater( entity.asInstanceOf[WaterHeater] )
+
+  def updateWaterHeater(entity: Entity): Int = store.updateWaterHeater( entity.asInstanceOf[WaterHeater] )

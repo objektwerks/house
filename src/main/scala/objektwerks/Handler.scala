@@ -310,3 +310,5 @@ final class Handler(store: Store,
   def listSheds(houseId: Long): List[Shed] = store.listSheds(houseId)
 
   def addShed(entity: Entity): Long = store.addShed( entity.asInstanceOf[Shed] )
+
+  def updateShed(entity: Entity): Int = store.updateShed( entity.asInstanceOf[Shed] )

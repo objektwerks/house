@@ -308,3 +308,5 @@ final class Handler(store: Store,
   def updateSprinkler(entity: Entity): Int = store.updateSprinkler( entity.asInstanceOf[Sprinkler] )
 
   def listSheds(houseId: Long): List[Shed] = store.listSheds(houseId)
+
+  def addShed(entity: Entity): Long = store.addShed( entity.asInstanceOf[Shed] )

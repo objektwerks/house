@@ -14,7 +14,7 @@ final class Handler(store: Store,
     Gutter -> listGutters, Soffit -> listSoffits, Window -> listWindows, Door -> listDoors,     Plumbing -> listPlumbings,
     Electrical -> listElectricals, Fusebox -> listFuseboxes, Alarm -> listAlarms, Heater -> listHeaters,
     AirConditioner -> listAirConditioners, Floor -> listFloors, Lighting -> listLightings, Sewage -> listSewages,
-    Well -> listWells
+    Well -> listWells, Water -> listWaters
   )
   val add = Map(
     House -> addHouse, Foundation -> addFoundation, Frame -> addFrame, Attic -> addAttic, Insulation -> addInsulation,

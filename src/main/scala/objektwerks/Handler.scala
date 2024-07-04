@@ -303,3 +303,5 @@ final class Handler(store: Store,
   def listSprinklers(houseId: Long): List[Sprinkler] = store.listSprinklers(houseId)
 
   def addSprinkler(entity: Entity): Long = store.addSprinkler( entity.asInstanceOf[Sprinkler] )
+
+  def updateSprinkler(entity: Entity): Int = store.updateSprinkler( entity.asInstanceOf[Sprinkler] )

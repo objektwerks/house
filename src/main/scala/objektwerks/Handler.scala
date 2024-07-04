@@ -273,3 +273,5 @@ final class Handler(store: Store,
   def addWell(entity: Entity): Long = store.addWell( entity.asInstanceOf[Well] )
 
   def updateWell(entity: Entity): Int = store.updateWell( entity.asInstanceOf[Well] )
+
+  def listWaters(houseId: Long): List[Water] = store.listWaters(houseId)

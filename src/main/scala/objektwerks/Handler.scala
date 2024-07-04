@@ -294,3 +294,5 @@ final class Handler(store: Store,
   def updateLawn(entity: Entity): Int = store.updateLawn( entity.asInstanceOf[Lawn] )
 
   def listGardens(houseId: Long): List[Garden] = store.listGardens(houseId)
+
+  def addGarden(entity: Entity): Long = store.addGarden( entity.asInstanceOf[Garden] )

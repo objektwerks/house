@@ -299,3 +299,5 @@ final class Handler(store: Store,
   def addGarden(entity: Entity): Long = store.addGarden( entity.asInstanceOf[Garden] )
 
   def updateGarden(entity: Entity): Int = store.updateGarden( entity.asInstanceOf[Garden] )
+
+  def listSprinklers(houseId: Long): List[Sprinkler] = store.listSprinklers(houseId)

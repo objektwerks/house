@@ -23,7 +23,7 @@ final class Handler(store: Store,
     Gutter -> addGutter, Soffit -> addSoffit, Window -> addWindow, Door -> addDoor, Plumbing -> addPlumbing,
     Electrical -> addElectrical, Fusebox -> addFusebox, Alarm -> addAlarm, Heater -> addHeater, AirConditioner -> addAirConditioner,
     Floor -> addFloor, Lighting -> addLighting, Sewage -> addSewage, Well -> addWell, Water -> addWater,
-    WaterHeater -> addWaterHeater, Lawn -> addLawn
+    WaterHeater -> addWaterHeater, Lawn -> addLawn, Garden -> addGarden
   )
   val update = Map(
     House -> updateHouse, Foundation -> updateFoundation, Frame -> updateFrame, Attic -> updateAttic,

@@ -327,3 +327,5 @@ final class Handler(store: Store,
   def updatePorch(entity: Entity): Int = store.updatePorch( entity.asInstanceOf[Porch] )
 
   def listPatios(houseId: Long): List[Patio] = store.listPatios(houseId)
+
+  def addPatio(entity: Entity): Long = store.addPatio( entity.asInstanceOf[Patio] )

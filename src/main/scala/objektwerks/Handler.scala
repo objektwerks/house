@@ -314,3 +314,5 @@ final class Handler(store: Store,
   def updateShed(entity: Entity): Int = store.updateShed( entity.asInstanceOf[Shed] )
 
   def listSolarPanels(houseId: Long): List[SolarPanel] = store.listSolarPanels(houseId)
+
+  def addSolarPanel(entity: Entity): Long = store.addSolarPanel( entity.asInstanceOf[SolarPanel] )

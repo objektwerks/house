@@ -334,3 +334,5 @@ final class Handler(store: Store,
   def updatePatio(entity: Entity): Int = store.updatePatio( entity.asInstanceOf[Patio] )
 
   def listPools(houseId: Long): List[Pool] = store.listPools(houseId)
+
+  def addPool(entity: Entity): Long = store.addPool( entity.asInstanceOf[Pool] )

@@ -336,3 +336,5 @@ final class Handler(store: Store,
   def listPools(houseId: Long): List[Pool] = store.listPools(houseId)
 
   def addPool(entity: Entity): Long = store.addPool( entity.asInstanceOf[Pool] )
+
+  def updatePool(entity: Entity): Int = store.updatePool( entity.asInstanceOf[Pool] )

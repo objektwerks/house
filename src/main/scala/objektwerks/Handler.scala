@@ -345,3 +345,5 @@ final class Handler(store: Store,
   def addDock(entity: Entity): Long = store.addDock( entity.asInstanceOf[Dock] )
 
   def updateDock(entity: Entity): Int = store.updateDock( entity.asInstanceOf[Dock] )
+
+  def listGazebos(houseId: Long): List[Gazebo] = store.listGazebos(houseId)

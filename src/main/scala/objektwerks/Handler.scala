@@ -339,3 +339,5 @@ final class Handler(store: Store,
   def addPool(entity: Entity): Long = store.addPool( entity.asInstanceOf[Pool] )
 
   def updatePool(entity: Entity): Int = store.updatePool( entity.asInstanceOf[Pool] )
+
+  def listDocks(houseId: Long): List[Dock] = store.listDocks(houseId)

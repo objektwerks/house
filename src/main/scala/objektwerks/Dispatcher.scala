@@ -3,7 +3,7 @@ package objektwerks
 import Validator.*
 
 final class Dispatcher(handler: Handler):
-  def dispatch[E <: Event](command: Command): Event =
+  def dispatch(command: Command): Event =
     if !command.isValid then handler.addFault( Fault(s"Command is invalid: $command") )
 
     handler.isAuthorized(command) match

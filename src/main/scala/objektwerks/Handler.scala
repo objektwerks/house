@@ -353,3 +353,5 @@ final class Handler(store: Store,
   def updateGazebo(entity: Entity): Int = store.updateGazebo( entity.asInstanceOf[Gazebo] )
 
   def listMailboxes(houseId: Long): List[Mailbox] = store.listMailboxes(houseId)
+
+  def addMailbox(entity: Entity): Long = store.addMailbox( entity.asInstanceOf[Mailbox] )

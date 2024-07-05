@@ -26,7 +26,7 @@ final class Handler(store: Store,
     Electrical -> addElectrical, Fusebox -> addFusebox, Alarm -> addAlarm, Heater -> addHeater, AirConditioner -> addAirConditioner,
     Floor -> addFloor, Lighting -> addLighting, Sewage -> addSewage, Well -> addWell, Water -> addWater,
     WaterHeater -> addWaterHeater, Lawn -> addLawn, Garden -> addGarden, Sprinkler -> addSprinkler, Shed -> addShed,
-    SolarPanel -> addSolarPanel, Porch -> addPorch, Patio -> addPatio, Pool -> addPool
+    SolarPanel -> addSolarPanel, Porch -> addPorch, Patio -> addPatio, Pool -> addPool, Dock -> addDock
   )
   val update = Map(
     House -> updateHouse, Foundation -> updateFoundation, Frame -> updateFrame, Attic -> updateAttic,

@@ -1,7 +1,7 @@
 name := "house"
 organization := "objektwerks"
 version := "0.14-SNAPSHOT"
-scalaVersion := "3.5.0-RC2"
+scalaVersion := "3.5.0-RC3"
 libraryDependencies ++= {
   val jsoniterVersion = "2.30.3"
   Seq(

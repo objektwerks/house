@@ -25,7 +25,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
   var testHouse = House(accountId = 0, location = "100 Rocky Way")
   var testFoundation =  Foundation(houseId = testHouse.id)
   var testFrame = Frame(houseId = testHouse.id)
-  val testAttic = Attic(houseId = testHouse.id)
+  var testAttic = Attic(houseId = testHouse.id)
 
   test("store"):
     register
@@ -118,3 +118,11 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         list.length shouldBe 1
         list.head shouldBe testFrame
       case fault => fail(s"Invalid frame listed event: $fault")
+
+  def addAttic: Unit =
+    val addEntity = AddEntity(testAccount.license, EntityType.Attic, testAttic)
+    dispatcher.dispatch(addEntity) match
+      case EntityAdded(id) =>
+        id > 0 shouldBe true
+        testAttic = testAttic.copy(id = id)
+      case fault => fail(s"Invalid attic added event: $fault")

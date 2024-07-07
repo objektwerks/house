@@ -109,3 +109,11 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     dispatcher.dispatch(updateEntity) match
       case EntityUpdated(count) => count shouldBe 1
       case fault => fail(s"Invalid frame updated event: $fault")
+
+  def listFrames: Unit =
+    val list = ListEntities(testAccount.license, EntityType.Frame, testFrame.id)
+    dispatcher.dispatch(list) match
+      case EntitiesListed(list) =>
+        list.length shouldBe 1
+        list.head shouldBe testFrame
+      case fault => fail(s"Invalid frame listed event: $fault")

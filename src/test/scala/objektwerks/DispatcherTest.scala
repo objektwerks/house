@@ -81,7 +81,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
       case fault => fail(s"Invalid foundation added event: $fault")
 
   def updateFoundation: Unit =
-    testFoundation = testFoundation.copy(label = "super strong")
+    testFoundation = testFoundation.copy(label = "foundation update")
     val updateEntity = UpdateEntity(testAccount.license, EntityType.Foundation, testFoundation)
     dispatcher.dispatch(updateEntity) match
       case EntityUpdated(count) => count shouldBe 1
@@ -102,3 +102,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         id > 0 shouldBe true
         testFrame = testFrame.copy(id = id)
       case fault => fail(s"Invalid frame added event: $fault")
+
+  def updateFrame: Unit =
+    testFrame = testFrame.copy(label = "frame update")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.Frame, testFrame)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(count) => count shouldBe 1
+      case fault => fail(s"Invalid frame updated event: $fault")

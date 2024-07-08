@@ -4,7 +4,10 @@ import Validator.*
 
 final class Dispatcher(handler: Handler):
   def dispatch(command: Command): Event =
-    if !command.isValid then handler.addFault( Fault(s"Command is invalid: $command") )
+    if !command.isValid then
+      val fault = handler.addFault( Fault(s"Command is invalid: $command") )
+      println(s"*** Invalid command: $fault")
+      return fault
 
     handler.isAuthorized(command) match
       case Authorized(isAuthorized) =>

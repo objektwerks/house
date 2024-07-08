@@ -43,10 +43,11 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     addFoundation
     updateFoundation
     listFoundations
-    /*
+
     addFrame
     updateFrame
     listFrames
+    /*
 
     addAttic
     updateAttic

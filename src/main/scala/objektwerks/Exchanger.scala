@@ -7,8 +7,7 @@ import io.helidon.webserver.http.{Handler => WebHandler, ServerRequest, ServerRe
 
 import Serializer.given
 
-final class Exchanger(dispatcher: Dispatcher,
-                      handler: Handler) extends WebHandler with LazyLogging:
+final class Exchanger(dispatcher: Dispatcher) extends WebHandler with LazyLogging:
   override def handle(request: ServerRequest,
                       response: ServerResponse): Unit =
     val commandJson = request.content.as(classOf[String])
@@ -19,11 +18,7 @@ final class Exchanger(dispatcher: Dispatcher,
 
     val event = dispatcher.dispatch(command)
     logger.info(s"*** Exchanger event: $event")
-    event match
-      case fault @ Fault(_, _) =>
-        logger.error(s"*** Handler fault: $fault")
-        handler.addFault(fault)
-      case _ =>
+
     val eventJson = writeToString[Event](event)
     logger.info(s"*** Exchanger event json: $eventJson")
 

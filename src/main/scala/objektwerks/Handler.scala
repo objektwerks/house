@@ -64,7 +64,7 @@ final class Handler(store: Store,
       val id = store.register(account)
       Registered( account.copy(id = id) )
     }.recover {
-      case NonFatal(error) => Fault(s"Registration failed for: $email, because: ${error.getMessage}")
+      case NonFatal(error) => store.addFault( Fault(s"Registration failed for: $email, because: ${error.getMessage}") )
     }.get
 
   def login(email: String,
@@ -72,10 +72,10 @@ final class Handler(store: Store,
     Try {
       store.login(email, pin)
     }.fold(
-      error => Fault(s"Login failed: ${error.getMessage}"),
+      error => store.addFault( Fault(s"Login failed: ${error.getMessage}") ),
       optionalAccount =>
         if optionalAccount.isDefined then LoggedIn( optionalAccount.get )
-        else Fault(s"Login failed for email address: $email and pin: $pin")
+        else store.addFault( Fault(s"Login failed for email address: $email and pin: $pin") )
     )
 
   def listFaults(): Event = FaultsListed( store.listFaults() )
@@ -89,7 +89,8 @@ final class Handler(store: Store,
       val function = list(typeof)
       EntitiesListed( function(houseId) )
     }.recover {
-      case NonFatal(error) => Fault(s"List entities [${typeof.toString}] failed: ${error.getMessage}")
+      case NonFatal(error) =>
+        store.addFault( Fault(s"List entities [${typeof.toString}] failed: ${error.getMessage}") )
     }.get
 
   def addEntity(typeof: EntityType, entity: Entity): Event =
@@ -97,7 +98,8 @@ final class Handler(store: Store,
       val function = add(typeof)
       EntityAdded( function(entity) )
     }.recover {
-      case NonFatal(error) => Fault(s"Add entity [${typeof.toString}] failed: ${error.getMessage} for: ${entity.toString}")
+      case NonFatal(error) =>
+        store.addFault( Fault(s"Add entity [${typeof.toString}] failed: ${error.getMessage} for: ${entity.toString}") )
     }.get
 
   def updateEntity(typeof: EntityType, entity: Entity): Event =
@@ -105,7 +107,8 @@ final class Handler(store: Store,
       val function = update(typeof)
       EntityUpdated( function(entity) )
     }.recover {
-      case NonFatal(error) => Fault(s"Update entity [${typeof.toString}] failed: ${error.getMessage} for: ${entity.toString}")
+      case NonFatal(error) =>
+        store.addFault( Fault(s"Update entity [${typeof.toString}] failed: ${error.getMessage} for: ${entity.toString}") )
     }.get
 
   def listHouses(accountId: Long): List[House] = store.listHouses(accountId)

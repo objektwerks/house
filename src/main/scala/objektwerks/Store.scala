@@ -1508,21 +1508,23 @@ final class Store(cache: Cache[String, String],
         .update()
     }
 
-  def listFaults(): List[Fault] = DB readOnly { implicit session =>
-    sql"select * from fault order by occurred desc"
-      .map(rs =>
-        Fault(
-          rs.string("cause"),
-          rs.string("occurred")
+  def listFaults(): List[Fault] =
+    DB readOnly { implicit session =>
+      sql"select * from fault order by occurred desc"
+        .map(rs =>
+          Fault(
+            rs.string("cause"),
+            rs.string("occurred")
+          )
         )
-      )
-      .list()
-  }
+        .list()
+    }
 
-  def addFault(fault: Fault): Fault = DB localTx { implicit session =>
-    sql"""
-      insert into fault(cause, occurred) values(${fault.cause}, ${fault.occurred})
-      """
-      .update()
-      fault
-  }
+  def addFault(fault: Fault): FaultAdded =
+    val id = DB localTx { implicit session =>
+      sql"""
+        insert into fault(cause, occurred) values(${fault.cause}, ${fault.occurred})
+        """
+        .updateAndReturnGeneratedKey()
+    }
+    FaultAdded( fault.copy(id = id) )

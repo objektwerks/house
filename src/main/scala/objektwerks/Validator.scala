@@ -412,17 +412,19 @@ object Validator:
     def isValid: Boolean =
       println(s"*** Validator - ${listEntities.toString}")
       listEntities.license.isLicense &&
-      listEntities.typeof == EntityType &&
+      listEntities.typeof != null &&
       listEntities.parentId > 0
 
   extension (addEntity: AddEntity)
     def isValid: Boolean =
       addEntity.license.isLicense &&
+      addEntity.typeof != null &&
       addEntity.entity != null
 
   extension (updateEntity: UpdateEntity)
     def isValid: Boolean =
       updateEntity.license.isLicense &&
+      updateEntity.typeof != null &&
       updateEntity.entity != null
 
   extension (fault: Fault)

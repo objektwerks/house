@@ -4,10 +4,6 @@ import java.time.LocalDate
 
 sealed trait Event
 
-case object Authorized extends Event
-
-case object Unauthorized extends Event
-
 final case class Registered(account: Account) extends Event
 
 final case class LoggedIn(account: Account) extends Event

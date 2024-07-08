@@ -8,9 +8,8 @@ final class Dispatcher(handler: Handler):
       case false => handler.addFault( Fault(s"Command is invalid: $command") )
       case true =>
         handler.isAuthorized(command) match
-          case fault @ Fault(_, _) => handler.addFault(fault)
-          case Unauthorized => handler.addFault( Fault(s"License is unauthorized: $command") )
-          case _ =>
+          case Unauthorized(cause) => handler.addFault( Fault(s"License unauthorized: $command, error: $cause") )
+          case Authorized =>
             val event = command match
               case Register(emailAddress)           => handler.register(emailAddress)
               case Login(emailAddress, pin)         => handler.login(emailAddress, pin)

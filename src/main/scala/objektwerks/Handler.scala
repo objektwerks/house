@@ -40,14 +40,14 @@ final class Handler(store: Store,
     Garden -> updateGarden, Sprinkler -> updateSprinkler, Shed -> updateShed, SolarPanel -> updateSolarPanel, Porch -> updatePorch,
     Patio -> updatePatio, Pool -> updatePool, Dock -> updateDock, Gazebo -> updateGazebo, Mailbox -> updateMailbox
   )
-  def isAuthorized(command: Command): Event =
+  def isAuthorized(command: Command): Security =
     command match
       case license: License =>
         Try {
           if store.isAuthorized(license.license) then Authorized
-          else Unauthorized
+          else Unauthorized()
         }.recover {
-          case NonFatal(error) => Fault(s"Authorization failed: $error")
+          case NonFatal(error) => Unauthorized(s"Authorization failed: $error")
         }.get
       case Register(_) | Login(_, _) => Authorized
 

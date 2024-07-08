@@ -44,6 +44,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     updateFoundation
     listFoundations
 
+    addFrame
+    updateFrame
+    listFrames
+
   def register: Unit =
     val register = Register(config.getString("email.sender"))
     dispatcher.dispatch(register) match

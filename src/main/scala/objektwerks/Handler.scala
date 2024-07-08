@@ -45,9 +45,9 @@ final class Handler(store: Store,
       case license: License =>
         Try {
           if store.isAuthorized(license.license) then Authorized
-          else Unauthorized()
+          else Unauthorized(s"Unauthorized: $command")
         }.recover {
-          case NonFatal(error) => Unauthorized(s"Authorization failed: $error")
+          case NonFatal(error) => Unauthorized(s"Unauthorized: $command, cause: $error")
         }.get
       case Register(_) | Login(_, _) => Authorized
 

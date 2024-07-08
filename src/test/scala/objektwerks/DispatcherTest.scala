@@ -246,3 +246,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         id > 0 shouldBe true
         testChimney = testChimney.copy(id = id)
       case fault => fail(s"Invalid chimney added event: $fault")
+
+  def updateChimney: Unit =
+    testChimney = testChimney.copy(label = "chimney update")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.Chimney, testChimney)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(count) => count shouldBe 1
+      case fault => fail(s"Invalid chimney updated event: $fault")

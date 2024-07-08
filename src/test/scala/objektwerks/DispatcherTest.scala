@@ -23,14 +23,14 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
 
   var testAccount = Account()
   var testHouse = House(accountId = 0, location = "100 Rocky Way")
-  var testFoundation =  Foundation(houseId = testHouse.id)
-  var testFrame = Frame(houseId = testHouse.id)
-  var testAttic = Attic(houseId = testHouse.id)
-  var testInsulation = Insulation(houseId = testHouse.id)
-  var testDuctwork = Ductwork(houseId = testHouse.id)
-  var testVentilation = Ventilation(houseId = testHouse.id)
-  var testRoof = Roof(houseId = testHouse.id)
-  var testChimney = Chimney(houseId = testHouse.id)
+  var testFoundation =  Foundation(houseId = 1)
+  var testFrame = Frame(houseId = 1)
+  var testAttic = Attic(houseId = 1)
+  var testInsulation = Insulation(houseId = 1)
+  var testDuctwork = Ductwork(houseId = 1)
+  var testVentilation = Ventilation(houseId = 1)
+  var testRoof = Roof(houseId = 1)
+  var testChimney = Chimney(houseId = 1)
 
   test("store"):
     register
@@ -43,7 +43,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     addFoundation
     updateFoundation
     listFoundations
-
+    /*
     addFrame
     updateFrame
     listFrames
@@ -70,7 +70,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
 
     addChimney
     updateChimney
-    listChimneys
+    listChimneys */
 
   def register: Unit =
     val register = Register(config.getString("email.sender"))

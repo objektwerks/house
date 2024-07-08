@@ -410,7 +410,6 @@ object Validator:
 
   extension (listEntities: ListEntities)
     def isValid: Boolean =
-      println(s"*** Validator - ${listEntities.toString}")
       listEntities.license.isLicense &&
       listEntities.typeof != null &&
       listEntities.parentId > 0

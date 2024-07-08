@@ -174,3 +174,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         id > 0 shouldBe true
         testDuctwork = testDuctwork.copy(id = id)
       case fault => fail(s"Invalid ductwork added event: $fault")
+
+  def updateDuctwork: Unit =
+    testDuctwork = testDuctwork.copy(label = "ductwork update")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.Ductwork, testDuctwork)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(count) => count shouldBe 1
+      case fault => fail(s"Invalid ductwork updated event: $fault")

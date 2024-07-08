@@ -81,7 +81,7 @@ final class Handler(store: Store,
 
   def addFault(fault: Fault): Event =
     store.addFault(fault)
-    FaultAdded()
+    FaultAdded(fault)
 
   def listEntities(typeof: EntityType, houseId: Long): Event =
     Try {

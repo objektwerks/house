@@ -44,11 +44,12 @@ final class Handler(store: Store,
     command match
       case license: License =>
         Try {
-          Authorized( store.isAuthorized(license.license) )
+          if store.isAuthorized(license.license) then Authorized
+          else Unauthorized
         }.recover {
           case NonFatal(error) => Fault(s"Authorization failed: $error")
         }.get
-      case Register(_) | Login(_, _) => Authorized(true)
+      case Register(_) | Login(_, _) => Authorized
 
   def send(email: String,
            message: String): Unit =

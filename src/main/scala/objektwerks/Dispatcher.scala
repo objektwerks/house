@@ -4,16 +4,12 @@ import Validator.*
 
 final class Dispatcher(handler: Handler):
   def dispatch(command: Command): Event =
-    if !command.isValid then
-      val fault = handler.addFault( Fault(s"Command is invalid: $command") )
-      println(s"*** Invalid command: $fault")
-      return fault
+    if !command.isValid then return handler.addFault( Fault(s"Command is invalid: $command") )
 
     handler.isAuthorized(command) match
       case Authorized(isAuthorized) =>
         if !isAuthorized then handler.addFault( Fault(s"License is unauthorized: $command") )
-      case fault @ Fault(_, _) =>
-        handler.addFault(fault)
+      case fault @ Fault(_, _) => return handler.addFault(fault)
       case _ =>
 
     val event = command match

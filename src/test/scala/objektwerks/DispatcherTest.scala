@@ -47,7 +47,6 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     addFrame
     updateFrame
     listFrames
-    /*
 
     addAttic
     updateAttic
@@ -71,7 +70,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
 
     addChimney
     updateChimney
-    listChimneys */
+    listChimneys
 
   def register: Unit =
     val register = Register(config.getString("email.sender"))

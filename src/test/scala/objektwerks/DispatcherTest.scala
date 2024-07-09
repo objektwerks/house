@@ -418,3 +418,11 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     dispatcher.dispatch(updateEntity) match
       case EntityUpdated(count) => count shouldBe 1
       case fault => fail(s"Invalid driveway updated event: $fault")
+
+  def listDriveways: Unit =
+    val list = ListEntities(testAccount.license, EntityType.Driveway, testDriveway.id)
+    dispatcher.dispatch(list) match
+      case EntitiesListed(list) =>
+        list.length shouldBe 1
+        list.head shouldBe testDriveway
+      case fault => fail(s"Invalid driveway listed event: $fault")

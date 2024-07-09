@@ -53,6 +53,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
   var testWell = Well(houseId = 1)
   var testWater = Water(houseId = 1)
   var testWaterHeater = WaterHeater(houseId = 1)
+  var testLawn = Lawn(houseId = 1)
 
   test("store"):
     register

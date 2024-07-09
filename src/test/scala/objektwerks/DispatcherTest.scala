@@ -45,6 +45,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
   var testElectrical = Electrical(houseId = 1)
   var testFusebox = Fusebox(houseId = 1)
   var testAlarm = Alarm(houseId = 1)
+  var testHeater = Heater(houseId = 1)
 
   test("store"):
     register

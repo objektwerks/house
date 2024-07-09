@@ -60,6 +60,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
   var testSolarPanel = SolarPanel(houseId = 1)
   var testPorch = Porch(houseId = 1)
   var testPatio = Patio(houseId = 1)
+  var testPool = Pool(houseId = 1, gallons = 9000)
 
   test("store"):
     register

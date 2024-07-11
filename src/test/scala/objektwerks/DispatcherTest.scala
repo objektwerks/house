@@ -65,7 +65,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
   var testGazebo = Gazebo(houseId = 1)
   var testMailbox = Mailbox(houseId = 1)
 
-  test("store"):
+  test("dispatcher"):
     register
     login
 

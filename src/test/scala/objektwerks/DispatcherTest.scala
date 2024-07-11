@@ -781,3 +781,11 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         list.length shouldBe 1
         list.head shouldBe testFloor
       case fault => fail(s"Invalid floor listed event: $fault")
+
+  def addLighting: Unit =
+    val addEntity = AddEntity(testAccount.license, EntityType.Lighting, testLighting)
+    dispatcher.dispatch(addEntity) match
+      case EntityAdded(id) =>
+        id > 0 shouldBe true
+        testLighting = testLighting.copy(id = id)
+      case fault => fail(s"Invalid lighting added event: $fault")

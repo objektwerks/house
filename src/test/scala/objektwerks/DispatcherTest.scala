@@ -161,6 +161,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     updateHeater
     listHeaters
 
+    addAirConditioner
+    updateAirConditioner
+    listAirConditioners
+
   def register: Unit =
     val register = Register(config.getString("email.sender"))
     dispatcher.dispatch(register) match

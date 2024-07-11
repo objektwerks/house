@@ -542,3 +542,11 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         list.length shouldBe 1
         list.head shouldBe testSoffit
       case fault => fail(s"Invalid soffit listed event: $fault")
+
+  def addWindow: Unit =
+    val addEntity = AddEntity(testAccount.license, EntityType.Window, testWindow)
+    dispatcher.dispatch(addEntity) match
+      case EntityAdded(id) =>
+        id > 0 shouldBe true
+        testWindow = testWindow.copy(id = id)
+      case fault => fail(s"Invalid window added event: $fault")

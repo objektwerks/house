@@ -654,3 +654,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         id > 0 shouldBe true
         testFusebox = testFusebox.copy(id = id)
       case fault => fail(s"Invalid fusebox added event: $fault")
+
+  def updateFusebox: Unit =
+    testFusebox = testFusebox.copy(label = "fusebox update")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.Fusebox, testFusebox)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(count) => count shouldBe 1
+      case fault => fail(s"Invalid fusebox updated event: $fault")

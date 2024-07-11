@@ -673,3 +673,11 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         list.length shouldBe 1
         list.head shouldBe testFusebox
       case fault => fail(s"Invalid fusebox listed event: $fault")
+
+  def addAlarm: Unit =
+    val addEntity = AddEntity(testAccount.license, EntityType.Alarm, testAlarm)
+    dispatcher.dispatch(addEntity) match
+      case EntityAdded(id) =>
+        id > 0 shouldBe true
+        testAlarm = testAlarm.copy(id = id)
+      case fault => fail(s"Invalid alarm added event: $fault")

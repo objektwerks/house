@@ -738,14 +738,14 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
       case EntityAdded(id) =>
         id > 0 shouldBe true
         testAirConditioner = testAirConditioner.copy(id = id)
-      case fault => fail(s"Invalid airconditioner added event: $fault")
+      case fault => fail(s"Invalid air conditioner added event: $fault")
 
   def updateAirConditioner: Unit =
     testAirConditioner = testAirConditioner.copy(label = "air conditioner update")
     val updateEntity = UpdateEntity(testAccount.license, EntityType.AirConditioner, testAirConditioner)
     dispatcher.dispatch(updateEntity) match
       case EntityUpdated(count) => count shouldBe 1
-      case fault => fail(s"Invalid airconditioner updated event: $fault")
+      case fault => fail(s"Invalid air conditioner updated event: $fault")
 
   def listAirConditioners: Unit =
     val list = ListEntities(testAccount.license, EntityType.AirConditioner, testAirConditioner.id)
@@ -754,3 +754,11 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         list.length shouldBe 1
         list.head shouldBe testAirConditioner
       case fault => fail(s"Invalid air conditioner listed event: $fault")
+
+  def addFloor: Unit =
+    val addEntity = AddEntity(testAccount.license, EntityType.Floor, testFloor)
+    dispatcher.dispatch(addEntity) match
+      case EntityAdded(id) =>
+        id > 0 shouldBe true
+        testFloor = testFloor.copy(id = id)
+      case fault => fail(s"Invalid floor added event: $fault")

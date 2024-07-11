@@ -530,3 +530,11 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     dispatcher.dispatch(updateEntity) match
       case EntityUpdated(count) => count shouldBe 1
       case fault => fail(s"Invalid soffit updated event: $fault")
+
+  def listSoffits: Unit =
+    val list = ListEntities(testAccount.license, EntityType.Soffit, testSoffit.id)
+    dispatcher.dispatch(list) match
+      case EntitiesListed(list) =>
+        list.length shouldBe 1
+        list.head shouldBe testSoffit
+      case fault => fail(s"Invalid soffit listed event: $fault")

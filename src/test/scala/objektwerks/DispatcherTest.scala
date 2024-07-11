@@ -523,3 +523,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         id > 0 shouldBe true
         testSoffit = testSoffit.copy(id = id)
       case fault => fail(s"Invalid soffit added event: $fault")
+
+  def updateSoffit: Unit =
+    testSoffit = testSoffit.copy(label = "soffit update")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.Soffit, testSoffit)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(count) => count shouldBe 1
+      case fault => fail(s"Invalid soffit updated event: $fault")

@@ -735,3 +735,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         id > 0 shouldBe true
         testAirConditioner = testAirConditioner.copy(id = id)
       case fault => fail(s"Invalid airconditioner added event: $fault")
+
+  def updateAirConditioner: Unit =
+    testAirConditioner = testAirConditioner.copy(label = "airconditioner update")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.AirConditioner, testAirConditioner)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(count) => count shouldBe 1
+      case fault => fail(s"Invalid airconditioner updated event: $fault")

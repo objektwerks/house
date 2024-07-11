@@ -550,3 +550,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         id > 0 shouldBe true
         testWindow = testWindow.copy(id = id)
       case fault => fail(s"Invalid window added event: $fault")
+
+  def updateWindow: Unit =
+    testWindow = testWindow.copy(label = "window update")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.Window, testWindow)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(count) => count shouldBe 1
+      case fault => fail(s"Invalid window updated event: $fault")

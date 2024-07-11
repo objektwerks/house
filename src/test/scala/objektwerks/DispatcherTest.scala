@@ -469,3 +469,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         id > 0 shouldBe true
         testSiding = testSiding.copy(id = id)
       case fault => fail(s"Invalid siding added event: $fault")
+
+  def updateSiding: Unit =
+    testSiding = testSiding.copy(label = "siding update")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.Siding, testSiding)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(count) => count shouldBe 1
+      case fault => fail(s"Invalid siding updated event: $fault")

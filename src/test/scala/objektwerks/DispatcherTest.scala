@@ -157,6 +157,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     updateAlarm
     listAlarms
 
+    addHeater
+    updateHeater
+    listHeaters
+
   def register: Unit =
     val register = Register(config.getString("email.sender"))
     dispatcher.dispatch(register) match
@@ -716,7 +720,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
       case EntityUpdated(count) => count shouldBe 1
       case fault => fail(s"Invalid heater updated event: $fault")
 
-  def listHeater: Unit =
+  def listHeaters: Unit =
     val list = ListEntities(testAccount.license, EntityType.Heater, testHeater.id)
     dispatcher.dispatch(list) match
       case EntitiesListed(list) =>

@@ -843,3 +843,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         id > 0 shouldBe true
         testWell = testWell.copy(id = id)
       case fault => fail(s"Invalid well added event: $fault")
+
+  def updateWell: Unit =
+    testWell = testWell.copy(label = "well update")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.Well, testWell)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(count) => count shouldBe 1
+      case fault => fail(s"Invalid well updated event: $fault")

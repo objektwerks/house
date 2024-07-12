@@ -213,6 +213,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     updatePorch
     listPorches
 
+    addPatio
+    updatePatio
+    listPatios
+
   def register: Unit =
     val register = Register(config.getString("email.sender"))
     dispatcher.dispatch(register) match

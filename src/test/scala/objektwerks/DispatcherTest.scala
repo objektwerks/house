@@ -1032,3 +1032,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         id > 0 shouldBe true
         testSolarPanel = testSolarPanel.copy(id = id)
       case fault => fail(s"Invalid solar panel added event: $fault")
+
+  def updateSolarPanel: Unit =
+    testSolarPanel = testSolarPanel.copy(label = "solar panel update")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.SolarPanel, testSolarPanel)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(count) => count shouldBe 1
+      case fault => fail(s"Invalid solar panel updated event: $fault")

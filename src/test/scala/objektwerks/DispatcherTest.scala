@@ -997,3 +997,11 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         list.length shouldBe 1
         list.head shouldBe testSprinkler
       case fault => fail(s"Invalid sprinkler listed event: $fault")
+
+  def addShed: Unit =
+    val addEntity = AddEntity(testAccount.license, EntityType.Shed, testShed)
+    dispatcher.dispatch(addEntity) match
+      case EntityAdded(id) =>
+        id > 0 shouldBe true
+        testShed = testShed.copy(id = id)
+      case fault => fail(s"Invalid shed added event: $fault")

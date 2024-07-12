@@ -1113,3 +1113,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         id > 0 shouldBe true
         testPool = testPool.copy(id = id)
       case fault => fail(s"Invalid pool added event: $fault")
+
+  def updatePool: Unit =
+    testPool = testPool.copy(label = "pool update")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.Pool, testPool)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(count) => count shouldBe 1
+      case fault => fail(s"Invalid pool updated event: $fault")

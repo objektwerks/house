@@ -1005,3 +1005,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         id > 0 shouldBe true
         testShed = testShed.copy(id = id)
       case fault => fail(s"Invalid shed added event: $fault")
+
+  def updateShed: Unit =
+    testShed = testShed.copy(label = "shed update")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.Shed, testShed)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(count) => count shouldBe 1
+      case fault => fail(s"Invalid shed updated event: $fault")

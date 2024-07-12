@@ -1078,3 +1078,11 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         list.length shouldBe 1
         list.head shouldBe testPorch
       case fault => fail(s"Invalid porch listed event: $fault")
+
+  def addPatio: Unit =
+    val addEntity = AddEntity(testAccount.license, EntityType.Patio, testPatio)
+    dispatcher.dispatch(addEntity) match
+      case EntityAdded(id) =>
+        id > 0 shouldBe true
+        testPatio = testPatio.copy(id = id)
+      case fault => fail(s"Invalid patio added event: $fault")

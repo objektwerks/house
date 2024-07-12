@@ -197,6 +197,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     updateGarden
     listGardens
 
+    addSprinkler
+    updateSprinkler
+    listSprinklers
+
   def register: Unit =
     val register = Register(config.getString("email.sender"))
     dispatcher.dispatch(register) match

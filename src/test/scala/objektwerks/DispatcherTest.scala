@@ -1159,3 +1159,11 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         list.length shouldBe 1
         list.head shouldBe testDock
       case fault => fail(s"Invalid dock listed event: $fault")
+
+  def addGazebo: Unit =
+    val addEntity = AddEntity(testAccount.license, EntityType.Gazebo, testGazebo)
+    dispatcher.dispatch(addEntity) match
+      case EntityAdded(id) =>
+        id > 0 shouldBe true
+        testGazebo = testGazebo.copy(id = id)
+      case fault => fail(s"Invalid gazebo added event: $fault")

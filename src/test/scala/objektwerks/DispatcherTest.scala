@@ -205,6 +205,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     updateShed
     listSheds
 
+    addSolarPanel
+    updateSolarPanel
+    listSolarPanels
+
   def register: Unit =
     val register = Register(config.getString("email.sender"))
     dispatcher.dispatch(register) match

@@ -904,3 +904,11 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     dispatcher.dispatch(updateEntity) match
       case EntityUpdated(count) => count shouldBe 1
       case fault => fail(s"Invalid water heater updated event: $fault")
+
+  def listWaterHeaters: Unit =
+    val list = ListEntities(testAccount.license, EntityType.WaterHeater, testWaterHeater.id)
+    dispatcher.dispatch(list) match
+      case EntitiesListed(list) =>
+        list.length shouldBe 1
+        list.head shouldBe testWaterHeater
+      case fault => fail(s"Invalid water heater listed event: $fault")

@@ -129,7 +129,7 @@ enum PatioType:
   case concrete, paver, tile, wood
 
 enum PoolType:
-  case aboveground, inground
+  case aboveground, inground, spa
 
 enum DockType:
   case floating, stationary, combination, permanent

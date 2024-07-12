@@ -1167,3 +1167,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         id > 0 shouldBe true
         testGazebo = testGazebo.copy(id = id)
       case fault => fail(s"Invalid gazebo added event: $fault")
+
+  def updateGazebo: Unit =
+    testGazebo = testGazebo.copy(label = "gazebo update")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.Gazebo, testGazebo)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(count) => count shouldBe 1
+      case fault => fail(s"Invalid gazebo updated event: $fault")

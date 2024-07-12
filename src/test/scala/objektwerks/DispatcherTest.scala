@@ -1186,3 +1186,11 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         list.length shouldBe 1
         list.head shouldBe testGazebo
       case fault => fail(s"Invalid gazebo listed event: $fault")
+
+  def addMailbox: Unit =
+    val addEntity = AddEntity(testAccount.license, EntityType.Mailbox, testMailbox)
+    dispatcher.dispatch(addEntity) match
+      case EntityAdded(id) =>
+        id > 0 shouldBe true
+        testMailbox = testMailbox.copy(id = id)
+      case fault => fail(s"Invalid mailbox added event: $fault")

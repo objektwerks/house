@@ -1086,3 +1086,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         id > 0 shouldBe true
         testPatio = testPatio.copy(id = id)
       case fault => fail(s"Invalid patio added event: $fault")
+
+  def updatePatio: Unit =
+    testPatio = testPatio.copy(label = "patio update")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.Patio, testPatio)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(count) => count shouldBe 1
+      case fault => fail(s"Invalid patio updated event: $fault")

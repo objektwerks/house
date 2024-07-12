@@ -1140,3 +1140,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         id > 0 shouldBe true
         testDock = testDock.copy(id = id)
       case fault => fail(s"Invalid dock added event: $fault")
+
+  def updateDock: Unit =
+    testDock = testDock.copy(label = "dock update")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.Dock, testDock)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(count) => count shouldBe 1
+      case fault => fail(s"Invalid dock updated event: $fault")

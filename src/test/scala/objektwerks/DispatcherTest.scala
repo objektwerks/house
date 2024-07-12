@@ -1194,3 +1194,10 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         id > 0 shouldBe true
         testMailbox = testMailbox.copy(id = id)
       case fault => fail(s"Invalid mailbox added event: $fault")
+
+  def updateMailbox: Unit =
+    testMailbox = testMailbox.copy(label = "mailbox update")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.Mailbox, testMailbox)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(count) => count shouldBe 1
+      case fault => fail(s"Invalid mailbox updated event: $fault")

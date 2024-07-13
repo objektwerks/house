@@ -64,7 +64,7 @@ final class Handler(store: Store,
       val id = store.register(account)
       Registered( account.copy(id = id) )
     }.recover {
-      case NonFatal(error) => store.addFault( Fault(s"Registration failed for: $email, because: ${error.getMessage}") )
+      case NonFatal(error) => addFault( Fault(s"Registration failed for: $email, because: ${error.getMessage}") )
     }.get
 
   def login(email: String,
@@ -72,7 +72,7 @@ final class Handler(store: Store,
     Try {
       store.login(email, pin)
     }.fold(
-      error => store.addFault( Fault(s"Login failed: ${error.getMessage}") ),
+      error => addFault( Fault(s"Login failed: ${error.getMessage}") ),
       optionalAccount =>
         if optionalAccount.isDefined then LoggedIn( optionalAccount.get )
         else addFault( Fault(s"Login failed for email address: $email and pin: $pin") )
@@ -80,7 +80,7 @@ final class Handler(store: Store,
 
   def listFaults(): Event = FaultsListed( store.listFaults() )
 
-  def addFault(fault: Fault): Event = store.addFault(fault)
+  def addFault(fault: Fault): Event = FaultAdded( store.addFault(fault) )
 
   def listEntities(typeof: EntityType, houseId: Long): Event =
     Try {

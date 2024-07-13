@@ -108,7 +108,7 @@ final class Handler(store: Store,
       EntityUpdated( function(entity) )
     }.recover {
       case NonFatal(error) =>
-        store.addFault( Fault(s"Update entity [${typeof.toString}] failed: ${error.getMessage} for: ${entity.toString}") )
+        addFault( Fault(s"Update entity [${typeof.toString}] failed: ${error.getMessage} for: ${entity.toString}") )
     }.get
 
   def listHouses(accountId: Long): List[House] = store.listHouses(accountId)

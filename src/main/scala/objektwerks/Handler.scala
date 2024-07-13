@@ -90,7 +90,7 @@ final class Handler(store: Store,
       EntitiesListed( function(houseId) )
     }.recover {
       case NonFatal(error) =>
-        store.addFault( Fault(s"List entities [${typeof.toString}] failed: ${error.getMessage}") )
+        addFault( Fault(s"List entities [${typeof.toString}] failed: ${error.getMessage}") )
     }.get
 
   def addEntity(typeof: EntityType, entity: Entity): Event =

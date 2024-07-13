@@ -99,7 +99,7 @@ final class Handler(store: Store,
       EntityAdded( function(entity) )
     }.recover {
       case NonFatal(error) =>
-        store.addFault( Fault(s"Add entity [${typeof.toString}] failed: ${error.getMessage} for: ${entity.toString}") )
+        addFault( Fault(s"Add entity [${typeof.toString}] failed: ${error.getMessage} for: ${entity.toString}") )
     }.get
 
   def updateEntity(typeof: EntityType, entity: Entity): Event =

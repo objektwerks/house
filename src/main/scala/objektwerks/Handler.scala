@@ -75,7 +75,7 @@ final class Handler(store: Store,
       error => store.addFault( Fault(s"Login failed: ${error.getMessage}") ),
       optionalAccount =>
         if optionalAccount.isDefined then LoggedIn( optionalAccount.get )
-        else store.addFault( Fault(s"Login failed for email address: $email and pin: $pin") )
+        else addFault( Fault(s"Login failed for email address: $email and pin: $pin") )
     )
 
   def listFaults(): Event = FaultsListed( store.listFaults() )

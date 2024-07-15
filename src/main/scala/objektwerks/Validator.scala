@@ -396,8 +396,7 @@ object Validator:
       mailbox.installed.nonEmpty
 
   extension  (license: License)
-    def isLicense: Boolean =
-      license.license.isLicense
+    def isLicense: Boolean = license.license.isLicense
 
   extension (register: Register)
     def isValid: Boolean =
@@ -414,8 +413,7 @@ object Validator:
       listEntities.parentId > 0
 
   extension (addEntity: AddEntity)
-    def isValid: Boolean =
-      addEntity.license.isLicense
+    def isValid: Boolean = addEntity.license.isLicense
 
   extension (updateEntity: UpdateEntity)
     def isValid: Boolean =
@@ -427,8 +425,7 @@ object Validator:
       fault.occurred.nonEmpty
 
   extension (listFaults: ListFaults)
-    def isValid: Boolean =
-      listFaults.license.isLicense
+    def isValid: Boolean = listFaults.license.isLicense
 
   extension (addFault: AddFault)
     def isValid: Boolean =

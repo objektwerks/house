@@ -123,7 +123,7 @@ final case class Drywall(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Room(
     id: Long = 0,

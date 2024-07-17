@@ -225,7 +225,7 @@ final case class Fusebox(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Alarm(
     id: Long = 0,

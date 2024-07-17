@@ -162,7 +162,7 @@ final case class Siding(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Gutter(
     id: Long = 0,

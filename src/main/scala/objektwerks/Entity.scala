@@ -51,7 +51,7 @@ final case class Frame(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Attic(
     id: Long = 0,

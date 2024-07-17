@@ -326,7 +326,7 @@ final case class Garden(
     label: String = "",
     note: String = "",
     planted: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Sprinkler(
     id: Long = 0,

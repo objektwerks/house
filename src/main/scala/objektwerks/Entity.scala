@@ -69,7 +69,7 @@ final case class Insulation(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Ductwork(
     id: Long = 0,

@@ -234,7 +234,7 @@ final case class Alarm(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Heater(
     id: Long = 0,

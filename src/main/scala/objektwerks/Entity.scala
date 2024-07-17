@@ -60,7 +60,7 @@ final case class Attic(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Insulation(
     id: Long = 0,

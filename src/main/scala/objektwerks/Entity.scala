@@ -180,7 +180,7 @@ final case class Soffit(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Window(
     id: Long = 0,

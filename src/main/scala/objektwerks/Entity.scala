@@ -87,7 +87,7 @@ final case class Ventilation(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Roof(
     id: Long = 0,

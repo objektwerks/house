@@ -171,7 +171,7 @@ final case class Gutter(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Soffit(
     id: Long = 0,

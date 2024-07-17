@@ -281,7 +281,7 @@ final case class Sewage(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Well(
     id: Long = 0,

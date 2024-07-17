@@ -42,7 +42,7 @@ final case class Foundation(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Frame(
     id: Long = 0,

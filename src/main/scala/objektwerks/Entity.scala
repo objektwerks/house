@@ -78,7 +78,7 @@ final case class Ductwork(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Ventilation(
     id: Long = 0,

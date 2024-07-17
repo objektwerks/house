@@ -344,7 +344,7 @@ final case class Shed(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class SolarPanel(
     id: Long = 0,

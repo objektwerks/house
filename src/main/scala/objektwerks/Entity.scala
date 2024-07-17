@@ -335,7 +335,7 @@ final case class Sprinkler(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Shed(
     id: Long = 0,

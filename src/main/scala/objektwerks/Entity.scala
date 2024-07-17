@@ -142,7 +142,7 @@ final case class Driveway(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Garage(
     id: Long = 0,

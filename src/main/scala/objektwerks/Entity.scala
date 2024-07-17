@@ -243,7 +243,7 @@ final case class Heater(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class AirConditioner(
     id: Long = 0,

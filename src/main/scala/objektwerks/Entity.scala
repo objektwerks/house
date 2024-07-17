@@ -96,7 +96,7 @@ final case class Roof(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Chimney(
     id: Long = 0,

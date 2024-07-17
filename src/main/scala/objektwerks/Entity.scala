@@ -216,7 +216,7 @@ final case class Electrical(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Fusebox(
     id: Long = 0,

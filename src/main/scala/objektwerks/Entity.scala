@@ -290,7 +290,7 @@ final case class Well(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Water(
     id: Long = 0,

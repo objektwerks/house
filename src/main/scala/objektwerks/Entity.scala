@@ -105,7 +105,7 @@ final case class Chimney(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Balcony(
     id: Long = 0,

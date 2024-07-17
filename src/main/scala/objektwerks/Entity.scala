@@ -114,7 +114,7 @@ final case class Balcony(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Drywall(
     id: Long = 0,

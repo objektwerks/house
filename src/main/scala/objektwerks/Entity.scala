@@ -21,7 +21,7 @@ final case class Account(
     email: String = "",
     pin: String = Pin.newInstance,
     activated: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class House(
     id: Long = 0,

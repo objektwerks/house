@@ -400,7 +400,7 @@ final case class Gazebo(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Mailbox(
     id: Long = 0,

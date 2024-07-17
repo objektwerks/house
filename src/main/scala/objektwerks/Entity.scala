@@ -409,4 +409,4 @@ final case class Mailbox(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual

@@ -151,7 +151,7 @@ final case class Garage(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 // Integral
 

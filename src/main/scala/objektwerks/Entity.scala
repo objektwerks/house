@@ -299,7 +299,7 @@ final case class Water(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class WaterHeater(
     id: Long = 0,

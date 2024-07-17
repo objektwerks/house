@@ -353,7 +353,7 @@ final case class SolarPanel(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEquala
+) extends Entity derives CanEqual
 
 final case class Porch(
     id: Long = 0,
@@ -362,7 +362,7 @@ final case class Porch(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Patio(
     id: Long = 0,

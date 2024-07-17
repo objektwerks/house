@@ -13,7 +13,7 @@ object Entity:
 
 final case class Fault(cause: String,
                        occurred: String = LocalDate.now.toString,
-                       id: Long = 0) extends Entity
+                       id: Long = 0) extends Entity derives CanEqual
 
 final case class Account(
     id: Long = 0,

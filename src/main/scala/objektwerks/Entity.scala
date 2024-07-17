@@ -207,7 +207,7 @@ final case class Plumbing(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity
+) extends Entity derives CanEqual
 
 final case class Electrical(
     id: Long = 0,

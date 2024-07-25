@@ -28,8 +28,8 @@ object Store:
     ds
 
 final class Store(cache: Cache[String, String],
-                  datasource: DataSource):
-  ConnectionPool.singleton( DataSourceConnectionPool(datasource) )
+                  dataSource: DataSource):
+  ConnectionPool.singleton( DataSourceConnectionPool(dataSource) )
 
   def register(account: Account): Long =
     addAccount(account)

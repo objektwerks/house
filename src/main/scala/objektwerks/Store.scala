@@ -19,7 +19,7 @@ object Store:
       .expireAfterWrite( FiniteDuration( config.getLong("cache.expireAfter"), TimeUnit.HOURS) )
       .build[String, String]()
 
-  def datasource(config: Config): DataSource =
+  def dataSource(config: Config): DataSource =
     val ds = HikariDataSource()
     ds.setDataSourceClassName(config.getString("db.driver"))
     ds.addDataSourceProperty("url", config.getString("db.url"))

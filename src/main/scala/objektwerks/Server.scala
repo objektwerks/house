@@ -14,8 +14,8 @@ object Server extends LazyLogging:
     val endpoint = config.getString("server.endpoint")
 
     val cache = Store.cache(config)
-    val datasource = Store.datasource(config)
-    val store = Store(cache, datasource)
+    val dataSource = Store.dataSource(config)
+    val store = Store(cache, dataSource)
     val emailer = Emailer(config)
     val handler = Handler(store, emailer)
     val dispatcher = Dispatcher(handler)

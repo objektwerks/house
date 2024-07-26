@@ -11,7 +11,6 @@ final class PinTest extends AnyFunSuite with Matchers:
     for i <- 1 to 10_000
     do
       val pin = Pin.newInstance
-      println( pin )
       pin.length shouldBe 7
       pins += pin
     pins.size shouldBe 10_000

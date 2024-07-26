@@ -16,7 +16,7 @@ object Pin:
   private def retry[T](attempts: Int)(fn: => T): T =
     Try( fn ) match
       case Success(result) => result
-      case Failure(error) => if attempts >= 1 then retry(attempts - 1)(fn) else throw error
+      case Failure(error)  => if attempts >= 1 then retry(attempts - 1)(fn) else throw error
 
   def build: String =
     val buffer = mutable.ArrayBuffer.empty[Char]

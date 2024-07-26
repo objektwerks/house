@@ -33,7 +33,7 @@ final class Emailer(config: Config) extends LazyLogging:
       val email = Email.create
         .from(sender)
         .subject(subject)
-        .htmlMessage(message, "UTF-8")
+        .textMessage(message, "UTF-8")
         .cc(sender)
       recipients.foreach( recipient => email.to(recipient) )
       session.open

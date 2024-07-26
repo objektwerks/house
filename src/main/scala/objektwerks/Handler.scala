@@ -60,8 +60,7 @@ final class Handler(store: Store,
     Try {
       val account = Account(email = email)
       val pin = account.pin
-      if pin.length != 7 then throw Exception(s"Invalid pin: $pin with length of: ${pin.length}")
-      val message = s"<p>Your new pin is: <b>$pin</b></p><p>Welcome aboard!</p>"
+      val message = s"Your new pin is: $pin\nWelcome aboard!"
       send(account.email, message)
       val id = store.register(account)
       Registered( account.copy(id = id) )

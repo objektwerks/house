@@ -12,7 +12,7 @@ object Pin:
   private def newSpecialChar: Char = specialChars( random.nextInt(specialChars.length) )
 
   def newInstance: String =
-    val buffer = mutable.ArrayBuffer[Char]()
+    val buffer = mutable.ArrayBuffer.empty[Char]
 
     buffer += newSpecialChar
     buffer += newChar.toUpper

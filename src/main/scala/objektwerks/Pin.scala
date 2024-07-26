@@ -1,17 +1,24 @@
 package objektwerks
 
+import scala.collection.mutable
 import scala.util.Random
 
 object Pin:
+  private val chars = "abcdefghijklmnopqrstuvwxyz"
   private val specialChars = "~!@#$%^&*-+=<>?/:;".toList
   private val random = Random
 
+  private def newChar: Char = chars( random.nextInt(chars.length) )
   private def newSpecialChar: Char = specialChars( random.nextInt(specialChars.length) )
 
   def newInstance: String =
-    Random
-      .alphanumeric
-      .take(5)
-      .mkString
-      .prepended(newSpecialChar)
-      .appended(newSpecialChar)
+    val pin = mutable.ArrayBuffer[Char]()
+
+    pin += newSpecialChar
+
+    while (pin.length < 6)
+      pin += newChar
+
+    pin += newSpecialChar
+
+    pin.mkString

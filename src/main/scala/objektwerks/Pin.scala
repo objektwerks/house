@@ -30,6 +30,6 @@ object Pin:
     buffer += newXChar
 
     val pin = buffer.mkString
-    if pin.length < 7 then throw Exception(pin) else pin
+    if pin.length != 7 then throw Exception(pin) else pin
 
   def newInstance: String = retry(3)(build)

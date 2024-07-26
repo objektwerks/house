@@ -5,7 +5,7 @@ import scala.util.Random
 
 object Pin:
   private val chars = "abcdefghijklmnopqrstuvwxyz"
-  private val specialChars = "~!@#$%^&*-+=<>?/:;".toList
+  private val specialChars = "~!@#$%^&*-+=<>?/:;"
   private val random = Random
 
   private def newChar: Char = chars( random.nextInt(chars.length) )

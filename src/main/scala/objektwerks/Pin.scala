@@ -6,11 +6,11 @@ import scala.util.{Failure, Random, Success, Try}
 
 object Pin:
   private val chars = "abcdefghijklmnopqrstuvwxyz"
-  private val specialChars = "~!@#$%^&*-+=<>?/:;"
+  private val xchars = "~!@#$%^&*-+=<>?/:;"
   private val random = Random
 
   private def newChar: Char = chars( random.nextInt(chars.length) )
-  private def newSpecialChar: Char = specialChars( random.nextInt(specialChars.length) )
+  private def newXChar: Char = xchars( random.nextInt(xchars.length) )
 
   @tailrec
   private def retry[T](attempts: Int)(fn: => T): T =
@@ -21,13 +21,13 @@ object Pin:
   def build: String =
     val buffer = mutable.ArrayBuffer.empty[Char]
 
-    buffer += newSpecialChar
+    buffer += newXChar
     buffer += newChar.toUpper
     buffer += newChar.toLower
     buffer += newChar.toUpper
     buffer += newChar.toLower
     buffer += newChar.toUpper
-    buffer += newSpecialChar
+    buffer += newXChar
 
     val pin = buffer.mkString
     if pin.length < 7 then throw Exception(pin) else pin

@@ -20,7 +20,6 @@ object Pin:
 
   def build: String =
     val buffer = mutable.ArrayBuffer.empty[Char]
-
     buffer += newXChar
     buffer += newChar.toUpper
     buffer += newChar.toLower
@@ -28,7 +27,6 @@ object Pin:
     buffer += newChar.toLower
     buffer += newChar.toUpper
     buffer += newXChar
-
     val pin = buffer.mkString
     if pin.length != 7 then throw Exception(pin) else pin
 

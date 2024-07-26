@@ -27,7 +27,7 @@ object Pin:
     buffer += newChar.toLower
     buffer += newChar.toUpper
     buffer += newXChar
-    val pin = buffer.mkString
+    val pin = random.shuffle( buffer.mkString ).mkString
     if pin.length != 7 then throw Exception(pin) else pin
 
   def newInstance: String = retry(3)(build)

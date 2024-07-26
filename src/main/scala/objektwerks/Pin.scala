@@ -12,14 +12,15 @@ object Pin:
   private def newSpecialChar: Char = specialChars( random.nextInt(specialChars.length) )
 
   def newInstance: String =
-    val pin = mutable.ArrayBuffer[Char]()
+    val buffer = mutable.ArrayBuffer[Char]()
 
-    pin += newSpecialChar
-    pin += newChar.toUpper
-    pin += newChar.toLower
-    pin += newChar.toUpper
-    pin += newChar.toLower
-    pin += newChar.toUpper
-    pin += newSpecialChar
+    buffer += newSpecialChar
+    buffer += newChar.toUpper
+    buffer += newChar.toLower
+    buffer += newChar.toUpper
+    buffer += newChar.toLower
+    buffer += newChar.toUpper
+    buffer += newSpecialChar
 
-    pin.mkString
+    val pin = buffer.mkString
+    if pin.length < 7 then throw Exception(pin) else pin

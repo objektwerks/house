@@ -15,10 +15,11 @@ object Pin:
     val pin = mutable.ArrayBuffer[Char]()
 
     pin += newSpecialChar
-
-    while (pin.length < 6)
-      pin += newChar
-
+    pin += newChar.toUpper
+    pin += newChar.toLower
+    pin += newChar.toUpper
+    pin += newChar.toLower
+    pin += newChar.toUpper
     pin += newSpecialChar
 
     pin.mkString

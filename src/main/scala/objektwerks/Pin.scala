@@ -1,33 +1,25 @@
 package objektwerks
 
-import scala.annotation.tailrec
 import scala.collection.mutable
-import scala.util.{Failure, Random, Success, Try}
+import scala.util.Random
 
 object Pin:
   private val chars = "abcdefghijklmnopqrstuvwxyz"
-  private val xchars = "~!@#$%^&*-+=<>?/:;"
+  private val specialChars = "~!@#$%^&*-+=<>?/:;"
   private val random = Random
 
   private def newChar: Char = chars( random.nextInt(chars.length) )
-  private def newXChar: Char = xchars( random.nextInt(xchars.length) )
+  private def newSpecialChar: Char = specialChars( random.nextInt(specialChars.length) )
 
-  @tailrec
-  private def retry[T](attempts: Int)(fn: => T): T =
-    Try( fn ) match
-      case Success(result) => result
-      case Failure(error)  => if attempts >= 1 then retry(attempts - 1)(fn) else throw error
+  def newInstance: String =
+    val pin = mutable.ArrayBuffer[Char]()
 
-  def build: String =
-    val buffer = mutable.ArrayBuffer.empty[Char]
-    buffer += newXChar
-    buffer += newChar.toUpper
-    buffer += newChar.toLower
-    buffer += newChar.toUpper
-    buffer += newChar.toLower
-    buffer += newChar.toUpper
-    buffer += newXChar
-    val pin = random.shuffle( buffer.mkString ).mkString
-    if pin.length != 7 then throw Exception(pin) else pin
+    pin += newSpecialChar
+    pin += newChar.toUpper
+    pin += newChar.toLower
+    pin += newChar.toUpper
+    pin += newChar.toLower
+    pin += newChar.toUpper
+    pin += newSpecialChar
 
-  def newInstance: String = retry(3)(build)
+    pin.mkString

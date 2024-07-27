@@ -22,4 +22,4 @@ object Pin:
     pin += newChar.toUpper
     pin += newSpecialChar
 
-    pin.mkString
+    random.shuffle(pin).mkString

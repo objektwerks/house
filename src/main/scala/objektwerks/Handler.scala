@@ -59,8 +59,7 @@ final class Handler(store: Store,
   def register(email: String): Event =
     Try {
       val account = Account(email = email)
-      val pin = account.pin
-      val message = s"Your new pin is: $pin\n\nWelcome aboard!"
+      val message = s"Your new pin is: ${account.pin}\n\nWelcome aboard!"
       send(account.email, message)
       val id = store.register(account)
       Registered( account.copy(id = id) )

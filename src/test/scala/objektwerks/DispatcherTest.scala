@@ -14,9 +14,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
   exitCode shouldBe 0
 
   val config = ConfigFactory.load("test.conf")
-  val cache = Store.cache(config)
-  val dataSource = Store.dataSource(config)
-  val store = Store(cache, dataSource)
+  val store = Store(config)
   val emailer = Emailer(config)
   val handler = Handler(store, emailer)
   val dispatcher = Dispatcher(handler)

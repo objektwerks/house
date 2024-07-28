@@ -1,5 +1,7 @@
 package objektwerks
 
+import java.util.concurrent.ThreadLocalRandom
+
 import scala.collection.mutable
 import scala.util.Random
 
@@ -7,21 +9,22 @@ object Pin:
   private val numbers = "0123456789"
   private val chars = "abcdefghijklmnopqrstuvwxyz"
   private val specialChars = "~!@#$%^&*-+=<>?/:;"
-  private val random = Random
+  private val shuffler = Random
 
-  private def newNumber: Char = numbers( random.nextInt(numbers.length).toChar )
-  private def newChar: Char = chars( random.nextInt(chars.length) )
-  private def newSpecialChar: Char = specialChars( random.nextInt(specialChars.length) )
+  private def newNumber(random: ThreadLocalRandom): Char = numbers( random.nextInt(numbers.length).toChar )
+  private def newChar(random: ThreadLocalRandom): Char = chars( random.nextInt(chars.length) )
+  private def newSpecialChar(random: ThreadLocalRandom): Char = specialChars( random.nextInt(specialChars.length) )
 
   def newInstance: String =
+    val random = ThreadLocalRandom.current()
     val pin = mutable.ArrayBuffer[Char]()
 
-    pin += newNumber
-    pin += newChar.toUpper
-    pin += newChar.toLower
-    pin += newChar.toUpper
-    pin += newChar.toLower
-    pin += newChar.toUpper
-    pin += newSpecialChar
+    pin += newNumber(random)
+    pin += newChar(random).toUpper
+    pin += newChar(random).toLower
+    pin += newSpecialChar(random)
+    pin += newChar(random).toLower
+    pin += newChar(random).toUpper
+    pin += newSpecialChar(random)
 
-    random.shuffle(pin).mkString
+    shuffler.shuffle(pin).mkString

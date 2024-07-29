@@ -82,10 +82,10 @@ final class Handler(store: Store,
 
   def addFault(fault: Fault): Event = FaultAdded( store.addFault(fault) )
 
-  def listEntities(typeof: EntityType, houseId: Long): Event =
+  def listEntities(typeof: EntityType, parentId: Long): Event =
     Try {
       val function = list(typeof)
-      EntitiesListed( function(houseId) )
+      EntitiesListed( function(parentId) )
     }.recover {
       case NonFatal(error) => addFault( Fault(s"List entities [${typeof.toString}] failed: ${error.getMessage}") )
     }.get

@@ -35,6 +35,14 @@ final case class House(
 
 // Structure
 
+final case class Drawing(
+    id: Long = 0,
+    houseId: Long,
+    url: String = "",
+    note: String = "",
+    added: String = Entity.now
+) extends Entity derives CanEqual
+
 final case class Foundation(
     id: Long = 0,
     houseId: Long,

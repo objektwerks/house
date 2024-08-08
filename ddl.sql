@@ -25,6 +25,14 @@ CREATE TABLE house (
   built VARCHAR NOT NULL
 );
 
+CREATE TABLE drawing (
+  id BIGSERIAL PRIMARY KEY,
+  house_id BIGINT REFERENCES house(id),
+  url VARCHAR NOT NULL,
+  note VARCHAR NOT NULL,
+  added VARCHAR NOT NULL
+);
+
 CREATE TABLE foundation (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),

@@ -27,12 +27,12 @@ object Validator:
 
   extension (drawing: Drawing)
     def isValid: Boolean =
-      foundation.id >= 0 &&
-      foundation.houseId > 0 &&
-      foundation.typeof == DrawingType &&
-      foundation.url.nonEmpty &&
-      foundation.note.isEmptyOrNonEmpty &&
-      foundation.added.nonEmpty
+      drawing.id >= 0 &&
+      drawing.houseId > 0 &&
+      drawing.typeof == DrawingType &&
+      drawing.url.nonEmpty &&
+      drawing.note.isEmptyOrNonEmpty &&
+      drawing.added.nonEmpty
 
   extension (foundation: Foundation)
     def isValid: Boolean =

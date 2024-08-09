@@ -25,6 +25,15 @@ object Validator:
       house.note.isEmptyOrNonEmpty &&
       house.built.nonEmpty
 
+  extension (drawing: Drawing)
+    def isValid: Boolean =
+      foundation.id >= 0 &&
+      foundation.houseId > 0 &&
+      foundation.typeof == DrawingType &&
+      foundation.url.nonEmpty &&
+      foundation.note.isEmptyOrNonEmpty &&
+      foundation.added.nonEmpty
+
   extension (foundation: Foundation)
     def isValid: Boolean =
       foundation.id >= 0 &&

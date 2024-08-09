@@ -28,6 +28,7 @@ CREATE TABLE house (
 CREATE TABLE drawing (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),
+  typeof VARCHAR NOT NULL,
   url VARCHAR NOT NULL,
   note VARCHAR NOT NULL,
   added VARCHAR NOT NULL

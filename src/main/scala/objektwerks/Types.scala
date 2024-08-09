@@ -11,7 +11,7 @@ enum HouseType:
 // Structure
 
 enum DrawingType:
-  case architectural, structural, electrical, plumbing, finishing
+  case architectural, structural, electrical, plumbing, finishing, singleLine
 
 enum FoundationType:
   case slab, basement, wood, crawl

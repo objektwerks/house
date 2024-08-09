@@ -26,7 +26,7 @@ Model
 
 Structure
 ---------
->Foundation, Frame, Attic, Insulation, Ductwork, Ventilation, Roof, Chimney, Balcony, Drywall, Room, Driveway, Garage
+>Drawing, Foundation, Frame, Attic, Insulation, Ductwork, Ventilation, Roof, Chimney, Balcony, Drywall, Room, Driveway, Garage
 
 Integral
 --------

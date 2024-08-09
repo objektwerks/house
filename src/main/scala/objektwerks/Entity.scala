@@ -38,6 +38,7 @@ final case class House(
 final case class Drawing(
     id: Long = 0,
     houseId: Long,
+    typeof: DrawingType = DrawingType.architectural
     url: String = "",
     note: String = "",
     added: String = Entity.now

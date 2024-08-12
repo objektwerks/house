@@ -110,6 +110,22 @@ final class Store(cache: Cache[String, String],
         .update()
     }
 
+  def listDrawings(houseId: Long): List[Drawing] =
+    DB readOnly { implicit session =>
+      sql"select * from drawing where house_id = $houseId order by added desc"
+        .map(rs =>
+          Drawing(
+            rs.long("id"),
+            rs.long("house_id"),
+            DrawingType.valueOf( rs.string("typeof") ),
+            rs.string("url"),
+            rs.string("note"),
+            rs.string("added")
+          )
+        )
+        .list()
+    }
+
   def listFoundations(houseId: Long): List[Foundation] =
     DB readOnly { implicit session =>
       sql"select * from foundation where house_id = $houseId order by built desc"

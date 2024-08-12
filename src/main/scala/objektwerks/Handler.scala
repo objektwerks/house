@@ -87,7 +87,7 @@ final class Handler(store: Store,
       val function = list(typeof)
       EntitiesListed( function(parentId) )
     }.recover {
-      case NonFatal(error) => addFault( Fault(s"List entities [${typeof.toString}]{$parentId} failed: ${error.getMessage}") )
+      case NonFatal(error) => addFault( Fault(s"List entities [$typeof]{$parentId} failed: ${error.getMessage}") )
     }.get
 
   def addEntity(typeof: EntityType, entity: Entity): Event =
@@ -95,7 +95,7 @@ final class Handler(store: Store,
       val function = add(typeof)
       EntityAdded( function(entity) )
     }.recover {
-      case NonFatal(error) => addFault( Fault(s"Add entity [${typeof.toString}] failed: ${error.getMessage} for: ${entity.toString}") )
+      case NonFatal(error) => addFault( Fault(s"Add entity [$typeof] failed: ${error.getMessage} for: $entity") )
     }.get
 
   def updateEntity(typeof: EntityType, entity: Entity): Event =
@@ -103,7 +103,7 @@ final class Handler(store: Store,
       val function = update(typeof)
       EntityUpdated( function(entity) )
     }.recover {
-      case NonFatal(error) => addFault( Fault(s"Update entity [${typeof.toString}] failed: ${error.getMessage} for: ${entity.toString}") )
+      case NonFatal(error) => addFault( Fault(s"Update entity [$typeof] failed: ${error.getMessage} for: $entity") )
     }.get
 
   def listHouses(accountId: Long): List[House] = store.listHouses(accountId)

@@ -20,7 +20,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
   val dispatcher = Dispatcher(handler)
 
   var testAccount = Account()
-  var testHouse = House(accountId = 0, location = "100 Rocky Way")
+  var testHouse = House(accountId = 0, location = "100 Rocky Way", label = "label", note = "note")
   var testDrawing = Drawing(houseId = 1, url = "http://drawing/a", note = "drawing a")
   var testFoundation =  Foundation(houseId = 1)
   var testFrame = Frame(houseId = 1)

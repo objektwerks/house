@@ -288,6 +288,14 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
       case EntityUpdated(count) => count shouldBe 1
       case fault => fail(s"Invalid drawing updated event: $fault")
 
+  def listDrawings: Unit =
+    val list = ListEntities(testAccount.license, EntityType.Drawing, testDrawing.id)
+    dispatcher.dispatch(list) match
+      case EntitiesListed(list) =>
+        list.length shouldBe 1
+        list.head shouldBe testDrawing
+      case fault => fail(s"Invalid drawings listed event: $fault")
+
   def addFoundation: Unit =
     val addEntity = AddEntity(testAccount.license, EntityType.Foundation, testFoundation)
     dispatcher.dispatch(addEntity) match

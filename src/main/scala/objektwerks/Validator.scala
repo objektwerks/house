@@ -425,15 +425,15 @@ object Validator:
   extension (addEntity: AddEntity)
     def isValid: Boolean =
       addEntity.license.isLicense /* &&
-      addEntity.typeof == EntityType &&
-      addEntity.entity != null */
+      addEntity.typeof == EntityType */ &&
+      addEntity.entity != null
 
 
   extension (updateEntity: UpdateEntity)
     def isValid: Boolean =
       updateEntity.license.isLicense /* &&
-      updateEntity.typeof == EntityType &&
-      updateEntity.entity != null */
+      updateEntity.typeof == EntityType */ &&
+      updateEntity.entity != null
 
   extension (fault: Fault)
     def isValid: Boolean =

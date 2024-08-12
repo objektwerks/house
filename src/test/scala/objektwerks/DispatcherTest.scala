@@ -74,6 +74,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
 
     addDrawing
     updateDrawing
+    listDrawings
 
     addFoundation
     updateFoundation

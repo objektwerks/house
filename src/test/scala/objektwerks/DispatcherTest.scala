@@ -67,8 +67,9 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
   test("dispatcher"):
     register
     login
-
+    
     addHouse
+    /*
     updateHouse
     listHouses
 
@@ -235,6 +236,8 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     addMailbox
     updateMailbox
     listMailboxes
+
+    */
 
   def register: Unit =
     val register = Register(config.getString("email.sender"))

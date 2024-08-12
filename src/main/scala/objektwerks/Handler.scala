@@ -8,12 +8,12 @@ import EntityType.*
 final class Handler(store: Store,
                     emailer: Emailer):
   val list = Map(
-    House -> listHouses, Foundation -> listFoundations, Frame -> listFrames, Attic -> listAttics, Insulation -> listInsulations,
-    Ductwork -> listDuctworks, Ventilation -> listVentilations, Roof -> listRoofs, Chimney -> listChimneys, Balcony -> listBalconys,
-    Drywall -> listDrywalls, Room -> listRooms, Driveway -> listDriveways, Garage -> listGarages, Siding -> listSidings,
-    Gutter -> listGutters, Soffit -> listSoffits, Window -> listWindows, Door -> listDoors, Plumbing -> listPlumbings,
-    Electrical -> listElectricals, Fusebox -> listFuseboxes, Alarm -> listAlarms, Heater -> listHeaters,
-    AirConditioner -> listAirConditioners, Floor -> listFloors, Lighting -> listLightings, Sewage -> listSewages,
+    House -> listHouses, Drawing -> listDrawings, Foundation -> listFoundations, Frame -> listFrames, Attic -> listAttics,
+    Insulation -> listInsulations, Ductwork -> listDuctworks, Ventilation -> listVentilations, Roof -> listRoofs,
+    Chimney -> listChimneys, Balcony -> listBalconys, Drywall -> listDrywalls, Room -> listRooms, Driveway -> listDriveways,
+    Garage -> listGarages, Siding -> listSidings, Gutter -> listGutters, Soffit -> listSoffits, Window -> listWindows,
+    Door -> listDoors, Plumbing -> listPlumbings, Electrical -> listElectricals, Fusebox -> listFuseboxes, Alarm -> listAlarms,
+    Heater -> listHeaters, AirConditioner -> listAirConditioners, Floor -> listFloors, Lighting -> listLightings, Sewage -> listSewages,
     Well -> listWells, Water -> listWaters, WaterHeater -> listWaterHeaters, Lawn -> listLawns, Garden -> listGardens,
     Sprinkler -> listSprinklers, Shed -> listSheds, SolarPanel -> listSolarPanels, Porch -> listPorches, Patio -> listPatios,
     Pool -> listPools, Dock -> listDocks, Gazebo -> listGazebos, Mailbox -> listMailboxes

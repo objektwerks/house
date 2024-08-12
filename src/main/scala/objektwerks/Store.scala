@@ -1557,10 +1557,10 @@ final class Store(cache: Cache[String, String],
     }
 
   def addFault(fault: Fault): Fault =
-    val id = DB localTx { implicit session =>
+    DB localTx { implicit session =>
       sql"""
         insert into fault(cause, occurred) values(${fault.cause}, ${fault.occurred})
         """
-        .updateAndReturnGeneratedKey()
+        .update()
     }
-    fault.copy(id = id)
+    fault

@@ -11,10 +11,6 @@ object Entity:
   def localDate(now: String): LocalDate =
     if now.nonEmpty then LocalDate.parse(now) else LocalDate.now
 
-final case class Fault(cause: String,
-                       occurred: String = LocalDate.now.toString,
-                       id: Long = 0) extends Entity derives CanEqual
-
 final case class Account(
     id: Long = 0,
     license: String = UUID.randomUUID.toString,

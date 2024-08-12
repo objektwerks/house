@@ -418,22 +418,22 @@ object Validator:
 
   extension (listEntities: ListEntities)
     def isValid: Boolean =
-      listEntities.license.isLicense &&
+      listEntities.license.isLicense /* &&
       listEntities.typeof == EntityType &&
-      listEntities.parentId > 0
+      listEntities.parentId > 0 */
 
   extension (addEntity: AddEntity)
     def isValid: Boolean =
-      addEntity.license.isLicense &&
+      addEntity.license.isLicense /* &&
       addEntity.typeof == EntityType &&
-      addEntity.entity != null
+      addEntity.entity != null */
 
 
   extension (updateEntity: UpdateEntity)
     def isValid: Boolean =
-      updateEntity.license.isLicense &&
+      updateEntity.license.isLicense /* &&
       updateEntity.typeof == EntityType &&
-      updateEntity.entity != null
+      updateEntity.entity != null */
 
   extension (fault: Fault)
     def isValid: Boolean =

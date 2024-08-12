@@ -260,7 +260,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
       case fault => fail(s"Invalid house added event: $fault")
 
   def updateHouse: Unit =
-    testHouse = testHouse.copy(location = "200 Softy Road")
+    testHouse = testHouse.copy(location = "200 Rocky Road")
     val updateEntity = UpdateEntity(testAccount.license, EntityType.House, testHouse)
     dispatcher.dispatch(updateEntity) match
       case EntityUpdated(id) => id shouldBe testHouse.id

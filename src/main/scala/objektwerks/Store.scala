@@ -126,6 +126,15 @@ final class Store(cache: Cache[String, String],
         .list()
     }
 
+  def addDrawing(drawing: Drawing): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into drawing(house_id, typeof, url, note, added)
+        values(${drawing.houseId}, ${drawing.typeof.toString}, ${drawing.url}, ${drawing.note}, ${drawing.added})
+        """
+        .updateAndReturnGeneratedKey()
+    }
+
   def listFoundations(houseId: Long): List[Foundation] =
     DB readOnly { implicit session =>
       sql"select * from foundation where house_id = $houseId order by built desc"

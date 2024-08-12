@@ -116,6 +116,8 @@ final class Handler(store: Store,
 
   def addDrawing(entity: Entity): Long = store.addDrawing( entity.asInstanceOf[Drawing] )
 
+  def updateDrawing(entity: Entity): Int = store.updateDrawing( entity.asInstanceOf[Drawing] )
+
   def listFoundations(houseId: Long): List[Foundation] = store.listFoundations(houseId)
 
   def addFoundation(entity: Entity): Long = store.addFoundation( entity.asInstanceOf[Foundation] )

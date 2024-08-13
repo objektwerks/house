@@ -361,7 +361,7 @@ object Validator:
       mailbox.note.isEmptyOrNonEmpty &&
       mailbox.installed.nonEmpty
 
-  extension  (license: License)
+  extension (license: License)
     def isLicense: Boolean = license.license.isLicense
 
   extension (register: Register)

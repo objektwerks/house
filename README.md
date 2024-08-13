@@ -1,6 +1,6 @@
 House
 -----
->House model and service using Jsoniter, ScalikeJdbc, Scaffeine, HikariCP, Helidon, Postgresql and Scala 3.
+>House http app using Jsoniter, ScalikeJdbc, Scaffeine, HikariCP, Helidon, Postgresql and Scala 3.
 
 Todo
 ----

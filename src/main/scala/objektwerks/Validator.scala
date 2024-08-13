@@ -384,7 +384,9 @@ object Validator:
       validate(addEntity.entity)
 
   extension (updateEntity: UpdateEntity)
-    def isValid: Boolean = updateEntity.license.isLicense
+    def isValid: Boolean =
+      updateEntity.license.isLicense &&
+      validate(updateEntity.entity)
 
   extension (fault: Fault)
     def isValid: Boolean =

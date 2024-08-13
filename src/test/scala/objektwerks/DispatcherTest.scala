@@ -236,6 +236,8 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     updateMailbox
     listMailboxes
 
+    fault
+
   def register: Unit =
     val register = Register(config.getString("email.sender"))
     dispatcher.dispatch(register) match
@@ -1239,3 +1241,8 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         list.length shouldBe 1
         list.head shouldBe testMailbox
       case fault => fail(s"Invalid mailbox listed event: $fault")
+
+  def fault: Unit =
+    val fault = Fault("test error message")
+    store.addFault(fault) shouldBe fault
+    store.listFaults().length shouldBe 1

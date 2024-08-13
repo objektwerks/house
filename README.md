@@ -23,7 +23,7 @@ Model
 -----
 * House 1 --> 1 Account
 * House 1 --> * Structure | Integral | External
-* Entity * <--> * Types
+* Entity * --> 1 Types
 
 Structure
 ---------

@@ -379,8 +379,9 @@ object Validator:
       listEntities.parentId > 0
 
   extension (addEntity: AddEntity)
-    def isValid: Boolean = addEntity.license.isLicense
-
+    def isValid: Boolean =
+      addEntity.license.isLicense &&
+      validate(addEntity.entity)
 
   extension (updateEntity: UpdateEntity)
     def isValid: Boolean = updateEntity.license.isLicense

@@ -8,8 +8,8 @@ import EntityType.*
 final class Handler(store: Store,
                     emailer: Emailer):
   val list = Map(
-    House -> listHouses, Issue -> listIssues, Drawing -> listDrawings, Foundation -> listFoundations, Frame -> listFrames, Attic -> listAttics,
-    Insulation -> listInsulations, Ductwork -> listDuctworks, Ventilation -> listVentilations, Roof -> listRoofs,
+    House -> listHouses, Issue -> listIssues, Drawing -> listDrawings, Foundation -> listFoundations, Frame -> listFrames,
+    Attic -> listAttics, Insulation -> listInsulations, Ductwork -> listDuctworks, Ventilation -> listVentilations, Roof -> listRoofs,
     Chimney -> listChimneys, Balcony -> listBalconys, Drywall -> listDrywalls, Room -> listRooms, Driveway -> listDriveways,
     Garage -> listGarages, Siding -> listSidings, Gutter -> listGutters, Soffit -> listSoffits, Window -> listWindows,
     Door -> listDoors, Plumbing -> listPlumbings, Electrical -> listElectricals, Fusebox -> listFuseboxes, Alarm -> listAlarms,
@@ -19,9 +19,9 @@ final class Handler(store: Store,
     Pool -> listPools, Dock -> listDocks, Gazebo -> listGazebos, Mailbox -> listMailboxes
   )
   val add = Map(
-    House -> addHouse, Drawing -> addDrawing, Foundation -> addFoundation, Frame -> addFrame, Attic -> addAttic, Insulation -> addInsulation,
-    Ductwork -> addDuctwork, Ventilation -> addVentilation, Roof -> addRoof, Chimney -> addChimney, Balcony -> addBalcony,
-    Drywall -> addDrywall, Room -> addRoom, Driveway -> addDriveway, Garage -> addGarage, Siding -> addSiding,
+    House -> addHouse, Issue -> addIssue, Drawing -> addDrawing, Foundation -> addFoundation, Frame -> addFrame, Attic -> addAttic,
+    Insulation -> addInsulation, Ductwork -> addDuctwork, Ventilation -> addVentilation, Roof -> addRoof, Chimney -> addChimney,
+    Balcony -> addBalcony, Drywall -> addDrywall, Room -> addRoom, Driveway -> addDriveway, Garage -> addGarage, Siding -> addSiding,
     Gutter -> addGutter, Soffit -> addSoffit, Window -> addWindow, Door -> addDoor, Plumbing -> addPlumbing,
     Electrical -> addElectrical, Fusebox -> addFusebox, Alarm -> addAlarm, Heater -> addHeater, AirConditioner -> addAirConditioner,
     Floor -> addFloor, Lighting -> addLighting, Sewage -> addSewage, Well -> addWell, Water -> addWater,

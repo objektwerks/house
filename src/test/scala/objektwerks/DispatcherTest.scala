@@ -324,9 +324,6 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     dispatcher.dispatch(list) match
       case EntitiesListed(list) =>
         list.length shouldBe 1
-        println(s"********* $testIssue")
-        println(s"********* ${list.head}")
-        println(s"********* ($testIssue == ${list.head})")
         list.head shouldBe testIssue
       case fault => fail(s"Invalid issues listed event: $fault")
 

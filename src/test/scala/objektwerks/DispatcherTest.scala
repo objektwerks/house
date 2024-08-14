@@ -73,13 +73,13 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     updateHouse
     listHouses
 
-    addIssue
-    updateIssue
-    listIssues
-
     addDrawing
     updateDrawing
     listDrawings
+
+    addIssue
+    updateIssue
+    listIssues
 
     addFoundation
     updateFoundation
@@ -281,29 +281,6 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         list.head shouldBe testHouse
       case fault => fail(s"Invalid houses listed event: $fault")
 
-  def addIssue: Unit =
-    val addEntity = AddEntity(testAccount.license, EntityType.Issue, testIssue)
-    dispatcher.dispatch(addEntity) match
-      case EntityAdded(id) =>
-        id > 0 shouldBe true
-        testIssue = testIssue.copy(id = id)
-      case fault => fail(s"Invalid issue added event: $fault")
-
-  def updateIssue: Unit =
-    testIssue = testIssue.copy(resolution = "issue resolved")
-    val updateEntity = UpdateEntity(testAccount.license, EntityType.Issue, testIssue)
-    dispatcher.dispatch(updateEntity) match
-      case EntityUpdated(count) => count shouldBe 1
-      case fault => fail(s"Invalid issue updated event: $fault")
-
-  def listIssues: Unit =
-    val list = ListEntities(testAccount.license, EntityType.Issue, testIssue.id)
-    dispatcher.dispatch(list) match
-      case EntitiesListed(list) =>
-        list.length shouldBe 1
-        list.head shouldBe testIssue
-      case fault => fail(s"Invalid issues listed event: $fault")
-
   def addDrawing: Unit =
     val addEntity = AddEntity(testAccount.license, EntityType.Drawing, testDrawing)
     dispatcher.dispatch(addEntity) match
@@ -326,6 +303,29 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
         list.length shouldBe 1
         list.head shouldBe testDrawing
       case fault => fail(s"Invalid drawings listed event: $fault")
+
+  def addIssue: Unit =
+    val addEntity = AddEntity(testAccount.license, EntityType.Issue, testIssue)
+    dispatcher.dispatch(addEntity) match
+      case EntityAdded(id) =>
+        id > 0 shouldBe true
+        testIssue = testIssue.copy(id = id)
+      case fault => fail(s"Invalid issue added event: $fault")
+
+  def updateIssue: Unit =
+    testIssue = testIssue.copy(resolution = "issue resolved")
+    val updateEntity = UpdateEntity(testAccount.license, EntityType.Issue, testIssue)
+    dispatcher.dispatch(updateEntity) match
+      case EntityUpdated(count) => count shouldBe 1
+      case fault => fail(s"Invalid issue updated event: $fault")
+
+  def listIssues: Unit =
+    val list = ListEntities(testAccount.license, EntityType.Issue, testIssue.id)
+    dispatcher.dispatch(list) match
+      case EntitiesListed(list) =>
+        list.length shouldBe 1
+        list.head shouldBe testIssue
+      case fault => fail(s"Invalid issues listed event: $fault")
 
   def addFoundation: Unit =
     val addEntity = AddEntity(testAccount.license, EntityType.Foundation, testFoundation)

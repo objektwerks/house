@@ -34,6 +34,15 @@ CREATE TABLE drawing (
   added VARCHAR NOT NULL
 );
 
+CREATE TABLE issue (
+  id BIGSERIAL PRIMARY KEY,
+  house_id BIGINT REFERENCES house(id),
+  report VARCHAR NOT NULL,
+  resolution VARCHAR NOT NULL,
+  reported VARCHAR NOT NULL,
+  resolved VARCHAR NOT NULL
+);
+
 CREATE TABLE foundation (
   id BIGSERIAL PRIMARY KEY,
   house_id BIGINT REFERENCES house(id),

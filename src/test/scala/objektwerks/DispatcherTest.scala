@@ -21,8 +21,8 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
 
   var testAccount = Account()
   var testHouse = House(accountId = 0, location = "100 Rocky Way", label = "label", note = "note")
-  var testIssue = Issue(houseId = 1, report = "cracked foundation")
   var testDrawing = Drawing(houseId = 1, url = "http://drawing/a", note = "drawing a")
+  var testIssue = Issue(houseId = 1, report = "cracked foundation")
   var testFoundation =  Foundation(houseId = 1)
   var testFrame = Frame(houseId = 1)
   var testAttic = Attic(houseId = 1)
@@ -324,6 +324,9 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     dispatcher.dispatch(list) match
       case EntitiesListed(list) =>
         list.length shouldBe 1
+        println(s"********* $testIssue")
+        println(s"********* ${list.head}")
+        println(s"********* ($testIssue == ${list.head})")
         list.head shouldBe testIssue
       case fault => fail(s"Invalid issues listed event: $fault")
 

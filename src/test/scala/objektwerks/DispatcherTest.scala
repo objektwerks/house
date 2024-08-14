@@ -313,7 +313,7 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
       case fault => fail(s"Invalid issue added event: $fault")
 
   def updateIssue: Unit =
-    testIssue = testIssue.copy(resolution = "issue resolved")
+    testIssue = testIssue.copy(resolution = "foundation repaired")
     val updateEntity = UpdateEntity(testAccount.license, EntityType.Issue, testIssue)
     dispatcher.dispatch(updateEntity) match
       case EntityUpdated(count) => count shouldBe 1

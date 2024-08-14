@@ -30,8 +30,8 @@ final class Handler(store: Store,
     Mailbox -> addMailbox
   )
   val update = Map(
-    House -> updateHouse, Drawing ->updateDrawing, Foundation -> updateFoundation, Frame -> updateFrame, Attic -> updateAttic,
-    Insulation -> updateInsulation, Ductwork -> updateDuctwork, Ventilation -> updateVentilation, Roof -> updateRoof,
+    House -> updateHouse, Issue -> updateIssue, Drawing ->updateDrawing, Foundation -> updateFoundation, Frame -> updateFrame,
+    Attic -> updateAttic, Insulation -> updateInsulation, Ductwork -> updateDuctwork, Ventilation -> updateVentilation, Roof -> updateRoof,
     Chimney -> updateChimney, Balcony -> updateBalcony, Drywall -> updateDrywall, Room -> updateRoom, Driveway -> updateDriveway,
     Garage -> updateGarage, Siding -> updateSiding, Gutter -> updateGutter, Soffit -> updateSoffit, Window -> updateWindow,
     Door -> updateDoor, Plumbing -> updatePlumbing, Electrical -> updateElectrical, Fusebox -> updateFusebox, Alarm -> updateAlarm,

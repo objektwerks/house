@@ -5,7 +5,6 @@ House
 Todo
 ----
 1. Enhance model.
-2. Track issues.
 
 Install
 -------

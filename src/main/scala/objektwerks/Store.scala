@@ -135,14 +135,13 @@ final class Store(cache: Cache[String, String],
         .updateAndReturnGeneratedKey()
     }
 
-  def updateIssue(issue: Issue): Long =
+  def updateIssue(issue: Issue): Int =
     DB localTx { implicit session =>
       sql"""
         update issue set report = ${issue.report}, resolution = ${issue.resolution}, reported = ${issue.reported},
         resolved = ${issue.resolved} where id = ${issue.id}
         """
         .update()
-      issue.id
     }
 
   def listDrawings(houseId: Long): List[Drawing] =

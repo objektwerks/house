@@ -29,7 +29,7 @@ final case class House(
     built: String = Entity.now
 ) extends Entity derives CanEqual
 
-// Structure
+// Meta
 
 final case class Drawing(
     id: Long = 0,
@@ -39,6 +39,8 @@ final case class Drawing(
     note: String = "",
     added: String = Entity.now
 ) extends Entity derives CanEqual
+
+// Structure
 
 final case class Foundation(
     id: Long = 0,

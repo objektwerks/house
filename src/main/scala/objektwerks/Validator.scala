@@ -32,6 +32,15 @@ object Validator:
       drawing.note.isEmptyOrNonEmpty &&
       drawing.added.nonEmpty
 
+  extension (issue: Issue)
+    def isValid: Boolean =
+      issue.id >= 0 &&
+      issue.houseId > 0 &&
+      issue.report.nonEmpty &&
+      issue.resolution.isEmptyOrNonEmpty &&
+      issue.reported.nonEmpty &&
+      issue.resolved.nonEmpty
+
   extension (foundation: Foundation)
     def isValid: Boolean =
       foundation.id >= 0 &&

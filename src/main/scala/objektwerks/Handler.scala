@@ -112,6 +112,8 @@ final class Handler(store: Store,
 
   def updateHouse(entity: Entity): Int = store.updateHouse( entity.asInstanceOf[House] )
 
+  def listIssues(houseId: Long): List[Issue] = store.listIssues(houseId)
+
   def listDrawings(houseId: Long): List[Drawing] = store.listDrawings(houseId)
 
   def addDrawing(entity: Entity): Long = store.addDrawing( entity.asInstanceOf[Drawing] )

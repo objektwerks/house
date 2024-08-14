@@ -26,12 +26,16 @@ Run
 Model
 -----
 * House 1 --> 1 Account
-* House 1 --> * Structure | Integral | External
+* House 1 --> * Meta | Structure | Integral | External
 * Entity * --> 1 Type
+
+Meta
+----
+>Drawing, Issue
 
 Structure
 ---------
->Drawing, Foundation, Frame, Attic, Insulation, Ductwork, Ventilation, Roof, Chimney, Balcony, Drywall, Room, Driveway, Garage
+>Foundation, Frame, Attic, Insulation, Ductwork, Ventilation, Roof, Chimney, Balcony, Drywall, Room, Driveway, Garage
 
 Integral
 --------

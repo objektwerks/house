@@ -426,6 +426,7 @@ object Validator:
       case account: Account => account.isValid
       case house: House => house.isValid
       case drawing: Drawing => drawing.isValid
+      case issue: Issue => issue.isValid
       case foundation: Foundation => foundation.isValid
       case frame: Frame => frame.isValid
       case attic: Attic => attic.isValid

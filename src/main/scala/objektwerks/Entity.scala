@@ -40,6 +40,13 @@ final case class Drawing(
     added: String = Entity.now
 ) extends Entity derives CanEqual
 
+final case class Issue(id: Long = 0,
+                       propertyId: Long,
+                       report: String = "",
+                       resolution: String = "",
+                       reported: String = Entity.now,
+                       resolved: String = Entity.now) extends Entity derives CanEqual
+
 // Structure
 
 final case class Foundation(

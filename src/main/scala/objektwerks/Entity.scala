@@ -41,7 +41,7 @@ final case class Drawing(
 ) extends Entity derives CanEqual
 
 final case class Issue(id: Long = 0,
-                       propertyId: Long,
+                       houseId: Long,
                        report: String = "",
                        resolution: String = "",
                        reported: String = Entity.now,

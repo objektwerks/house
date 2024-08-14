@@ -110,40 +110,6 @@ final class Store(cache: Cache[String, String],
         .update()
     }
 
-  def listIssues(houseId: Long): List[Issue] =
-    DB readOnly { implicit session =>
-      sql"select * from issue where house_id = $houseId order by reported desc"
-        .map(rs =>
-          Issue(
-            rs.long("id"),
-            rs.long("house_id"),
-            rs.string("report"),
-            rs.string("resolved"),
-            rs.string("reported"),
-            rs.string("resolved")
-          )
-        )
-        .list()
-    }
-
-  def addIssue(issue: Issue): Long =
-    DB localTx { implicit session =>
-      sql"""
-        insert into issue(house_id, report, resolution, reported, resolved)
-        values(${issue.houseId}, ${issue.report}, ${issue.resolution}, ${issue.reported}, ${issue.resolved})
-        """
-        .updateAndReturnGeneratedKey()
-    }
-
-  def updateIssue(issue: Issue): Int =
-    DB localTx { implicit session =>
-      sql"""
-        update issue set report = ${issue.report}, resolution = ${issue.resolution}, reported = ${issue.reported},
-        resolved = ${issue.resolved} where id = ${issue.id}
-        """
-        .update()
-    }
-
   def listDrawings(houseId: Long): List[Drawing] =
     DB readOnly { implicit session =>
       sql"select * from drawing where house_id = $houseId order by added desc"
@@ -174,6 +140,40 @@ final class Store(cache: Cache[String, String],
       sql"""
         update drawing set typeof = ${drawing.typeof.toString}, url = ${drawing.url}, note = ${drawing.note},
         added = ${drawing.added} where id = ${drawing.id}
+        """
+        .update()
+    }
+
+  def listIssues(houseId: Long): List[Issue] =
+    DB readOnly { implicit session =>
+      sql"select * from issue where house_id = $houseId order by reported desc"
+        .map(rs =>
+          Issue(
+            rs.long("id"),
+            rs.long("house_id"),
+            rs.string("report"),
+            rs.string("resolved"),
+            rs.string("reported"),
+            rs.string("resolved")
+          )
+        )
+        .list()
+    }
+
+  def addIssue(issue: Issue): Long =
+    DB localTx { implicit session =>
+      sql"""
+        insert into issue(house_id, report, resolution, reported, resolved)
+        values(${issue.houseId}, ${issue.report}, ${issue.resolution}, ${issue.reported}, ${issue.resolved})
+        """
+        .updateAndReturnGeneratedKey()
+    }
+
+  def updateIssue(issue: Issue): Int =
+    DB localTx { implicit session =>
+      sql"""
+        update issue set report = ${issue.report}, resolution = ${issue.resolution}, reported = ${issue.reported},
+        resolved = ${issue.resolved} where id = ${issue.id}
         """
         .update()
     }

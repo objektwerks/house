@@ -11,6 +11,21 @@ object Entity:
   def localDate(now: String): LocalDate =
     if now.nonEmpty then LocalDate.parse(now) else LocalDate.now
 
+sealed trait Common:
+  val id: Long
+  val houseId: Long
+  val label: String
+  val note: String
+
+sealed trait Built extends Common:
+  val built: String
+
+sealed trait Installed extends Common:
+  val installed: String
+
+sealed trait Planted extends Common:
+  val planted: String
+
 final case class Account(
     id: Long = 0,
     license: String = UUID.randomUUID.toString,
@@ -56,7 +71,7 @@ final case class Foundation(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity derives CanEqual
+) extends Built, Entity derives CanEqual
 
 final case class Frame(
     id: Long = 0,
@@ -65,7 +80,7 @@ final case class Frame(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity derives CanEqual
+) extends Built, Entity derives CanEqual
 
 final case class Attic(
     id: Long = 0,
@@ -74,7 +89,7 @@ final case class Attic(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity derives CanEqual
+) extends Built, Entity derives CanEqual
 
 final case class Insulation(
     id: Long = 0,
@@ -83,7 +98,7 @@ final case class Insulation(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class Ductwork(
     id: Long = 0,
@@ -92,7 +107,7 @@ final case class Ductwork(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class Ventilation(
     id: Long = 0,
@@ -101,7 +116,7 @@ final case class Ventilation(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class Roof(
     id: Long = 0,
@@ -110,7 +125,7 @@ final case class Roof(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity derives CanEqual
+) extends Built, Entity derives CanEqual
 
 final case class Chimney(
     id: Long = 0,
@@ -119,7 +134,7 @@ final case class Chimney(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity derives CanEqual
+) extends Built, Entity derives CanEqual
 
 final case class Balcony(
     id: Long = 0,
@@ -128,7 +143,7 @@ final case class Balcony(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity derives CanEqual
+) extends Built, Entity derives CanEqual
 
 final case class Drywall(
     id: Long = 0,
@@ -137,7 +152,7 @@ final case class Drywall(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity derives CanEqual
+) extends Built, Entity derives CanEqual
 
 final case class Room(
     id: Long = 0,
@@ -146,7 +161,7 @@ final case class Room(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity derives CanEqual
+) extends Built, Entity derives CanEqual
 
 final case class Driveway(
     id: Long = 0,
@@ -156,7 +171,7 @@ final case class Driveway(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity derives CanEqual
+) extends Built, Entity derives CanEqual
 
 final case class Garage(
     id: Long = 0,
@@ -165,7 +180,7 @@ final case class Garage(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity derives CanEqual
+) extends Built, Entity derives CanEqual
 
 // Integral
 
@@ -176,7 +191,7 @@ final case class Siding(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class Gutter(
     id: Long = 0,
@@ -185,7 +200,7 @@ final case class Gutter(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class Soffit(
     id: Long = 0,
@@ -194,7 +209,7 @@ final case class Soffit(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class Window(
     id: Long = 0,
@@ -203,7 +218,7 @@ final case class Window(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class Door(
     id: Long = 0,
@@ -212,7 +227,7 @@ final case class Door(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class Plumbing(
     id: Long = 0,
@@ -221,7 +236,7 @@ final case class Plumbing(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class Electrical(
     id: Long = 0,
@@ -230,7 +245,7 @@ final case class Electrical(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class Fusebox(
     id: Long = 0,
@@ -239,7 +254,7 @@ final case class Fusebox(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class Alarm(
     id: Long = 0,
@@ -248,7 +263,7 @@ final case class Alarm(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class Heater(
     id: Long = 0,
@@ -257,7 +272,7 @@ final case class Heater(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class AirConditioner(
     id: Long = 0,
@@ -266,7 +281,7 @@ final case class AirConditioner(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class Floor(
     id: Long = 0,
@@ -275,7 +290,7 @@ final case class Floor(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class Lighting(
     id: Long = 0,
@@ -284,7 +299,7 @@ final case class Lighting(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 // External
 
@@ -295,7 +310,7 @@ final case class Sewage(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity derives CanEqual
+) extends Built, Entity derives CanEqual
 
 final case class Well(
     id: Long = 0,
@@ -304,7 +319,7 @@ final case class Well(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity derives CanEqual
+) extends Built, Entity derives CanEqual
 
 final case class Water(
     id: Long = 0,
@@ -313,7 +328,7 @@ final case class Water(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class WaterHeater(
     id: Long = 0,
@@ -322,7 +337,7 @@ final case class WaterHeater(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class Lawn(
     id: Long = 0,
@@ -331,7 +346,7 @@ final case class Lawn(
     label: String = "",
     note: String = "",
     planted: String = Entity.now
-) extends Entity derives CanEqual
+) extends Planted, Entity derives CanEqual
 
 final case class Garden(
     id: Long = 0,
@@ -340,7 +355,7 @@ final case class Garden(
     label: String = "",
     note: String = "",
     planted: String = Entity.now
-) extends Entity derives CanEqual
+) extends Planted, Entity derives CanEqual
 
 final case class Sprinkler(
     id: Long = 0,
@@ -349,7 +364,7 @@ final case class Sprinkler(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class Shed(
     id: Long = 0,
@@ -358,7 +373,7 @@ final case class Shed(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity derives CanEqual
+) extends Built, Entity derives CanEqual
 
 final case class SolarPanel(
     id: Long = 0,
@@ -367,7 +382,7 @@ final case class SolarPanel(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual
 
 final case class Porch(
     id: Long = 0,
@@ -376,7 +391,7 @@ final case class Porch(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity derives CanEqual
+) extends Built, Entity derives CanEqual
 
 final case class Patio(
     id: Long = 0,
@@ -385,7 +400,7 @@ final case class Patio(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity derives CanEqual
+) extends Built, Entity derives CanEqual
 
 final case class Pool(
     id: Long = 0,
@@ -396,7 +411,7 @@ final case class Pool(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity derives CanEqual
+) extends Built, Entity derives CanEqual
 
 final case class Dock(
     id: Long = 0,
@@ -405,7 +420,7 @@ final case class Dock(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity derives CanEqual
+) extends Built, Entity derives CanEqual
 
 final case class Gazebo(
     id: Long = 0,
@@ -414,7 +429,7 @@ final case class Gazebo(
     label: String = "",
     note: String = "",
     built: String = Entity.now
-) extends Entity derives CanEqual
+) extends Built, Entity derives CanEqual
 
 final case class Mailbox(
     id: Long = 0,
@@ -423,4 +438,4 @@ final case class Mailbox(
     label: String = "",
     note: String = "",
     installed: String = Entity.now
-) extends Entity derives CanEqual
+) extends Installed, Entity derives CanEqual

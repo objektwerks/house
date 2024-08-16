@@ -7,6 +7,28 @@ object Validator:
     def isPin: Boolean = value.length == 7
     def isEmail: Boolean = value.nonEmpty && value.length >= 3 && value.contains("@")
 
+  extension (common: Common)
+    def isCommon: Boolean =
+      common.id >= 0
+      common.houseId > 0 &&
+      common.label.isEmptyOrNonEmpty &&
+      common.note.isEmptyOrNonEmpty
+
+  extension (built: Built)
+    def isBuilt: Boolean =
+      built.isCommon &&
+      built.built.nonEmpty
+
+  extension (installed: Installed)
+    def isInstalled: Boolean =
+      installed.isCommon &&
+      installed.installed.nonEmpty
+
+  extension (planted: Planted)
+    def isPlanted: Boolean =
+      planted.isCommon &&
+      planted.planted.nonEmpty
+
   extension (account: Account)
     def isValid: Boolean =
       account.id >= 0 &&
@@ -42,340 +64,133 @@ object Validator:
       issue.resolved.nonEmpty
 
   extension (foundation: Foundation)
-    def isValid: Boolean =
-      foundation.id >= 0 &&
-      foundation.houseId > 0 &&
-      foundation.label.isEmptyOrNonEmpty &&
-      foundation.note.isEmptyOrNonEmpty &&
-      foundation.built.nonEmpty
+    def isValid: Boolean = foundation.isBuilt
 
   extension (frame: Frame)
-    def isValid: Boolean =
-      frame.id >= 0 &&
-      frame.houseId > 0 &&
-      frame.label.isEmptyOrNonEmpty &&
-      frame.note.isEmptyOrNonEmpty &&
-      frame.built.nonEmpty
+    def isValid: Boolean = frame.isBuilt
 
   extension (attic: Attic)
-    def isValid: Boolean =
-      attic.id >= 0 &&
-      attic.houseId > 0 &&
-      attic.label.isEmptyOrNonEmpty &&
-      attic.note.isEmptyOrNonEmpty &&
-      attic.built.nonEmpty
+    def isValid: Boolean = attic.isBuilt
 
   extension (insulation: Insulation)
-    def isValid: Boolean =
-      insulation.id >= 0 &&
-      insulation.houseId > 0 &&
-      insulation.label.isEmptyOrNonEmpty &&
-      insulation.note.isEmptyOrNonEmpty &&
-      insulation.installed.nonEmpty
+    def isValid: Boolean = insulation.isInstalled
 
   extension (ductwork: Ductwork)
-    def isValid: Boolean =
-      ductwork.id >= 0 &&
-      ductwork.houseId > 0 &&
-      ductwork.label.isEmptyOrNonEmpty &&
-      ductwork.note.isEmptyOrNonEmpty &&
-      ductwork.installed.nonEmpty
+    def isValid: Boolean = ductwork.isInstalled
 
   extension (ventilation: Ventilation)
-    def isValid: Boolean =
-      ventilation.id >= 0 &&
-      ventilation.houseId > 0 &&
-      ventilation.label.isEmptyOrNonEmpty &&
-      ventilation.note.isEmptyOrNonEmpty &&
-      ventilation.installed.nonEmpty
+    def isValid: Boolean = ventilation.isInstalled
 
   extension (roof: Roof)
-    def isValid: Boolean =
-      roof.id >= 0 &&
-      roof.houseId > 0 &&
-      roof.label.isEmptyOrNonEmpty &&
-      roof.note.isEmptyOrNonEmpty &&
-      roof.built.nonEmpty
+    def isValid: Boolean = roof.isBuilt
 
   extension (chimney: Chimney)
-    def isValid: Boolean =
-      chimney.id >= 0 &&
-      chimney.houseId > 0 &&
-      chimney.label.isEmptyOrNonEmpty &&
-      chimney.note.isEmptyOrNonEmpty &&
-      chimney.built.nonEmpty
+    def isValid: Boolean = chimney.isBuilt
 
   extension (balcony: Balcony)
-    def isValid: Boolean =
-      balcony.id >= 0 &&
-      balcony.houseId > 0 &&
-      balcony.label.isEmptyOrNonEmpty &&
-      balcony.note.isEmptyOrNonEmpty &&
-      balcony.built.nonEmpty
+    def isValid: Boolean = balcony.isBuilt
 
   extension (drywall: Drywall)
-    def isValid: Boolean =
-      drywall.id >= 0 &&
-      drywall.houseId > 0 &&
-      drywall.label.isEmptyOrNonEmpty &&
-      drywall.note.isEmptyOrNonEmpty &&
-      drywall.built.nonEmpty
+    def isValid: Boolean = drywall.isBuilt
 
   extension (room: Room)
-    def isValid: Boolean =
-      room.id >= 0 &&
-      room.houseId > 0 &&
-      room.label.isEmptyOrNonEmpty &&
-      room.note.isEmptyOrNonEmpty &&
-      room.built.nonEmpty
+    def isValid: Boolean = room.isBuilt
 
   extension (driveway: Driveway)
-    def isValid: Boolean =
-      driveway.id >= 0 &&
-      driveway.houseId > 0 &&
-      driveway.label.isEmptyOrNonEmpty &&
-      driveway.note.isEmptyOrNonEmpty &&
-      driveway.built.nonEmpty
+    def isValid: Boolean = driveway.isBuilt
 
   extension (garage: Garage)
-    def isValid: Boolean =
-      garage.id >= 0 &&
-      garage.houseId > 0 &&
-      garage.label.isEmptyOrNonEmpty &&
-      garage.note.isEmptyOrNonEmpty &&
-      garage.built.nonEmpty
+    def isValid: Boolean = garage.isBuilt
 
   extension (siding: Siding)
-    def isValid: Boolean =
-      siding.id >= 0 &&
-      siding.houseId > 0 &&
-      siding.label.isEmptyOrNonEmpty &&
-      siding.note.isEmptyOrNonEmpty &&
-      siding.installed.nonEmpty
+    def isValid: Boolean = siding.isInstalled
 
   extension (gutter: Gutter)
-    def isValid: Boolean =
-      gutter.id >= 0 &&
-      gutter.houseId > 0 &&
-      gutter.label.isEmptyOrNonEmpty &&
-      gutter.note.isEmptyOrNonEmpty &&
-      gutter.installed.nonEmpty
+    def isValid: Boolean = gutter.isInstalled
 
   extension (soffit: Soffit)
-    def isValid: Boolean =
-      soffit.id >= 0 &&
-      soffit.houseId > 0 &&
-      soffit.label.isEmptyOrNonEmpty &&
-      soffit.note.isEmptyOrNonEmpty &&
-      soffit.installed.nonEmpty
+    def isValid: Boolean = soffit.isInstalled
 
   extension (window: Window)
-    def isValid: Boolean =
-      window.id >= 0 &&
-      window.houseId > 0 &&
-      window.label.isEmptyOrNonEmpty &&
-      window.note.isEmptyOrNonEmpty &&
-      window.installed.nonEmpty
+    def isValid: Boolean = window.isInstalled
 
   extension (door: Door)
-    def isValid: Boolean =
-      door.id >= 0 &&
-      door.houseId > 0 &&
-      door.label.isEmptyOrNonEmpty &&
-      door.note.isEmptyOrNonEmpty &&
-      door.installed.nonEmpty
+    def isValid: Boolean = door.isInstalled
 
   extension (plumbing: Plumbing)
-    def isValid: Boolean =
-      plumbing.id >= 0 &&
-      plumbing.houseId > 0 &&
-      plumbing.label.isEmptyOrNonEmpty &&
-      plumbing.note.isEmptyOrNonEmpty &&
-      plumbing.installed.nonEmpty
+    def isValid: Boolean = plumbing.isInstalled
 
   extension (electrical: Electrical)
-    def isValid: Boolean =
-      electrical.id >= 0 &&
-      electrical.houseId > 0 &&
-      electrical.label.isEmptyOrNonEmpty &&
-      electrical.note.isEmptyOrNonEmpty &&
-      electrical.installed.nonEmpty
+    def isValid: Boolean = electrical.isInstalled
 
   extension (fusebox: Fusebox)
-    def isValid: Boolean =
-      fusebox.id >= 0 &&
-      fusebox.houseId > 0 &&
-      fusebox.label.isEmptyOrNonEmpty &&
-      fusebox.note.isEmptyOrNonEmpty &&
-      fusebox.installed.nonEmpty
+    def isValid: Boolean = fusebox.isInstalled
 
   extension (alarm: Alarm)
-    def isValid: Boolean =
-      alarm.id >= 0 &&
-      alarm.houseId > 0 &&
-      alarm.label.isEmptyOrNonEmpty &&
-      alarm.note.isEmptyOrNonEmpty &&
-      alarm.installed.nonEmpty
+    def isValid: Boolean = alarm.isInstalled
 
   extension (heater: Heater)
-    def isValid: Boolean =
-      heater.id >= 0 &&
-      heater.houseId > 0 &&
-      heater.label.isEmptyOrNonEmpty &&
-      heater.note.isEmptyOrNonEmpty &&
-      heater.installed.nonEmpty
+    def isValid: Boolean = heater.isInstalled
 
   extension (ac: AirConditioner)
-    def isValid: Boolean =
-      ac.id >= 0 &&
-      ac.houseId > 0 &&
-      ac.label.isEmptyOrNonEmpty &&
-      ac.note.isEmptyOrNonEmpty &&
-      ac.installed.nonEmpty
+    def isValid: Boolean = ac.isInstalled
 
   extension (floor: Floor)
-    def isValid: Boolean =
-      floor.id >= 0 &&
-      floor.houseId > 0 &&
-      floor.label.isEmptyOrNonEmpty &&
-      floor.note.isEmptyOrNonEmpty &&
-      floor.installed.nonEmpty
+    def isValid: Boolean = floor.isInstalled
 
   extension (lighting: Lighting)
-    def isValid: Boolean =
-      lighting.id >= 0 &&
-      lighting.houseId > 0 &&
-      lighting.label.isEmptyOrNonEmpty &&
-      lighting.note.isEmptyOrNonEmpty &&
-      lighting.installed.nonEmpty
+    def isValid: Boolean = lighting.isInstalled
 
   extension (sewage: Sewage)
-    def isValid: Boolean =
-      sewage.id >= 0 &&
-      sewage.houseId > 0 &&
-      sewage.label.isEmptyOrNonEmpty &&
-      sewage.note.isEmptyOrNonEmpty &&
-      sewage.built.nonEmpty
+    def isValid: Boolean = sewage.isBuilt
 
   extension (well: Well)
-    def isValid: Boolean =
-      well.id >= 0 &&
-      well.houseId > 0 &&
-      well.label.isEmptyOrNonEmpty &&
-      well.note.isEmptyOrNonEmpty &&
-      well.built.nonEmpty
+    def isValid: Boolean = well.isBuilt
 
   extension (water: Water)
-    def isValid: Boolean =
-      water.id >= 0 &&
-      water.houseId > 0 &&
-      water.label.isEmptyOrNonEmpty &&
-      water.note.isEmptyOrNonEmpty &&
-      water.installed.nonEmpty
+    def isValid: Boolean = water.isInstalled
 
   extension (waterHeater: WaterHeater)
-    def isValid: Boolean =
-      waterHeater.id >= 0 &&
-      waterHeater.houseId > 0 &&
-      waterHeater.label.isEmptyOrNonEmpty &&
-      waterHeater.note.isEmptyOrNonEmpty &&
-      waterHeater.installed.nonEmpty
+    def isValid: Boolean = waterHeater.isInstalled
 
   extension (lawn: Lawn)
-    def isValid: Boolean =
-      lawn.id >= 0 &&
-      lawn.houseId > 0 &&
-      lawn.label.isEmptyOrNonEmpty &&
-      lawn.note.isEmptyOrNonEmpty &&
-      lawn.planted.nonEmpty
+    def isValid: Boolean = lawn.isPlanted
 
   extension (garden: Garden)
-    def isValid: Boolean =
-      garden.id >= 0 &&
-      garden.houseId > 0 &&
-      garden.label.isEmptyOrNonEmpty &&
-      garden.note.isEmptyOrNonEmpty &&
-      garden.planted.nonEmpty
+    def isValid: Boolean = garden.isPlanted
 
   extension (sprinkler: Sprinkler)
-    def isValid: Boolean =
-      sprinkler.id >= 0 &&
-      sprinkler.houseId > 0 &&
-      sprinkler.label.isEmptyOrNonEmpty &&
-      sprinkler.note.isEmptyOrNonEmpty &&
-      sprinkler.installed.nonEmpty
+    def isValid: Boolean = sprinkler.isInstalled
 
   extension (shed: Shed)
-    def isValid: Boolean =
-      shed.id >= 0 &&
-      shed.houseId > 0 &&
-      shed.label.isEmptyOrNonEmpty &&
-      shed.note.isEmptyOrNonEmpty &&
-      shed.built.nonEmpty
+    def isValid: Boolean = shed.isBuilt
 
   extension (solarPanel: SolarPanel)
-    def isValid: Boolean =
-      solarPanel.id >= 0 &&
-      solarPanel.houseId > 0 &&
-      solarPanel.label.isEmptyOrNonEmpty &&
-      solarPanel.note.isEmptyOrNonEmpty &&
-      solarPanel.installed.nonEmpty
+    def isValid: Boolean = solarPanel.isInstalled
 
   extension (porch: Porch)
-    def isValid: Boolean =
-      porch.id >= 0 &&
-      porch.houseId > 0 &&
-      porch.label.isEmptyOrNonEmpty &&
-      porch.note.isEmptyOrNonEmpty &&
-      porch.built.nonEmpty
+    def isValid: Boolean = porch.isBuilt
 
   extension (patio: Patio)
-    def isValid: Boolean =
-      patio.id >= 0 &&
-      patio.houseId > 0 &&
-      patio.label.isEmptyOrNonEmpty &&
-      patio.note.isEmptyOrNonEmpty &&
-      patio.built.nonEmpty
+    def isValid: Boolean = patio.isBuilt
 
   extension (pool: Pool)
-    def isValid: Boolean =
-      pool.id >= 0 &&
-      pool.houseId > 0 &&
-      pool.gallons >= 1000 &&
-      pool.label.isEmptyOrNonEmpty &&
-      pool.note.isEmptyOrNonEmpty &&
-      pool.built.nonEmpty
+    def isValid: Boolean = pool.isBuilt
 
   extension (dock: Dock)
-    def isValid: Boolean =
-      dock.id >= 0 &&
-      dock.houseId > 0 &&
-      dock.label.isEmptyOrNonEmpty &&
-      dock.note.isEmptyOrNonEmpty &&
-      dock.built.nonEmpty
+    def isValid: Boolean = dock.isBuilt
 
   extension (gazebo: Gazebo)
-    def isValid: Boolean =
-      gazebo.id >= 0 &&
-      gazebo.houseId > 0 &&
-      gazebo.label.isEmptyOrNonEmpty &&
-      gazebo.note.isEmptyOrNonEmpty &&
-      gazebo.built.nonEmpty
+    def isValid: Boolean = gazebo.isBuilt
 
   extension (mailbox: Mailbox)
-    def isValid: Boolean =
-      mailbox.id >= 0 &&
-      mailbox.houseId > 0 &&
-      mailbox.label.isEmptyOrNonEmpty &&
-      mailbox.note.isEmptyOrNonEmpty &&
-      mailbox.installed.nonEmpty
+    def isValid: Boolean = mailbox.isInstalled
 
   extension (license: License)
     def isLicense: Boolean = license.license.isLicense
 
   extension (register: Register)
-    def isValid: Boolean =
-      register.email.isEmail
+    def isValid: Boolean = register.email.isEmail
 
   extension (login: Login)
     def isValid: Boolean =

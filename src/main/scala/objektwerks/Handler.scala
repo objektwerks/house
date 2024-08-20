@@ -118,7 +118,7 @@ final class Handler(store: Store,
       EntityUpdated(
         IO.unsafe:
           supervised:
-            function(entity)
+            retry( RetryConfig.immediate(2) )( function(entity) )
       )
     .recover:
       case NonFatal(error) => addFault( Fault(s"Update entity [$typeof] failed: ${error.getMessage} for: $entity") )

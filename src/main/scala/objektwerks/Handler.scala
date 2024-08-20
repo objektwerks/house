@@ -82,14 +82,15 @@ final class Handler(store: Store,
 
   def login(email: String,
             pin: String): Event =
-    Try {
-      store.login(email, pin)
-    }.fold(
+    Try:
+      IO.unsafe:
+        supervised:
+          store.login(email, pin)
+    .fold(
       error => addFault( Fault(s"Login failed: ${error.getMessage}") ),
       optionalAccount =>
         if optionalAccount.isDefined then LoggedIn( optionalAccount.get )
-        else addFault( Fault(s"Login failed for email address: $email and pin: $pin") )
-    )
+        else addFault( Fault(s"Login failed for email address: $email and pin: $pin") ) )
 
   def listFaults(): Event = FaultsListed( store.listFaults() )
 

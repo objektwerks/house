@@ -103,7 +103,11 @@ final class Handler(store: Store,
   def addEntity(typeof: EntityType, entity: Entity): Event =
     Try:
       val function = add(typeof)
-      EntityAdded( function(entity) )
+      EntityAdded(
+        IO.unsafe:
+          supervised:
+            function(entity)
+      )
     .recover:
       case NonFatal(error) => addFault( Fault(s"Add entity [$typeof] failed: ${error.getMessage} for: $entity") )
     .get

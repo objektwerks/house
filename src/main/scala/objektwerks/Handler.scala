@@ -1,5 +1,7 @@
 package objektwerks
 
+import ox.{IO, supervised}
+
 import scala.util.Try
 import scala.util.control.NonFatal
 
@@ -54,7 +56,9 @@ final class Handler(store: Store,
   def send(email: String,
            message: String): Unit =
     val recipients = List(email)
-    emailer.send(recipients, message)
+    IO.unsafe:
+      supervised:
+        emailer.send(recipients, message)
 
   def register(email: String): Event =
     Try {

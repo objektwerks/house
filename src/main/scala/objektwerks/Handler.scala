@@ -61,11 +61,11 @@ final class Handler(store: Store,
         .get
       case Register(_) | Login(_, _) => Authorized
 
-  def send(email: String,
-           message: String): Boolean =
+  def sendEmail(email: String,
+                message: String): Unit =
     val recipients = List(email)
     println(s"*** Is thread virtual [send email]: ${Thread.currentThread().isVirtual()}")
-    retryEither( RetryConfig.immediate(2) )( Right( emailer.send(recipients, message) ) ).isRight
+    retry( RetryConfig.immediate(2) )( emailer.send(recipients, message) )
 
   def register(email: String): Event =
     Try:
@@ -74,10 +74,9 @@ final class Handler(store: Store,
         supervised:
           val account = Account(email = email)
           val message = s"Your new pin is: ${account.pin}\n\nWelcome aboard!"
-          if send(account.email, message) then
-            val id = store.register(account)
-            Registered( account.copy(id = id) )
-          else throw Exception("email send failed!")
+          sendEmail(account.email, message)
+          val id = store.register(account)
+          Registered( account.copy(id = id) )
     .recover:
       case NonFatal(error) => addFault( Fault(s"Registration failed for: $email, because: ${error.getMessage}") )
     .get

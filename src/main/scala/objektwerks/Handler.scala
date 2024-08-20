@@ -48,6 +48,7 @@ final class Handler(store: Store,
     command match
       case license: License =>
         Try:
+          println(s"*** Is thread virtual [is authorised]: ${Thread.currentThread().isVirtual()}")
           IO.unsafe:
             supervised:
               retry( RetryConfig.immediate(2) )(
@@ -63,13 +64,12 @@ final class Handler(store: Store,
   def send(email: String,
            message: String): Boolean =
     val recipients = List(email)
-    println(s"*** Is thread virtual: ${Thread.currentThread().isVirtual()}")
-    IO.unsafe:
-      supervised:
-        retryEither( RetryConfig.immediate(2) )( Right( emailer.send(recipients, message) ) ).isRight
+    println(s"*** Is thread virtual [send email]: ${Thread.currentThread().isVirtual()}")
+    retryEither( RetryConfig.immediate(2) )( Right( emailer.send(recipients, message) ) ).isRight
 
   def register(email: String): Event =
     Try:
+      println(s"*** Is thread virtual [login]: ${Thread.currentThread().isVirtual()}")
       IO.unsafe:
         supervised:
           val account = Account(email = email)
@@ -85,6 +85,7 @@ final class Handler(store: Store,
   def login(email: String,
             pin: String): Event =
     Try:
+      println(s"*** Is thread virtual [login]: ${Thread.currentThread().isVirtual()}")
       IO.unsafe:
         supervised:
           store.login(email, pin)
@@ -95,6 +96,7 @@ final class Handler(store: Store,
         else addFault( Fault(s"Login failed for email address: $email and pin: $pin") ) )
 
   def listFaults(): Event =
+    println(s"*** Is thread virtual [list faults]: ${Thread.currentThread().isVirtual()}")
     FaultsListed(
       IO.unsafe:
         supervised:
@@ -102,6 +104,7 @@ final class Handler(store: Store,
     )
 
   def addFault(fault: Fault): Event =
+    println(s"*** Is thread virtual [add fault]: ${Thread.currentThread().isVirtual()}")
     FaultAdded(
       IO.unsafe:
         supervised:

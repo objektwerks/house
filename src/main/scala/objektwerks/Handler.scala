@@ -99,7 +99,12 @@ final class Handler(store: Store,
           store.listFaults()
     )
 
-  def addFault(fault: Fault): Event = FaultAdded( store.addFault(fault) )
+  def addFault(fault: Fault): Event =
+    FaultAdded(
+      IO.unsafe:
+        supervised:
+          store.addFault(fault)
+    )
 
   def listEntities(typeof: EntityType, parentId: Long): Event =
     Try:

@@ -58,6 +58,7 @@ final class Handler(store: Store,
   def send(email: String,
            message: String): Boolean =
     val recipients = List(email)
+    println(s"*** Is thread virtual: ${Thread.currentThread().isVirtual()}")
     IO.unsafe:
       supervised:
         retryEither( RetryConfig.immediate(2) )( Right( emailer.send(recipients, message) ) ).isRight
@@ -92,6 +93,7 @@ final class Handler(store: Store,
   def listEntities(typeof: EntityType, parentId: Long): Event =
     Try:
       val function = list(typeof)
+      println(s"*** Is thread virtual [list entities]: ${Thread.currentThread().isVirtual()}")
       EntitiesListed(
         IO.unsafe:
           supervised:
@@ -104,6 +106,7 @@ final class Handler(store: Store,
   def addEntity(typeof: EntityType, entity: Entity): Event =
     Try:
       val function = add(typeof)
+      println(s"*** Is thread virtual [add entity]: ${Thread.currentThread().isVirtual()}")
       EntityAdded(
         IO.unsafe:
           supervised:
@@ -116,6 +119,7 @@ final class Handler(store: Store,
   def updateEntity(typeof: EntityType, entity: Entity): Event =
     Try:
       val function = update(typeof)
+      println(s"*** Is thread virtual [update entity]: ${Thread.currentThread().isVirtual()}")
       EntityUpdated(
         IO.unsafe:
           supervised:

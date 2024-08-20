@@ -94,7 +94,7 @@ final class Handler(store: Store,
       EntitiesListed(
         IO.unsafe:
           supervised:
-            function(parentId)
+            retry( RetryConfig.immediate(2) )( function(parentId) )
       )
     .recover:
       case NonFatal(error) => addFault( Fault(s"List entities [$typeof]{$parentId} failed: ${error.getMessage}") )

@@ -1,6 +1,7 @@
 package objektwerks
 
 import ox.{IO, supervised}
+import ox.resilience.*
 
 import scala.util.Try
 import scala.util.control.NonFatal
@@ -54,22 +55,23 @@ final class Handler(store: Store,
       case Register(_) | Login(_, _) => Authorized
 
   def send(email: String,
-           message: String): Unit =
+           message: String): Boolean =
     val recipients = List(email)
     IO.unsafe:
       supervised:
-        emailer.send(recipients, message)
+        retryEither( RetryConfig.immediate(2) )( Right( emailer.send(recipients, message) ) ).isRight
 
   def register(email: String): Event =
-    Try {
+    Try:
       val account = Account(email = email)
       val message = s"Your new pin is: ${account.pin}\n\nWelcome aboard!"
-      send(account.email, message)
-      val id = store.register(account)
-      Registered( account.copy(id = id) )
-    }.recover {
+      if send(account.email, message) then
+        val id = store.register(account)
+        Registered( account.copy(id = id) )
+      else throw Exception("email send failed!")
+    .recover:
       case NonFatal(error) => addFault( Fault(s"Registration failed for: $email, because: ${error.getMessage}") )
-    }.get
+    .get
 
   def login(email: String,
             pin: String): Event =

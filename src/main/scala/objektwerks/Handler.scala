@@ -89,28 +89,28 @@ final class Handler(store: Store,
   def addFault(fault: Fault): Event = FaultAdded( store.addFault(fault) )
 
   def listEntities(typeof: EntityType, parentId: Long): Event =
-    Try {
+    Try:
       val function = list(typeof)
       EntitiesListed( function(parentId) )
-    }.recover {
+    .recover:
       case NonFatal(error) => addFault( Fault(s"List entities [$typeof]{$parentId} failed: ${error.getMessage}") )
-    }.get
+    .get
 
   def addEntity(typeof: EntityType, entity: Entity): Event =
-    Try {
+    Try:
       val function = add(typeof)
       EntityAdded( function(entity) )
-    }.recover {
+    .recover:
       case NonFatal(error) => addFault( Fault(s"Add entity [$typeof] failed: ${error.getMessage} for: $entity") )
-    }.get
+    .get
 
   def updateEntity(typeof: EntityType, entity: Entity): Event =
-    Try {
+    Try:
       val function = update(typeof)
       EntityUpdated( function(entity) )
-    }.recover {
+    .recover:
       case NonFatal(error) => addFault( Fault(s"Update entity [$typeof] failed: ${error.getMessage} for: $entity") )
-    }.get
+    .get
 
   def listHouses(accountId: Long): List[House] = store.listHouses(accountId)
 

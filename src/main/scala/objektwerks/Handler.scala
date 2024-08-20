@@ -115,7 +115,11 @@ final class Handler(store: Store,
   def updateEntity(typeof: EntityType, entity: Entity): Event =
     Try:
       val function = update(typeof)
-      EntityUpdated( function(entity) )
+      EntityUpdated(
+        IO.unsafe:
+          supervised:
+            function(entity)
+      )
     .recover:
       case NonFatal(error) => addFault( Fault(s"Update entity [$typeof] failed: ${error.getMessage} for: $entity") )
     .get

@@ -47,12 +47,17 @@ final class Handler(store: Store,
   def isAuthorized(command: Command): Security =
     command match
       case license: License =>
-        Try {
-          if store.isAuthorized(license.license) then Authorized
-          else Unauthorized(s"Unauthorized: $command")
-        }.recover {
+        Try:
+          IO.unsafe:
+            supervised:
+              retry( RetryConfig.immediate(2) )(
+                if store.isAuthorized(license.license) then Authorized
+                else Unauthorized(s"Unauthorized: $command")
+              )
+
+        .recover:
           case NonFatal(error) => Unauthorized(s"Unauthorized: $command, cause: $error")
-        }.get
+        .get
       case Register(_) | Login(_, _) => Authorized
 
   def send(email: String,

@@ -91,7 +91,11 @@ final class Handler(store: Store,
   def listEntities(typeof: EntityType, parentId: Long): Event =
     Try:
       val function = list(typeof)
-      EntitiesListed( function(parentId) )
+      EntitiesListed(
+        IO.unsafe:
+          supervised:
+            function(parentId)
+      )
     .recover:
       case NonFatal(error) => addFault( Fault(s"List entities [$typeof]{$parentId} failed: ${error.getMessage}") )
     .get

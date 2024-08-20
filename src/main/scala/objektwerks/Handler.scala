@@ -43,6 +43,7 @@ final class Handler(store: Store,
     Garden -> updateGarden, Sprinkler -> updateSprinkler, Shed -> updateShed, SolarPanel -> updateSolarPanel, Porch -> updatePorch,
     Patio -> updatePatio, Pool -> updatePool, Dock -> updateDock, Gazebo -> updateGazebo, Mailbox -> updateMailbox
   )
+
   def isAuthorized(command: Command): Security =
     command match
       case license: License =>

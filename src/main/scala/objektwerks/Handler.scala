@@ -106,7 +106,7 @@ final class Handler(store: Store,
       EntityAdded(
         IO.unsafe:
           supervised:
-            function(entity)
+            retry( RetryConfig.immediate(2) )( function(entity) )
       )
     .recover:
       case NonFatal(error) => addFault( Fault(s"Add entity [$typeof] failed: ${error.getMessage} for: $entity") )

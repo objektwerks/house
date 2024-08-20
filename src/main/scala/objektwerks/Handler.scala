@@ -70,12 +70,14 @@ final class Handler(store: Store,
 
   def register(email: String): Event =
     Try:
-      val account = Account(email = email)
-      val message = s"Your new pin is: ${account.pin}\n\nWelcome aboard!"
-      if send(account.email, message) then
-        val id = store.register(account)
-        Registered( account.copy(id = id) )
-      else throw Exception("email send failed!")
+      IO.unsafe:
+        supervised:
+          val account = Account(email = email)
+          val message = s"Your new pin is: ${account.pin}\n\nWelcome aboard!"
+          if send(account.email, message) then
+            val id = store.register(account)
+            Registered( account.copy(id = id) )
+          else throw Exception("email send failed!")
     .recover:
       case NonFatal(error) => addFault( Fault(s"Registration failed for: $email, because: ${error.getMessage}") )
     .get

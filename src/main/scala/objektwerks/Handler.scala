@@ -1,7 +1,7 @@
 package objektwerks
 
 import ox.{IO, supervised}
-import ox.resilience.retry
+import ox.resilience.{retry, RetryConfig}
 
 import scala.util.Try
 import scala.util.control.NonFatal

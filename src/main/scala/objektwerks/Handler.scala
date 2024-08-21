@@ -102,7 +102,7 @@ final class Handler(store: Store, emailer: Emailer):
       val function = list(typeof)
       EntitiesListed(
         supervised:
-          retry( RetryConfig.immediate(2) )( function(parentId) )
+          retry( RetryConfig.delay(1, 100.millis) )( function(parentId) )
       )
     .recover:
       case NonFatal(error) => addFault( Fault(s"List entities [$typeof]{$parentId} failed: ${error.getMessage}") )

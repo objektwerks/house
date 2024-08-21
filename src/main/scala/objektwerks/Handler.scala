@@ -94,7 +94,7 @@ final class Handler(store: Store, emailer: Emailer):
   def addFault(fault: Fault)(using IO): Event =
     FaultAdded(
       supervised:
-        store.addFault(fault)
+        retry( RetryConfig.delay(1, 100.millis) )( store.addFault(fault) )
     )
 
   def listEntities(typeof: EntityType, parentId: Long)(using IO): Event =

@@ -88,7 +88,7 @@ final class Handler(store: Store, emailer: Emailer):
   def listFaults()(using IO): Event =
     FaultsListed(
       supervised:
-        store.listFaults()
+        retry( RetryConfig.delay(1, 100.millis) )( store.listFaults() )
     )
 
   def addFault(fault: Fault)(using IO): Event =

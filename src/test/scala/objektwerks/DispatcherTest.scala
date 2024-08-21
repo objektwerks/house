@@ -4,7 +4,7 @@ import com.typesafe.config.ConfigFactory
 
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
-import ox.*
+import ox.supervised
 import ox.IO.globalForTesting.given
 
 import scala.sys.process.Process

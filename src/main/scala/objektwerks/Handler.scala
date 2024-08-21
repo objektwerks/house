@@ -60,7 +60,7 @@ final class Handler(store: Store,
         .get
       case Register(_) | Login(_, _) => Authorized
 
-  def sendEmail(email: String, message: String): Unit =
+  def sendEmail(email: String, message: String)(using IO): Unit =
     val recipients = List(email)
     println(s"*** Is thread virtual [send email]: ${Thread.currentThread().isVirtual()}")
     retry( RetryConfig.immediate(2) )( emailer.send(recipients, message) )

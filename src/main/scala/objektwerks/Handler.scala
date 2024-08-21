@@ -3,6 +3,7 @@ package objektwerks
 import ox.{IO, supervised}
 import ox.resilience.{retry, RetryConfig}
 
+import scala.concurrent.duration.*
 import scala.util.Try
 import scala.util.control.NonFatal
 
@@ -48,7 +49,7 @@ final class Handler(store: Store, emailer: Emailer):
       case license: License =>
         Try:
           supervised:
-            retry( RetryConfig.immediate(2) )(
+            retry( RetryConfig.delay(1, 100.millis) )(
               if store.isAuthorized(license.license) then Authorized
               else Unauthorized(s"Unauthorized: $command")
             )

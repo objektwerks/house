@@ -44,25 +44,23 @@ final class Handler(store: Store,
     Patio -> updatePatio, Pool -> updatePool, Dock -> updateDock, Gazebo -> updateGazebo, Mailbox -> updateMailbox
   )
 
-  def isAuthorized(command: Command): Security =
+  def isAuthorized(command: Command)(using IO): Security =
     command match
       case license: License =>
         Try:
           println(s"*** Is thread virtual [is authorised]: ${Thread.currentThread().isVirtual()}")
-          IO.unsafe:
-            supervised:
-              retry( RetryConfig.immediate(2) )(
-                if store.isAuthorized(license.license) then Authorized
-                else Unauthorized(s"Unauthorized: $command")
-              )
+          supervised:
+            retry( RetryConfig.immediate(2) )(
+              if store.isAuthorized(license.license) then Authorized
+              else Unauthorized(s"Unauthorized: $command")
+            )
 
         .recover:
           case NonFatal(error) => Unauthorized(s"Unauthorized: $command, cause: $error")
         .get
       case Register(_) | Login(_, _) => Authorized
 
-  def sendEmail(email: String,
-                message: String): Unit =
+  def sendEmail(email: String, message: String): Unit =
     val recipients = List(email)
     println(s"*** Is thread virtual [send email]: ${Thread.currentThread().isVirtual()}")
     retry( RetryConfig.immediate(2) )( emailer.send(recipients, message) )

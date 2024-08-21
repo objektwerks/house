@@ -78,7 +78,7 @@ final class Handler(store: Store, emailer: Emailer):
   def login(email: String, pin: String)(using IO): Event =
     Try:
       supervised:
-        store.login(email, pin)
+        retry( RetryConfig.delay(1, 100.millis) )( store.login(email, pin) )
     .fold(
       error => addFault( Fault(s"Login failed: ${error.getMessage}") ),
       optionalAccount =>

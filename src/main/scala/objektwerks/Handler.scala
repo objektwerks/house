@@ -47,7 +47,6 @@ final class Handler(store: Store, emailer: Emailer):
     command match
       case license: License =>
         Try:
-          println(s"*** Is thread virtual [is authorised]: ${Thread.currentThread().isVirtual()}")
           supervised:
             retry( RetryConfig.immediate(2) )(
               if store.isAuthorized(license.license) then Authorized
@@ -61,12 +60,10 @@ final class Handler(store: Store, emailer: Emailer):
 
   def sendEmail(email: String, message: String)(using IO): Unit =
     val recipients = List(email)
-    println(s"*** Is thread virtual [send email]: ${Thread.currentThread().isVirtual()}")
     retry( RetryConfig.immediate(2) )( emailer.send(recipients, message) )
 
   def register(email: String)(using IO): Event =
     Try:
-      println(s"*** Is thread virtual [login]: ${Thread.currentThread().isVirtual()}")
       supervised:
         val account = Account(email = email)
         val message = s"Your new pin is: ${account.pin}\n\nWelcome aboard!"
@@ -79,7 +76,6 @@ final class Handler(store: Store, emailer: Emailer):
 
   def login(email: String, pin: String)(using IO): Event =
     Try:
-      println(s"*** Is thread virtual [login]: ${Thread.currentThread().isVirtual()}")
       supervised:
         store.login(email, pin)
     .fold(
@@ -89,14 +85,12 @@ final class Handler(store: Store, emailer: Emailer):
         else addFault( Fault(s"Login failed for email address: $email and pin: $pin") ) )
 
   def listFaults()(using IO): Event =
-    println(s"*** Is thread virtual [list faults]: ${Thread.currentThread().isVirtual()}")
     FaultsListed(
       supervised:
         store.listFaults()
     )
 
   def addFault(fault: Fault)(using IO): Event =
-    println(s"*** Is thread virtual [add fault]: ${Thread.currentThread().isVirtual()}")
     FaultAdded(
       supervised:
         store.addFault(fault)
@@ -105,7 +99,6 @@ final class Handler(store: Store, emailer: Emailer):
   def listEntities(typeof: EntityType, parentId: Long)(using IO): Event =
     Try:
       val function = list(typeof)
-      println(s"*** Is thread virtual [list entities]: ${Thread.currentThread().isVirtual()}")
       EntitiesListed(
         supervised:
           retry( RetryConfig.immediate(2) )( function(parentId) )
@@ -117,7 +110,6 @@ final class Handler(store: Store, emailer: Emailer):
   def addEntity(typeof: EntityType, entity: Entity)(using IO): Event =
     Try:
       val function = add(typeof)
-      println(s"*** Is thread virtual [add entity]: ${Thread.currentThread().isVirtual()}")
       EntityAdded(
         supervised:
           retry( RetryConfig.immediate(2) )( function(entity) )
@@ -129,7 +121,6 @@ final class Handler(store: Store, emailer: Emailer):
   def updateEntity(typeof: EntityType, entity: Entity)(using IO): Event =
     Try:
       val function = update(typeof)
-      println(s"*** Is thread virtual [update entity]: ${Thread.currentThread().isVirtual()}")
       EntityUpdated(
         supervised:
           retry( RetryConfig.immediate(2) )( function(entity) )

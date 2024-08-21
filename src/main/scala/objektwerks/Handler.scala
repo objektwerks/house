@@ -59,16 +59,16 @@ final class Handler(store: Store, emailer: Emailer):
         .get
       case Register(_) | Login(_, _) => Authorized
 
-  def sendEmail(email: String, message: String)(using IO): Unit =
+  def sendEmail(email: String, message: String): Unit =
     val recipients = List(email)
-    retry( RetryConfig.delay(1, 300.millis) )( emailer.send(recipients, message) )
+    emailer.send(recipients, message)
 
   def register(email: String)(using IO): Event =
     Try:
       supervised:
         val account = Account(email = email)
         val message = s"Your new pin is: ${account.pin}\n\nWelcome aboard!"
-        sendEmail(account.email, message)
+        retry( RetryConfig.delay(1, 600.millis) )( sendEmail(account.email, message) )
         val id = store.register(account)
         Registered( account.copy(id = id) )
     .recover:

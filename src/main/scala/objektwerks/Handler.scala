@@ -8,8 +8,7 @@ import scala.util.control.NonFatal
 
 import EntityType.*
 
-final class Handler(store: Store,
-                    emailer: Emailer):
+final class Handler(store: Store, emailer: Emailer):
   val list = Map(
     House -> listHouses, Issue -> listIssues, Drawing -> listDrawings, Foundation -> listFoundations, Frame -> listFrames,
     Attic -> listAttics, Insulation -> listInsulations, Ductwork -> listDuctworks, Ventilation -> listVentilations, Roof -> listRoofs,

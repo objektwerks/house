@@ -1,8 +1,9 @@
 package objektwerks
 
 import Validator.*
+import ox.IO
 
-final class Dispatcher(handler: Handler):
+final class Dispatcher(handler: Handler)(using IO):
   def dispatch(command: Command): Event =
     command.isValid match
       case false => handler.addFault( Fault(s"Invalid command: $command") )

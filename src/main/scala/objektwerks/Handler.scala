@@ -67,83 +67,75 @@ final class Handler(store: Store,
     println(s"*** Is thread virtual [send email]: ${Thread.currentThread().isVirtual()}")
     retry( RetryConfig.immediate(2) )( emailer.send(recipients, message) )
 
-  def register(email: String): Event =
+  def register(email: String)(using IO): Event =
     Try:
       println(s"*** Is thread virtual [login]: ${Thread.currentThread().isVirtual()}")
-      IO.unsafe:
-        supervised:
-          val account = Account(email = email)
-          val message = s"Your new pin is: ${account.pin}\n\nWelcome aboard!"
-          sendEmail(account.email, message)
-          val id = store.register(account)
-          Registered( account.copy(id = id) )
+      supervised:
+        val account = Account(email = email)
+        val message = s"Your new pin is: ${account.pin}\n\nWelcome aboard!"
+        sendEmail(account.email, message)
+        val id = store.register(account)
+        Registered( account.copy(id = id) )
     .recover:
       case NonFatal(error) => addFault( Fault(s"Registration failed for: $email, because: ${error.getMessage}") )
     .get
 
-  def login(email: String,
-            pin: String): Event =
+  def login(email: String, pin: String)(using IO): Event =
     Try:
       println(s"*** Is thread virtual [login]: ${Thread.currentThread().isVirtual()}")
-      IO.unsafe:
-        supervised:
-          store.login(email, pin)
+      supervised:
+        store.login(email, pin)
     .fold(
       error => addFault( Fault(s"Login failed: ${error.getMessage}") ),
       optionalAccount =>
         if optionalAccount.isDefined then LoggedIn( optionalAccount.get )
         else addFault( Fault(s"Login failed for email address: $email and pin: $pin") ) )
 
-  def listFaults(): Event =
+  def listFaults()(using IO): Event =
     println(s"*** Is thread virtual [list faults]: ${Thread.currentThread().isVirtual()}")
     FaultsListed(
-      IO.unsafe:
-        supervised:
-          store.listFaults()
+      supervised:
+        store.listFaults()
     )
 
-  def addFault(fault: Fault): Event =
+  def addFault(fault: Fault)(using IO): Event =
     println(s"*** Is thread virtual [add fault]: ${Thread.currentThread().isVirtual()}")
     FaultAdded(
-      IO.unsafe:
-        supervised:
-          store.addFault(fault)
+      supervised:
+        store.addFault(fault)
     )
 
-  def listEntities(typeof: EntityType, parentId: Long): Event =
+  def listEntities(typeof: EntityType, parentId: Long)(using IO): Event =
     Try:
       val function = list(typeof)
       println(s"*** Is thread virtual [list entities]: ${Thread.currentThread().isVirtual()}")
       EntitiesListed(
-        IO.unsafe:
-          supervised:
-            retry( RetryConfig.immediate(2) )( function(parentId) )
+        supervised:
+          retry( RetryConfig.immediate(2) )( function(parentId) )
       )
     .recover:
       case NonFatal(error) => addFault( Fault(s"List entities [$typeof]{$parentId} failed: ${error.getMessage}") )
     .get
 
-  def addEntity(typeof: EntityType, entity: Entity): Event =
+  def addEntity(typeof: EntityType, entity: Entity)(using IO): Event =
     Try:
       val function = add(typeof)
       println(s"*** Is thread virtual [add entity]: ${Thread.currentThread().isVirtual()}")
       EntityAdded(
-        IO.unsafe:
-          supervised:
-            retry( RetryConfig.immediate(2) )( function(entity) )
+        supervised:
+          retry( RetryConfig.immediate(2) )( function(entity) )
       )
     .recover:
       case NonFatal(error) => addFault( Fault(s"Add entity [$typeof] failed: ${error.getMessage} for: $entity") )
     .get
 
-  def updateEntity(typeof: EntityType, entity: Entity): Event =
+  def updateEntity(typeof: EntityType, entity: Entity)(using IO): Event =
     Try:
       val function = update(typeof)
       println(s"*** Is thread virtual [update entity]: ${Thread.currentThread().isVirtual()}")
       EntityUpdated(
-        IO.unsafe:
-          supervised:
-            retry( RetryConfig.immediate(2) )( function(entity) )
+        supervised:
+          retry( RetryConfig.immediate(2) )( function(entity) )
       )
     .recover:
       case NonFatal(error) => addFault( Fault(s"Update entity [$typeof] failed: ${error.getMessage} for: $entity") )

@@ -61,7 +61,7 @@ final class Handler(store: Store, emailer: Emailer):
 
   def sendEmail(email: String, message: String)(using IO): Unit =
     val recipients = List(email)
-    retry( RetryConfig.immediate(2) )( emailer.send(recipients, message) )
+    retry( RetryConfig.delay(1, 300.millis) )( emailer.send(recipients, message) )
 
   def register(email: String)(using IO): Event =
     Try:

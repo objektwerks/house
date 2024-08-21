@@ -113,7 +113,7 @@ final class Handler(store: Store, emailer: Emailer):
       val function = add(typeof)
       EntityAdded(
         supervised:
-          retry( RetryConfig.immediate(2) )( function(entity) )
+          retry( RetryConfig.delay(1, 100.millis) )( function(entity) )
       )
     .recover:
       case NonFatal(error) => addFault( Fault(s"Add entity [$typeof] failed: ${error.getMessage} for: $entity") )

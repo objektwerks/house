@@ -1,3 +1,8 @@
+val oxVersion = "0.3.3"
+
+autoCompilerPlugins := true
+addCompilerPlugin("com.softwaremill.ox" %% "plugin" % oxVersion)
+
 name := "house"
 organization := "objektwerks"
 version := "0.47-SNAPSHOT"
@@ -6,7 +11,7 @@ libraryDependencies ++= {
   val jsoniterVersion = "2.30.7"
   Seq(
     "io.helidon.webserver" % "helidon-webserver" % "4.1.0",
-    "com.softwaremill.ox" %% "core" % "0.3.3",
+    "com.softwaremill.ox" %% "core" % oxVersion,
     "org.scalikejdbc" %% "scalikejdbc" % "4.3.1",
     "com.zaxxer" % "HikariCP" % "5.1.0" exclude("org.slf4j", "slf4j-api"),
     "org.postgresql" % "postgresql" % "42.7.3",

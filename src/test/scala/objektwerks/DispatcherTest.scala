@@ -4,8 +4,7 @@ import com.typesafe.config.ConfigFactory
 
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
-import ox.supervised
-import ox.IO.globalForTesting.given
+import ox.{IO, supervised}
 
 import scala.sys.process.Process
 
@@ -68,183 +67,184 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
   var testMailbox = Mailbox(houseId = 1)
 
   test("dispatcher"):
-    supervised:
-      register
-      login
-      
-      addHouse
-      updateHouse
-      listHouses
+    IO.unsafe:
+      supervised:
+        register
+        login
 
-      addDrawing
-      updateDrawing
-      listDrawings
+        addHouse
+        updateHouse
+        listHouses
 
-      addIssue
-      updateIssue
-      listIssues
+        addDrawing
+        updateDrawing
+        listDrawings
 
-      addFoundation
-      updateFoundation
-      listFoundations
+        addIssue
+        updateIssue
+        listIssues
 
-      addFrame
-      updateFrame
-      listFrames
+        addFoundation
+        updateFoundation
+        listFoundations
 
-      addAttic
-      updateAttic
-      listAttics
+        addFrame
+        updateFrame
+        listFrames
 
-      addInsulation
-      updateInsulation
-      listInsulations
+        addAttic
+        updateAttic
+        listAttics
 
-      addDuctwork
-      updateDuctwork
-      listDuctworks
+        addInsulation
+        updateInsulation
+        listInsulations
 
-      addVentilation
-      updateVentilation
-      listVentilations
+        addDuctwork
+        updateDuctwork
+        listDuctworks
 
-      addRoof
-      updateRoof
-      listRoofs
+        addVentilation
+        updateVentilation
+        listVentilations
 
-      addChimney
-      updateChimney
-      listChimneys
+        addRoof
+        updateRoof
+        listRoofs
 
-      addBalcony
-      updateBalcony
-      listBalconys
+        addChimney
+        updateChimney
+        listChimneys
 
-      addDrywall
-      updateDrywall
-      listDrywalls
+        addBalcony
+        updateBalcony
+        listBalconys
 
-      addRoom
-      updateRoom
-      listRooms
+        addDrywall
+        updateDrywall
+        listDrywalls
 
-      addDriveway
-      updateDriveway
-      listDriveways
+        addRoom
+        updateRoom
+        listRooms
 
-      addGarage
-      updateGarage
-      listGarages
+        addDriveway
+        updateDriveway
+        listDriveways
 
-      addSiding
-      updateSiding
-      listSidings
+        addGarage
+        updateGarage
+        listGarages
 
-      addGutter
-      updateGutter
-      listGutters
+        addSiding
+        updateSiding
+        listSidings
 
-      addSoffit
-      updateSoffit
-      listSoffits
+        addGutter
+        updateGutter
+        listGutters
 
-      addWindow
-      updateWindow
-      listWindows
+        addSoffit
+        updateSoffit
+        listSoffits
 
-      addPlumbing
-      updatePlumbing
-      listPlumbings
+        addWindow
+        updateWindow
+        listWindows
 
-      addElectrical
-      updateElectrical
-      listElectricals
+        addPlumbing
+        updatePlumbing
+        listPlumbings
 
-      addFusebox
-      updateFusebox
-      listFuseboxes
+        addElectrical
+        updateElectrical
+        listElectricals
 
-      addAlarm
-      updateAlarm
-      listAlarms
+        addFusebox
+        updateFusebox
+        listFuseboxes
 
-      addHeater
-      updateHeater
-      listHeaters
+        addAlarm
+        updateAlarm
+        listAlarms
 
-      addAirConditioner
-      updateAirConditioner
-      listAirConditioners
+        addHeater
+        updateHeater
+        listHeaters
 
-      addFloor
-      updateFloor
-      listFloors
+        addAirConditioner
+        updateAirConditioner
+        listAirConditioners
 
-      addLighting
-      updateLighting
-      listLightings
+        addFloor
+        updateFloor
+        listFloors
 
-      addSewage
-      updateSewage
-      listSewages
+        addLighting
+        updateLighting
+        listLightings
 
-      addWell
-      updateWell
-      listWells
+        addSewage
+        updateSewage
+        listSewages
 
-      addWater
-      updateWater
-      listWaters
+        addWell
+        updateWell
+        listWells
 
-      addWaterHeater
-      updateWaterHeater
-      listWaterHeaters
+        addWater
+        updateWater
+        listWaters
 
-      addLawn
-      updateLawn
-      listLawns
+        addWaterHeater
+        updateWaterHeater
+        listWaterHeaters
 
-      addGarden
-      updateGarden
-      listGardens
+        addLawn
+        updateLawn
+        listLawns
 
-      addSprinkler
-      updateSprinkler
-      listSprinklers
+        addGarden
+        updateGarden
+        listGardens
 
-      addShed
-      updateShed
-      listSheds
+        addSprinkler
+        updateSprinkler
+        listSprinklers
 
-      addSolarPanel
-      updateSolarPanel
-      listSolarPanels
+        addShed
+        updateShed
+        listSheds
 
-      addPorch
-      updatePorch
-      listPorches
+        addSolarPanel
+        updateSolarPanel
+        listSolarPanels
 
-      addPatio
-      updatePatio
-      listPatios
+        addPorch
+        updatePorch
+        listPorches
 
-      addPool
-      updatePool
-      listPools
+        addPatio
+        updatePatio
+        listPatios
 
-      addDock
-      updateDock
-      listDocks
+        addPool
+        updatePool
+        listPools
 
-      addGazebo
-      updateGazebo
-      listGazebos
+        addDock
+        updateDock
+        listDocks
 
-      addMailbox
-      updateMailbox
-      listMailboxes
+        addGazebo
+        updateGazebo
+        listGazebos
 
-      fault
+        addMailbox
+        updateMailbox
+        listMailboxes
+
+        fault
 
   def register: Unit =
     val register = Register(config.getString("email.sender"))

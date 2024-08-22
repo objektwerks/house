@@ -96,10 +96,14 @@ final class Handler(store: Store, emailer: Emailer):
     .get
 
   def addFault(fault: Fault)(using IO): Event =
-    FaultAdded(
-      supervised:
-        retry( RetryConfig.delay(1, 100.millis) )( store.addFault(fault) )
-    )
+    Try:
+      FaultAdded(
+        supervised:
+          retry( RetryConfig.delay(1, 100.millis) )( store.addFault(fault) )
+      )
+    .recover:
+      case NonFatal(error) => addFault( Fault(s"Add fault failed: ${error.getMessage}") )
+    .get
 
   def listEntities(typeof: EntityType, parentId: Long)(using IO): Event =
     Try:

@@ -4,8 +4,8 @@ import ox.IO
 
 import Validator.*
 
-final class Dispatcher(handler: Handler)(using IO):
-  def dispatch(command: Command): Event =
+final class Dispatcher(handler: Handler):
+  def dispatch(command: Command)(using IO): Event =
     command.isValid match
       case false => handler.addFault( Fault(s"Invalid command: $command") )
       case true =>

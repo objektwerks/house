@@ -53,7 +53,6 @@ final class Handler(store: Store, emailer: Emailer):
               if store.isAuthorized(license.license) then Authorized
               else Unauthorized(s"Unauthorized: $command")
             )
-
         .recover:
           case NonFatal(error) => Unauthorized(s"Unauthorized: $command, cause: $error")
         .get

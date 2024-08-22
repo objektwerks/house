@@ -8,8 +8,7 @@ import io.helidon.webserver.http.{Handler => WebHandler, ServerRequest, ServerRe
 import Serializer.given
 
 final class Exchanger(dispatcher: Dispatcher) extends WebHandler with LazyLogging:
-  override def handle(request: ServerRequest,
-                      response: ServerResponse): Unit =
+  override def handle(request: ServerRequest, response: ServerResponse): Unit =
     val commandJson = request.content.as(classOf[String])
     logger.info(s"*** Exchanger command json: $commandJson")
 

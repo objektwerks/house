@@ -8,7 +8,7 @@ organization := "objektwerks"
 version := "0.48-SNAPSHOT"
 scalaVersion := "3.5.0"
 libraryDependencies ++= {
-  val jsoniterVersion = "2.30.7"
+  val jsoniterVersion = "2.30.8"
   Seq(
     "io.helidon.webserver" % "helidon-webserver" % "4.1.0",
     "com.softwaremill.ox" %% "core" % oxVersion,

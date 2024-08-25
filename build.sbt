@@ -14,6 +14,7 @@ libraryDependencies ++= {
     "io.helidon.webserver" % "helidon-webserver" % "4.1.0",
     "com.softwaremill.sttp.tapir" %% "tapir-core" % tapirVersion,
     "com.softwaremill.sttp.tapir" %% "tapir-jsoniter-scala" % tapirVersion,
+    "com.softwaremill.sttp.tapir" %% "tapir-jdkhttp-server" % tapirVersion,
     "com.softwaremill.ox" %% "core" % oxVersion,
     "org.scalikejdbc" %% "scalikejdbc" % "4.3.1",
     "com.zaxxer" % "HikariCP" % "5.1.0" exclude("org.slf4j", "slf4j-api"),

@@ -10,5 +10,9 @@ object Endpoint extends OxApp with LazyLogging:
     val config = ConfigFactory.load("server.conf")
     val host = config.getString("server.host")
     val port = config.getInt("server.port")
-    
+    val endpoint = config.getString("server.endpoint")
+
+    println(s"*** Press Control-C to shutdown House Http Server at: $host:$port$endpoint")
+    logger.info(s"*** House Http Server started at: $host:$port$endpoint")
+
     ExitCode.Success

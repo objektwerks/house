@@ -4,9 +4,9 @@ House
 
 Warning
 -------
->With Endpoint, was unable to use Tapir-Jsoniter support due to endless Schema-related errors.
+>With Endpoint, was unable to use Tapir-Jsoniter support due to Schema-related errors.
 
->Endpoint, instead, handles simple in/out String values.
+>Endpoint, instead, handles simple in/out text/plain values, converting them to json as required.
 
 Todo
 ----

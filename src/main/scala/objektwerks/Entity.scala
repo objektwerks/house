@@ -8,8 +8,6 @@ sealed trait Entity:
 
 object Entity:
   def now: String = LocalDate.now.toString
-  def localDate(now: String): LocalDate =
-    if now.nonEmpty then LocalDate.parse(now) else LocalDate.now
 
 sealed trait Common:
   val id: Long

@@ -10,7 +10,7 @@ import scala.util.control.NonFatal
 import EntityType.*
 
 final class Handler(store: Store, emailer: Emailer):
-  val list = Map(
+  private val list = Map(
     House -> listHouses, Issue -> listIssues, Drawing -> listDrawings, Foundation -> listFoundations, Frame -> listFrames,
     Attic -> listAttics, Insulation -> listInsulations, Ductwork -> listDuctworks, Ventilation -> listVentilations, Roof -> listRoofs,
     Chimney -> listChimneys, Balcony -> listBalconys, Drywall -> listDrywalls, Room -> listRooms, Driveway -> listDriveways,
@@ -21,7 +21,7 @@ final class Handler(store: Store, emailer: Emailer):
     Sprinkler -> listSprinklers, Shed -> listSheds, SolarPanel -> listSolarPanels, Porch -> listPorches, Patio -> listPatios,
     Pool -> listPools, Dock -> listDocks, Gazebo -> listGazebos, Mailbox -> listMailboxes
   )
-  val add = Map(
+  private val add = Map(
     House -> addHouse, Issue -> addIssue, Drawing -> addDrawing, Foundation -> addFoundation, Frame -> addFrame, Attic -> addAttic,
     Insulation -> addInsulation, Ductwork -> addDuctwork, Ventilation -> addVentilation, Roof -> addRoof, Chimney -> addChimney,
     Balcony -> addBalcony, Drywall -> addDrywall, Room -> addRoom, Driveway -> addDriveway, Garage -> addGarage, Siding -> addSiding,
@@ -32,7 +32,7 @@ final class Handler(store: Store, emailer: Emailer):
     SolarPanel -> addSolarPanel, Porch -> addPorch, Patio -> addPatio, Pool -> addPool, Dock -> addDock, Gazebo -> addGazebo,
     Mailbox -> addMailbox
   )
-  val update = Map(
+  private val update = Map(
     House -> updateHouse, Issue -> updateIssue, Drawing ->updateDrawing, Foundation -> updateFoundation, Frame -> updateFrame,
     Attic -> updateAttic, Insulation -> updateInsulation, Ductwork -> updateDuctwork, Ventilation -> updateVentilation, Roof -> updateRoof,
     Chimney -> updateChimney, Balcony -> updateBalcony, Drywall -> updateDrywall, Room -> updateRoom, Driveway -> updateDriveway,

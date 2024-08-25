@@ -35,7 +35,7 @@ private final class Emailer(host: String,
         .textMessage(message, "UTF-8")
         .cc(sender)
       recipients.foreach( recipient => email.to(recipient) )
-      session.open
+      session.open()
       val messageId = session.sendMail(email)
       logger.info("*** Emailer subject: {} to: {} message id: {}", subject, recipients.mkString, messageId)
     }.recover { error =>

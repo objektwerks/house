@@ -99,6 +99,7 @@ Environment
 export HOUSE_HOST="127.0.0.1"
 export HOUSE_PORT=7070
 export HOUSE_ENDPOINT="/command"
+export HOUSE_PATH="command"
 
 export HOUSE_CACHE_INITIAL_SIZE=4
 export HOUSE_CACHE_MAX_SIZE=10

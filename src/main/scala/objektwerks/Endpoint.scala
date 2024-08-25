@@ -5,6 +5,8 @@ import com.typesafe.scalalogging.LazyLogging
 
 import ox.{ExitCode, IO, Ox, OxApp}
 
+//import Serializer.given
+
 object Endpoint extends OxApp with LazyLogging:
   override def run(args: Vector[String])(using Ox, IO): ExitCode =
     val config = ConfigFactory.load("server.conf")

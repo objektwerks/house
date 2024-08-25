@@ -26,13 +26,7 @@ Test
 
 Run
 ---
-```
-Multiple main classes detected. Select one to run:
- [1] objektwerks.Endpoint
- [2] objektwerks.Server
-
-Enter number:
-```
+1. sbt run
 
 Model
 -----

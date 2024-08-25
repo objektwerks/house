@@ -11,6 +11,7 @@ libraryDependencies ++= {
   val jsoniterVersion = "2.30.8"
   Seq(
     "io.helidon.webserver" % "helidon-webserver" % "4.1.0",
+    "com.softwaremill.sttp.tapir" %% "tapir-core" % "1.11.1",
     "com.softwaremill.sttp.tapir" %% "tapir-jsoniter-scala" % "1.11.1",
     "com.softwaremill.ox" %% "core" % oxVersion,
     "org.scalikejdbc" %% "scalikejdbc" % "4.3.1",

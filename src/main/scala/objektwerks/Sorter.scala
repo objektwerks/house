@@ -49,4 +49,4 @@ object Sorter:
   given Ordering[Gazebo] = Ordering.by[Gazebo, String](gazebo => gazebo.built).reverse
   given Ordering[Mailbox] = Ordering.by[Mailbox, String](mailbox => mailbox.installed).reverse
 
-  given faultOrdering: Ordering[Fault] = Ordering.by[Fault, Long](f => LocalDate.parse(f.occurred).toEpochDay()).reverse
+  given faultOrdering: Ordering[Fault] = Ordering.by[Fault, Long](f => LocalDate.parse(f.occurred).toEpochDay).reverse

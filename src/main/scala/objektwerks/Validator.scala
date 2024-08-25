@@ -186,9 +186,6 @@ object Validator:
   extension (mailbox: Mailbox)
     def isValid: Boolean = mailbox.isInstalled
 
-  extension (license: License)
-    def isLicense: Boolean = license.license.isLicense
-
   extension (register: Register)
     def isValid: Boolean = register.email.isEmail
 

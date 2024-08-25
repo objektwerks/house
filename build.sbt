@@ -1,4 +1,5 @@
 val oxVersion = "0.3.3"
+val tapirVersion = "1.11.1"
 
 autoCompilerPlugins := true
 addCompilerPlugin("com.softwaremill.ox" %% "plugin" % oxVersion)
@@ -11,8 +12,8 @@ libraryDependencies ++= {
   val jsoniterVersion = "2.30.8"
   Seq(
     "io.helidon.webserver" % "helidon-webserver" % "4.1.0",
-    "com.softwaremill.sttp.tapir" %% "tapir-core" % "1.11.1",
-    "com.softwaremill.sttp.tapir" %% "tapir-jsoniter-scala" % "1.11.1",
+    "com.softwaremill.sttp.tapir" %% "tapir-core" % tapirVersion,
+    "com.softwaremill.sttp.tapir" %% "tapir-jsoniter-scala" % tapirVersion,
     "com.softwaremill.ox" %% "core" % oxVersion,
     "org.scalikejdbc" %% "scalikejdbc" % "4.3.1",
     "com.zaxxer" % "HikariCP" % "5.1.0" exclude("org.slf4j", "slf4j-api"),

@@ -14,14 +14,14 @@ import scalikejdbc.*
 object Store:
   def apply(config: Config) = new Store( cache(config), dataSource(config) )
 
-  def cache(config: Config): Cache[String, String] =
+  private def cache(config: Config): Cache[String, String] =
     Scaffeine()
       .initialCapacity(config.getInt("cache.initialSize"))
       .maximumSize(config.getInt("cache.maxSize"))
       .expireAfterWrite( FiniteDuration( config.getLong("cache.expireAfter"), TimeUnit.HOURS) )
       .build[String, String]()
 
-  def dataSource(config: Config): DataSource =
+  private def dataSource(config: Config): DataSource =
     val ds = HikariDataSource()
     ds.setDataSourceClassName(config.getString("db.driver"))
     ds.addDataSourceProperty("url", config.getString("db.url"))
@@ -66,7 +66,7 @@ final class Store(cache: Cache[String, String],
           true
         else false
 
-  def addAccount(account: Account): Long =
+  private def addAccount(account: Account): Long =
     DB localTx { implicit session =>
       sql"""
         insert into account(license, email, pin, activated)

@@ -54,6 +54,7 @@ object Endpoint extends OxApp with LazyLogging:
 
     println(s"*** House Endpoint: ${commandEndpoint.show}")
     println(s"*** Press Control-C to shutdown House Http Server at: $host:$port$path")
+    logger.info(s"*** House Endpoint: ${commandEndpoint.show}")
     logger.info(s"*** House Http Server started at: $host:$port$path")
 
     Thread.currentThread().join()

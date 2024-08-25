@@ -6,7 +6,7 @@ Tapir
 -----
 >Unable to derive Endpoint Schemas for Command and EVent due to derivation and inline errors.
 
->Consequently, Endpoint handles in/out text/plain values, with as-required json conversions.
+>Consequently, Endpoint handles in/out text/plain values with as-required json conversions.
 
 Todo
 ----

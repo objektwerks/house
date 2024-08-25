@@ -8,10 +8,12 @@ enum EntityType:
 enum HouseType:
   case primary, secondary, vacation
 
-// Structure
+// Meta
 
 enum DrawingType:
   case architectural, structural, electrical, plumbing, finishing, singleLine
+
+// Structure
 
 enum FoundationType:
   case slab, basement, wood, crawl

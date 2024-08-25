@@ -2,6 +2,12 @@ House
 -----
 >House http service using Jsoniter, ScalikeJdbc, Scaffeine, HikariCP, Helidon, Ox, Postgresql and Scala 3.
 
+Warning
+-------
+>With Endpoint, was unable to use Tapir-Jsoniter support due to endless Schema-related errors.
+
+>Endpoint, instead, handles simple in/out String values.
+
 Todo
 ----
 1. Enhance model.

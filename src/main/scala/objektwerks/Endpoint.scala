@@ -47,8 +47,8 @@ object Endpoint extends OxApp with LazyLogging:
 
     val jdkHttpServer = JdkHttpServer()
       .executor( Executors.newVirtualThreadPerTaskExecutor() )
-      .host("localhost")
-      .port(7777)
+      .host(host)
+      .port(port)
       .addEndpoint(commandEndpoint)
       .start()
 

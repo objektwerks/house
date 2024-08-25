@@ -4,9 +4,9 @@ House
 
 Warning
 -------
->With Endpoint, was unable to use Tapir-Jsoniter support due to Schema-related errors.
+>Unable to derive Endpoint Schemas for Command and EVent due to derivation and inline errors.
 
->Endpoint, instead, handles simple in/out text/plain values, converting them to json as required.
+>Consequently, Endpoint handles in/out text/plain values, with as-required json conversions.
 
 Todo
 ----
@@ -111,7 +111,7 @@ export HOUSE_EMAIL_PASSWORD="your.email.password"
 
 License
 -------
->Copyright (c) [2024] [Objektwerks]
+>Copyright (c) [2024] Objektwerks
 
 >Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

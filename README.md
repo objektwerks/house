@@ -2,8 +2,8 @@ House
 -----
 >House http service using Jsoniter, ScalikeJdbc, Scaffeine, HikariCP, Tapir, Ox, Postgresql and Scala 3.
 
-Warning
--------
+Tapir
+-----
 >Unable to derive Endpoint Schemas for Command and EVent due to derivation and inline errors.
 
 >Consequently, Endpoint handles in/out text/plain values, with as-required json conversions.

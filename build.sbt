@@ -6,7 +6,7 @@ addCompilerPlugin("com.softwaremill.ox" %% "plugin" % oxVersion)
 
 name := "house"
 organization := "objektwerks"
-version := "0.50"
+version := "0.51-SNAPSHOT"
 scalaVersion := "3.5.0"
 libraryDependencies ++= {
   val jsoniterVersion = "2.30.8"

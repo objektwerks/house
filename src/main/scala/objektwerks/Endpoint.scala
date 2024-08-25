@@ -31,8 +31,9 @@ object Endpoint extends OxApp with LazyLogging:
         .in(path)
         .in(stringBody)
         .out(stringBody)
-        .handleSuccess { commandJson => 
+        .handleSuccess { commandJson =>
           logger.info(s"*** command json: $commandJson")
+
           val command = readFromString[Command](commandJson)
           logger.info(s"*** command: $command")
 

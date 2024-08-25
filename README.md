@@ -4,7 +4,7 @@ House
 
 Tapir
 -----
->Unable to derive Endpoint Schemas for Command and Event due to derivation and inline errors.
+>Unable to derive Endpoint Schemas for Command and Event due to auto/semi-auto derivation and inline errors.
 
 >Consequently, Endpoint handles in/out text/plain values with as-required json conversions.
 

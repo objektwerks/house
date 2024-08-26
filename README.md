@@ -12,7 +12,9 @@ Tapir
 >It's very simple, though. The house model is more complex. The Tapir schema feature trips up on Type enums. I
 >suspect if I derive all enum types, it might work.
 
->Finally, the Tapir recommended approach to derive schemas is too invasive.
+>Finally, the Tapir recommended approach to derive schemas is too invasive. I want to externally derive schemas;
+>not at the entity case class declaration. Moreover, I'd like to opt out of schemas all together. I don't need
+>them. I just need entity<->json binding.
 
 Todo
 ----

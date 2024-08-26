@@ -6,7 +6,7 @@ Tapir
 -----
 >Unable to derive Endpoint Schemas for Command and Event due to auto/semi-auto derivation and inline errors.
 
->Consequently, Endpoint handles in/out text/plain values with as-required json conversions.
+>Consequently, Endpoint handles in/out text/plain values with as-required json conversions. Old school.
 
 >This project [Sttp-Tapir]( https://github.com/objektwerks/sttp.tapir ) successfully implements a Json endpoint.
 >It's very simple, though. The house model is more complex. The Tapir Schema feature trips up on Type enums.

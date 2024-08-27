@@ -5,6 +5,8 @@ House
 Tapir
 -----
 >I was unable to derive endpoint schemas for Command and Event due to auto/semi-auto derivation and inline errors.
+>Naturally, this may be due to ignorance on my part. But the docs were of no help to me. Nor was the experience of
+>others.
 
 >Consequently, Endpoint handles in/out, text/plain values via just-in-time json conversions. Think old school.
 

@@ -4,9 +4,9 @@ House
 
 Tapir
 -----
->Unable to derive endpoint schemas for Command and Event due to auto/semi-auto derivation and inline errors.
+>I was unable to derive endpoint schemas for Command and Event due to auto/semi-auto derivation and inline errors.
 
->Consequently, Endpoint handles in/out text/plain values via just-in-time json conversions. Old school.
+>Consequently, Endpoint handles in/out, text/plain values via just-in-time json conversions. Think old school.
 
 >The [Sttp-Tapir]( https://github.com/objektwerks/sttp.tapir ) project successfully implements a Json endpoint.
 >It's very simple, though. The house model is more complex. The Tapir schema feature trips up on Type enums. I

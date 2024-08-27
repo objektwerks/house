@@ -14,9 +14,11 @@ Tapir
 >The house model is more complex. And the Tapir schema feature *trips up* on Type enums. I suspect if I derive all
 >enum types, it just might work. I doubt it, though. Even so, it's too much work for too little reward.
 
->Finally, the Tapir recommended approach to derive schemas is too invasive. I want to externally derive schemas;
->not at the entity case class declaration. Moreover, I'd like to opt out of schemas all together. I don't need
->them in all cases. I just need fundamental entity<->json binding.
+>Finally, the Tapir recommended approach to derive schemas is *too* invasive. I need to externally derive schemas;
+>not at the entity case class declaration.
+
+>Moreover, I'd like to opt out of schemas all together. I don't need them in all cases. I just need fundamental
+>entity<->json binding. Why is a non-schema option unavailable?
 
 >I opened this Github issue ( https://github.com/softwaremill/ox/issues/199 ), and received *zero* response. I
 >think that speaks for itself. There is no Ox community.

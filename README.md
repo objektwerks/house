@@ -10,11 +10,20 @@ Tapir
 
 >The [Sttp-Tapir]( https://github.com/objektwerks/sttp.tapir ) project successfully implements a Json endpoint.
 >It's very simple, though. The house model is more complex. The Tapir schema feature trips up on Type enums. I
->suspect if I derive all enum types, it might work.
+>suspect if I derive all enum types, it just might work. I doubt it, though.
 
 >Finally, the Tapir recommended approach to derive schemas is too invasive. I want to externally derive schemas;
 >not at the entity case class declaration. Moreover, I'd like to opt out of schemas all together. I don't need
->them. I just need entity<->json binding.
+>them in all cases. I just need fundamental entity<->json binding.
+
+>I opened this Github issue ( https://github.com/softwaremill/ox/issues/199 ), and received *zero* response. I
+>think that speaks for itself. There is no Ox community.
+
+>Nevertheless, I have, at least for now, implemented Ox in 6 projects, given their open competition with
+>Gears ( https://github.com/lampepfl/gears ), which should ideally keep them honest. We'll see, of course.
+
+>I can not use nor recommend the usage of Sttp/Tapir in the future, due to multiple complications with said libraries.
+>Perhaps, my perspective will change in the future. Public Scala opinion seems to split, though.
 
 Todo
 ----

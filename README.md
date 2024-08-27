@@ -26,9 +26,8 @@ Tapir
 >Nevertheless, I have, at least for now, implemented Ox in 6 projects, given their open competition with
 >Gears ( https://github.com/lampepfl/gears ), which should ideally keep them honest. We'll see, of course.
 
->I can not use nor recommend the usage of Sttp/Tapir in the future, due to multiple complications with said libraries.
->Perhaps, my perspective will change in the future. Public opinion seems to split, though. The docs alone are not user
->user friendly.
+>Going forward, I can not use *nor* recommend the usage of Sttp/Tapir, due to multiple complications with said libraries.
+>Perhaps, my perspective will change over time. Opinion in the Scala space seems to split.
 
 Todo
 ----

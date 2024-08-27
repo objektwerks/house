@@ -22,8 +22,8 @@ Tapir
 >Moreover, I'd like to opt out of schemas all together. I don't need them in all cases. I just need fundamental
 >entity<->json binding. Why is a non-schema option unavailable?
 
->I opened this Github issue ( https://github.com/softwaremill/ox/issues/199 ), and received *no* response. I
->think that speaks for itself. Clearly, there is little to no Ox community. Even the committers don't comment.
+>I opened this Github issue ( https://github.com/softwaremill/ox/issues/199 ), and received **no** response. I
+>think that speaks for itself. Clearly, there is little to no Ox community. Even the committers failed to comment.
 
 >Nevertheless, I have, at least for now, implemented Ox in 6 projects, given their open competition with
 >Gears ( https://github.com/lampepfl/gears ), which should ideally keep them honest. We'll see, of course.

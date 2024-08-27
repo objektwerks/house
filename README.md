@@ -26,7 +26,7 @@ Tapir
 >think that speaks for itself. Clearly, there is little to no Ox community. Even the Ox committers failed to comment.
 
 >Nevertheless, I have, at least for now, implemented Ox in 6 projects, given their open competition with
->Gears ( https://github.com/lampepfl/gears ), which should ideally keep them honest. We'll see, of course.
+>Gears ( https://github.com/lampepfl/gears ), which should *ideally* keep them honest. We'll see, of course.
 
 >Going forward, I can not use *nor* recommend the usage of Sttp/Tapir, due to multiple challenges with said libraries.
 >Perhaps, my perspective will change over time. Opinion in the Scala space seems to split.

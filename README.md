@@ -17,7 +17,7 @@ Tapir
 >all enum types, it *just* might work. I have my doubts. Even so, it's too much work for too little reward.
 
 >Finally, the Tapir recommended approach to derive schemas is *too* invasive. I need to externally derive schemas;
->not at the entity case class declaration.
+>**not** at the entity case class declaration.
 
 >Moreover, I'd like to opt out of schemas all together. I don't need them in all cases. I just need fundamental
 >entity<->json binding. Why is a non-schema option unavailable?

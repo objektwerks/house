@@ -19,8 +19,8 @@ Tapir
 >Finally, the Tapir recommended approach to derive schemas is *too* invasive. I need to externally derive schemas;
 >**not** at the entity case class declaration.
 
->Moreover, I'd like to opt out of schemas all together. I don't need them in all cases. I just need fundamental
->entity<->json binding. Why is a non-schema option unavailable?
+>Moreover, I'd like to **opt out** of schemas all together. I don't need them **in all** cases. I just need fundamental
+>entity<->json binding. Why is a **non-schema option** unavailable?
 
 >I opened this Github issue ( https://github.com/softwaremill/ox/issues/199 ), and received **no** response. I
 >think that speaks for itself. Clearly, there is little to no Ox community. Even the Ox committers failed to comment.

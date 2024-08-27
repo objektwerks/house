@@ -29,7 +29,8 @@ Tapir
 >Gears ( https://github.com/lampepfl/gears ), which should *ideally* keep them honest. We'll see, of course.
 
 >Going forward, I can not use *nor* recommend the usage of Sttp/Tapir, due to multiple challenges with said libraries.
->Perhaps, my perspective will change over time. Opinion in the Scala space seems to split.
+>Again, this is most likely due to ignorance on my part. Perhaps, my perspective will change over time. Opinion in the
+>Scala space seems to split. Reader beware!
 
 Todo
 ----

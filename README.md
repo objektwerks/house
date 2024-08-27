@@ -9,8 +9,10 @@ Tapir
 >Consequently, Endpoint handles in/out, text/plain values via just-in-time json conversions. Think old school.
 
 >The [Sttp-Tapir]( https://github.com/objektwerks/sttp.tapir ) project successfully implements a Json endpoint.
->It's very simple, though. The house model is more complex. The Tapir schema feature trips up on Type enums. I
->suspect if I derive all enum types, it just might work. I doubt it, though.
+>It's very simple, though.
+
+>The house model is more complex. And the Tapir schema feature *trips up* on Type enums. I suspect if I derive all
+>enum types, it just might work. I doubt it, though. Even so, it's too much work for too little reward.
 
 >Finally, the Tapir recommended approach to derive schemas is too invasive. I want to externally derive schemas;
 >not at the entity case class declaration. Moreover, I'd like to opt out of schemas all together. I don't need

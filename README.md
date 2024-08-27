@@ -24,7 +24,7 @@ Tapir
 >entity<->json binding. Why is a **non-schema option** unavailable?
 
 >I opened this Github issue ( https://github.com/softwaremill/ox/issues/199 ), and received **NO** response. I
->think that speaks for itself. Clearly, there is little to **NO** Ox community. Even the Ox committers **failed**
+>think that speaks for itself. Clearly, there is little to **NO** **Ox** community. Even the **Ox** committers **failed**
 >to comment. Why?
 
 >Nevertheless, I have, at least for now, implemented **Ox** in 6 projects, given its open competition with

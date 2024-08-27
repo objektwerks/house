@@ -8,7 +8,7 @@ Tapir
 >errors. Naturally, this may be due to my ignorance. But the docs were of no help to me. Nor was the experience of
 >others.
 
->Consequently, **Endpoint** handles in/out, text/plain values via just-in-time json conversions. Think old school.
+>Consequently, **Endpoint** handles in/out, text/plain values via just-in-time json conversions. Think, old school.
 
 >The [Sttp-Tapir]( https://github.com/objektwerks/sttp.tapir ) project successfully implements a Json endpoint.
 >It's very simple, though.

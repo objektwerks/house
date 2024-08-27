@@ -31,7 +31,7 @@ Tapir
 
 >Going forward, I can not use **nor** recommend the usage of Sttp/Tapir, due to multiple challenges with said libraries.
 >Again, this is most likely due to ignorance on my part. Perhaps, my perspective will change over time. Opinion in the
->Scala space seems to split. Reader beware!
+>Scala space seems to be split. You decide!
 
 Todo
 ----

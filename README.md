@@ -1,7 +1,7 @@
 House
 -----
 >House http service using Jsoniter, ScalikeJdbc, Scaffeine, HikariCP, Tapir, Ox, Postgresql and Scala 3.
->
+
 Tapir
 -----
 >I was unable to derive endpoint schemas for **Command** and **Event** due to auto/semi-auto derivation and inline

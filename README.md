@@ -9,10 +9,10 @@ Tapir
 
 >Consequently, **Endpoint** handles in/out, text/plain values via just-in-time json conversions. Think, **old school**.
 
->The [Sttp-Tapir](https://github.com/objektwerks/sttp.tapir) project successfully implements a Tapir Json endpoint.
+>The [Sttp-Tapir](https://github.com/objektwerks/sttp.tapir) project successfully implements a **Tapir** Json endpoint.
 >It's very simple endpoint, though. No derived schema issues.
 
->The **House** model is more complex. And the Tapir schema feature *trips up* on **Type** enums. I suspect if I derive
+>The **House** model is more complex. And the **Tapir** schema feature *trips up* on **Type** enums. I suspect if I derive
 >all enum types, it might work. I have my doubts, though. Even so, it's too much work for too little reward.
 
 >The **Tapir** recommended approach to derive schemas is **too** invasive. I need to externally derive schemas; **not**
@@ -21,7 +21,7 @@ Tapir
 >Moreover, I'd like to **opt out** of schemas all together. I don't need them **in all** cases. I just need fundamental
 >entity<->json binding.
 
->I opened this Github issue ( https://github.com/softwaremill/ox/issues/199 ), and received **no** response. Ummm.
+>I opened this **Ox** Github issue ( https://github.com/softwaremill/ox/issues/199 ), and received **no** response. Ummm.
 
 >Nevertheless, I've implemented **Ox** in 6 projects. Given its competition with Gears ( https://github.com/lampepfl/gears ),
 >**Ox** should continue moving forward.

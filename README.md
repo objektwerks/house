@@ -9,7 +9,7 @@ Tapir
 
 >Consequently, **Endpoint** handles in/out, text/plain values via just-in-time json conversions. Think, **old school**.
 
->The [Sttp-Tapir]( https://github.com/objektwerks/sttp.tapir ) project successfully implements a Tapir Json endpoint.
+>The [Sttp-Tapir](https://github.com/objektwerks/sttp.tapir) project successfully implements a Tapir Json endpoint.
 >It's very simple endpoint, though. No derived schema issues.
 
 >The **House** model is more complex. And the Tapir schema feature *trips up* on **Type** enums. I suspect if I derive

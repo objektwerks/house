@@ -19,7 +19,7 @@ Tapir
 >at the entity case class declaration.
 
 >Moreover, I'd like to **opt out** of schemas all together. I don't need them **in all** cases. I just need fundamental
->entity<->json binding. Why is a **non-schema option** unavailable?
+>entity<->json binding.
 
 >I opened this Github issue ( https://github.com/softwaremill/ox/issues/199 ), and received **no** response. I
 >think that speaks for itself.

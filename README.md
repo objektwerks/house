@@ -27,10 +27,6 @@ Tapir
 >Nevertheless, I have, at least for now, implemented **Ox** in 6 projects, given its open competition with
 >Gears ( https://github.com/lampepfl/gears ), which should *ideally* keep **Ox** moving forward.
 
->Going forward, I can not use **nor** recommend the usage of Sttp/Tapir, due to multiple challenges with said libraries.
->Again, this is most likely due to ignorance on my part. Perhaps, my perspective will change over time. Opinion in the
->Scala space seems to be split. You decide!
-
 Todo
 ----
 1. Enhance model.

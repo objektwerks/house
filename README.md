@@ -24,8 +24,8 @@ Tapir
 >I opened this Github issue ( https://github.com/softwaremill/ox/issues/199 ), and received **no** response. I
 >think that speaks for itself.
 
->Nevertheless, I have, at least for now, implemented **Ox** in 6 projects, given its open competition with
->Gears ( https://github.com/lampepfl/gears ), which should *ideally* keep **Ox** moving forward.
+>Nevertheless, I've implemented **Ox** in 6 projects. Given its competition with Gears ( https://github.com/lampepfl/gears ),
+>**Ox** should continue moving forward.
 
 Todo
 ----

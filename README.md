@@ -14,7 +14,6 @@ Tapir
 
 >The **House** model is more complex. And the Tapir schema feature *trips up* on **Type** enums. I suspect if I derive
 >all enum types, it *just* might work. I have my doubts, though. Even so, it's too much work for too little reward.
->Hence the **old school** approach.
 
 >Finally, the **Tapir** recommended approach to derive schemas is **too** invasive. I need to externally derive schemas;
 >**not** at the entity case class declaration.

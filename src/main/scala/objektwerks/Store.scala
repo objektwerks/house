@@ -97,8 +97,9 @@ final class Store(cache: Cache[String, String],
   def addHouse(house: House): Long =
     DB localTx { implicit session =>
       sql"""
-        insert into house(account_id, typeof, location, label, note, built)
-        values(${house.accountId}, ${house.typeof.toString}, ${house.location}, ${house.label}, ${house.note}, ${house.built})
+        insert into house(account_id, typeof, location, label, note, architect, builder, built)
+        values(${house.accountId}, ${house.typeof.toString}, ${house.location}, ${house.label}, ${house.note},
+        ${house.architect}, ${house.builder}, ${house.built})
         """
         .updateAndReturnGeneratedKey()
     }

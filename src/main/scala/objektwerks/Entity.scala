@@ -39,6 +39,8 @@ final case class House(
     location: String,
     label: String = "",
     note: String = "",
+    architect: String = "",
+    builder: String = "",                  
     built: String = Entity.now
 ) extends Entity derives CanEqual
 

@@ -86,6 +86,8 @@ final class Store(cache: Cache[String, String],
             rs.string("location"),
             rs.string("label"),
             rs.string("note"),
+            rs.string("architect"),
+            rs.string("builder"),
             rs.string("built")
           )
         )

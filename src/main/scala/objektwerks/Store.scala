@@ -107,8 +107,9 @@ final class Store(cache: Cache[String, String],
   def updateHouse(house: House): Int =
     DB localTx { implicit session =>
       sql"""
-        update house set typeof = ${house.typeof.toString}, location = ${house.location}, label = ${house.label}, note = ${house.note},
-        built = ${house.built} where id = ${house.id}
+        update house set typeof = ${house.typeof.toString}, location = ${house.location}, label = ${house.label},
+        note = ${house.note}, architect = ${house.architect}, builder = ${house.builder}, built = ${house.built}
+        where id = ${house.id}
         """
         .update()
     }

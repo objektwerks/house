@@ -44,6 +44,8 @@ object Validator:
       house.location.nonEmpty &&
       house.label.isEmptyOrNonEmpty &&
       house.note.isEmptyOrNonEmpty &&
+      house.architect.isEmptyOrNonEmpty &&
+      house.builder.isEmptyOrNonEmpty &&
       house.built.nonEmpty
 
   extension (drawing: Drawing)

@@ -22,6 +22,8 @@ CREATE TABLE house (
   location VARCHAR NOT NULL,
   label VARCHAR NOT NULL,
   note VARCHAR NOT NULL,
+  architect VARCHAR NOT NULL,
+  builder VARCHAR NOT NULL,
   built VARCHAR NOT NULL
 );
 

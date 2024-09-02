@@ -4,16 +4,16 @@ House
 
 Tapir
 -----
->I was unable to derive endpoint schemas for **Command** and **Event** due to auto/semi-auto derivation and inline
+>I failed to derive endpoint schemas for **Command** and **Event** due to auto/semi-auto derivation and inline
 >errors.
 
 >Consequently, **Endpoint** handles in/out, text/plain values via just-in-time json conversions. Think, **old school**.
 
 >The [Sttp-Tapir](https://github.com/objektwerks/sttp.tapir) project successfully implements a **Tapir** Json endpoint.
->It's a very simple endpoint, though. No derived schema issues were encountered.
+>It's a very simple endpoint, though. No derived schema issues.
 
->The **House** model is more complex. And the **Tapir** schema feature *trips up* on **Type** enums. I suspect if I derive
->all enum types, it might work. I have my doubts, though. Even so, it's too much work for too little reward.
+>The **House** model is more complex. And the **Tapir** derive schema feature *trips up* on **Type** enums. I suspect if I
+>derive all enum types, it might work. Even so, it's too much work for too little reward.
 
 >The **Tapir** recommended approach to derive schemas is **too** invasive. I need to externally derive schemas; **not**
 >at the entity case class declaration.

@@ -62,16 +62,15 @@ final class Handler(store: Store, emailer: Emailer):
     emailer.send(recipients, message)
 
   def register(email: String)(using IO): Event =
-    Try:
+    try
       supervised:
         val account = Account(email = email)
         val message = s"Your new pin is: ${account.pin}\n\nWelcome aboard!"
         retry( RetryConfig.delay(1, 600.millis) )( sendEmail(account.email, message) )
         val id = store.register(account)
         Registered( account.copy(id = id) )
-    .recover:
+    catch
       case NonFatal(error) => addFault( Fault(s"Registration failed for: $email, because: ${error.getMessage}") )
-    .get
 
   def login(email: String, pin: String)(using IO): Event =
     Try:

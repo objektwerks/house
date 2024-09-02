@@ -83,14 +83,13 @@ final class Handler(store: Store, emailer: Emailer):
         else addFault( Fault(s"Login failed for email address: $email and pin: $pin") ) )
 
   def listFaults()(using IO): Event =
-    Try:
+    try
       FaultsListed(
         supervised:
           retry( RetryConfig.delay(1, 100.millis) )( store.listFaults() )
       )
-    .recover:
+    catch
       case NonFatal(error) => addFault( Fault(s"List faults failed: ${error.getMessage}") )
-    .get
 
   def addFault(fault: Fault)(using IO): Event =
     Try:

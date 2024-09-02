@@ -47,15 +47,14 @@ final class Handler(store: Store, emailer: Emailer):
   def isAuthorized(command: Command)(using IO): Security =
     command match
       case license: License =>
-        Try:
+        try
           supervised:
             retry( RetryConfig.delay(1, 100.millis) )(
               if store.isAuthorized(license.license) then Authorized
               else Unauthorized(s"Unauthorized: $command")
             )
-        .recover:
+        catch
           case NonFatal(error) => Unauthorized(s"Unauthorized: $command, cause: $error")
-        .get
       case Register(_) | Login(_, _) => Authorized
 
   def sendEmail(email: String, message: String): Unit =

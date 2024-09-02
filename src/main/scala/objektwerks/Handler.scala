@@ -101,15 +101,14 @@ final class Handler(store: Store, emailer: Emailer):
       case NonFatal(error) => addFault( Fault(s"Add fault failed: ${error.getMessage}") )
 
   def listEntities(typeof: EntityType, parentId: Long)(using IO): Event =
-    Try:
+    try
       val function = list(typeof)
       EntitiesListed(
         supervised:
           retry( RetryConfig.delay(1, 100.millis) )( function(parentId) )
       )
-    .recover:
+    catch
       case NonFatal(error) => addFault( Fault(s"List entities [$typeof]{$parentId} failed: ${error.getMessage}") )
-    .get
 
   def addEntity(typeof: EntityType, entity: Entity)(using IO): Event =
     Try:

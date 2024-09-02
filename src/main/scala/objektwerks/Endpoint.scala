@@ -60,7 +60,7 @@ object Endpoint extends OxApp with LazyLogging:
     sys.addShutdownHook {
       println(s"*** House Http Server shutdown at: $host:$port")
       logger.info(s"*** House Http Server shutdown at: $host:$port")
-      jdkHttpServer.stop(3)
+      jdkHttpServer.stop(10)
     }
 
     Thread.currentThread().join()

@@ -121,15 +121,14 @@ final class Handler(store: Store, emailer: Emailer):
       case NonFatal(error) => addFault( Fault(s"Add entity [$typeof] failed: ${error.getMessage} for: $entity") )
 
   def updateEntity(typeof: EntityType, entity: Entity)(using IO): Event =
-    Try:
+    try
       val function = update(typeof)
       EntityUpdated(
         supervised:
           retry( RetryConfig.delay(1, 100.millis) )( function(entity) )
       )
-    .recover:
+    catch
       case NonFatal(error) => addFault( Fault(s"Update entity [$typeof] failed: ${error.getMessage} for: $entity") )
-    .get
 
   def listHouses(accountId: Long): List[House] = store.listHouses(accountId)
 

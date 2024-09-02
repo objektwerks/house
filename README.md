@@ -21,10 +21,12 @@ Tapir
 >Moreover, I'd like to **opt out** of schemas all together. I don't need them **in all** cases. I just need fundamental
 >entity<->json binding.
 
->I opened this **Ox** Github issue ( https://github.com/softwaremill/ox/issues/199 ).
+Ox
+--
+>I opened this Ox Github issue ( https://github.com/softwaremill/ox/issues/199 ) for clarity on my usage of Ox.
 
->Nevertheless, I've implemented **Ox** in 6 projects. And given its edge over Gears ( https://github.com/lampepfl/gears ),
->I'm betting **Ox** will continue moving forward.
+>I've implemented Ox in 6 projects. And given its edge over Gears ( https://github.com/lampepfl/gears ), I'm betting
+>OX will continue moving forward.
 
 Todo
 ----

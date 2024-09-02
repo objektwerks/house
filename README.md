@@ -23,7 +23,7 @@ Tapir
 
 Ox
 --
->I opened this Ox Github issue ( https://github.com/softwaremill/ox/issues/199 ) for clarity on my usage of Ox.
+>I opened this Ox Github issue ( https://github.com/softwaremill/ox/issues/199 ) to get clarity on my usage of Ox.
 
 >I've implemented Ox in 6 projects. And given its edge over Gears ( https://github.com/lampepfl/gears ), I'm betting
 >Ox will continue moving forward.

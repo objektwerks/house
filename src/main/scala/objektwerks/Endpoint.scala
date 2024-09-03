@@ -9,9 +9,11 @@ import java.util.concurrent.Executors
 import ox.{ExitCode, IO, never, Ox, OxApp, releaseAfterScope}
 
 import sttp.tapir.*
+import sttp.tapir.json.jsoniter.*
 import sttp.tapir.server.jdkhttp.JdkHttpServer
 
 import Serializer.given
+import Schemas.given
 
 object Endpoint extends OxApp with LazyLogging:
   override def run(args: Vector[String])(using Ox, IO): ExitCode =

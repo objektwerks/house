@@ -1,6 +1,5 @@
 package objektwerks
 
-import com.github.plokhotnyuk.jsoniter_scala.core.*
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 

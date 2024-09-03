@@ -28,5 +28,6 @@ libraryDependencies ++= {
   )
 }
 scalacOptions ++= Seq(
-  "-Wunused:all"
+  "-Wunused:all",
+  "-Xmax-inlines=128"
 )

@@ -1,10 +1,13 @@
 package objektwerks
 
 import sttp.tapir.*
+import javax.swing.text.html.parser.Entity
 
 object Schemas:
   given Schema[Command] = Schema.derived
   given Schema[Event] = Schema.derived
+  given Schema[List[Entity]] = Schema.derived
+  given Schema[Fault] = Schema.derived
 
   given Schema[EntityType] = Schema.derived
   given Schema[HouseType] = Schema.derived
@@ -53,6 +56,7 @@ object Schemas:
   given Schema[MailboxType] = Schema.derived
 
   given Schema[Entity] = Schema.derived
+  given Schema[Account] = Schema.derived
   given Schema[House] = Schema.derived
   given Schema[Drawing] = Schema.derived
   given Schema[Foundation] = Schema.derived

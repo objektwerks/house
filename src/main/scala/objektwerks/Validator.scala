@@ -222,7 +222,7 @@ object Validator:
   extension (addFault: AddFault)
     def isValid: Boolean =
       addFault.license.isLicense &&
-      addFault.fault.isValid
+      addFault.fault.nonEmpty
 
   extension (command: Command)
     def isValid: Boolean =

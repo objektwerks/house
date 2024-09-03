@@ -31,20 +31,13 @@ object Endpoint extends OxApp with LazyLogging:
       endpoint
         .post
         .in(path)
-        .in(stringBody)
-        .out(stringBody)
-        .handleSuccess { commandJson =>
-          logger.info(s"*** command json: $commandJson")
-
-          val command = readFromString[Command](commandJson)
+        .in(jsonBody[Command])
+        .out(jsonBody[Event])
+        .handleSuccess { command =>
           logger.info(s"*** command: $command")
-
           val event = dispatcher.dispatch(command)
           logger.info(s"*** event: $event")
-
-          val eventJson = writeToString[Event](event)
-          logger.info(s"*** event json: $eventJson")
-          eventJson
+          event
         }
 
     val jdkHttpServer = JdkHttpServer()

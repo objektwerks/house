@@ -3,6 +3,9 @@ package objektwerks
 import sttp.tapir.*
 
 object Schemas:
+  given Schema[Command] = Schema.derived
+  given Schema[Event] = Schema.derived
+
   given Schema[EntityType] = Schema.derived
   given Schema[HouseType] = Schema.derived
   given Schema[DrawingType] = Schema.derived

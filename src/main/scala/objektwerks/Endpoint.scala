@@ -6,7 +6,7 @@ import com.typesafe.scalalogging.LazyLogging
 
 import java.util.concurrent.Executors
 
-import ox.{ExitCode, IO, Ox, OxApp}
+import ox.{ExitCode, IO, never, Ox, OxApp, releaseAfterScope}
 
 import sttp.tapir.*
 import sttp.tapir.server.jdkhttp.JdkHttpServer
@@ -57,12 +57,11 @@ object Endpoint extends OxApp with LazyLogging:
     logger.info(s"*** House Endpoint: ${commandEndpoint.show}")
     logger.info(s"*** House Http Server started at: $host:$port/$path")
 
-    sys.addShutdownHook {
+    releaseAfterScope:
       println(s"*** House Http Server shutdown at: $host:$port")
       logger.info(s"*** House Http Server shutdown at: $host:$port")
       jdkHttpServer.stop(10)
-    }
 
-    Thread.currentThread().join()
+    never
 
     ExitCode.Success

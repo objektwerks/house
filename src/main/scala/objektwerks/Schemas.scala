@@ -63,7 +63,6 @@ object Schemas:
   given Schema[Room] = Schema.derived
   given Schema[Roof] = Schema.derived
   given Schema[Chimney] = Schema.derived
-  given Schema[Culvert] = Schema.derived
   given Schema[Driveway] = Schema.derived
   given Schema[Garage] = Schema.derived
   given Schema[Siding] = Schema.derived

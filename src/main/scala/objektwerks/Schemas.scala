@@ -1,7 +1,6 @@
 package objektwerks
 
 import sttp.tapir.*
-import javax.swing.text.html.parser.Entity
 
 object Schemas:
   given Schema[Command] = Schema.derived

@@ -7,9 +7,11 @@ import java.util.concurrent.Executors
 
 import ox.{ExitCode, IO, never, Ox, OxApp, releaseAfterScope}
 
+import sttp.shared.Identity
 import sttp.tapir.*
 import sttp.tapir.json.jsoniter.*
 import sttp.tapir.server.jdkhttp.JdkHttpServer
+import sttp.tapir.swagger.bundle.SwaggerInterpreter
 
 import Serializer.given
 import Schemas.given
@@ -39,11 +41,15 @@ object Endpoint extends OxApp with LazyLogging:
           event
         }
 
+    val swaggerEndpoints = SwaggerInterpreter()
+      .fromServerEndpoints[Identity](List(commandEndpoint), "House", "1.0")
+
     val jdkHttpServer = JdkHttpServer()
       .executor( Executors.newVirtualThreadPerTaskExecutor() )
       .host(host)
       .port(port)
       .addEndpoint(commandEndpoint)
+      .addEndpoints(swaggerEndpoints)
       .start()
 
     println(s"*** House Endpoint: ${commandEndpoint.show}")

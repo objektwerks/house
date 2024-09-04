@@ -141,7 +141,7 @@ export HOUSE_EMAIL_PASSWORD="your.email.password"
 
 Resources
 ---------
-* [Ox]()
+* [Ox](https://ox.softwaremill.com/latest/)
 * [Tapir]()
 
 License

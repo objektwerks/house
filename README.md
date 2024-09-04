@@ -139,6 +139,11 @@ export HOUSE_EMAIL_ADDRESS="your.email.address@email.com"
 export HOUSE_EMAIL_PASSWORD="your.email.password"
 ```
 
+Resources
+---------
+* [Ox]()
+* [Tapir]()
+
 License
 -------
 >Copyright (c) [2024] Objektwerks

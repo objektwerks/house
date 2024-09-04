@@ -21,6 +21,15 @@ Tapir
 
 >Finally, I succeeded in deriving schemas for all required classes and enums. See **Schemas**.
 
+>To work around inline errors, I had to edited scalacOptions as follows:
+```
+scalacOptions ++= Seq(
+  "-Wunused:all",
+  "-Xmax-inlines",
+  "128"
+)
+```
+
 Ox
 --
 >I opened this Ox Github issue ( https://github.com/softwaremill/ox/issues/199 ) to get clarity on my usage of Ox.

@@ -29,6 +29,7 @@ scalacOptions ++= Seq(
   "128"
 )
 ```
+>The key lines are ```-Xmax-inlines``` and ```128```.
 
 Ox
 --

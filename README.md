@@ -142,7 +142,7 @@ export HOUSE_EMAIL_PASSWORD="your.email.password"
 Resources
 ---------
 * [Ox](https://ox.softwaremill.com/latest/)
-* [Tapir]()
+* [Tapir](https://tapir.softwaremill.com/en/latest/)
 
 License
 -------

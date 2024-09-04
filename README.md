@@ -19,6 +19,8 @@ Tapir
 >Moreover, I'd like to **opt out** of schemas all together. I don't need them **in all** cases. I just need fundamental
 >entity<->json binding.
 
+>Finally, I succeeded in deriving schemas for all required classes and enums. See **Schemas**.
+
 Ox
 --
 >I opened this Ox Github issue ( https://github.com/softwaremill/ox/issues/199 ) to get clarity on my usage of Ox.

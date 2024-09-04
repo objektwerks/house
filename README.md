@@ -4,10 +4,8 @@ House
 
 Tapir
 -----
->I failed to derive endpoint schemas for **Command** and **Event** due to auto/semi-auto derivation and inline
->errors.
-
->Consequently, **Endpoint** handles in/out, text/plain values via just-in-time json conversions. Think, **old school**.
+>I initially failed to derive endpoint schemas for **Command** and **Event** due to auto/semi-auto derivation and inline
+>errors. Consequently, **Endpoint** handles in/out, text/plain values via just-in-time json conversions. Think, **old school**.
 
 >The [Sttp-Tapir](https://github.com/objektwerks/sttp.tapir) project successfully implements a **Tapir** Json endpoint.
 >It's a very simple endpoint, though. No derived schema issues.

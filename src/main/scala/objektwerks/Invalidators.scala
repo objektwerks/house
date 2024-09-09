@@ -1,6 +1,6 @@
 package objektwerks
 
-import Invalidator.*
+import Validator.*
 
 object Invalidators:
   extension (value: String)
@@ -10,63 +10,63 @@ object Invalidators:
     def isEmail: Boolean = value.length >= 3 && value.contains("@")
 
   extension (account: Account)
-    def invalidate: Invalidator =
-      Invalidator()
-        .invalidate(account.id >= 0)(Field("id"), Message("Must be greater than or equal to 0."))
-        .invalidate(account.license.isLicense)(Field("license"), Message("Must be 36 characters in length."))
-        .invalidate(account.email.isEmail)(Field("email"), Message("Must be at least 3 characters in length and contain 1 @."))
-        .invalidate(account.pin.isPin)(Field("pin"), Message("Must be 7 characters in length."))
-        .invalidate(account.activated.nonEmpty)(Field("activated"), Message("Must be non empty."))
+    def validate: Validator =
+      Validator()
+        .validate(account.id >= 0)(Field("id"), Message("Must be greater than or equal to 0."))
+        .validate(account.license.isLicense)(Field("license"), Message("Must be 36 characters in length."))
+        .validate(account.email.isEmail)(Field("email"), Message("Must be at least 3 characters in length and contain 1 @."))
+        .validate(account.pin.isPin)(Field("pin"), Message("Must be 7 characters in length."))
+        .validate(account.activated.nonEmpty)(Field("activated"), Message("Must be non empty."))
 
   extension (house: House)
-    def invalidate: Invalidator =
-      Invalidator()
-        .invalidate(house.id >= 0)(Field("id"), Message("Must be greater than or equal to 0."))
-        .invalidate(house.accountId > 0)(Field("accountId"), Message("Must be greater than 0."))
-        .invalidate(house.label.isEmptyOrNonEmpty)(Field("label"), Message("Must be empty or non empty."))
-        .invalidate(house.note.isEmptyOrNonEmpty)(Field("note"), Message("Must be empty or non empty."))
-        .invalidate(house.architect.isEmptyOrNonEmpty)(Field("architect"), Message("Must be empty or non empty."))
-        .invalidate(house.builder.isEmptyOrNonEmpty)(Field("builder"), Message("Must be empty or non empty."))
-        .invalidate(house.built.nonEmpty)(Field("built"), Message("Must be non empty."))
+    def validate: Validator =
+      Validator()
+        .validate(house.id >= 0)(Field("id"), Message("Must be greater than or equal to 0."))
+        .validate(house.accountId > 0)(Field("accountId"), Message("Must be greater than 0."))
+        .validate(house.label.isEmptyOrNonEmpty)(Field("label"), Message("Must be empty or non empty."))
+        .validate(house.note.isEmptyOrNonEmpty)(Field("note"), Message("Must be empty or non empty."))
+        .validate(house.architect.isEmptyOrNonEmpty)(Field("architect"), Message("Must be empty or non empty."))
+        .validate(house.builder.isEmptyOrNonEmpty)(Field("builder"), Message("Must be empty or non empty."))
+        .validate(house.built.nonEmpty)(Field("built"), Message("Must be non empty."))
 
   extension (drawing: Drawing)
-    def invalidate: Invalidator =
-      Invalidator()
-        .invalidate(drawing.id >= 0)(Field("id"), Message("Must be greater than or equal to 0."))
-        .invalidate(drawing.houseId > 0)(Field("houseId"), Message("Must be greater than 0."))
-        .invalidate(drawing.url.nonEmpty)(Field("url"), Message("Must be non empty."))
-        .invalidate(drawing.note.isEmptyOrNonEmpty)(Field("note"), Message("Must be empty or non empty."))
-        .invalidate(drawing.added.nonEmpty)(Field("added"), Message("Must be non empty."))
+    def validate: Validator =
+      Validator()
+        .validate(drawing.id >= 0)(Field("id"), Message("Must be greater than or equal to 0."))
+        .validate(drawing.houseId > 0)(Field("houseId"), Message("Must be greater than 0."))
+        .validate(drawing.url.nonEmpty)(Field("url"), Message("Must be non empty."))
+        .validate(drawing.note.isEmptyOrNonEmpty)(Field("note"), Message("Must be empty or non empty."))
+        .validate(drawing.added.nonEmpty)(Field("added"), Message("Must be non empty."))
 
   extension (issue: Issue)
-    def invalidate: Invalidator =
-      Invalidator()
-        .invalidate(issue.id >= 0)(Field("id"), Message("Must be greater than or equal to 0."))
-        .invalidate(issue.houseId > 0)(Field("houseId"), Message("Must be greater than 0."))
-        .invalidate(issue.report.nonEmpty)(Field("report"), Message("Must be non empty."))
-        .invalidate(issue.resolution.isEmptyOrNonEmpty)(Field("resolution"), Message("Must be empty or non empty."))
-        .invalidate(issue.reported.nonEmpty)(Field("reported"), Message("Must be non empty."))
-        .invalidate(issue.resolved.nonEmpty)(Field("resolved"), Message("Must be non empty."))
+    def validate: Validator =
+      Validator()
+        .validate(issue.id >= 0)(Field("id"), Message("Must be greater than or equal to 0."))
+        .validate(issue.houseId > 0)(Field("houseId"), Message("Must be greater than 0."))
+        .validate(issue.report.nonEmpty)(Field("report"), Message("Must be non empty."))
+        .validate(issue.resolution.isEmptyOrNonEmpty)(Field("resolution"), Message("Must be empty or non empty."))
+        .validate(issue.reported.nonEmpty)(Field("reported"), Message("Must be non empty."))
+        .validate(issue.resolved.nonEmpty)(Field("resolved"), Message("Must be non empty."))
 
   extension (common: Common)
-    def invalidate: Invalidator =
-      Invalidator()
-        .invalidate(common.id >= 0)(Field("id"), Message("Must be greater than or equal to 0."))
-        .invalidate(common.houseId > 0)(Field("houseId"), Message("Must be great than 0."))
-        .invalidate(common.label.isEmptyOrNonEmpty)(Field("label"), Message("Must be empty or non empty."))
-        .invalidate(common.note.isEmptyOrNonEmpty)(Field("note"), Message("Must be empty or non empty."))
+    def validate: Validator =
+      Validator()
+        .validate(common.id >= 0)(Field("id"), Message("Must be greater than or equal to 0."))
+        .validate(common.houseId > 0)(Field("houseId"), Message("Must be great than 0."))
+        .validate(common.label.isEmptyOrNonEmpty)(Field("label"), Message("Must be empty or non empty."))
+        .validate(common.note.isEmptyOrNonEmpty)(Field("note"), Message("Must be empty or non empty."))
 
   extension (built: Built)
-    def invalidate: Invalidator =
-      Invalidator()
-        .invalidate(built.built.nonEmpty)(Field("built"), Message("Must be non empty."))
+    def validate: Validator =
+      Validator()
+        .validate(built.built.nonEmpty)(Field("built"), Message("Must be non empty."))
 
   extension (installed: Installed)
-    def invalidate: Invalidator =
-      Invalidator()
-        .invalidate(installed.installed.nonEmpty)(Field("installed"), Message("Must be non empty."))
+    def validate: Validator =
+      Validator()
+        .validate(installed.installed.nonEmpty)(Field("installed"), Message("Must be non empty."))
 
   extension (planted: Planted)
-    def invalidate: Invalidator =
-      Invalidator()
-        .invalidate(planted.planted.nonEmpty)(Field("planted"), Message("Must be non empty."))
+    def validate: Validator =
+      Validator()
+        .validate(planted.planted.nonEmpty)(Field("planted"), Message("Must be non empty."))

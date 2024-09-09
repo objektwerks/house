@@ -3,10 +3,22 @@ package objektwerks
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
-import Types.*
-
 final class InvalidatorTest extends AnyFunSuite with Matchers:
+  opaque type Name <: String = String
+  object Name:
+    def apply(value: String): Name = value
+
+  opaque type Age <: Int = Int
+  object Age:
+    def apply(value: Int): Age = value
+
   final case class Person(name: String, age: Int)
+
+  extension (person: Person)
+    def invalidate: Invalidator =
+      Invalidator()
+        .invalidate(person.name.isEmpty)(nameField, nameMessage)
+        .invalidate(person.age < 1)(ageField, ageMessage)
 
   test("valid"):
     val person = Person(Name("Fred Flintsone"), Age(28))

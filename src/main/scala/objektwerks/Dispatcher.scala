@@ -2,7 +2,7 @@ package objektwerks
 
 import ox.IO
 
-import Validator.*
+import Validators.*
 
 final class Dispatcher(handler: Handler):
   def dispatch(command: Command)(using IO): Event =

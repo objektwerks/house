@@ -21,3 +21,8 @@ object Invalidators:
     def invalidate: Invalidator =
       Invalidator()
         .invalidate(installed.installed.nonEmpty)(Field("installed"), Message("Must be non empty."))
+
+  extension (planted: Planted)
+    def invalidate: Invalidator =
+      Invalidator()
+        .invalidate(planted.planted.nonEmpty)(Field("planted"), Message("Must be non empty."))

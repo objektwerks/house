@@ -20,13 +20,14 @@ object Person:
   object Age:
     def apply(value: Int): Age = value
 
-final case class Person(name: String, age: Int):
-  import Person.* 
+final case class Person(name: String, age: Int)
 
+import Person.*
+extension (person: Person)
   def invalidate: Invalidator =
     Invalidator()
-      .invalidate(name.isEmpty)(nameField, nameMessage)
-      .invalidate(age < 1)(ageField, ageMessage)
+      .invalidate(person.name.isEmpty)(nameField, nameMessage)
+      .invalidate(person.age < 1)(ageField, ageMessage)
 
 final class InvalidatorTest extends AnyFunSuite with Matchers:
   import Person.*

@@ -16,7 +16,7 @@ import sttp.tapir.swagger.bundle.SwaggerInterpreter
 import Serializer.given
 import Schemas.given
 
-object Endpoint extends OxApp with LazyLogging:
+object Endpoints extends OxApp with LazyLogging:
   override def run(args: Vector[String])(using Ox, IO): ExitCode =
     val config = ConfigFactory.load("server.conf")
     val host = config.getString("server.host")

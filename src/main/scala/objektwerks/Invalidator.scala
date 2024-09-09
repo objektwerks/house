@@ -2,15 +2,18 @@ package objektwerks
 
 import scala.collection.mutable
 
-opaque type Field = String
-object Field:
-  def apply(value: String): Field = value
+object Invalidator:
+  opaque type Field = String
+  object Field:
+    def apply(value: String): Field = value
 
-opaque type Message = String
-object Message:
-  def apply(value: String): Message = value
+  opaque type Message = String
+  object Message:
+    def apply(value: String): Message = value
 
 final class Invalidator:
+  import Invalidator.*
+
   private val invalidations = mutable.Map[Field, Message]()
 
   private def add(field: Field, message: Message): Invalidator =

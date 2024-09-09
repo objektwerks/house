@@ -1,7 +1,7 @@
 package objektwerks
 
 import Invalidator.*
-import Validators.* 
+import Validators.*
 
 object Invalidators:
   extension (common: Common)
@@ -11,3 +11,8 @@ object Invalidators:
         .invalidate(common.houseId > 0)(Field("houseId"), Message("Must be great than 0."))
         .invalidate(common.label.isEmptyOrNonEmpty)(Field("label"), Message("Must be empty or non empty."))
         .invalidate(common.note.isEmptyOrNonEmpty)(Field("note"), Message("Must be empty or non empty."))
+
+  extension (built: Built)
+    def invalidate: Invalidator =
+      Invalidator()
+        .invalidate(built.built.nonEmpty)(Field("built"), Message("Must be non empty."))

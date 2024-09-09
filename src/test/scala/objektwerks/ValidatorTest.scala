@@ -26,8 +26,8 @@ import Person.*
 extension (person: Person)
   def validate: Validator =
     Validator()
-      .validate(person.name.isEmpty)(nameField, nameMessage)
-      .validate(person.age < 1)(ageField, ageMessage)
+      .validate(person.name.nonEmpty)(nameField, nameMessage)
+      .validate(person.age > 0)(ageField, ageMessage)
 
 final class InvalidatorTest extends AnyFunSuite with Matchers:
   import Person.*

@@ -7,28 +7,6 @@ object Validators:
     def isPin: Boolean = value.length == 7
     def isEmail: Boolean = value.length >= 3 && value.contains("@")
 
-  extension (common: Common)
-    def isCommon: Boolean =
-      common.id >= 0
-      common.houseId > 0 &&
-      common.label.isEmptyOrNonEmpty &&
-      common.note.isEmptyOrNonEmpty
-
-  extension (built: Built)
-    def isBuilt: Boolean =
-      built.isCommon &&
-      built.built.nonEmpty
-
-  extension (installed: Installed)
-    def isInstalled: Boolean =
-      installed.isCommon &&
-      installed.installed.nonEmpty
-
-  extension (planted: Planted)
-    def isPlanted: Boolean =
-      planted.isCommon &&
-      planted.planted.nonEmpty
-
   extension (account: Account)
     def isValid: Boolean =
       account.id >= 0 &&
@@ -64,6 +42,28 @@ object Validators:
       issue.resolution.isEmptyOrNonEmpty &&
       issue.reported.nonEmpty &&
       issue.resolved.nonEmpty
+
+  extension (common: Common)
+    def isCommon: Boolean =
+      common.id >= 0
+      common.houseId > 0 &&
+      common.label.isEmptyOrNonEmpty &&
+      common.note.isEmptyOrNonEmpty
+
+  extension (built: Built)
+    def isBuilt: Boolean =
+      built.isCommon &&
+      built.built.nonEmpty
+
+  extension (installed: Installed)
+    def isInstalled: Boolean =
+      installed.isCommon &&
+      installed.installed.nonEmpty
+
+  extension (planted: Planted)
+    def isPlanted: Boolean =
+      planted.isCommon &&
+      planted.planted.nonEmpty
 
   extension (foundation: Foundation)
     def isValid: Boolean = foundation.isBuilt

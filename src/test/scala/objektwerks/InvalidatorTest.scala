@@ -3,7 +3,15 @@ package objektwerks
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
-final class InvalidatorTest extends AnyFunSuite with Matchers:
+object Person:
+  import Invalidator.*
+
+  val nameField = Field("Name")
+  val ageField = Field("Age")
+
+  val nameMessage = Message("Name is less than 1 character.")
+  val ageMessage = Message("Age is less than 1.")
+
   opaque type Name <: String = String
   object Name:
     def apply(value: String): Name = value
@@ -12,13 +20,16 @@ final class InvalidatorTest extends AnyFunSuite with Matchers:
   object Age:
     def apply(value: Int): Age = value
 
-  final case class Person(name: String, age: Int)
+final case class Person(name: String, age: Int):
+  import Person.* 
 
-  extension (person: Person)
-    def invalidate: Invalidator =
-      Invalidator()
-        .invalidate(person.name.isEmpty)(nameField, nameMessage)
-        .invalidate(person.age < 1)(ageField, ageMessage)
+  def invalidate: Invalidator =
+    Invalidator()
+      .invalidate(name.isEmpty)(nameField, nameMessage)
+      .invalidate(age < 1)(ageField, ageMessage)
+
+final class InvalidatorTest extends AnyFunSuite with Matchers:
+  import Person.*
 
   test("valid"):
     val person = Person(Name("Fred Flintsone"), Age(28))

@@ -9,7 +9,7 @@ import sttp.tapir.*
 import sttp.tapir.json.jsoniter.*
 import sttp.tapir.swagger.bundle.SwaggerInterpreter
 
-import Serializer.given
+import Serializers.given
 import Schemas.given
 
 final class Endpoints(path: String, dispatcher: Dispatcher)(using IO) extends LazyLogging:

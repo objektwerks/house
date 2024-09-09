@@ -2,6 +2,14 @@ package objektwerks
 
 import scala.collection.mutable
 
+opaque type Field = String
+object Field:
+  def apply(value: String): Field = value
+
+opaque type Message = String
+object Message:
+  def apply(value: String): Message = value
+
 final class Invalidator:
   private val invalidations = mutable.Map[Field, Message]()
 

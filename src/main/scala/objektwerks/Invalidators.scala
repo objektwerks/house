@@ -29,6 +29,15 @@ object Invalidators:
         .invalidate(house.builder.isEmptyOrNonEmpty)(Field("builder"), Message("Must be empty or non empty."))
         .invalidate(house.built.nonEmpty)(Field("built"), Message("Must be non empty."))
 
+  extension (drawing: Drawing)
+    def invalidate: Invalidator =
+      Invalidator()
+        .invalidate(drawing.id >= 0)(Field("id"), Message("Must be greater than or equal to 0."))
+        .invalidate(drawing.houseId > 0)(Field("houseId"), Message("Must be greater than 0."))
+        .invalidate(drawing.url.nonEmpty)(Field("url"), Message("Must be non empty."))
+        .invalidate(drawing.note.isEmptyOrNonEmpty)(Field("note"), Message("Must be empty or non empty."))
+        .invalidate(drawing.added.nonEmpty)(Field("added"), Message("Must be non empty."))
+
   extension (common: Common)
     def invalidate: Invalidator =
       Invalidator()

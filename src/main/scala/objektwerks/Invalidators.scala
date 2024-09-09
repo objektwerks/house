@@ -8,7 +8,16 @@ object Invalidators:
     def isLicense: Boolean = value.length == 36
     def isPin: Boolean = value.length == 7
     def isEmail: Boolean = value.length >= 3 && value.contains("@")
-    
+
+  extension (account: Account)
+    def invalidate: Invalidator =
+      Invalidator()
+        .invalidate(account.id >= 0)(Field("id"), Message("Must be greater than or equal to 0."))
+        .invalidate(account.license.isLicense)(Field("license"), Message("Must be 36 characters in length."))
+        .invalidate(account.email.isEmail)(Field("email"), Message("Must be at least 3 characters in length and contain 1 @."))
+        .invalidate(account.pin.isPin)(Field("pin"), Message("Must be 7 characters in length."))
+        .invalidate(account.activated.nonEmpty)(Field("activated"), Message("Must be non empty."))
+
   extension (common: Common)
     def invalidate: Invalidator =
       Invalidator()

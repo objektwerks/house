@@ -1,4 +1,4 @@
 package objektwerks
 
-object Invalidator:
+object Invalidators:
   

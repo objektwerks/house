@@ -8,7 +8,7 @@ import ox.IO.globalForTesting.given_IO
 
 import scala.sys.process.Process
 
-import Validator.*
+import Validators.*
 
 final class DispatcherTest extends AnyFunSuite with Matchers:
   val exitCode = Process("psql -d house -f ddl.sql").run().exitValue()

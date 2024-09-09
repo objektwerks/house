@@ -21,7 +21,7 @@ object Server extends OxApp with LazyLogging:
     val emailer = Emailer(config)
     val handler = Handler(store, emailer)
     val dispatcher = Dispatcher(handler)
-    val endpoints = Endpoints(path, dispatcher)
+    val endpoints = Endpoints(path, dispatcher, logger)
 
     val jdkHttpServer = JdkHttpServer()
       .executor( Executors.newVirtualThreadPerTaskExecutor() )

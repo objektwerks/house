@@ -1,6 +1,6 @@
 package objektwerks
 
-import com.typesafe.scalalogging.LazyLogging
+import com.typesafe.scalalogging.Logger
 
 import ox.IO
 
@@ -12,7 +12,9 @@ import sttp.tapir.swagger.bundle.SwaggerInterpreter
 import Serializers.given
 import Schemas.given
 
-final class Endpoints(path: String, dispatcher: Dispatcher)(using IO) extends LazyLogging:
+final class Endpoints(path: String,
+                      dispatcher: Dispatcher,
+                      logger: Logger)(using IO):
   val commandEndpoint =
     endpoint
       .post

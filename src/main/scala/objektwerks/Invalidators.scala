@@ -38,6 +38,16 @@ object Invalidators:
         .invalidate(drawing.note.isEmptyOrNonEmpty)(Field("note"), Message("Must be empty or non empty."))
         .invalidate(drawing.added.nonEmpty)(Field("added"), Message("Must be non empty."))
 
+  extension (issue: Issue)
+    def invalidate: Invalidator =
+      Invalidator()
+        .invalidate(issue.id >= 0)(Field("id"), Message("Must be greater than or equal to 0."))
+        .invalidate(issue.houseId > 0)(Field("houseId"), Message("Must be greater than 0."))
+        .invalidate(issue.report.nonEmpty)(Field("report"), Message("Must be non empty."))
+        .invalidate(issue.resolution.isEmptyOrNonEmpty)(Field("resolution"), Message("Must be empty or non empty."))
+        .invalidate(issue.reported.nonEmpty)(Field("reported"), Message("Must be non empty."))
+        .invalidate(issue.resolved.nonEmpty)(Field("resolved"), Message("Must be non empty."))
+
   extension (common: Common)
     def invalidate: Invalidator =
       Invalidator()

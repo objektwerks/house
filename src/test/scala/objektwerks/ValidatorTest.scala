@@ -34,15 +34,15 @@ final class InvalidatorTest extends AnyFunSuite with Matchers:
 
   test("valid"):
     val person = Person(Name("Fred Flintsone"), Age(28))
-    val validation = person.validate
-    validation.isValid shouldBe true
+    val validator = person.validate
+    validator.isValid shouldBe true
 
   test("invalid"):
     val person = Person(Name(""), Age(0))
-    val validation = person.validate
-    validation.isInvalid shouldBe true
-    validation.count shouldBe 2
+    val validator = person.validate
+    validator.isInvalid shouldBe true
+    validator.count shouldBe 2
 
-    println( validation.asList )
-    println( validation.asMap )
-    println( validation.asString )
+    println( validator.asList )
+    println( validator.asMap )
+    println( validator.asString )

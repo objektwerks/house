@@ -123,3 +123,14 @@ object Validations:
       case built: Built => built.validateBuilt
       case installed: Installed => installed.validateInstalled
       case planted: Planted => planted.validatePlanted
+
+  extension (command: Command)
+    def validate: Validator =
+      command match
+        case register: Register         => register.validate
+        case login: Login               => login.validate
+        case listEntities: ListEntities => listEntities.validate
+        case addEntity: AddEntity       => addEntity.validate
+        case updateEntity: UpdateEntity => updateEntity.validate
+        case listFaults: ListFaults     => listFaults.validate
+        case addFault: AddFault         => addFault.validate

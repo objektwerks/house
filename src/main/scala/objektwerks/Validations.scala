@@ -160,6 +160,11 @@ object Validations:
       Validator()
         .validate(EntityUpdated.count > 0)(Field("Entity updated"), Message("must be greater than zero."))
 
+  extension (fault: Fault)
+    def validate: Validator =
+      Validator()
+        .validate(fault.cause.nonEmpty)(Field("Fault"), Message("must be non empty"))
+
   extension (event: Event)
     def validate: Validator =
       event match

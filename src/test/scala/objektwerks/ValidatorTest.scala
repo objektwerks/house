@@ -9,8 +9,8 @@ object Person:
   val nameField = Field("Name")
   val ageField = Field("Age")
 
-  val nameMessage = Message("Must be non empty.")
-  val ageMessage = Message("Must be greater than 1.")
+  val nameMessage = Message("must be non empty.")
+  val ageMessage = Message("must be greater than 1.")
 
   opaque type Name <: String = String
   object Name:
@@ -20,9 +20,9 @@ object Person:
   object Age:
     def apply(value: Int): Age = value
 
-final case class Person(name: String, age: Int)
-
 import Person.*
+final case class Person(name: Name, age: Age)
+
 extension (person: Person)
   def validate: Validator =
     Validator()
@@ -45,4 +45,3 @@ final class ValidatorTest extends AnyFunSuite with Matchers:
 
     println( validator.asList )
     println( validator.asMap )
-    println( validator.asString )

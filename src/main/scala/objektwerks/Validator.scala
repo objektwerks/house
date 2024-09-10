@@ -43,7 +43,3 @@ final class Validator:
   def validate(validator: Validator): Validator =
     invalidations ++= validator.asMap
     this
-
-  def validate(validator: Validator)(field: Field, message: Message): Validator =
-    invalidations ++= validator.asMap
-    this

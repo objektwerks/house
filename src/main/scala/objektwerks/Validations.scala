@@ -89,7 +89,7 @@ object Validations:
     def validate: Validator =
       Validator()
         .validate(listEntities.license.isLicense)(Field("License"), Message("must be 36 characters in length."))
-        .validate(listEntities.parentId > 0)(Field("parentId"), Message("must be greater than 0."))
+        .validate(listEntities.parentId > 0)(Field("Parent Id"), Message("must be greater than 0."))
 
   extension (addEntity: AddEntity)
     def validate: Validator =
@@ -112,7 +112,7 @@ object Validations:
     def validate: Validator =
       Validator()
         .validate(addFault.license.isLicense)(Field("License"), Message("must be 36 characters in length."))
-        .validate(addFault.fault.nonEmpty)(Field("fault"), Message("must be non empty."))
+        .validate(addFault.fault.nonEmpty)(Field("Fault"), Message("must be non empty."))
 
   def validateEntity(entity: Entity): Validator =
     entity match

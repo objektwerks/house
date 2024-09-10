@@ -29,7 +29,7 @@ extension (person: Person)
       .validate(person.name.nonEmpty)(nameField, nameMessage)
       .validate(person.age > 0)(ageField, ageMessage)
 
-final class InvalidatorTest extends AnyFunSuite with Matchers:
+final class ValidatorTest extends AnyFunSuite with Matchers:
   import Person.*
 
   test("valid"):

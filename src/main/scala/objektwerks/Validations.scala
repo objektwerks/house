@@ -91,7 +91,13 @@ object Validations:
         .validate(listEntities.license.isLicense)(Field("license"), Message("Must be 36 characters in length."))
         .validate(listEntities.parentId > 0)(Field("parentId"), Message("Must be greater than 0."))
 
-  def validate(entity: Entity): Validator =
+  extension (addEntity: AddEntity)
+    def validate: Validator =
+      Validator()
+        .validate(addEntity.license.isLicense)(Field("license"), Message("Must be 36 characters in length."))
+        .validate(validateEntity(addEntity.entity))(Field("entity"), Message("Entity must be valid."))
+
+  def validateEntity(entity: Entity): Validator =
     entity match
       case account: Account => account.validate
       case house: House => house.validate

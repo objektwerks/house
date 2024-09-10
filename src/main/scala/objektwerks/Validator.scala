@@ -39,3 +39,7 @@ final class Validator:
   def validate(fn: () => Boolean)(field: Field, message: Message): Validator =
     if fn() then this
     else add(field, message)
+
+  def validate(validator: Validator): Validator =
+    invalidations ++ validator.asMap
+    this

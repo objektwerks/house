@@ -9,8 +9,8 @@ object Person:
   val nameField = Field("Name")
   val ageField = Field("Age")
 
-  val nameMessage = Message("Name must be non empty.")
-  val ageMessage = Message("Age must be greater than 1.")
+  val nameMessage = Message("Must be non empty.")
+  val ageMessage = Message("Must be greater than 1.")
 
   opaque type Name <: String = String
   object Name:

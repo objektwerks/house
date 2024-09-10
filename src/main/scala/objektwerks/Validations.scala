@@ -173,6 +173,11 @@ object Validations:
   extension (event: Event)
     def validate: Validator =
       event match
-        case registered: Registered => registered.validate
-        case loggedIn: LoggedIn     => loggedIn.validate
-        case _ => Validator()
+        case registered: Registered         => registered.validate
+        case loggedIn: LoggedIn             => loggedIn.validate
+        case entitiesListed: EntitiesListed => entitiesListed.validate
+        case entityAdded: EntityAdded       => entityAdded.validate
+        case entityUpdated: EntityUpdated   => entityUpdated.validate
+        case faultsListed: FaultsListed     => faultsListed.validate
+        case faultAdded: FaultAdded         => faultAdded.validate
+        case fault: Fault => Validator()

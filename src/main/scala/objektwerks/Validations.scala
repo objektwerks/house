@@ -148,7 +148,12 @@ object Validations:
   extension (entities: EntitiesListed)
     def validate: Validator =
       Validator()
-        .validate(entities.entities.size >= 0)(Field("Entities"), Message("must be zero or more."))
+        .validate(entities.entities.size >= 0)(Field("Entities listed"), Message("must be zero or more."))
+
+  extension (entityAdded: EntityAdded)
+    def validate: Validator =
+      Validator()
+        .validate(entityAdded.id > 0)(Field("Entity added"), Message("must be zero or more."))
 
   extension (event: Event)
     def validate: Validator =

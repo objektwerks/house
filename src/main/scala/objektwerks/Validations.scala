@@ -52,7 +52,7 @@ object Validations:
     def validateCommon: Validator =
       Validator()
         .validate(common.id >= 0)(Field("Id"), Message("must be greater than or equal to 0."))
-        .validate(common.houseId > 0)(Field("houseId"), Message("must be great than 0."))
+        .validate(common.houseId > 0)(Field("House Id"), Message("must be great than 0."))
         .validate(common.label.isEmptyOrNonEmpty)(Field("Label"), Message("must be empty or non empty."))
         .validate(common.note.isEmptyOrNonEmpty)(Field("Note"), Message("must be empty or non empty."))
 
@@ -60,19 +60,19 @@ object Validations:
     def validateBuilt: Validator =
       Validator()
         .validate(built.validateCommon)
-        .validate(built.built.nonEmpty)(Field("built"), Message("must be non empty."))
+        .validate(built.built.nonEmpty)(Field("Built"), Message("must be non empty."))
 
   extension (installed: Installed)
     def validateInstalled: Validator =
       Validator()
         .validate(installed.validateCommon)
-        .validate(installed.installed.nonEmpty)(Field("installed"), Message("must be non empty."))
+        .validate(installed.installed.nonEmpty)(Field("Installed"), Message("must be non empty."))
 
   extension (planted: Planted)
     def validatePlanted: Validator =
       Validator()
         .validate(planted.validateCommon)
-        .validate(planted.planted.nonEmpty)(Field("planted"), Message("must be non empty."))
+        .validate(planted.planted.nonEmpty)(Field("Planted"), Message("must be non empty."))
 
   extension (register: Register)
     def validate: Validator =

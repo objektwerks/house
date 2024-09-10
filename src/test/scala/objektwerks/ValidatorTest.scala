@@ -31,8 +31,6 @@ extension (person: Person)
       .validate(person.age > 0)(ageField, ageMessage)
 
 final class ValidatorTest extends AnyFunSuite with Matchers:
-  import Person.*
-
   test("valid"):
     val person = Person(Name("Fred Flintsone"), Age(28))
     val validator = person.validate

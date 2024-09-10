@@ -134,3 +134,8 @@ object Validations:
         case updateEntity: UpdateEntity => updateEntity.validate
         case listFaults: ListFaults     => listFaults.validate
         case addFault: AddFault         => addFault.validate
+
+  extension (registered: Registered)
+    def validate: Validator =
+      Validator()
+        .validate(registered.account.validate)

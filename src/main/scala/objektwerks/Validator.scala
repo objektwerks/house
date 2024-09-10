@@ -6,12 +6,14 @@ object Validator:
   opaque type Field = String
   object Field:
     def apply(value: String): Field = value
-  extension (field: Field)
-    def value: String = field
+    extension (field: Field)
+      def value: String = field
 
   opaque type Message = String
   object Message:
     def apply(value: String): Message = value
+    extension (message: Message)
+      def value: String = message
 
 final class Validator:
   import Validator.*
@@ -31,8 +33,6 @@ final class Validator:
   def asList: List[String] = invalidations.map { (field, message) => s"[$field] $message" }.toList
 
   def asMap: Map[Field, Message] = invalidations.toMap
-
-  def asString(separator: String = ","): String = asList.mkString(separator)
 
   def validate(expr: Boolean)(field: Field, message: Message): Validator =
     if expr then this

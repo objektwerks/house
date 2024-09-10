@@ -155,6 +155,11 @@ object Validations:
       Validator()
         .validate(entityAdded.id > 0)(Field("Entity added"), Message("must be zero or more."))
 
+  extension (EntityUpdated: EntityUpdated)
+    def validate: Validator =
+      Validator()
+        .validate(EntityUpdated.count > 0)(Field("Entity updated"), Message("must be greater than zero."))
+
   extension (event: Event)
     def validate: Validator =
       event match

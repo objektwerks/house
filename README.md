@@ -63,7 +63,7 @@ Model
 
 Meta
 ----
->Drawing, Issue
+>Account, House, Drawing, Issue
 
 Structure
 ---------

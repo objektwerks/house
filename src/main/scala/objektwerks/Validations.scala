@@ -85,6 +85,12 @@ object Validations:
         .validate(login.email.isEmail)(Field("email"), Message("Must be at least 3 characters in length and contain 1 @ symbol."))
         .validate(login.pin.isPin)(Field("pin"), Message("Must be 7 characters in length."))
 
+  extension (listEntities: ListEntities)
+    def validate: Validator =
+      Validator()
+        .validate(listEntities.license.isLicense)(Field("license"), Message("Must be 36 characters in length."))
+        .validate(listEntities.parentId > 0)(Field("parentId"), Message("Must be greater than 0."))
+
   def validate(entity: Entity): Validator =
     entity match
       case account: Account => account.validate

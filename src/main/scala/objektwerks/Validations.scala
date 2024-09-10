@@ -73,3 +73,13 @@ object Validations:
       Validator()
         .validate(planted.validateCommon)
         .validate(planted.planted.nonEmpty)(Field("planted"), Message("Must be non empty."))
+
+  def validate(entity: Entity): Validator =
+    entity match
+      case account: Account => account.validate
+      case house: House => house.validate
+      case issue: Issue => issue.validate
+      case drawing: Drawing => drawing.validate
+      case built: Built => built.validateBuilt
+      case installed: Installed => installed.validateInstalled
+      case planted: Planted => planted.validatePlanted

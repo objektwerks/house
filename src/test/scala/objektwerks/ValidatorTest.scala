@@ -21,6 +21,7 @@ object Person:
     def apply(value: Int): Age = value
 
 import Person.*
+
 final case class Person(name: Name, age: Age)
 
 extension (person: Person)

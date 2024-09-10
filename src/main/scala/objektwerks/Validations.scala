@@ -59,14 +59,17 @@ object Validations:
   extension (built: Built)
     def validateBuilt: Validator =
       Validator()
+        .validate(built.validateCommon)
         .validate(built.built.nonEmpty)(Field("built"), Message("Must be non empty."))
 
   extension (installed: Installed)
     def validateInstalled: Validator =
       Validator()
+        .validate(installed.validateCommon)
         .validate(installed.installed.nonEmpty)(Field("installed"), Message("Must be non empty."))
 
   extension (planted: Planted)
     def validatePlanted: Validator =
       Validator()
+        .validate(planted.validateCommon)
         .validate(planted.planted.nonEmpty)(Field("planted"), Message("Must be non empty."))

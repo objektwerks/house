@@ -180,4 +180,4 @@ object Validations:
         case entityUpdated: EntityUpdated   => entityUpdated.validate
         case faultsListed: FaultsListed     => faultsListed.validate
         case faultAdded: FaultAdded         => faultAdded.validate
-        case fault: Fault => Validator()
+        case fault: Fault                   => fault.validate

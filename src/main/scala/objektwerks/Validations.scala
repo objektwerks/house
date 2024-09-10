@@ -49,7 +49,7 @@ object Validations:
         .validate(issue.resolved.nonEmpty)(Field("resolved"), Message("Must be non empty."))
 
   extension (common: Common)
-    def validate: Validator =
+    def validateCommon: Validator =
       Validator()
         .validate(common.id >= 0)(Field("id"), Message("Must be greater than or equal to 0."))
         .validate(common.houseId > 0)(Field("houseId"), Message("Must be great than 0."))
@@ -57,16 +57,16 @@ object Validations:
         .validate(common.note.isEmptyOrNonEmpty)(Field("note"), Message("Must be empty or non empty."))
 
   extension (built: Built)
-    def validate: Validator =
+    def validateBuilt: Validator =
       Validator()
         .validate(built.built.nonEmpty)(Field("built"), Message("Must be non empty."))
 
   extension (installed: Installed)
-    def validate: Validator =
+    def validateInstalled: Validator =
       Validator()
         .validate(installed.installed.nonEmpty)(Field("installed"), Message("Must be non empty."))
 
   extension (planted: Planted)
-    def validate: Validator =
+    def validatePlanted: Validator =
       Validator()
         .validate(planted.planted.nonEmpty)(Field("planted"), Message("Must be non empty."))

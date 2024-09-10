@@ -45,3 +45,4 @@ final class ValidatorTest extends AnyFunSuite with Matchers:
 
     println( validator.asList )
     println( validator.asMap )
+    println( validator.asString )

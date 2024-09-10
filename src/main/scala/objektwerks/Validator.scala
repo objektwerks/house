@@ -34,6 +34,14 @@ final class Validator:
 
   def asMap: Map[Field, Message] = invalidations.toMap
 
+  def asString: String =
+    val sb = StringBuilder()
+    asList.foreach(s =>
+      sb.addAll(s)
+      sb.addOne(',')
+    )
+    sb.substring(0, sb.length() - 1)
+
   def validate(expr: Boolean)(field: Field, message: Message): Validator =
     if expr then this
     else add(field, message)

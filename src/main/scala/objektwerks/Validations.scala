@@ -74,6 +74,11 @@ object Validations:
         .validate(planted.validateCommon)
         .validate(planted.planted.nonEmpty)(Field("planted"), Message("Must be non empty."))
 
+  extension (register: Register)
+    def validate: Validator =
+      Validator()
+        .validate(register.email.isEmail)(Field("email"), Message("Must be at least 3 characters in length and contain 1 @ symbol."))
+
   extension (login: Login)
     def validate: Validator =
       Validator()

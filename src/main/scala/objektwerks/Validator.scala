@@ -6,6 +6,8 @@ object Validator:
   opaque type Field = String
   object Field:
     def apply(value: String): Field = value
+  extension (field: Field)
+    def value: String = field
 
   opaque type Message = String
   object Message:

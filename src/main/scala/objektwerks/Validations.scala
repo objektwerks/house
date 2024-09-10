@@ -144,3 +144,10 @@ object Validations:
     def validate: Validator =
       Validator()
         .validate(loggedIn.account.validate)
+
+  extension (event: Event)
+    def validate: Validator =
+      event match
+        case registered: Registered => registered.validate
+        case loggedIn: LoggedIn     => loggedIn.validate
+        case _ => Validator()

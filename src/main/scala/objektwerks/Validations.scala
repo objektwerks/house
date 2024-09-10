@@ -14,7 +14,7 @@ object Validations:
       Validator()
         .validate(account.id >= 0)(Field("id"), Message("Must be greater than or equal to 0."))
         .validate(account.license.isLicense)(Field("license"), Message("Must be 36 characters in length."))
-        .validate(account.email.isEmail)(Field("email"), Message("Must be at least 3 characters in length and contain 1 @."))
+        .validate(account.email.isEmail)(Field("email"), Message("Must be at least 3 characters in length and contain 1 @ symbol."))
         .validate(account.pin.isPin)(Field("pin"), Message("Must be 7 characters in length."))
         .validate(account.activated.nonEmpty)(Field("activated"), Message("Must be non empty."))
 
@@ -73,6 +73,12 @@ object Validations:
       Validator()
         .validate(planted.validateCommon)
         .validate(planted.planted.nonEmpty)(Field("planted"), Message("Must be non empty."))
+
+  extension (login: Login)
+    def validate: Validator =
+      Validator()
+        .validate(login.email.isEmail)(Field("email"), Message("Must be at least 3 characters in length and contain 1 @ symbol."))
+        .validate(login.pin.isPin)(Field("pin"), Message("Must be 7 characters in length."))
 
   def validate(entity: Entity): Validator =
     entity match

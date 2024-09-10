@@ -95,13 +95,13 @@ object Validations:
     def validate: Validator =
       Validator()
         .validate(addEntity.license.isLicense)(Field("license"), Message("Must be 36 characters in length."))
-        .validate(validateEntity(addEntity.entity))(Field("entity"), Message("Entity must be valid."))
+        .validate(validateEntity(addEntity.entity))
 
   extension (updateEntity: UpdateEntity)
     def validate: Validator =
       Validator()
         .validate(updateEntity.license.isLicense)(Field("license"), Message("Must be 36 characters in length."))
-        .validate(validateEntity(updateEntity.entity))(Field("entity"), Message("Entity must be valid."))
+        .validate(validateEntity(updateEntity.entity))
 
   extension (listFaults: ListFaults)
     def validate: Validator =

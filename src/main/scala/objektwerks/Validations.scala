@@ -145,6 +145,11 @@ object Validations:
       Validator()
         .validate(loggedIn.account.validate)
 
+  extension (entities: EntitiesListed)
+    def validate: Validator =
+      Validator()
+        .validate(entities.entities.size >= 0)(Field("Entities"), Message("must be zero or more."))
+
   extension (event: Event)
     def validate: Validator =
       event match

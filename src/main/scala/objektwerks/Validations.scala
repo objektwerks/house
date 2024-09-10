@@ -108,6 +108,12 @@ object Validations:
       Validator()
         .validate(listFaults.license.isLicense)(Field("license"), Message("Must be 36 characters in length."))
 
+  extension (addFault: AddFault)
+    def validate: Validator =
+      Validator()
+        .validate(addFault.license.isLicense)(Field("license"), Message("Must be 36 characters in length."))
+        .validate(addFault.fault.nonEmpty)(Field("fault"), Message("Must be non empty."))
+
   def validateEntity(entity: Entity): Validator =
     entity match
       case account: Account => account.validate

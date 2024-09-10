@@ -165,6 +165,11 @@ object Validations:
       Validator()
         .validate(fault.cause.nonEmpty)(Field("Fault"), Message("must be non empty"))
 
+  extension (FaultAdded: FaultAdded)
+    def validate: Validator =
+      Validator()
+        .validate(FaultAdded.fault.validate)
+
   extension (event: Event)
     def validate: Validator =
       event match

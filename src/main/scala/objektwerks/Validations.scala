@@ -139,3 +139,8 @@ object Validations:
     def validate: Validator =
       Validator()
         .validate(registered.account.validate)
+
+  extension (loggedIn: LoggedIn)
+    def validate: Validator =
+      Validator()
+        .validate(loggedIn.account.validate)

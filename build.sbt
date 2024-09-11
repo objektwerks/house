@@ -1,4 +1,4 @@
-val oxVersion = "0.3.7"
+val oxVersion = "0.3.8"
 val tapirVersion = "1.11.2"
 
 autoCompilerPlugins := true

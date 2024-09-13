@@ -6,9 +6,9 @@ import Validations.*
 
 final class Dispatcher(handler: Handler):
   def dispatch(command: Command)(using IO): Event =
-    val validator = command.validate
-    validator.isValid match
-      case false => handler.addFault( Fault(s"Invalid command: $command because: ${validator.asString}") )
+    val commandValidator = command.validate
+    commandValidator.isValid match
+      case false => handler.addFault( Fault(s"${commandValidator.asString} for: $command") )
       case true =>
         handler.isAuthorized(command) match
           case Unauthorized(cause) => handler.addFault( Fault(cause) )

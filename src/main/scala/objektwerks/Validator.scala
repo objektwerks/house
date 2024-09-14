@@ -38,7 +38,7 @@ final class Validator:
     val sb = StringBuilder()
     asList.foreach(s =>
       sb.addAll(s)
-      sb.addOne(',')
+      sb.addOne(' ')
     )
     if sb.nonEmpty then sb.substring(0, sb.length() - 1)
     else ""

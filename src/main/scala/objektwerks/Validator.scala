@@ -40,8 +40,7 @@ final class Validator:
       sb.addAll(s)
       sb.addOne(' ')
     )
-    if sb.nonEmpty then sb.substring(0, sb.length() - 1)
-    else ""
+    sb.mkString.trim
 
   def validate(expr: Boolean)(field: Field, message: Message): Validator =
     if expr then this

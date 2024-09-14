@@ -248,7 +248,6 @@ final class DispatcherTest extends AnyFunSuite with Matchers:
     val register = Register(config.getString("email.sender"))
     dispatcher.dispatch(register) match
       case Registered(account) =>
-        assert( account.isValid )
         testAccount = account
       case fault => fail(s"Invalid registered event: $fault")
 

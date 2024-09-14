@@ -2,7 +2,7 @@ package objektwerks
 
 import Validator.*
 
-object Validations:
+object Validators:
   extension (value: String)
     def isEmptyOrNonEmpty: Boolean = value.isEmpty || value.nonEmpty
     def isLicense: Boolean = value.length == 36

@@ -13,7 +13,7 @@ final class Dispatcher(handler: Handler):
         handler.isAuthorized(command) match
           case Unauthorized(cause) => handler.addFault( Fault(cause) )
           case Authorized =>
-            command match
+            val event = command match
               case Register(emailAddress)           => handler.register(emailAddress)
               case Login(emailAddress, pin)         => handler.login(emailAddress, pin)
               case ListFaults(_)                    => handler.listFaults()
@@ -21,3 +21,7 @@ final class Dispatcher(handler: Handler):
               case ListEntities(_, typeof, houseId) => handler.listEntities(typeof, houseId)
               case AddEntity(_, typeof, entity)     => handler.addEntity(typeof, entity)
               case UpdateEntity(_, typeof, entity)  => handler.updateEntity(typeof, entity)
+            val eventValidator = event.validate
+            eventValidator.isValid match
+              case false => handler.addFault( Fault(s"${eventValidator.asString} for: $event") )
+              case true => event

@@ -1,5 +1,5 @@
 val oxVersion = "0.3.8"
-val tapirVersion = "1.11.2"
+val tapirVersion = "1.11.3"
 
 autoCompilerPlugins := true
 addCompilerPlugin("com.softwaremill.ox" %% "plugin" % oxVersion)

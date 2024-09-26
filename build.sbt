@@ -3,7 +3,7 @@ val tapirVersion = "1.11.3"
 
 name := "house"
 organization := "objektwerks"
-version := "0.62"
+version := "0.63-SNAPSHOT"
 scalaVersion := "3.5.1"
 libraryDependencies ++= {
   val jsoniterVersion = "2.30.12"

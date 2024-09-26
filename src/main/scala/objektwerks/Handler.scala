@@ -1,6 +1,6 @@
 package objektwerks
 
-import ox.{IO, supervised}
+import ox.supervised
 import ox.resilience.{retry, RetryConfig}
 
 import scala.concurrent.duration.*
@@ -44,7 +44,7 @@ final class Handler(store: Store, emailer: Emailer):
     Patio -> updatePatio, Pool -> updatePool, Dock -> updateDock, Gazebo -> updateGazebo, Mailbox -> updateMailbox
   )
 
-  def isAuthorized(command: Command)(using IO): Security =
+  def isAuthorized(command: Command): Security =
     command match
       case license: License =>
         try
@@ -61,7 +61,7 @@ final class Handler(store: Store, emailer: Emailer):
     val recipients = List(email)
     emailer.send(recipients, message)
 
-  def register(email: String)(using IO): Event =
+  def register(email: String): Event =
     try
       supervised:
         val account = Account(email = email)
@@ -72,7 +72,7 @@ final class Handler(store: Store, emailer: Emailer):
     catch
       case NonFatal(error) => addFault( Fault(s"Registration failed for: $email, because: ${error.getMessage}") )
 
-  def login(email: String, pin: String)(using IO): Event =
+  def login(email: String, pin: String): Event =
     Try:
       supervised:
         retry( RetryConfig.delay(1, 100.millis) )( store.login(email, pin) )
@@ -82,7 +82,7 @@ final class Handler(store: Store, emailer: Emailer):
         if optionalAccount.isDefined then LoggedIn( optionalAccount.get )
         else addFault( Fault(s"Login failed for email address: $email and pin: $pin") ) )
 
-  def listFaults()(using IO): Event =
+  def listFaults(): Event =
     try
       FaultsListed(
         supervised:
@@ -91,7 +91,7 @@ final class Handler(store: Store, emailer: Emailer):
     catch
       case NonFatal(error) => addFault( Fault(s"List faults failed: ${error.getMessage}") )
 
-  def addFault(fault: String)(using IO): Event =
+  def addFault(fault: String): Event =
     try
       FaultAdded(
         supervised:
@@ -100,7 +100,7 @@ final class Handler(store: Store, emailer: Emailer):
     catch
       case NonFatal(error) => addFault( Fault(s"Add fault failed: ${error.getMessage}") )
 
-  def addFault(fault: Fault)(using IO): Event =
+  def addFault(fault: Fault): Event =
     try
       FaultAdded(
         supervised:
@@ -109,7 +109,7 @@ final class Handler(store: Store, emailer: Emailer):
     catch
       case NonFatal(error) => addFault( Fault(s"Add fault failed: ${error.getMessage}") )
 
-  def listEntities(typeof: EntityType, parentId: Long)(using IO): Event =
+  def listEntities(typeof: EntityType, parentId: Long): Event =
     try
       val function = list(typeof)
       EntitiesListed(
@@ -119,7 +119,7 @@ final class Handler(store: Store, emailer: Emailer):
     catch
       case NonFatal(error) => addFault( Fault(s"List entities [$typeof]{$parentId} failed: ${error.getMessage}") )
 
-  def addEntity(typeof: EntityType, entity: Entity)(using IO): Event =
+  def addEntity(typeof: EntityType, entity: Entity): Event =
     try
       val function = add(typeof)
       EntityAdded(
@@ -129,7 +129,7 @@ final class Handler(store: Store, emailer: Emailer):
     catch
       case NonFatal(error) => addFault( Fault(s"Add entity [$typeof] failed: ${error.getMessage} for: $entity") )
 
-  def updateEntity(typeof: EntityType, entity: Entity)(using IO): Event =
+  def updateEntity(typeof: EntityType, entity: Entity): Event =
     try
       val function = update(typeof)
       EntityUpdated(

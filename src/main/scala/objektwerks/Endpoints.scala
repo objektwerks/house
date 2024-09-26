@@ -2,8 +2,6 @@ package objektwerks
 
 import com.typesafe.scalalogging.Logger
 
-import ox.IO
-
 import sttp.shared.Identity
 import sttp.tapir.*
 import sttp.tapir.json.jsoniter.*
@@ -14,7 +12,7 @@ import Schemas.given
 
 final class Endpoints(path: String,
                       dispatcher: Dispatcher,
-                      logger: Logger)(using IO):
+                      logger: Logger):
   val commandEndpoint =
     endpoint
       .post

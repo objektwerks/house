@@ -5,13 +5,13 @@ import com.typesafe.scalalogging.LazyLogging
 
 import java.util.concurrent.Executors
 
-import ox.{ExitCode, IO, never, Ox, OxApp, releaseAfterScope}
+import ox.{ExitCode, never, Ox, OxApp, releaseAfterScope}
 
 import sttp.tapir.*
 import sttp.tapir.server.jdkhttp.JdkHttpServer
 
 object Server extends OxApp with LazyLogging:
-  override def run(args: Vector[String])(using Ox, IO): ExitCode =
+  override def run(args: Vector[String])(using Ox): ExitCode =
     val config = ConfigFactory.load("server.conf")
     val host = config.getString("server.host")
     val port = config.getInt("server.port")

@@ -9,7 +9,7 @@ organization := "objektwerks"
 version := "0.62-SNAPSHOT"
 scalaVersion := "3.5.1"
 libraryDependencies ++= {
-  val jsoniterVersion = "2.30.11"
+  val jsoniterVersion = "2.30.12"
   Seq(
     "com.softwaremill.sttp.tapir" %% "tapir-core" % tapirVersion,
     "com.softwaremill.sttp.tapir" %% "tapir-jdkhttp-server" % tapirVersion,

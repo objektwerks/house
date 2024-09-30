@@ -1,11 +1,10 @@
-val oxVersion = "0.4.0"
-val tapirVersion = "1.11.3"
-
 name := "house"
 organization := "objektwerks"
 version := "0.63-SNAPSHOT"
 scalaVersion := "3.5.1"
 libraryDependencies ++= {
+  val oxVersion = "0.4.0"
+  val tapirVersion = "1.11.3"
   val jsoniterVersion = "2.30.14"
   Seq(
     "com.softwaremill.sttp.tapir" %% "tapir-core" % tapirVersion,

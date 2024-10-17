@@ -1,7 +1,7 @@
 name := "house"
 organization := "objektwerks"
 version := "0.63-SNAPSHOT"
-scalaVersion := "3.5.2-RC2"
+scalaVersion := "3.5.2"
 libraryDependencies ++= {
   val oxVersion = "0.5.1"
   val tapirVersion = "1.11.7"
@@ -21,7 +21,7 @@ libraryDependencies ++= {
     "org.jodd" % "jodd-mail" % "7.0.1",
     "com.typesafe" % "config" % "1.4.3",
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.5",
-    "ch.qos.logback" % "logback-classic" % "1.5.8",
+    "ch.qos.logback" % "logback-classic" % "1.5.11",
     "org.scalatest" %% "scalatest" % "3.2.19" % Test
   )
 }

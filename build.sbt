@@ -1,7 +1,7 @@
 name := "house"
 organization := "objektwerks"
 version := "0.63-SNAPSHOT"
-scalaVersion := "3.6.1"
+scalaVersion := "3.6.2-RC1"
 libraryDependencies ++= {
   val oxVersion = "0.5.3"
   val tapirVersion = "1.11.9"

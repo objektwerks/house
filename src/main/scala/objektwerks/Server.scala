@@ -7,7 +7,6 @@ import java.util.concurrent.Executors
 
 import ox.{ExitCode, never, Ox, OxApp, releaseAfterScope}
 
-import sttp.tapir.*
 import sttp.tapir.server.jdkhttp.JdkHttpServer
 
 object Server extends OxApp with LazyLogging:

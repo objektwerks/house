@@ -90,7 +90,7 @@ Postgresql
 
 Database
 --------
->Example database url: postgresql://localhost:5432/house?user=mycomputername&password=house"
+>Example database url: postgresql://localhost:5432/house?user=yourcomputername&password=house"
 1. psql postgres
 2. CREATE DATABASE house OWNER [your computer name];
 3. GRANT ALL PRIVILEGES ON DATABASE house TO [your computer name];

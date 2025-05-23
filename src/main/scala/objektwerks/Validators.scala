@@ -74,6 +74,16 @@ object Validators:
         .validate(planted.validateCommon)
         .validate(planted.planted.nonEmpty)(Field("Planted"), Message("must be non empty."))
 
+  def validateEntity(entity: Entity): Validator =
+    entity match
+      case account: Account => account.validate
+      case house: House => house.validate
+      case issue: Issue => issue.validate
+      case drawing: Drawing => drawing.validate
+      case built: Built => built.validateBuilt
+      case installed: Installed => installed.validateInstalled
+      case planted: Planted => planted.validatePlanted
+
   extension (register: Register)
     def validate: Validator =
       Validator()
@@ -113,16 +123,6 @@ object Validators:
       Validator()
         .validate(addFault.license.isLicense)(Field("License"), Message("must be 36 characters in length."))
         .validate(addFault.fault.nonEmpty)(Field("Fault"), Message("must be non empty."))
-
-  def validateEntity(entity: Entity): Validator =
-    entity match
-      case account: Account => account.validate
-      case house: House => house.validate
-      case issue: Issue => issue.validate
-      case drawing: Drawing => drawing.validate
-      case built: Built => built.validateBuilt
-      case installed: Installed => installed.validateInstalled
-      case planted: Planted => planted.validatePlanted
 
   extension (command: Command)
     def validate: Validator =

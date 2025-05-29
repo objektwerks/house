@@ -18,7 +18,7 @@ Tapir
 
 >**Finally**, I succeeded in deriving schemas for all required classes and enums. See **Schemas** and **Endpoints**.
 
->To work around inline errors, I had to edited scalacOptions as follows:
+>To work around inline errors, I had to edited ```scalacOptions``` as follows:
 ```
 scalacOptions ++= Seq(
   "-Wunused:all",

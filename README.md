@@ -33,7 +33,7 @@ Ox
 >I opened this Ox Github issue ( https://github.com/softwaremill/ox/issues/199 ) to get clarity on my usage of Ox.
 
 >Given Ox's edge over Gears ( https://github.com/lampepfl/gears ), I'm betting Ox will continue moving forward. Consequently,
->I've implemented Ox in 6 projects.
+>I've implemented Ox in **12** projects.
 
 Todo
 ----

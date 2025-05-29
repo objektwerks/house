@@ -16,7 +16,7 @@ Tapir
 
 >I'd like to **opt out** of schemas all together. I don't need them **in all** cases. I just need fundamental entity<->json binding.
 
->**Finally**, I succeeded in deriving schemas for all required classes and enums. See **Schemas** and **Endpoint**.
+>**Finally**, I succeeded in deriving schemas for all required classes and enums. See **Schemas** and **Endpoints**.
 
 >To work around inline errors, I had to edited scalacOptions as follows:
 ```

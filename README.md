@@ -14,7 +14,7 @@ Tapir
 >The **House** model is more complex. And the **Tapir** derive schema feature *trips up* on **Type** enums. I suspect if I
 >derive all enum types, it might work. Even so, it's too much work for too little reward.
 
->I'd like to **opt out** of schemas all together. I don't need them **in all** cases. I just need fundamental entity-bidi-json binding.
+>I'd like to **opt out** of schemas all together. I don't need them **in all** cases. I just need entity<->json binding.
 
 >**Finally**, I succeeded in deriving schemas for all required classes and enums. See **Schemas** and **Endpoints**.
 

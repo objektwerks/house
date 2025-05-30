@@ -27,7 +27,7 @@ private final class Emailer(host: String,
     .buildSmtpMailServer
 
   private def sendEmail(recipients: List[String],
-                        message: String): Unit =
+                        message: String): Boolean =
     Using( smtpServer.createSession ) { session =>
       val email = Email.create
         .from(sender)
@@ -38,10 +38,11 @@ private final class Emailer(host: String,
       session.open()
       val messageId = session.sendMail(email)
       logger.info("*** Emailer subject: {} to: {} message id: {}", subject, recipients.mkString, messageId)
+      true
     }.recover { error =>
       logger.error("*** Emailer subject: {} to: {} failed: {}",  subject, recipients.mkString, error.getMessage)
-      throw error
-    }
+      false
+    }.get
 
   def send(recipients: List[String],
-           message: String): Unit = sendEmail(recipients, message)
+           message: String): Boolean = sendEmail(recipients, message)

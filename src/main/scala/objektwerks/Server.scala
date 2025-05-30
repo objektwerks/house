@@ -30,10 +30,16 @@ object Server extends OxApp with LazyLogging:
       .addEndpoints(endpoints.swaggerEndpoints)
       .start()
 
-    println(s"*** House Endpoint: ${endpoints.commandEndpoint.show}")
-    println(s"*** Press Control-C to shutdown House Http Server at: $host:$port/$path")
-    logger.info(s"*** House Endpoint: ${endpoints.commandEndpoint.show}")
+    println(s"*** House Http Server started at: $host:$port/$path")
     logger.info(s"*** House Http Server started at: $host:$port/$path")
+
+    println(s"*** House Command Endpoint: ${endpoints.commandEndpoint.show}")
+    logger.info(s"*** House Command Endpoint: ${endpoints.commandEndpoint.show}")
+
+    println(s"*** House Swagger Endpoint: ${endpoints.swaggerEndpoints(0).show}")
+    logger.info(s"*** House Swagger Endpoint: ${endpoints.swaggerEndpoints(0).show}")
+
+    println(s"*** Press Control-C to shutdown House Http Server at: $host:$port/$path")
 
     releaseAfterScope:
       println(s"*** House Http Server shutdown at: $host:$port")

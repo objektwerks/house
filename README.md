@@ -10,39 +10,6 @@ Usage
 1. User - Login -> Server - LoggedIn | Fault -> User
 >Due to the number of command-event scenarios, usage sequences must end here. :)
 
-Tapir
------
->I initially failed to derive endpoint schemas for **Command** and **Event** due to auto/semi-auto derivation and inline
->errors. Consequently, the initial **Endpoint** handles in/out, text/plain values via just-in-time json conversions.
->Think, **old school**.
-
->The [Sttp-Tapir](https://github.com/objektwerks/sttp.tapir) project successfully implements a **Tapir** Json endpoint.
->It's a very simple endpoint, though. No derived schema issues.
-
->The **House** model is more complex. And the **Tapir** derive schema feature *trips up* on **Type** enums. I suspect if I
->derive all enum types, it might work. Even so, it's too much work for too little reward.
-
->I'd like to **opt out** of schemas all together. I don't need them **in all** cases. I just need entity<->json binding.
-
->**Finally**, I succeeded in deriving schemas for all required classes and enums. See **Schemas** and **Endpoints**.
-
->To work around inline errors, I had to edited ```scalacOptions``` as follows:
-```
-scalacOptions ++= Seq(
-  "-Wunused:all",
-  "-Xmax-inlines",
-  "128"
-)
-```
->The key lines are ```-Xmax-inlines``` and ```128```.
-
-Ox
---
->I opened this Ox Github issue ( https://github.com/softwaremill/ox/issues/199 ) to get clarity on my usage of Ox.
-
->Given Ox's edge over Gears ( https://github.com/lampepfl/gears ), I'm betting Ox will continue moving forward. Consequently,
->I've implemented Ox in **12** projects.
-
 Todo
 ----
 1. Enhance model.
@@ -164,6 +131,39 @@ export HOUSE_EMAIL_HOST="your.email.host"
 export HOUSE_EMAIL_ADDRESS="your.email.address@email.com"
 export HOUSE_EMAIL_PASSWORD="your.email.password"
 ```
+
+Tapir
+-----
+>I initially failed to derive endpoint schemas for **Command** and **Event** due to auto/semi-auto derivation and inline
+>errors. Consequently, the initial **Endpoint** handles in/out, text/plain values via just-in-time json conversions.
+>Think, **old school**.
+
+>The [Sttp-Tapir](https://github.com/objektwerks/sttp.tapir) project successfully implements a **Tapir** Json endpoint.
+>It's a very simple endpoint, though. No derived schema issues.
+
+>The **House** model is more complex. And the **Tapir** derive schema feature *trips up* on **Type** enums. I suspect if I
+>derive all enum types, it might work. Even so, it's too much work for too little reward.
+
+>I'd like to **opt out** of schemas all together. I don't need them **in all** cases. I just need entity<->json binding.
+
+>**Finally**, I succeeded in deriving schemas for all required classes and enums. See **Schemas** and **Endpoints**.
+
+>To work around inline errors, I had to edited ```scalacOptions``` as follows:
+```
+scalacOptions ++= Seq(
+  "-Wunused:all",
+  "-Xmax-inlines",
+  "128"
+)
+```
+>The key lines are ```-Xmax-inlines``` and ```128```.
+
+Ox
+--
+>I opened this Ox Github issue ( https://github.com/softwaremill/ox/issues/199 ) to get clarity on my usage of Ox.
+
+>Given Ox's edge over Gears ( https://github.com/lampepfl/gears ), I'm betting Ox will continue moving forward. Consequently,
+>I've implemented Ox in **12** projects.
 
 Resources
 ---------

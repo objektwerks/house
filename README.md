@@ -10,10 +10,6 @@ Usage
 1. User - Login -> Server - LoggedIn | Fault -> User
 >Due to the number of command-event scenarios, usage sequences must end here. :)
 
-Todo
-----
-1. Enhance model.
-
 Install
 -------
 1. brew install postgresql@14

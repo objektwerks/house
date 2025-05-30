@@ -57,7 +57,7 @@ final class Handler(store: Store, emailer: Emailer):
           case NonFatal(error) => Unauthorized(s"Unauthorized: $command, cause: $error")
       case Register(_) | Login(_, _) => Authorized
 
-  def sendEmail(email: String, message: String): Unit =
+  def sendEmail(email: String, message: String): Boolean =
     val recipients = List(email)
     emailer.send(recipients, message)
 
@@ -66,9 +66,12 @@ final class Handler(store: Store, emailer: Emailer):
       supervised:
         val account = Account(email = email)
         val message = s"Your new pin is: ${account.pin}\n\nWelcome aboard!"
-        retry( RetryConfig.delay(1, 600.millis) )( sendEmail(account.email, message) )
-        val id = store.register(account)
-        Registered( account.copy(id = id) )
+        val result = retry( RetryConfig.delay(1, 600.millis) )( sendEmail(account.email, message) )
+        if result then
+          val id = store.register(account)
+          Registered( account.copy(id = id) )
+        else
+          throw IllegalArgumentException("Invalid email address.")
     catch
       case NonFatal(error) => addFault( Fault(s"Registration failed for: $email, because: ${error.getMessage}") )
 

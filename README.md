@@ -2,6 +2,14 @@ House
 -----
 >House http service using JoddMail, Jsoniter, ScalikeJdbc, Scaffeine, HikariCP, Tapir, Ox, Postgresql and Scala 3.
 
+Usage
+-----
+>Register
+1. User - Register -> Server - Registered | Fault -> User
+>Login
+1. User - Login -> Server - LoggedIn | Fault -> User
+>Due to the number of command-event scenarios, usage sequences must end here. :)
+
 Tapir
 -----
 >I initially failed to derive endpoint schemas for **Command** and **Event** due to auto/semi-auto derivation and inline

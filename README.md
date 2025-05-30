@@ -2,14 +2,6 @@ House
 -----
 >House http service using JoddMail, Jsoniter, ScalikeJdbc, Scaffeine, HikariCP, Tapir, Ox, Postgresql and Scala 3.
 
-Usage
------
->Register
-1. User - Register -> Server - Registered | Fault -> User
->Login
-1. User - Login -> Server - LoggedIn | Fault -> User
->Due to the number of command-event scenarios, usage sequences must end here. :)
-
 Install
 -------
 1. brew install postgresql@14
@@ -46,6 +38,14 @@ curl -X POST http://127.0.0.1:7070/command -H 'Content-Type: application/json' -
 ```
 {"Registered":{"account":{"id":3,"license":"b1e86698-85bb-45b2-afec-0520d7dd3c3c","email":"your-email@provider.com","pin":"yS#eX6="}}}%  
 ```
+
+Usage
+-----
+>Register
+1. User - Register -> Server - Registered | Fault -> User
+>Login
+1. User - Login -> Server - LoggedIn | Fault -> User
+>Due to the number of command-event scenarios, usage sequences must end here. :)
 
 Model
 -----

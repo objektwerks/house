@@ -54,6 +54,16 @@ Test
 Run
 ---
 1. sbt run
+>Output:
+```
+*** House Http Server started at: 127.0.0.1:7070/command
+*** House Command Endpoint: POST /command {body as application/json (UTF-8)} -> -/{body as application/json (UTF-8)}
+*** House Swagger Endpoint: GET /docs /docs.yaml -> -/{body as application/yaml (UTF-8)}
+*** Press Control-C to shutdown House Http Server at: 127.0.0.1:7070/command
+^C
+[warn] Canceling execution...
+*** House Http Server shutdown at: 127.0.0.1:7070
+```
 
 Model
 -----

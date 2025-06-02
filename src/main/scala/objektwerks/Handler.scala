@@ -1,7 +1,8 @@
 package objektwerks
 
 import ox.supervised
-import ox.resilience.{retry, RetryConfig}
+import ox.resilience.retry
+import ox.scheduling.Schedule
 
 import scala.concurrent.duration.*
 import scala.util.Try
@@ -49,7 +50,7 @@ final class Handler(store: Store, emailer: Emailer):
       case license: License =>
         try
           supervised:
-            retry( RetryConfig.delay(1, 100.millis) )(
+            retry( Schedule.fixedInterval(100.millis).maxRepeats(1) )(
               if store.isAuthorized(license.license) then Authorized
               else Unauthorized(s"Unauthorized: $command")
             )
@@ -66,7 +67,7 @@ final class Handler(store: Store, emailer: Emailer):
       supervised:
         val account = Account(email = email)
         val message = s"Your new pin is: ${account.pin}\n\nWelcome aboard!"
-        val result = retry( RetryConfig.delay(1, 600.millis) )( sendEmail(account.email, message) )
+        val result = retry( Schedule.fixedInterval(100.millis).maxRepeats(1) )( sendEmail(account.email, message) )
         if result then
           val id = store.register(account)
           Registered( account.copy(id = id) )
@@ -78,7 +79,7 @@ final class Handler(store: Store, emailer: Emailer):
   def login(email: String, pin: String): Event =
     Try:
       supervised:
-        retry( RetryConfig.delay(1, 100.millis) )( store.login(email, pin) )
+        retry( Schedule.fixedInterval(100.millis).maxRepeats(1) )( store.login(email, pin) )
     .fold(
       error => addFault( Fault(s"Login failed: ${error.getMessage}") ),
       optionalAccount =>
@@ -89,7 +90,7 @@ final class Handler(store: Store, emailer: Emailer):
     try
       FaultsListed(
         supervised:
-          retry( RetryConfig.delay(1, 100.millis) )( store.listFaults() )
+          retry( Schedule.fixedInterval(100.millis).maxRepeats(1) )( store.listFaults() )
       )
     catch
       case NonFatal(error) => addFault( Fault(s"List faults failed: ${error.getMessage}") )
@@ -98,7 +99,7 @@ final class Handler(store: Store, emailer: Emailer):
     try
       FaultAdded(
         supervised:
-          retry( RetryConfig.delay(1, 100.millis) )( store.addFault( Fault(fault) ) )
+          retry( Schedule.fixedInterval(100.millis).maxRepeats(1) )( store.addFault( Fault(fault) ) )
       )
     catch
       case NonFatal(error) => addFault( Fault(s"Add fault failed: ${error.getMessage}") )
@@ -107,7 +108,7 @@ final class Handler(store: Store, emailer: Emailer):
     try
       FaultAdded(
         supervised:
-          retry( RetryConfig.delay(1, 100.millis) )( store.addFault(fault) )
+          retry( Schedule.fixedInterval(100.millis).maxRepeats(1) )( store.addFault(fault) )
       )
     catch
       case NonFatal(error) => addFault( Fault(s"Add fault failed: ${error.getMessage}") )
@@ -117,7 +118,7 @@ final class Handler(store: Store, emailer: Emailer):
       val function = list(typeof)
       EntitiesListed(
         supervised:
-          retry( RetryConfig.delay(1, 100.millis) )( function(parentId) )
+          retry( Schedule.fixedInterval(100.millis).maxRepeats(1) )( function(parentId) )
       )
     catch
       case NonFatal(error) => addFault( Fault(s"List entities [$typeof]{$parentId} failed: ${error.getMessage}") )
@@ -127,7 +128,7 @@ final class Handler(store: Store, emailer: Emailer):
       val function = add(typeof)
       EntityAdded(
         supervised:
-          retry( RetryConfig.delay(1, 100.millis) )( function(entity) )
+          retry( Schedule.fixedInterval(100.millis).maxRepeats(1) )( function(entity) )
       )
     catch
       case NonFatal(error) => addFault( Fault(s"Add entity [$typeof] failed: ${error.getMessage} for: $entity") )
@@ -137,7 +138,7 @@ final class Handler(store: Store, emailer: Emailer):
       val function = update(typeof)
       EntityUpdated(
         supervised:
-          retry( RetryConfig.delay(1, 100.millis) )( function(entity) )
+          retry( Schedule.fixedInterval(100.millis).maxRepeats(1) )( function(entity) )
       )
     catch
       case NonFatal(error) => addFault( Fault(s"Update entity [$typeof] failed: ${error.getMessage} for: $entity") )

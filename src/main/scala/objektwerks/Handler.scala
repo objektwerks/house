@@ -67,7 +67,7 @@ final class Handler(store: Store, emailer: Emailer):
       supervised:
         val account = Account(email = email)
         val message = s"Your new pin is: ${account.pin}\n\nWelcome aboard!"
-        val result = retry( Schedule.fixedInterval(100.millis).maxRepeats(1) )( sendEmail(account.email, message) )
+        val result = retry( Schedule.fixedInterval(600.millis).maxRepeats(1) )( sendEmail(account.email, message) )
         if result then
           val id = store.register(account)
           Registered( account.copy(id = id) )

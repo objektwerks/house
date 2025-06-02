@@ -1,6 +1,6 @@
 name := "house"
 organization := "objektwerks"
-version := "3.0.0"
+version := "4.0.0"
 scalaVersion := "3.7.1-RC2"
 libraryDependencies ++= {
   val oxVersion = "0.6.0"

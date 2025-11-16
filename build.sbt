@@ -12,7 +12,7 @@ libraryDependencies ++= {
     "com.softwaremill.sttp.tapir" %% "tapir-jsoniter-scala" % tapirVersion,
     "com.softwaremill.sttp.tapir" %% "tapir-swagger-ui-bundle" % tapirVersion,
     "com.softwaremill.ox" %% "core" % oxVersion,
-    "org.scalikejdbc" %% "scalikejdbc" % "4.3.4",
+    "org.scalikejdbc" %% "scalikejdbc" % "4.3.5",
     "com.zaxxer" % "HikariCP" % "7.0.2" exclude("org.slf4j", "slf4j-api"),
     "org.postgresql" % "postgresql" % "42.7.8",
     "com.github.blemale" %% "scaffeine" % "5.3.0",

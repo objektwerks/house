@@ -4,7 +4,7 @@ version := "4.0.0"
 scalaVersion := "3.8.4-RC2"
 libraryDependencies ++= {
   val oxVersion = "1.0.4"
-  val tapirVersion = "1.13.18"
+  val tapirVersion = "1.13.19"
   val jsoniterVersion = "2.38.12"
   Seq(
     "com.softwaremill.sttp.tapir" %% "tapir-core" % tapirVersion,
